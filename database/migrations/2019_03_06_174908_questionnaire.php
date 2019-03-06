@@ -1,0 +1,51 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class Questionnaire extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up() {
+        Schema::create("questionnaire", function (Blueprint $table) {
+            $table->increments("id");
+
+            $table->string("name");
+            $table->string("description");
+
+
+            $table->boolean("is_public")->default(false);
+            $table->boolean("is_complete")->default(false);
+            $table->boolean("is_reported")->default(false);
+            $table->boolean("is_locked")->default(false);
+
+            $table->date("expiry_date");
+            $table->timestamps();
+
+            $table->integer("questionnaire_category_id");
+            $table->integer("user_id");
+
+            $table->foreign("questionnaire_category_id")
+                ->references("id")
+                ->on("questionnaire_category");
+
+            $table->foreign("user_id")
+                ->references("id")
+                ->on("user");
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down() {
+        Schema::drop("questionnaire");
+
+    }
+}
