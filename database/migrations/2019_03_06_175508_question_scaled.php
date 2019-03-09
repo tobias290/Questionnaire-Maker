@@ -26,7 +26,7 @@ class QuestionScaled extends Migration {
 
             $table->boolean("is_required");
 
-            $table->integer("questionnaire_id");
+            $table->integer("questionnaire_id")->unsigned();
 
             $table->foreign("questionnaire_id")
                 ->references("id")

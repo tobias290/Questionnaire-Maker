@@ -15,7 +15,7 @@ class QuestionScaledResponse extends Migration {
             $table->increments("id");
             $table->string("response");
 
-            $table->integer("question_scaled_id");
+            $table->integer("question_scaled_id")->unsigned();
 
             $table->foreign("question_scaled_id")
                 ->references("id")

@@ -15,7 +15,7 @@ class Questionnaire extends Migration {
             $table->increments("id");
 
             $table->string("name");
-            $table->string("description");
+            $table->string("description")->nullable();
 
 
             $table->boolean("is_public")->default(false);
@@ -23,11 +23,11 @@ class Questionnaire extends Migration {
             $table->boolean("is_reported")->default(false);
             $table->boolean("is_locked")->default(false);
 
-            $table->date("expiry_date");
+            $table->date("expiry_date")->nullable();
             $table->timestamps();
 
-            $table->integer("questionnaire_category_id");
-            $table->integer("user_id");
+            $table->integer("questionnaire_category_id")->unsigned();
+            $table->bigInteger("user_id")->unsigned();
 
             $table->foreign("questionnaire_category_id")
                 ->references("id")

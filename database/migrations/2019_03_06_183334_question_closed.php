@@ -18,7 +18,7 @@ class QuestionClosed extends Migration {
             $table->integer("position");
             $table->enum("type", ["check", "radio", "drop_down"]);
             $table->boolean("is_required");
-            $table->integer("questionnaire_id");
+            $table->integer("questionnaire_id")->unsigned();
 
             $table->foreign("questionnaire_id")
                 ->references("id")

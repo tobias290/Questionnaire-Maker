@@ -1,0 +1,14 @@
+@import "variables";
+
+
+@mixin center($margin: auto) {
+    left: 0;
+    margin: $margin;
+    right: 0;
+}
+
+@mixin vertical-center($height) {
+    $new-height: $height / 2;
+    position: absolute;
+    top: calc(50% - #{$new-height});
+}

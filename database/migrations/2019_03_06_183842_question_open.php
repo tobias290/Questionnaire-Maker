@@ -18,7 +18,7 @@ class QuestionOpen extends Migration {
             $table->integer("position");
             $table->boolean("is_required");
             $table->boolean("is_long");
-            $table->integer("questionnaire_id");
+            $table->integer("questionnaire_id")->unsigned();
 
             $table->foreign("questionnaire_id")
                 ->references("id")

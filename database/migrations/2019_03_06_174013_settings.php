@@ -12,7 +12,7 @@ class Settings extends Migration {
      */
     public function up() {
         Schema::create("settings", function (Blueprint $table) {
-            $table->integer("user_id");
+            $table->bigInteger("user_id")->unsigned();
             $table->boolean("enable_in_app_notifications")->default(true);
             $table->boolean("enable_email_notifications")->default(true);
             $table->enum("questionnaire_expiration_notification", ["none", "day", "week", "month"])->default("day");

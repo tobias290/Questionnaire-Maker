@@ -1,0 +1,72 @@
+@import "mixins";
+
+.centre-box {
+    @include center;
+
+    background: $white;
+    box-shadow: 0 5px 5px $shadow-color;
+}
+
+.button {
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    min-height: 40px;
+    min-width: 100px;
+    outline: none;
+
+    &.inverse {
+        &.green {
+            background: none;
+            border: 2px solid $green;
+            color: $green;
+        }
+
+        &.yellow {
+            background: none;
+            border: 2px solid $yellow;
+            color: $yellow;
+        }
+
+        &.white {
+            background: none;
+            border: 2px solid $white;
+            color: $white;
+        }
+
+        &.red {
+            background: none;
+            border: 2px solid $red;
+            color: $red;
+        }
+    }
+
+    &.normal {
+        &.green {
+            background: $green;
+            color: $white;
+        }
+
+        &.yellow {
+            background: $yellow;
+            color: $white;
+        }
+
+        &.white {
+            background: $white;
+            color: $green;
+        }
+
+        &.red {
+            background: $red;
+            color: $white;
+        }
+    }
+}
+
+.top-bar-title {
+    font-size: 26px;
+    font-style: italic;
+    font-weight: bold;
+}

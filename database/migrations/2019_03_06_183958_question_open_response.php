@@ -14,7 +14,7 @@ class QuestionOpenResponse extends Migration {
         Schema::create("question_open_response", function (Blueprint $table) {
             $table->increments("id");
             $table->text("response");
-            $table->integer("question_open_id");
+            $table->integer("question_open_id")->unsigned();
 
             $table->foreign("question_open_id")
                 ->references("id")

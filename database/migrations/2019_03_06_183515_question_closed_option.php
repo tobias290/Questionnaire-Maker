@@ -14,7 +14,7 @@ class QuestionClosedOption extends Migration {
         Schema::create("question_closed_option", function (Blueprint $table) {
             $table->increments("id");
             $table->string("option");
-            $table->integer("questionnaire_id");
+            $table->integer("question_closed_id")->unsigned();
 
             $table->foreign("question_closed_id")
                 ->references("id")

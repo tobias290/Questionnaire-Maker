@@ -13,7 +13,7 @@ class QuestionClosedResponse extends Migration {
     public function up() {
         Schema::create("question_closed_response", function (Blueprint $table) {
             $table->increments("id");
-            $table->integer("question_closed_option_id");
+            $table->integer("question_closed_option_id")->unsigned();
 
             $table->foreign("question_closed_option_id")
                 ->references("id")

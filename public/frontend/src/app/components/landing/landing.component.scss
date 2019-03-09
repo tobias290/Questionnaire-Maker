@@ -1,0 +1,30 @@
+@import "../../css/main";
+
+.top-bar-right {
+    margin-right: 30px;
+
+    & > button:first-child {
+        margin-right: 30px;
+    }
+}
+
+#landing-page-center {
+    @include vertical-center(400px);
+
+    height: 400px;
+    line-height: 200px;
+    text-align: center;
+    width: calc(100% - 620px);
+
+    & > div {
+        color: $text-dark;
+        font-size: 50px;
+    }
+
+    & > button {
+        font-size: 25px;
+        height: 60px;
+        width: 300px;
+        margin: 15px;
+    }
+}

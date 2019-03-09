@@ -1,0 +1,23 @@
+@import "../../css/main";
+
+.top-bar {
+    $height: 70px;
+
+    align-items: center;
+    background: $green;
+    display: flex;
+    height: $height;
+    justify-content: space-between;
+    width: 100%;
+
+    .top-bar-left {
+        color: $white;
+        font-size: 26px;
+        font-style: italic;
+        font-weight: bold;
+        height: $height;
+        line-height: $height;
+        margin-left: 30px;
+        width: fit-content;
+    }
+}
