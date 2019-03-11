@@ -13,8 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post("sign-up", "UserController@signUp");
-
-Route::group(["middleware" => "auth:api"], function() {
-    // Authentication needed for any routes here
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
