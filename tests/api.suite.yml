@@ -1,0 +1,8 @@
+actor: ApiTester
+modules:
+    enabled:
+        - \Helper\Api
+        - REST:
+                url: localhost:8000/api/
+                depends: Laravel5
+                part: Json

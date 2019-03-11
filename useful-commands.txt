@@ -1,18 +1,19 @@
 Git:
-
     Add all:
-
-    git add --all
-    git commit -m "Commit Message"
-    git push -u origin --all
-
+        git add --all
+        git commit -m "Commit Message"
+        git push -u origin --all
 
     Add file:
+        git add filepath
+        git commit -m "Commit Message"
+        git push -u origin master
 
-    git add filepath
-    git commit -m "Commit Message"
-    git push -u origin master
 
 Phantomjs:
     location: J:\phantomjs-2.1.1-windows\bin
     powershell start-process phantomjs --webdriver=4444
+
+
+Codeception:
+    "vendor/bin/codecept" g:cest acceptance TestName
