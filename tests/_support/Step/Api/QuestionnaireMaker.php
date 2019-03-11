@@ -13,7 +13,7 @@ class QuestionnaireMaker extends \ApiTester {
         // And
         $I->wantTo("send sign up data to server and successfully sign up");
         // And
-        $I->sendPOST("api/sign-up", [
+        $I->sendPOST("sign-up", [
             "email" => "tobiascompany@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
@@ -21,7 +21,7 @@ class QuestionnaireMaker extends \ApiTester {
             "confirm_password" => "pass1234",
         ]);
         // Then
-        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
+        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::CREATED); // 201
         // And
         $I->seeResponseIsJson();
         // And

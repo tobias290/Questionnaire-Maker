@@ -15,7 +15,7 @@ class SignUpCest {
                ],
                "json_contains" => [
                    "error" => [
-                       "email" => "Email is required"
+                       "email" => ["Email is required"]
                    ]
                ],
             ],
@@ -28,7 +28,7 @@ class SignUpCest {
                 ],
                 "json_contains" => [
                     "error" => [
-                        "first_name" => "First name is required"
+                        "first_name" => ["First Name is required"]
                     ]
                 ],
             ],
@@ -41,7 +41,7 @@ class SignUpCest {
                 ],
                 "json_contains" => [
                     "error" => [
-                        "first_name" => "Surname is required"
+                        "surname" => ["Surname is required"]
                     ]
                 ],
             ],
@@ -54,7 +54,7 @@ class SignUpCest {
                 ],
                 "json_contains" => [
                     "error" => [
-                        "first_name" => "Password is required"
+                        "password" => ["Password is required"]
                     ]
                 ],
             ],
@@ -67,7 +67,7 @@ class SignUpCest {
                 ],
                 "json_contains" => [
                     "error" => [
-                        "first_name" => "Confirm Password is required"
+                        "confirm_password" => ["Confirm Password is required"]
                     ]
                 ],
             ],
@@ -93,7 +93,7 @@ class SignUpCest {
         // And
         $I->expectTo("get HTTP 401 error because the passwords do not match");
         // And
-        $I->sendPOST("api/sign-up", [
+        $I->sendPOST("sign-up", [
             "email" => "tobiascompany@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
@@ -107,7 +107,7 @@ class SignUpCest {
         // And
         $I->seeResponseContainsJson([
             "error" => [
-                "confirm_password" => "Passwords do not match",
+                "confirm_password" => ["Passwords do not match"],
             ]
         ]);
     }
@@ -122,7 +122,7 @@ class SignUpCest {
         // And
         $I->expectTo("get HTTP 401 error because the email is invalid");
         // And
-        $I->sendPOST("api/sign-up", [
+        $I->sendPOST("sign-up", [
             "email" => "not_valid_email",
             "first_name" => "Toby",
             "surname" => "Essex",
@@ -136,7 +136,7 @@ class SignUpCest {
         // And
         $I->seeResponseContainsJson([
             "error" => [
-                "email" => "Email is invalid",
+                "email" => ["Email is invalid"],
             ]
         ]);
     }
@@ -154,7 +154,7 @@ class SignUpCest {
         // And
         $I->expectTo("get HTTP 401 error because a certain field is missing");
         // And
-        $I->sendPOST("api/sign-up", $example["data"]);
+        $I->sendPOST("sign-up", $example["data"]);
         // Then
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED); // 401
         // And
