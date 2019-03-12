@@ -1,0 +1,89 @@
+<app-top-bar [title]="title" [hasBackButton]="false">
+    <div class="top-bar-right">
+        <button class="button inverse white">Log In</button>
+    </div>
+</app-top-bar>
+
+<div class="account-form-title">
+    Sign Up
+    <div class="bar"></div>
+</div>
+
+<div id="sign-up-page-center" class="centre-box">
+    <form id="sign-up" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" #signUp="ngForm">
+        <div class="app-input-container">
+            <div class="app-input-label-icon {{ input('email').invalid && signUp.submitted ? 'error' : ''}}">
+                <fa-icon [icon]="icons.email"></fa-icon>
+            </div>
+            <input class="app-input" formControlName="email" type="email" placeholder="Email">
+        </div>
+
+        <div class="app-input-error" *ngIf="input('email').invalid && signUp.submitted">
+            <ul>
+                <li *ngIf="input('email').hasError('email')">Email is invalid</li>
+                <li *ngIf="input('email').hasError('required')">Email is required</li>
+            </ul>
+        </div>
+        
+        <div class="app-input-container">
+            <div class="app-input-label-icon {{ input('firstName').invalid && signUp.submitted ? 'error' : ''}}">
+                <fa-icon [icon]="icons.name"></fa-icon>
+            </div>
+            <input class="app-input" formControlName="firstName" type="text" placeholder="First Name">
+        </div>
+
+        <div class="app-input-error" *ngIf="input('firstName').invalid && signUp.submitted">
+            <ul>
+                <li *ngIf="input('firstName').hasError('required')">First Name is required</li>
+            </ul>
+        </div>
+        
+        <div class="app-input-container">
+            <div class="app-input-label-icon {{ input('lastName').invalid && signUp.submitted ? 'error' : ''}}">
+                <fa-icon [icon]="icons.name"></fa-icon>
+            </div>
+            <input class="app-input" formControlName="lastName" type="text" placeholder="Last Name">
+        </div>
+
+        <div class="app-input-error" *ngIf="input('lastName').invalid && signUp.submitted">
+            <ul>
+                <li *ngIf="input('lastName').hasError('required')">Last Name is required</li>
+            </ul>
+        </div>
+        
+        <div class="app-input-container">
+            <div class="app-input-label-icon {{ input('password').invalid && signUp.submitted ? 'error' : ''}}">
+                <fa-icon [icon]="icons.password"></fa-icon>
+            </div>
+            <input class="app-input" formControlName="password" type="password" placeholder="Password">
+        </div>
+
+        <div class="app-input-error" *ngIf="input('password').invalid && signUp.submitted">
+            <ul>
+                <li *ngIf="input('password').hasError('required')">Password is required</li>
+            </ul>
+        </div>
+        
+        <div class="app-input-container">
+            <div class="app-input-label-icon {{ input('confirmPassword').invalid && signUp.submitted ? 'error' : ''}}">
+                <fa-icon [icon]="icons.password"></fa-icon>
+            </div>
+            
+            <input class="app-input no-password-match" formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+            
+            <div *ngIf="showPasswordMatchingIcon()" id="password-matching-icon">
+                <fa-icon *ngIf="doPasswordsMatch()" [icon]="icons.passwordMatch" class="match"></fa-icon>
+                <fa-icon *ngIf="!doPasswordsMatch()" [icon]="icons.passwordNoMatch" class="no-match"></fa-icon>
+            </div>
+        </div>
+
+        <div class="app-input-error" *ngIf="(input('confirmPassword').invalid || passwordMatchingError) && signUp.submitted">
+            <ul>
+                <li *ngIf="input('confirmPassword').hasError('required')">Confirm Password is required</li>
+                <li *ngIf="passwordMatchingError">Passwords do not match</li>
+            </ul>
+        </div>
+        
+        <input id="sign-up-submit" class="button normal green" type="submit" value="Sign Up">
+    </form>
+</div>

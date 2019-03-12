@@ -1,5 +1,9 @@
 <div class="top-bar">
     <div class="top-bar-left">
+        <div class="left-arrow" *ngIf="hasBackButton" (click)="back()">
+            <fa-icon [icon]="faArrowLeft" [styles]="{'height': '25px'}"></fa-icon>
+            <div class="pulse-box"></div>
+        </div>
         {{ title }}
     </div>
     <ng-content select="div.top-bar-center"></ng-content>

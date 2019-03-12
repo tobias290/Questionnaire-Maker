@@ -1,13 +1,13 @@
 <app-top-bar [hasBackButton]="false" [title]="title">
     <div class="top-bar-right">
         <button class="button normal white">Log In</button>
-        <button class="button inverse white">Sign Up</button>
+        <button class="button inverse white"><a routerLink="/sign-up">Sign Up</a></button>
     </div>
 </app-top-bar>
 
 <div id="landing-page-center" class="centre-box">
     <div>Sign up for free and start making questionnaires today.</div>
 
-    <button class="button normal green">Sign Up</button>
-    <button class="button inverse yellow">Public Questionnaires</button>
+    <button class="button normal green"><a routerLink="/sign-up">Sign Up</a></button>
+    <button class="button normal yellow">Public Questionnaires</button>
 </div>

@@ -11,13 +11,60 @@
     width: 100%;
 
     .top-bar-left {
+        align-items: center;
         color: $white;
+        display: flex;
         font-size: 26px;
         font-style: italic;
         font-weight: bold;
         height: $height;
         line-height: $height;
-        margin-left: 30px;
+        margin-left: 15px;
         width: fit-content;
+        
+        .left-arrow {
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 30px;
+            line-height: 45px;
+            margin-right: 20px;
+            text-align: center;
+            transition: background-color .1s linear;
+            width: 45px;
+            position: relative;
+
+            &:hover .pulse-box {
+                animation: pulse .5s forwards;
+            }
+            
+            .pulse-box {
+                @include center;
+                @include vertical-center(1px);
+
+                animation: pulse-reverse .1s;
+                border-radius: 50%;
+                height: 1px;
+                width: 1px;
+                position: absolute;
+                
+                @keyframes pulse {
+                    0% {
+                        box-shadow: 0 0 0 10px rgba($white-hover, 0.3);
+                    }
+                    100% {
+                        box-shadow: 0 0 0 20px rgba($white-hover, 0.3);
+                    }
+                }
+
+                @keyframes pulse-reverse {
+                    0% {
+                        box-shadow: 0 0 0 20px rgba($white-hover, 0.3);
+                    }
+                    100% {
+                        box-shadow: 0 0 0 10px rgba($white-hover, 0.3);
+                    }
+                }
+            }
+        }
     }
 }

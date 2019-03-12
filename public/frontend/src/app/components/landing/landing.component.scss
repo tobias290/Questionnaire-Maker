@@ -1,13 +1,5 @@
 @import "../../css/main";
 
-.top-bar-right {
-    margin-right: 30px;
-
-    & > button:first-child {
-        margin-right: 30px;
-    }
-}
-
 #landing-page-center {
     @include vertical-center(400px);
 

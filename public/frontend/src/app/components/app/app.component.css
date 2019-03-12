@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+* {
+  font-family: 'Nunito', sans-serif; }
+
+a {
+  color: #FFF;
+  text-decoration: none; }
+
+.centre-box {
+  left: 0;
+  margin: auto;
+  right: 0;
+  background: #FFF;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16); }
+
+.button {
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  min-height: 40px;
+  min-width: 100px;
+  outline: none; }
+  .button.inverse.green {
+    background: none;
+    border: 2px solid #16D36B;
+    color: #16D36B; }
+    .button.inverse.green:hover {
+      border-color: #13BD60;
+      color: #13BD60; }
+  .button.inverse.yellow {
+    background: none;
+    border: 2px solid #E5D200;
+    color: #E5D200; }
+    .button.inverse.yellow:hover {
+      border-color: #CEBD00;
+      color: #CEBD00; }
+  .button.inverse.white {
+    background: none;
+    border: 2px solid #FFF;
+    color: #FFF; }
+    .button.inverse.white:hover {
+      border-color: #F2F2F2;
+      color: #F2F2F2; }
+  .button.inverse.red {
+    background: none;
+    border: 2px solid #D9534F;
+    color: #D9534F; }
+    .button.inverse.red:hover {
+      border-color: #C34A47;
+      color: #C34A47; }
+  .button.normal.green {
+    background: #16D36B;
+    color: #FFF; }
+    .button.normal.green:hover {
+      background: #13BD60; }
+  .button.normal.yellow {
+    background: #E5D200;
+    color: #FFF; }
+    .button.normal.yellow:hover {
+      background: #CEBD00; }
+  .button.normal.white {
+    background: #FFF;
+    color: #16D36B; }
+    .button.normal.white:hover {
+      background: #F2F2F2; }
+  .button.normal.red {
+    background: #D9534F;
+    color: #FFF; }
+    .button.normal.red:hover {
+      background: #C34A47; }
+
+.top-bar-title {
+  font-size: 26px;
+  font-style: italic;
+  font-weight: bold; }
+
+.top-bar-right {
+  margin-right: 15px; }
+  .top-bar-right > button:first-child {
+    margin-right: 15px; }
+
+.account-form-title {
+  left: 0;
+  margin: auto;
+  right: 0;
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 30px;
+  width: fit-content; }
+  .account-form-title .bar {
+    left: 0;
+    margin: auto;
+    right: 0;
+    background: #16D36B;
+    border-radius: 25px;
+    height: 5px;
+    width: 90px; }
+
+/*# sourceMappingURL=app.component.css.map */

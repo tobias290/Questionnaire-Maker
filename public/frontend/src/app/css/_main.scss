@@ -1,5 +1,16 @@
 @import "mixins";
 
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    color: $white;
+    text-decoration: none;
+}
+
 .centre-box {
     @include center;
 
@@ -10,6 +21,7 @@
 .button {
     border: none;
     border-radius: 7px;
+    cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     min-height: 40px;
@@ -21,24 +33,44 @@
             background: none;
             border: 2px solid $green;
             color: $green;
+
+            &:hover {
+                border-color: $green-hover;
+                color: $green-hover;
+            }
         }
 
         &.yellow {
             background: none;
             border: 2px solid $yellow;
             color: $yellow;
+
+            &:hover {
+                border-color: $yellow-hover;
+                color: $yellow-hover;
+            }
         }
 
         &.white {
             background: none;
             border: 2px solid $white;
             color: $white;
+
+            &:hover {
+                border-color: $white-hover;
+                color: $white-hover;
+            }
         }
 
         &.red {
             background: none;
             border: 2px solid $red;
             color: $red;
+
+            &:hover {
+                border-color: $red-hover;
+                color: $red-hover;
+            }
         }
     }
 
@@ -46,21 +78,37 @@
         &.green {
             background: $green;
             color: $white;
+
+            &:hover {
+                background: $green-hover;
+            }
         }
 
         &.yellow {
             background: $yellow;
             color: $white;
+
+            &:hover {
+                background: $yellow-hover;
+            }
         }
 
         &.white {
             background: $white;
             color: $green;
+
+            &:hover {
+                background: $white-hover;
+            }
         }
 
         &.red {
             background: $red;
             color: $white;
+
+            &:hover {
+                background: $red-hover;
+            }
         }
     }
 }
@@ -69,4 +117,30 @@
     font-size: 26px;
     font-style: italic;
     font-weight: bold;
+}
+
+.top-bar-right {
+    margin-right: 15px;
+
+    & > button:first-child {
+        margin-right: 15px;
+    }
+}
+
+.account-form-title {
+    @include center;
+    
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 30px;
+    width: fit-content;
+    
+    .bar {
+        @include center;
+        
+        background: $green;
+        border-radius: 25px;
+        height: 5px;
+        width: 90px;
+    }
 }
