@@ -36,10 +36,6 @@ class UserController extends Controller {
         // If validation fails return response to client
         if ($validator->fails())
             return response()->json(["error" => $validator->errors()], 401);
-        else
-            return response()->json(["success" => "User would be created"], 201);
-
-        // NOTE: Delete else statement once dev is finished
 
         // Data is valid, get the user data and hash password and add date joined
         $data = $request->all();

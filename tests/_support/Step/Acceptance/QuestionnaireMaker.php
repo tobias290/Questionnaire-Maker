@@ -1,6 +1,8 @@
 <?php
 namespace Step\Acceptance;
 
+use mysql_xdevapi\Exception;
+
 /**
  * Class QuestionnaireMaker
     * This class holds test specific to the role of questionnaire maker.
@@ -14,23 +16,28 @@ class QuestionnaireMaker extends \AcceptanceTester {
     public function signUp() {
         $I = $this;
 
-        $I->amOnPage("sign-up");
+        // NOTE: Due to how laravel and built angular work, you cannot start on the any page.
+        // NOTE: Instead you must start on the index page and navigate from there.
+
+        $I->amOnFrontEndPage("sign-up");
         // And
         $I->see("Sign Up");
-        // And
-        $I->submitForm("#signup", [
-            "email" => "tobiascompany@gmail.com",
-            "first_name" => "Toby",
-            "surname" => "Essex",
-            "password" => "pass1234",
-            "confirm_password" => "pass1234",
-        ]);
         // Then
-        $I->seeInCurrentUrl("/dashboard");
+        $I->fillField("email", "tobiascompany@gmail.com");
+        $I->fillField("firstName", "Toby");
+        $I->fillField("surname", "Essex");
+        $I->fillField("confirmPassword", "pass1234");
+        $I->fillField("password", "pass1234");
+        // And
+        $I->click("Sign Up");
+        // Then
+        $I->wait(1);
+        // And Then
+        $I->seeInCurrentUrl("dashboard");
         // And
         $I->see("Dashboard", "div.top-bar-left");
         // And
-        $I->see("tobiascompany@gmail.com");
+        //$I->see("tobiascompany@gmail.com");
     }
 
     /**
@@ -38,22 +45,5 @@ class QuestionnaireMaker extends \AcceptanceTester {
      */
     public function login() {
         $I = $this;
-
-        $I->signUp();
-        // Then
-        $I->amOnPage("login");
-        // And
-        $I->see("Log In");
-        // And
-        $I->submitForm("#login", [
-            "email" => "tobiascompany@gmail.com",
-            "password" => "pass1234",
-        ]);
-        // Then
-        $I->seeInCurrentUrl("/dashboard");
-        // And
-        $I->see("Dashboard", "div.top-bar-left");
-        // And
-        $I->see("tobiascompany@gmail.com");
     }
 }

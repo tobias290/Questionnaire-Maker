@@ -46,6 +46,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($this->isHttpException($exception))
+            if ($exception->getCode() == 404)
+                return redirect("/frontend/dist/frontend/index.html");
         return parent::render($request, $exception);
     }
 }

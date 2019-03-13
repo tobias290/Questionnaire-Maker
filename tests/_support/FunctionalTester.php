@@ -16,11 +16,20 @@
  *
  * @SuppressWarnings(PHPMD)
 */
-class FunctionalTester extends \Codeception\Actor
-{
+class FunctionalTester extends \Codeception\Actor {
     use _generated\FunctionalTesterActions;
 
-   /**
-    * Define custom actions here
-    */
+    /**
+     * Extends "\Codeception\Actor::amOnPage" by adds the necessary part to show the page on the front end.
+     *
+     * @param $page - Page URL.
+     */
+    public function amOnFrontEndPage($page) {
+        $I = $this;
+
+        if (substr($page, 0, 1)  == "/")
+            $I->amOnPage("/frontend/dist/frontend/#$page");
+        else
+            $I->amOnPage("/frontend/dist/frontend/#/$page");
+    }
 }

@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
+Route::get("/", function () {
     return redirect("/frontend/dist/frontend/index.html");
 });

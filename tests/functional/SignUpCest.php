@@ -9,10 +9,10 @@ class SignUpCest {
             [
                 "field" => "Email",
                 "data" => [
-                    "first_name" => "Toby",
+                    "firstName" => "Toby",
                     "surname" => "Essex",
                     "password" => "pass1234",
-                    "confirm_password" => "pass1234",
+                    "confirmPassword" => "pass1234",
                 ],
                 "cant_see" => [
                     "first_name" => "Toby",
@@ -25,7 +25,7 @@ class SignUpCest {
                     "email" => "tobiascompany@gmail.com",
                     "surname" => "Essex",
                     "password" => "pass1234",
-                    "confirm_password" => "pass1234",
+                    "confirmPassword" => "pass1234",
                 ],
                 "cant_see" => [
                     "email" => "tobiascompany@gmail.com",
@@ -36,9 +36,9 @@ class SignUpCest {
                 "field" => "Surname",
                 "data" => [
                     "email" => "tobiascompany@gmail.com",
-                    "first_name" => "Toby",
+                    "firstName" => "Toby",
                     "password" => "pass1234",
-                    "confirm_password" => "pass1234",
+                    "confirmPassword" => "pass1234",
                 ],
                 "cant_see" => [
                     "email" => "tobiascompany@gmail.com",
@@ -49,9 +49,9 @@ class SignUpCest {
                 "field" => "Password",
                 "data" => [
                     "email" => "tobiascompany@gmail.com",
-                    "first_name" => "Toby",
+                    "firstName" => "Toby",
                     "surname" => "Essex",
-                    "confirm_password" => "pass1234",
+                    "confirmPassword" => "pass1234",
                 ],
                 "cant_see" => [
                     "email" => "tobiascompany@gmail.com",
@@ -63,7 +63,7 @@ class SignUpCest {
                 "field" => "Confirm Password",
                 "data" => [
                     "email" => "tobiascompany@gmail.com",
-                    "first_name" => "Toby",
+                    "firstName" => "Toby",
                     "surname" => "Essex",
                     "password" => "pass1234",
                 ],
@@ -88,90 +88,95 @@ class SignUpCest {
         // And
         $I->signUp();
     }
-
-    /**
-     * Test to see when a user attempts to sign up with un-matching passwords that their details are not saved to the database.
-     *
-     * @param FunctionalTester $I
-     */
-    public function signUpWithUnMatchingPasswords(FunctionalTester $I) {
-        $I->am("Questionnaire Maker");
-        // And
-        $I->expectTo("see no data in the database because the passwords do not match");
-        // And
-        $I->amOnPage("sign-up");
-        // And
-        $I->see("Sign Up");
-        // And
-        $I->submitForm("#signup", [
-            "email" => "tobiascompany@gmail.com",
-            "first_name" => "Toby",
-            "surname" => "Essex",
-            "password" => "pass1234",
-            "confirm_password" => "password",
-        ]);
-        // Then
-        $I->expect("not too see a user record added to the database");
-        // And
-        $I->cantSeeRecord("user", [
-            "email" => "tobiascompany@gmail.com",
-            "first_name" => "Toby",
-            "surname" => "Essex",
-        ]);
-    }
-
-    /**
-     * Test to see when a user attempts to sign up with an invalid email that their details are not saved to the database.
-     *
-     * @param FunctionalTester $I
-     */
-    public function signUpWithInvalidEmail(FunctionalTester $I) {
-        $I->am("Questionnaire Maker");
-        // And
-        $I->expectTo("see no data in the database because the passwords do not match");
-        // And
-        $I->amOnPage("sign-up");
-        // And
-        $I->see("Sign Up");
-        // And
-        $I->submitForm("#signup", [
-            "email" => "not_valid_email",
-            "first_name" => "Toby",
-            "surname" => "Essex",
-            "password" => "pass1234",
-            "confirm_password" => "pass1234",
-        ]);
-        // Then
-        $I->expect("not too see a user record added to the database");
-        // And
-        $I->cantSeeRecord("user", [
-            "email" => "not_valid_email",
-            "first_name" => "Toby",
-            "surname" => "Essex",
-        ]);
-    }
-
-    /**
-     * Test to see when a specific field is left empty that the no data is available in the database.
-     *
-     * @param FunctionalTester $I
-     * @param \Codeception\Example $example
-     *
-     * @dataProvider signUpProvider
-     */
-    public function signUpWithMissingData(FunctionalTester $I, \Codeception\Example $example) {
-        $I->am("Questionnaire Maker");
-        // And
-        $I->expectTo("see and error because my the {$example["field"]} input was left empty");
-        // And
-        $I->amOnPage("sign-up");
-        // And
-        $I->see("Sign Up");
-        // And
-        $I->submitForm("#signup", $example["data"]);
-        // Then
-        $I->expect("not too see a user record added to the database");
-        // And
-        $I->cantSeeRecord("user", $example["cant_see"]);
-    }
+//
+//    /**
+//     * Test to see when a user attempts to sign up with un-matching passwords that their details are not saved to the database.
+//     *
+//     * @param FunctionalTester $I
+//     */
+//    public function signUpWithUnMatchingPasswords(FunctionalTester $I) {
+//        $I->am("Questionnaire Maker");
+//        // And
+//        $I->expectTo("see no data in the database because the passwords do not match");
+//        // And
+//        $I->amOnFrontEndPage("/sign-up");
+//        // And
+//        $I->see("Sign Up");
+//        // And
+//        $I->fillField("email", "tobysx@gmail.com");
+//        $I->fillField("firstName", "Toby");
+//        $I->fillField("surname", "Essex");
+//        $I->fillField("confirmPassword", "pass1234");
+//        $I->fillField("password", "password");
+//        // And
+//        $I->click("Sign Up");
+//        // Then
+//        $I->expect("not too see a user record added to the database");
+//        // And
+//        $I->cantSeeRecord("user", [
+//            "email" => "tobiascompany@gmail.com",
+//            "first_name" => "Toby",
+//            "surname" => "Essex",
+//        ]);
+//    }
+//
+//    /**
+//     * Test to see when a user attempts to sign up with an invalid email that their details are not saved to the database.
+//     *
+//     * @param FunctionalTester $I
+//     */
+//    public function signUpWithInvalidEmail(FunctionalTester $I) {
+//        $I->am("Questionnaire Maker");
+//        // And
+//        $I->expectTo("see no data in the database because the passwords do not match");
+//        // And
+//        $I->amOnFrontEndPage("/sign-up");
+//        // And
+//        $I->see("Sign Up");
+//        // And
+//        $I->fillField("email", "not_valid_email");
+//        $I->fillField("firstName", "Toby");
+//        $I->fillField("surname", "Essex");
+//        $I->fillField("confirmPassword", "pass1234");
+//        $I->fillField("password", "pass1234");
+//        // And
+//        $I->click("Sign Up");
+//        // Then
+//        $I->expect("not too see a user record added to the database");
+//        // And
+//        $I->cantSeeRecord("user", [
+//            "email" => "not_valid_email",
+//            "first_name" => "Toby",
+//            "surname" => "Essex",
+//        ]);
+//    }
+//
+//    /**
+//     * Test to see when a specific field is left empty that the no data is available in the database.
+//     *
+//     * @param FunctionalTester $I
+//     * @param \Codeception\Example $example
+//     *
+//     * @dataProvider signUpProvider
+//     */
+//    public function signUpWithMissingData(FunctionalTester $I, \Codeception\Example $example) {
+//        $I->am("Questionnaire Maker");
+//        // And
+//        $I->expectTo("see and error because my the {$example["field"]} input was left empty");
+//        // And
+//        $I->amOnFrontEndPage("/sign-up");
+//        // And
+//        $I->see("Sign Up");
+//        // And
+//
+//        foreach ($example["data"] as $field => $value)
+//            $I->fillField($field, $value);
+//
+//        // And
+//        $I->click("Sign Up");
+//        // Then
+//        $I->expect("not too see a user record added to the database");
+//        // And
+//        $I->cantSeeRecord("user", $example["cant_see"]);
+//    }
 }
