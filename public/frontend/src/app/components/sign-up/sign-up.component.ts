@@ -32,7 +32,7 @@ export class SignUpComponent {
             Validators.email,
         ]),
         firstName: new FormControl("", Validators.required),
-        lastName: new FormControl("", Validators.required),
+        surname: new FormControl("", Validators.required),
         password: new FormControl("", Validators.required),
         confirmPassword: new FormControl("", Validators.required),
     });
@@ -86,7 +86,7 @@ export class SignUpComponent {
         let data = {
             email: this.signUpForm.value.email,
             first_name: this.signUpForm.value.firstName,
-            surname: this.signUpForm.value.lastName,
+            surname: this.signUpForm.value.surname,
             password: this.signUpForm.value.password,
             confirm_password: this.signUpForm.value.confirmPassword,
         };

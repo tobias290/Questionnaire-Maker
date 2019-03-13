@@ -29,6 +29,7 @@ const appRoutes: Routes = [
         BrowserModule,
         RouterModule.forRoot(
             appRoutes,
+            {useHash:true}
             // { enableTracing: true } // <-- debugging purposes only
         ),
         FontAwesomeModule,

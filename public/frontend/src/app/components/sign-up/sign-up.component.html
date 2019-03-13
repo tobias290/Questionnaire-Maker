@@ -15,7 +15,7 @@
             <div class="app-input-label-icon {{ input('email').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.email"></fa-icon>
             </div>
-            <input class="app-input" formControlName="email" type="email" placeholder="Email">
+            <input class="app-input" id="name" name="email" formControlName="email" type="text" placeholder="Email">
         </div>
 
         <div class="app-input-error" *ngIf="input('email').invalid && signUp.submitted">
@@ -29,7 +29,7 @@
             <div class="app-input-label-icon {{ input('firstName').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.name"></fa-icon>
             </div>
-            <input class="app-input" formControlName="firstName" type="text" placeholder="First Name">
+            <input class="app-input" id="firstName" name="firstName" formControlName="firstName" type="text" placeholder="First Name">
         </div>
 
         <div class="app-input-error" *ngIf="input('firstName').invalid && signUp.submitted">
@@ -37,17 +37,17 @@
                 <li *ngIf="input('firstName').hasError('required')">First Name is required</li>
             </ul>
         </div>
-        
+
         <div class="app-input-container">
-            <div class="app-input-label-icon {{ input('lastName').invalid && signUp.submitted ? 'error' : ''}}">
+            <div class="app-input-label-icon {{ input('surname').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.name"></fa-icon>
             </div>
-            <input class="app-input" formControlName="lastName" type="text" placeholder="Last Name">
+            <input class="app-input" id="surname" name="surname" formControlName="surname" type="text" placeholder="Surname">
         </div>
 
-        <div class="app-input-error" *ngIf="input('lastName').invalid && signUp.submitted">
+        <div class="app-input-error" *ngIf="input('surname').invalid && signUp.submitted">
             <ul>
-                <li *ngIf="input('lastName').hasError('required')">Last Name is required</li>
+                <li *ngIf="input('surname').hasError('required')">Surname is required</li>
             </ul>
         </div>
         
@@ -55,7 +55,7 @@
             <div class="app-input-label-icon {{ input('password').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.password"></fa-icon>
             </div>
-            <input class="app-input" formControlName="password" type="password" placeholder="Password">
+            <input class="app-input" id="password" name="password" formControlName="password" type="password" placeholder="Password">
         </div>
 
         <div class="app-input-error" *ngIf="input('password').invalid && signUp.submitted">
@@ -69,7 +69,7 @@
                 <fa-icon [icon]="icons.password"></fa-icon>
             </div>
             
-            <input class="app-input no-password-match" formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+            <input class="app-input no-password-match" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" type="password" placeholder="Confirm Password">
             
             <div *ngIf="showPasswordMatchingIcon()" id="password-matching-icon">
                 <fa-icon *ngIf="doPasswordsMatch()" [icon]="icons.passwordMatch" class="match"></fa-icon>

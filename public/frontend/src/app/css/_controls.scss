@@ -48,3 +48,10 @@
         margin-bottom: 0;
     }
 }
+
+
+.hide {
+    visibility: hidden;
+    height: 0 !important;
+    width: 0 !important;
+}
