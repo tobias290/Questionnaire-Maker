@@ -38,10 +38,12 @@ class LogInCest {
      *
      * @param AcceptanceTester $I
      */
-    public function loginWithIncorrectEmail(AcceptanceTester $I) {
+    public function loginWithIncorrectEmail(\Step\Acceptance\QuestionnaireMaker $I) {
         $I->am("Questionnaire Maker");
         // And
         $I->expectTo("see and error because my email is incorrect");
+        // And
+        $I->signUp();
         // And
         $I->amOnFrontEndPage("login");
         // And
@@ -68,10 +70,12 @@ class LogInCest {
      *
      * @param AcceptanceTester $I
      */
-    public function loginWithIncorrectPassword(AcceptanceTester $I) {
+    public function loginWithIncorrectPassword(\Step\Acceptance\QuestionnaireMaker $I) {
         $I->am("Questionnaire Maker");
         // And
         $I->expectTo("see and error because my password is incorrect");
+        // And
+        $I->signUp();
         // And
         $I->amOnFrontEndPage("login");
         // And
@@ -102,10 +106,12 @@ class LogInCest {
      * @dataProvider loginProvider
      * @throws Exception
      */
-    public function loginWithMissingData(AcceptanceTester $I, \Codeception\Example $example) {
+    public function loginWithMissingData(\Step\Acceptance\QuestionnaireMaker $I, \Codeception\Example $example) {
         $I->am("Questionnaire Maker");
         // And
         $I->expectTo("see and error message because a input field is missing");
+        // And
+        $I->signUp();
         // And
         $I->amOnFrontEndPage("login");
         // And
