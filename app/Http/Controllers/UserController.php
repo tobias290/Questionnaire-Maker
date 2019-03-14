@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller {
     /**
+     * Takes users data and creates an account.
+     *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -23,7 +26,6 @@ class UserController extends Controller {
             "confirm_password.required" => "Confirm Password is required",
             "confirm_password.same"    => "Passwords do not match",
         ];
-
         // Create a validator to make sure the data is valid
         $validator = Validator::make($request->all(), [
             "first_name" => "required",
@@ -49,5 +51,28 @@ class UserController extends Controller {
 
         // Return HTTP 201, resource created
         return response()->json(["success" => $json], 201);
+    }
+
+    /**
+     * Takes the users email and password and check to see whether they have an account.
+     * If so log them in, otherwise send appropriate error response.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function login(Request $request) {
+        if (!$request->has("email"))
+            return response()->json(["error" => ["message" => "Email is required"]], 401);
+        elseif (!$request->has("password"))
+            return response()->json(["error" => ["message" => "Password is required"]], 401);
+
+
+        if(Auth::attempt($request->only("email", "password"))){
+            $user = Auth::user();
+            $success["token"] =  $user->createToken("QuestionnaireMaker")->accessToken;
+            return response()->json(["success" => $success], 200);
+        } else {
+            return response()->json(["error" => ["message" => "Email or password is incorrect"]], 401);
+        }
     }
 }

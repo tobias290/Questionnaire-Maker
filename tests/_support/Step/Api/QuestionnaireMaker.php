@@ -29,8 +29,16 @@ class QuestionnaireMaker extends \ApiTester {
         ]);
     }
 
-    public function login() {
+    /**
+     * Test to see whether the correct response in sent to the client when the user logs in.
+     *
+     * @param bool $signUp - Run the sign up action. If false the sign up action will not be ran.
+     */
+    public function login($signUp = true) {
         $I = $this;
+
+        if ($signUp)
+            $I->signUp();
 
         $I->sendPOST("login", [
             "email" => "tobysx@gmail.com",
@@ -41,12 +49,7 @@ class QuestionnaireMaker extends \ApiTester {
         // And
         $I->seeResponseIsJson();
         // And
-        $I->seeResponseContainsJson([
-            "success" => [
-                "email" => "tobysx@gmail.com",
-                // Also a random access code will be here
-            ]
-        ]);
+        $I->seeResponseJsonMatchesJsonPath('$.success.token');
     }
 
 }
