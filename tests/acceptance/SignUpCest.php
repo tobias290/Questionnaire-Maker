@@ -13,6 +13,10 @@ class SignUpCest {
                     "surname" => "Essex",
                     "password" => "pass1234",
                     "confirmPassword" => "pass1234",
+                ],
+                "dont_see" => [
+                    "first_name" => "Toby",
+                    "surname" => "Essex",
                 ]
             ],
             [
@@ -22,6 +26,10 @@ class SignUpCest {
                     "surname" => "Essex",
                     "password" => "pass1234",
                     "confirmPassword" => "pass1234",
+                ],
+                "dont_see" => [
+                    "email" => "tobiascompany@gmail.com",
+                    "surname" => "Essex",
                 ]
             ],
             [
@@ -31,6 +39,10 @@ class SignUpCest {
                     "firstName" => "Toby",
                     "password" => "pass1234",
                     "confirmPassword" => "pass1234",
+                ],
+                "dont_see" => [
+                    "email" => "tobiascompany@gmail.com",
+                    "first_name" => "Toby",
                 ]
             ],
             [
@@ -40,6 +52,11 @@ class SignUpCest {
                     "firstName" => "Toby",
                     "surname" => "Essex",
                     "confirmPassword" => "pass1234",
+                ],
+                "dont_see" => [
+                    "email" => "tobiascompany@gmail.com",
+                    "first_name" => "Toby",
+                    "surname" => "Essex",
                 ]
             ],
             [
@@ -49,6 +66,11 @@ class SignUpCest {
                     "firstName" => "Toby",
                     "surname" => "Essex",
                     "password" => "pass1234",
+                ],
+                "dont_see" => [
+                    "email" => "tobiascompany@gmail.com",
+                    "first_name" => "Toby",
+                    "surname" => "Essex",
                 ]
             ],
         ];
@@ -96,6 +118,12 @@ class SignUpCest {
         $I->dontSee("Dashboard", "div.top-bar-left");
         // And
         $I->see("Passwords do not match");
+        // And
+        $I->dontSeeInDatabase("user", [
+            "email" => "tobiascompany@gmail.com",
+            "first_name" => "Toby",
+            "surname" => "Essex",
+        ]);
     }
 
     /**
@@ -129,6 +157,12 @@ class SignUpCest {
         $I->dontSee("Dashboard", "div.top-bar-left");
         // And
         $I->see("Email is invalid");
+        // And
+        $I->dontSeeInDatabase("user", [
+            "email" => "tobiascompany@gmail.com",
+            "first_name" => "Toby",
+            "surname" => "Essex",
+        ]);
     }
 
     /**
@@ -167,5 +201,7 @@ class SignUpCest {
         $I->dontSee("Dashboard", "div.top-bar-left");
         // And
         $I->see("{$example["field"]} is required");
+        // And
+        $I->dontSeeInDatabase("user", $example["dont_see"]);
     }
 }

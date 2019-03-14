@@ -16,3 +16,4 @@ modules:
                url: http://localhost:8000
                browser: chrome
         - \Helper\Acceptance
+        - Db

@@ -14,3 +14,6 @@ modules:
             dsn: 'mysql:host=localhost;dbname=questionnaire_maker'
             user: 'root'
             password: 'admin'
+            dump: 'tests/_data/questionnaire_maker_dump.sql'
+            populate: true
+            cleanup: true

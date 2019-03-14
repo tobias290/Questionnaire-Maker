@@ -38,6 +38,14 @@ class QuestionnaireMaker extends \AcceptanceTester {
         $I->see("Dashboard", "div.top-bar-left");
         // And
         //$I->see("tobiascompany@gmail.com");
+
+        $I->seeInDatabase("user", [
+            "email" => "tobiascompany@gmail.com",
+            "first_name" => "Toby",
+            "surname" => "Essex",
+        ]);
+
+
     }
 
     /**
