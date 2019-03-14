@@ -16,14 +16,11 @@ class QuestionnaireMaker extends \AcceptanceTester {
     public function signUp() {
         $I = $this;
 
-        // NOTE: Due to how laravel and built angular work, you cannot start on the any page.
-        // NOTE: Instead you must start on the index page and navigate from there.
-
         $I->amOnFrontEndPage("sign-up");
         // And
         $I->see("Sign Up");
         // Then
-        $I->fillField("email", "tobiascompany@gmail.com");
+        $I->fillField("email", "tobysx@gmail.com");
         $I->fillField("firstName", "Toby");
         $I->fillField("surname", "Essex");
         $I->fillField("confirmPassword", "pass1234");
@@ -37,21 +34,41 @@ class QuestionnaireMaker extends \AcceptanceTester {
         // And
         $I->see("Dashboard", "div.top-bar-left");
         // And
-        //$I->see("tobiascompany@gmail.com");
+        //$I->see("tobysx@gmail.com");
 
         $I->seeInDatabase("user", [
-            "email" => "tobiascompany@gmail.com",
+            "email" => "tobysx@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
         ]);
-
-
     }
 
     /**
      * Test to see when the user logs in they can see there dashboard.
+     *
+     * @param bool $signUp - Run the sign up action. If false the sign up action will not be ran.
      */
-    public function login() {
+    public function login($signUp = true) {
         $I = $this;
+
+        if ($signUp)
+            $I->signUp();
+
+        $I->amOnFrontEndPage("login");
+        // And
+        $I->see("Log In");
+        // Then
+        $I->fillField("email", "tobysx@gmail.com");
+        $I->fillField("password", "pass1234");
+        // And
+        $I->click("Log In");
+        // Then
+        $I->wait(1);
+        // And Then
+        $I->seeInCurrentUrl("dashboard");
+        // And
+        $I->see("Dashboard", "div.top-bar-left");
+        // And
+        //$I->see("tobysx@gmail.com");
     }
 }

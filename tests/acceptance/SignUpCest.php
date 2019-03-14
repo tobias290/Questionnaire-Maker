@@ -22,39 +22,39 @@ class SignUpCest {
             [
                 "field" => "First Name",
                 "data" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "surname" => "Essex",
                     "password" => "pass1234",
                     "confirmPassword" => "pass1234",
                 ],
                 "dont_see" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "surname" => "Essex",
                 ]
             ],
             [
                 "field" => "Surname",
                 "data" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "firstName" => "Toby",
                     "password" => "pass1234",
                     "confirmPassword" => "pass1234",
                 ],
                 "dont_see" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "first_name" => "Toby",
                 ]
             ],
             [
                 "field" => "Password",
                 "data" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "firstName" => "Toby",
                     "surname" => "Essex",
                     "confirmPassword" => "pass1234",
                 ],
                 "dont_see" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "first_name" => "Toby",
                     "surname" => "Essex",
                 ]
@@ -62,13 +62,13 @@ class SignUpCest {
             [
                 "field" => "Confirm Password",
                 "data" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "firstName" => "Toby",
                     "surname" => "Essex",
                     "password" => "pass1234",
                 ],
                 "dont_see" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "first_name" => "Toby",
                     "surname" => "Essex",
                 ]
@@ -103,7 +103,7 @@ class SignUpCest {
         // And
         $I->see("Sign Up");
         // And
-        $I->fillField("email", "tobiascompany@gmail.com");
+        $I->fillField("email", "tobysx@gmail.com");
         $I->fillField("firstName", "Toby");
         $I->fillField("surname", "Essex");
         $I->fillField("confirmPassword", "pass1234");
@@ -120,7 +120,7 @@ class SignUpCest {
         $I->see("Passwords do not match");
         // And
         $I->dontSeeInDatabase("user", [
-            "email" => "tobiascompany@gmail.com",
+            "email" => "tobysx@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
         ]);
@@ -159,7 +159,7 @@ class SignUpCest {
         $I->see("Email is invalid");
         // And
         $I->dontSeeInDatabase("user", [
-            "email" => "tobiascompany@gmail.com",
+            "email" => "tobysx@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
         ]);

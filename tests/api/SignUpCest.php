@@ -21,7 +21,7 @@ class SignUpCest {
             ],
             [
                 "data" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "surname" => "Essex",
                     "password" => "pass1234",
                     "confirm_password" => "pass1234",
@@ -34,7 +34,7 @@ class SignUpCest {
             ],
             [
                 "data" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "first_name" => "Toby",
                     "password" => "pass1234",
                     "confirm_password" => "pass1234",
@@ -47,7 +47,7 @@ class SignUpCest {
             ],
             [
                 "data" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "first_name" => "Toby",
                     "surname" => "Essex",
                     "confirm_password" => "pass1234",
@@ -60,7 +60,7 @@ class SignUpCest {
             ],
             [
                 "data" => [
-                    "email" => "tobiascompany@gmail.com",
+                    "email" => "tobysx@gmail.com",
                     "first_name" => "Toby",
                     "surname" => "Essex",
                     "password" => "pass1234",
@@ -80,6 +80,10 @@ class SignUpCest {
      * @param \Step\Api\QuestionnaireMaker $I
      */
     public function signUp(\Step\Api\QuestionnaireMaker $I) {
+        $I->am("Client Side Application");
+        // And
+        $I->wantTo("send sign up data to server and successfully sign up");
+        // And
         $I->signUp();
     }
 
@@ -94,7 +98,7 @@ class SignUpCest {
         $I->expectTo("get HTTP 401 error because the passwords do not match");
         // And
         $I->sendPOST("sign-up", [
-            "email" => "tobiascompany@gmail.com",
+            "email" => "tobysx@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
             "password" => "pass1234",

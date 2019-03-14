@@ -9,12 +9,8 @@ class QuestionnaireMaker extends \ApiTester {
     public function signUp() {
         $I = $this;
 
-        $I->am("Client Side Application");
-        // And
-        $I->wantTo("send sign up data to server and successfully sign up");
-        // And
         $I->sendPOST("sign-up", [
-            "email" => "tobiascompany@gmail.com",
+            "email" => "tobysx@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
             "password" => "pass1234",
@@ -27,13 +23,30 @@ class QuestionnaireMaker extends \ApiTester {
         // And
         $I->seeResponseContainsJson([
             "success" => [
-                "email" => "tobiascompany@gmail.com",
+                "email" => "tobysx@gmail.com",
+                // Also a random access code will be here
             ]
         ]);
     }
 
     public function login() {
         $I = $this;
+
+        $I->sendPOST("login", [
+            "email" => "tobysx@gmail.com",
+            "password" => "pass1234",
+        ]);
+        // Then
+        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
+        // And
+        $I->seeResponseIsJson();
+        // And
+        $I->seeResponseContainsJson([
+            "success" => [
+                "email" => "tobysx@gmail.com",
+                // Also a random access code will be here
+            ]
+        ]);
     }
 
 }
