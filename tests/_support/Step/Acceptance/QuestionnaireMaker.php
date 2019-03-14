@@ -1,7 +1,7 @@
 <?php
 namespace Step\Acceptance;
 
-use mysql_xdevapi\Exception;
+use Codeception\Step\Argument\PasswordArgument;
 
 /**
  * Class QuestionnaireMaker
@@ -23,8 +23,8 @@ class QuestionnaireMaker extends \AcceptanceTester {
         $I->fillField("email", "tobysx@gmail.com");
         $I->fillField("firstName", "Toby");
         $I->fillField("surname", "Essex");
-        $I->fillField("confirmPassword", "pass1234");
-        $I->fillField("password", "pass1234");
+        $I->fillField("confirmPassword", new PasswordArgument("pass1234"));
+        $I->fillField("password", new PasswordArgument("pass1234"));
         // And
         $I->click("Sign Up");
         // Then
@@ -59,7 +59,7 @@ class QuestionnaireMaker extends \AcceptanceTester {
         $I->see("Log In");
         // Then
         $I->fillField("email", "tobysx@gmail.com");
-        $I->fillField("password", "pass1234");
+        $I->fillField("password", new PasswordArgument("pass1234"));
         // And
         $I->click("Log In");
         // Then

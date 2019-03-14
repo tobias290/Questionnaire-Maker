@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Codeception\Step\Argument\PasswordArgument;
 
 class SignUpCest {
     public function _before(AcceptanceTester $I) {
@@ -11,8 +13,8 @@ class SignUpCest {
                 "data" => [
                     "firstName" => "Toby",
                     "surname" => "Essex",
-                    "password" => "pass1234",
-                    "confirmPassword" => "pass1234",
+                    "password" => new PasswordArgument("pass1234"),
+                    "confirmPassword" => new PasswordArgument("pass1234"),
                 ],
                 "dont_see" => [
                     "first_name" => "Toby",
@@ -24,8 +26,8 @@ class SignUpCest {
                 "data" => [
                     "email" => "tobysx@gmail.com",
                     "surname" => "Essex",
-                    "password" => "pass1234",
-                    "confirmPassword" => "pass1234",
+                    "password" => new PasswordArgument("pass1234"),
+                    "confirmPassword" => new PasswordArgument("pass1234"),
                 ],
                 "dont_see" => [
                     "email" => "tobysx@gmail.com",
@@ -37,8 +39,8 @@ class SignUpCest {
                 "data" => [
                     "email" => "tobysx@gmail.com",
                     "firstName" => "Toby",
-                    "password" => "pass1234",
-                    "confirmPassword" => "pass1234",
+                    "password" => new PasswordArgument("pass1234"),
+                    "confirmPassword" => new PasswordArgument("pass1234"),
                 ],
                 "dont_see" => [
                     "email" => "tobysx@gmail.com",
@@ -51,7 +53,7 @@ class SignUpCest {
                     "email" => "tobysx@gmail.com",
                     "firstName" => "Toby",
                     "surname" => "Essex",
-                    "confirmPassword" => "pass1234",
+                    "confirmPassword" => new PasswordArgument("pass1234"),
                 ],
                 "dont_see" => [
                     "email" => "tobysx@gmail.com",
@@ -65,7 +67,7 @@ class SignUpCest {
                     "email" => "tobysx@gmail.com",
                     "firstName" => "Toby",
                     "surname" => "Essex",
-                    "password" => "pass1234",
+                    "password" => new PasswordArgument("pass1234"),
                 ],
                 "dont_see" => [
                     "email" => "tobysx@gmail.com",
@@ -106,8 +108,8 @@ class SignUpCest {
         $I->fillField("email", "tobysx@gmail.com");
         $I->fillField("firstName", "Toby");
         $I->fillField("surname", "Essex");
-        $I->fillField("confirmPassword", "pass1234");
-        $I->fillField("password", "password");
+        $I->fillField("password", new PasswordArgument("pass1234"));
+        $I->fillField("confirmPassword", new PasswordArgument("password"));
         // And
         $I->click("Sign Up");
         // Then
@@ -143,8 +145,8 @@ class SignUpCest {
         $I->fillField("email", "not_valid_email");
         $I->fillField("firstName", "Toby");
         $I->fillField("surname", "Essex");
-        $I->fillField("confirmPassword", "pass1234");
-        $I->fillField("password", "pass1234");
+        $I->fillField("confirmPassword", new PasswordArgument("pass1234"));
+        $I->fillField("password", new PasswordArgument("pass1234"));
         // And
         $I->click("Sign Up");
         // Then

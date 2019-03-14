@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class LogInCest {
     public function _before(ApiTester $I) {

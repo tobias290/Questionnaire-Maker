@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class SignUpCest {
     public function _before(ApiTester $I) {

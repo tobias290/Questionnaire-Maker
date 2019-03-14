@@ -1,6 +1,8 @@
 <?php
 namespace Step\Api;
 
+use Codeception\Step\Argument\PasswordArgument;
+
 class QuestionnaireMaker extends \ApiTester {
 
     /**

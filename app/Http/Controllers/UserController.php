@@ -66,7 +66,6 @@ class UserController extends Controller {
         elseif (!$request->has("password"))
             return response()->json(["error" => ["message" => "Password is required"]], 401);
 
-
         if(Auth::attempt($request->only("email", "password"))){
             $user = Auth::user();
             $success["token"] =  $user->createToken("QuestionnaireMaker")->accessToken;

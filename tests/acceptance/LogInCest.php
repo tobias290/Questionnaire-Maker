@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Codeception\Step\Argument\PasswordArgument;
 
 class LogInCest {
     public function _before(AcceptanceTester $I) {
@@ -14,7 +16,7 @@ class LogInCest {
             ],
             [
                 "field" => "password",
-                "value" => "pass1234",
+                "value" => new PasswordArgument("pass1234"),
                 "missing" => "Email"
             ]
         ];
@@ -50,7 +52,7 @@ class LogInCest {
         $I->see("Log In");
         // Then
         $I->fillField("email", "incorrect@email.com");
-        $I->fillField("password", "pass1234");
+        $I->fillField("password", new PasswordArgument("pass1234"));
         // And
         $I->click("Log In");
         // Then
@@ -82,7 +84,7 @@ class LogInCest {
         $I->see("Log In");
         // Then
         $I->fillField("email", "tobysx@gmail.com");
-        $I->fillField("password", "incorrect_password");
+        $I->fillField("password", new PasswordArgument("incorrect_password"));
         // And
         $I->click("Log In");
         // Then
