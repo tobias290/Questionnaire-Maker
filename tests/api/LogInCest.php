@@ -32,10 +32,12 @@ class LogInCest {
      *
      * @param ApiTester $I
      */
-    public function loginWithIncorrectEmail(ApiTester $I) {
+    public function loginWithIncorrectEmail(\Step\Api\QuestionnaireMaker $I) {
         $I->am("Client Side Application");
         // And
         $I->expectTo("get HTTP 401 error because the email is incorrect");
+        // And
+        $I->signUp();
         // And
         $I->sendPOST("login", [
             "email" => "incorrect@email.com",
@@ -58,10 +60,12 @@ class LogInCest {
      *
      * @param ApiTester $I
      */
-    public function loginWithIncorrectPassword(ApiTester $I) {
+    public function loginWithIncorrectPassword(\Step\Api\QuestionnaireMaker $I) {
         $I->am("Client Side Application");
         // And
         $I->expectTo("get HTTP 401 error because the password is incorrect");
+        // And
+        $I->signUp();
         // And
         $I->sendPOST("login", [
             "email" => "tobysx@gmail.com",
@@ -87,10 +91,12 @@ class LogInCest {
      *
      * @dataProvider loginProvider
      */
-    public function loginWithMissingData(ApiTester $I, \Codeception\Example $example) {
+    public function loginWithMissingData(\Step\Api\QuestionnaireMaker $I, \Codeception\Example $example) {
         $I->am("Client Side Application");
         // And
         $I->expectTo("get HTTP 401 error because a input field is missing");
+        // And
+        $I->signUp();
         // And
         $I->sendPOST("login", [$example["field"] => $example["value"],]);
         // Then
