@@ -11,6 +11,12 @@ a {
     text-decoration: none;
 }
 
+a.classic {
+    color: #007FAA !important;
+    cursor: pointer;
+    text-decoration: underline !important;
+}
+
 .centre-box {
     @include center;
 
@@ -34,6 +40,10 @@ a {
             border: 2px solid $green;
             color: $green;
 
+            & > a {
+                color: $green;
+            }
+
             &:hover {
                 border-color: $green-hover;
                 color: $green-hover;
@@ -44,6 +54,10 @@ a {
             background: none;
             border: 2px solid $yellow;
             color: $yellow;
+
+            & > a {
+                color: $yellow;
+            }
 
             &:hover {
                 border-color: $yellow-hover;
@@ -67,6 +81,10 @@ a {
             border: 2px solid $red;
             color: $red;
 
+            & > a {
+                color: $red;
+            }
+            
             &:hover {
                 border-color: $red-hover;
                 color: $red-hover;
@@ -96,6 +114,10 @@ a {
         &.white {
             background: $white;
             color: $green;
+            
+            & > a {
+                color: $green;
+            }
 
             &:hover {
                 background: $white-hover;

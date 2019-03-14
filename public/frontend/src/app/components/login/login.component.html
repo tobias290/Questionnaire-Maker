@@ -1,0 +1,48 @@
+<app-top-bar [title]="title" [hasBackButton]="false">
+    <div class="top-bar-right">
+        <button class="button inverse white"><a routerLink="/sign-up">Sign Up</a></button>
+    </div>
+</app-top-bar>
+
+<div class="account-form-title">
+    Log In
+    <div class="bar"></div>
+</div>
+
+<div id="login-page-center" class="centre-box">
+    <div *ngIf="isServerError" id="server-error">
+        {{ serverErrorMessage }}
+    </div>
+    
+    <form id="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()" #login="ngForm">
+        <div class="app-input-container">
+            <div class="app-input-label-icon {{ input('email').invalid && login.submitted ? 'error' : ''}}">
+                <fa-icon [icon]="icons.email"></fa-icon>
+            </div>
+            <input class="app-input" name="email" formControlName="email" type="text" placeholder="Email">
+        </div>
+
+        <div class="app-input-error" *ngIf="input('email').invalid && login.submitted">
+            <ul>
+                <li *ngIf="input('email').hasError('required')">Email is required</li>
+            </ul>
+        </div>
+        
+        <div class="app-input-container">
+            <div class="app-input-label-icon {{ input('password').invalid && login.submitted ? 'error' : ''}}">
+                <fa-icon [icon]="icons.password"></fa-icon>
+            </div>
+            <input class="app-input" name="password" formControlName="password" type="password" placeholder="Password">
+        </div>
+
+        <div class="app-input-error" *ngIf="input('password').invalid && login.submitted">
+            <ul>
+                <li *ngIf="input('password').hasError('required')">Password is required</li>
+            </ul>
+        </div>
+        
+        <input id="login-submit" class="button normal green" type="submit" value="Log In">
+    </form>
+    
+    <a id="forgotten-password" class="classic">Forgotten Password?</a>
+</div>

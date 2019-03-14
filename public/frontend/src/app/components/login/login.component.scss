@@ -1,17 +1,32 @@
 @import "../../css/main";
 @import "../../css/controls";
 
-#sign-up-page-center {
-    @include vertical-center(635px - 70px);
+#login-page-center {
+    @include vertical-center(450px - 70px);
 
     align-items: center;
     display: flex;
-    height: 635px;
+    height: 450px;
     text-align: center;
     min-width: 500px;
     width: calc(40%);
     
-    #sign-up {
+    #server-error {
+        @include center;
+        
+        background: rgba($red, .3);
+        border: 1px solid rgba($red, .5);
+        color: $red;
+        font-size: 20px;
+        font-weight: bold;
+        height: 50px;
+        line-height: 50px;
+        position: absolute;
+        top: 25px;
+        width: 75%;
+    }
+    
+    #login {
         @include center;
         
         height: fit-content;
@@ -35,9 +50,18 @@
             }
         }
         
-        #sign-up-submit {
+        #login-submit {
             height: 50px !important;
             width: 300px !important;
         }
+    }
+    
+    #forgotten-password {
+        @include center;
+        
+        bottom: 50px;
+        font-weight: bold;
+        position: absolute;
+        width: fit-content;
     }
 }

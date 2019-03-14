@@ -2,8 +2,13 @@
 
 .app-input-container {
     height: 50px;
+    margin: 30px 0 30px 0;
     position: relative;
     width: 300px;
+
+    &:first-child {
+        margin-top: 0;
+    }
     
     .app-input-label-icon {
         background: $green;
@@ -47,11 +52,4 @@
     &:last-of-type {
         margin-bottom: 0;
     }
-}
-
-
-.hide {
-    visibility: hidden;
-    height: 0 !important;
-    width: 0 !important;
 }

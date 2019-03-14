@@ -6,6 +6,11 @@ a {
   color: #FFF;
   text-decoration: none; }
 
+a.classic {
+  color: #007FAA !important;
+  cursor: pointer;
+  text-decoration: underline !important; }
+
 .centre-box {
   left: 0;
   margin: auto;
@@ -26,6 +31,8 @@ a {
     background: none;
     border: 2px solid #16D36B;
     color: #16D36B; }
+    .button.inverse.green > a {
+      color: #16D36B; }
     .button.inverse.green:hover {
       border-color: #13BD60;
       color: #13BD60; }
@@ -33,6 +40,8 @@ a {
     background: none;
     border: 2px solid #E5D200;
     color: #E5D200; }
+    .button.inverse.yellow > a {
+      color: #E5D200; }
     .button.inverse.yellow:hover {
       border-color: #CEBD00;
       color: #CEBD00; }
@@ -47,6 +56,8 @@ a {
     background: none;
     border: 2px solid #D9534F;
     color: #D9534F; }
+    .button.inverse.red > a {
+      color: #D9534F; }
     .button.inverse.red:hover {
       border-color: #C34A47;
       color: #C34A47; }
@@ -63,6 +74,8 @@ a {
   .button.normal.white {
     background: #FFF;
     color: #16D36B; }
+    .button.normal.white > a {
+      color: #16D36B; }
     .button.normal.white:hover {
       background: #F2F2F2; }
   .button.normal.red {
@@ -150,4 +163,4 @@ a {
   100% {
     box-shadow: 0 0 0 10px rgba(242, 242, 242, 0.3); } }
 
-/*# sourceMappingURL=dashboard.component.cssss.map */
+/*# sourceMappingURL=top-bar.component.css.map */

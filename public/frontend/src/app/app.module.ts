@@ -10,10 +10,12 @@ import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {LoginComponent} from "./components/login/login.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
     { path: "sign-up", component: SignUpComponent },
+    { path: "login", component: LoginComponent },
     { path: "dashboard", component: DashboardComponent },
 ];
 
@@ -23,6 +25,7 @@ const appRoutes: Routes = [
         TopBarComponent,
         LandingComponent,
         SignUpComponent,
+        LoginComponent,
         DashboardComponent,
     ],
     imports: [
