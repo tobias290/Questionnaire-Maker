@@ -17,11 +17,12 @@ class Questionnaire extends Migration {
             $table->string("name");
             $table->string("description")->nullable();
 
-
             $table->boolean("is_public")->default(false);
             $table->boolean("is_complete")->default(false);
             $table->boolean("is_reported")->default(false);
             $table->boolean("is_locked")->default(false);
+
+            $table->integer("responses")->default(0);
 
             $table->date("expiry_date")->nullable();
             $table->timestamps();
