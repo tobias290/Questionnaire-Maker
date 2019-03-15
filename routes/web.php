@@ -14,3 +14,7 @@
 Route::get("/", function () {
     return redirect("/frontend/dist/frontend/index.html");
 });
+
+Route::get("login", function () {
+    return redirect("/frontend/dist/frontend/#/login");
+})->name("login");

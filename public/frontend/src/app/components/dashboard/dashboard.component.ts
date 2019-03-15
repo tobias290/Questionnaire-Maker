@@ -48,8 +48,10 @@ export class DashboardComponent implements OnInit {
         this.apiService
             .get(URLS.signOut, ApiService.createTokenHeader(sessionStorage.getItem("token")))
             .subscribe(res => {
-                if (res["success"])
+                if (res["success"]) {
+                    sessionStorage.removeItem("token");
                     this.router.navigateByUrl("/login");
+                }
             });
     }
 }
