@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +12,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post("sign-up", "UserController@signUp");
-Route::post("login", "UserController@login");
+use Illuminate\Support\Facades\Route;
 
-Route::group(["middleware" => "auth:api"], function () {
-    // Authentication needed for any routes here
+Route::prefix("user")->group(function (){
+    Route::post("sign-up", "UserController@signUp");
+    Route::post("login", "UserController@login");
+});
 
-    Route::get("sign-out", "UserController@signOut");
-    Route::get("details", "UserController@details");
+Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
+    Route::prefix("user")->group(function () {
+        Route::get("sign-out", "UserController@signOut");
+        Route::get("details", "UserController@details");
+    });
+
+    Route::prefix("questionnaire")->group(function () {
+       Route::post("create", "QuestionnaireController@create");
+    });
 });

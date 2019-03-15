@@ -91,7 +91,7 @@ export class SignUpComponent {
             confirm_password: this.signUpForm.value.confirmPassword,
         };
         
-        this.apiService.post(URLS.signUp, data).subscribe(success => {
+        this.apiService.post(URLS.USER.signUp, data).subscribe(success => {
             this.success(success);
         });
     }

@@ -1,8 +1,16 @@
 const ADDRESS = "http://localhost:8000/api";
 
+const USER = `${ADDRESS}/user`;
+const QUESTIONNAIRE = `${ADDRESS}/questionnaire`;
+
 export const URLS = {
-    signUp: `${ADDRESS}/sign-up`,
-    login: `${ADDRESS}/login`,
-    signOut: `${ADDRESS}/sign-out`,
-    details: `${ADDRESS}/details`,
+    USER: {
+        signUp: `${USER}/sign-up`,
+        login: `${USER}/login`,
+        signOut: `${USER}/sign-out`,
+        details: `${USER}/details`,
+    },
+    QUESTIONNAIRE: {
+        create: `${QUESTIONNAIRE}/create`,
+    }
 };

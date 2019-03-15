@@ -22,7 +22,7 @@ class DashboardCest {
         // And
         $I->haveHttpHeader("Accept", "application/json");
         // Then
-        $I->sendGET("details");
+        $I->sendGET("user/details");
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
         // And
@@ -45,7 +45,7 @@ class DashboardCest {
         // And
         $I->haveHttpHeader("Accept", "application/json");
         // Then
-        $I->sendGET("details");
+        $I->sendGET("user/details");
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED);
         // And

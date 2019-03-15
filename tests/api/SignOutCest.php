@@ -21,7 +21,7 @@ class SignOutCest {
         // And
         $I->amBearerAuthenticated($token);
         // Then
-        $I->sendGET("sign-out");
+        $I->sendGET("user/sign-out");
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
         // And

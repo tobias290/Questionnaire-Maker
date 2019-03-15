@@ -1,8 +1,6 @@
 <?php
 namespace Step\Api;
 
-use Codeception\Step\Argument\PasswordArgument;
-
 class QuestionnaireMaker extends \ApiTester {
 
     /**
@@ -11,7 +9,7 @@ class QuestionnaireMaker extends \ApiTester {
     public function signUp() {
         $I = $this;
 
-        $I->sendPOST("sign-up", [
+        $I->sendPOST("user/sign-up", [
             "email" => "tobysx@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
@@ -42,7 +40,7 @@ class QuestionnaireMaker extends \ApiTester {
         if ($signUp)
             $I->signUp();
 
-        $I->sendPOST("login", [
+        $I->sendPOST("user/login", [
             "email" => "tobysx@gmail.com",
             "password" => "pass1234",
         ]);

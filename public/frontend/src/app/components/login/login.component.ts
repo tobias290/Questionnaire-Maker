@@ -61,7 +61,7 @@ export class LoginComponent {
             password: this.loginForm.value.password,
         };
         
-        this.apiService.post(URLS.login, data).subscribe(success => {
+        this.apiService.post(URLS.USER.login, data).subscribe(success => {
             this.success(success);
         }, (err) => {
             this.error(err)

@@ -97,7 +97,7 @@ class SignUpCest {
         // And
         $I->expectTo("get HTTP 401 error because the passwords do not match");
         // And
-        $I->sendPOST("sign-up", [
+        $I->sendPOST("user/sign-up", [
             "email" => "tobysx@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex",
@@ -126,7 +126,7 @@ class SignUpCest {
         // And
         $I->expectTo("get HTTP 401 error because the email is invalid");
         // And
-        $I->sendPOST("sign-up", [
+        $I->sendPOST("user/sign-up", [
             "email" => "not_valid_email",
             "first_name" => "Toby",
             "surname" => "Essex",
@@ -158,7 +158,7 @@ class SignUpCest {
         // And
         $I->expectTo("get HTTP 401 error because a certain field is missing");
         // And
-        $I->sendPOST("sign-up", $example["data"]);
+        $I->sendPOST("user/sign-up", $example["data"]);
         // Then
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED); // 401
         // And

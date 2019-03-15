@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
         }
         
         this.apiService
-            .get(URLS.details, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .get(URLS.USER.details, ApiService.createTokenHeader(sessionStorage.getItem("token")))
             .subscribe(res => {
                 this.user = new User(res);
                 
@@ -46,13 +46,17 @@ export class DashboardComponent implements OnInit {
      */
     public signOut() {
         this.apiService
-            .get(URLS.signOut, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .get(URLS.USER.signOut, ApiService.createTokenHeader(sessionStorage.getItem("token")))
             .subscribe(res => {
                 if (res["success"]) {
                     sessionStorage.removeItem("token");
                     this.router.navigateByUrl("/login");
                 }
             });
+    }
+    
+    public createQuestionnaire() {
+        
     }
 }
 

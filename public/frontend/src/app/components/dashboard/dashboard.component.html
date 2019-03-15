@@ -3,7 +3,7 @@
 <app-top-bar *ngIf="!loading" [title]="title" [hasBackButton]="false">
     <div class="top-bar-right" style="color: white;">
         <button class="button inverse white" (click)="signOut()">Sign Out</button>
-        <button class="button inverse white">Create Questionnaire</button>
+        <button class="button inverse white" (click)="createQuestionnaire()">Create Questionnaire</button>
         <span style="cursor: pointer;">
             {{ user.email }} &nbsp;
             <fa-icon [icon]="icons.downCaret"></fa-icon>
@@ -15,7 +15,7 @@
     <div id="sort-filter">
         <div style="color: #C34A47; font-weight: bold;">To be implemented later</div>
     </div>
-    <button class="button normal green">Create Questionnaire</button>
+    <button class="button normal green" (click)="createQuestionnaire()">Create Questionnaire</button>
 </aside>
 
 <div *ngIf="!loading" id="dashboard-page-center">

@@ -39,7 +39,7 @@ class LogInCest {
         // And
         $I->signUp();
         // And
-        $I->sendPOST("login", [
+        $I->sendPOST("user/login", [
             "email" => "incorrect@email.com",
             "password" => "pass1234",
         ]);
@@ -67,7 +67,7 @@ class LogInCest {
         // And
         $I->signUp();
         // And
-        $I->sendPOST("login", [
+        $I->sendPOST("user/login", [
             "email" => "tobysx@gmail.com",
             "password" => "incorrect_password",
         ]);
@@ -98,7 +98,7 @@ class LogInCest {
         // And
         $I->signUp();
         // And
-        $I->sendPOST("login", [$example["field"] => $example["value"],]);
+        $I->sendPOST("user/login", [$example["field"] => $example["value"],]);
         // Then
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED); // 401
         // And
