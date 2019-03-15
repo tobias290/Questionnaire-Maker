@@ -19,6 +19,8 @@ class DashboardCest {
         $token = $I->getResponse()["success"]["token"];
         // And
         $I->amBearerAuthenticated($token);
+        // And
+        $I->haveHttpHeader("Accept", "application/json");
         // Then
         $I->sendGET("details");
         // And
@@ -40,6 +42,8 @@ class DashboardCest {
         $I->am("Client Side Application");
         // And
         $I->expectTo("get HTTP 401 error because the request in unauthorized");
+        // And
+        $I->haveHttpHeader("Accept", "application/json");
         // Then
         $I->sendGET("details");
         // And
