@@ -13,6 +13,7 @@ class CreateQuestionnaireCest {
         $I->sendPOST("questionnaire/create", [
             "title" =>"First Questionnaire",
             "description" => "This is the first questionnaire I have made with this website",
+            "questionnaire_category_id" => 13,
         ]);
         // Then
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::CREATED); // 401
@@ -29,6 +30,7 @@ class CreateQuestionnaireCest {
         // And
         $I->sendPOST("questionnaire/create", [
             "description" => "This is the first questionnaire I have made with this website",
+            "questionnaire_category_id" => 13,
         ]);
         // Then
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED); // 401
@@ -38,6 +40,27 @@ class CreateQuestionnaireCest {
         $I->seeResponseContainsJson([
             "error" => [
                 "message" => "Title is required",
+            ]
+        ]);
+    }
+
+    public function createQuestionnaireWithNoCategory(ApiTester $I) {
+        $I->am("Client Side Application");
+        // And
+        $I->expectTo("get 401 HTTP code because the title field is required");
+        // And
+        $I->sendPOST("questionnaire/create", [
+            "title" =>"First Questionnaire",
+            "description" => "This is the first questionnaire I have made with this website",
+        ]);
+        // Then
+        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED); // 401
+        // And
+        $I->seeResponseIsJson();
+        // And
+        $I->seeResponseContainsJson([
+            "error" => [
+                "message" => "Questionnaire Category is required",
             ]
         ]);
     }
