@@ -18,4 +18,6 @@ Route::post("login", "UserController@login");
 
 Route::group(["middleware" => "auth:api"], function () {
     // Authentication needed for any routes here
+
+    Route::get("details", "UserController@details");
 });

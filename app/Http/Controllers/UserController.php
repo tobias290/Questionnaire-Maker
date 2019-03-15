@@ -74,4 +74,11 @@ class UserController extends Controller {
             return response()->json(["error" => ["message" => "Email or password is incorrect"]], 401);
         }
     }
+
+    /**
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null - Returns the authenticated users details.
+     */
+    public function details() {
+        return Auth::user();
+    }
 }
