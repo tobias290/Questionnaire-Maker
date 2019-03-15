@@ -10,17 +10,12 @@ class CreateQuestionnaireCest {
         // And
         $I->expectTo("get 201 HTTP code because a questionnaire was created");
         // And
-        $token = $I->getResponse()["success"]["token"];
-        // And
-        $I->amBearerAuthenticated($token);
-        // And
         $I->sendPOST("questionnaire/create", [
             "title" =>"First Questionnaire",
             "description" => "This is the first questionnaire I have made with this website",
-            "questionnaire_category_id" => 13,
         ]);
         // Then
-        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::CREATED); // 201
+        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::CREATED); // 401
         // And
         $I->seeResponseIsJson();
         // And
@@ -32,13 +27,8 @@ class CreateQuestionnaireCest {
         // And
         $I->expectTo("get 401 HTTP code because the title field is required");
         // And
-        $token = $I->getResponse()["success"]["token"];
-        // And
-        $I->amBearerAuthenticated($token);
-        // And
         $I->sendPOST("questionnaire/create", [
             "description" => "This is the first questionnaire I have made with this website",
-            "questionnaire_category_id" => 13,
         ]);
         // Then
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED); // 401
