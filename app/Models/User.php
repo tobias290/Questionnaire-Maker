@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -45,4 +45,11 @@ class User extends Authenticatable {
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Get the questionnaires that belong to the specific user
+     */
+    public function questionnaires() {
+        return $this->hasMany("App\Models\Questionnaire");
+    }
 }
