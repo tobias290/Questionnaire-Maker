@@ -40,5 +40,17 @@ export class DashboardComponent implements OnInit {
                 this.loading = false;
             });
     }
+
+    /**
+     * Sign outs the user.
+     */
+    public signOut() {
+        this.apiService
+            .get(URLS.signOut, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .subscribe(res => {
+                if (res["success"])
+                    this.router.navigateByUrl("/login");
+            });
+    }
 }
 

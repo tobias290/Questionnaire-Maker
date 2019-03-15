@@ -5,18 +5,8 @@ import {throwError} from "rxjs";
 
 @Injectable()
 export class ApiService {
-    constructor(private http: HttpClient) { }
+    public constructor(private http: HttpClient) { }
     
-    private static getHeaders(options) {
-        return {
-            headers: new HttpHeaders({
-                "Accept": "application/json",
-                "Content-Type":  "application/json",
-                ...options,
-            })
-        };
-    }
-
     /**
      * Handles any errors returned by API.
      * 
@@ -34,6 +24,21 @@ export class ApiService {
         // Return an observable with a user-facing error message
         return throwError(error.error);
     };
+
+    /**
+     * Add basic headers to each request.
+     *
+     * @param {object} options - User defines headers.
+     */
+    private static getHeaders(options) {
+        return {
+            headers: new HttpHeaders({
+                "Accept": "application/json",
+                "Content-Type":  "application/json",
+                ...options,
+            })
+        };
+    }
     
     public static createTokenHeader(token) {
         return {"Authorization": `Bearer ${token}`};
