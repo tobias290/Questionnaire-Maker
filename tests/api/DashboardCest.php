@@ -46,11 +46,5 @@ class DashboardCest {
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED);
         // And
         $I->dontSeeResponseJsonMatchesJsonPath('$.success.user');
-        // And
-        $I->seeResponseContainsJson([
-            "error" => [
-                "message" => "Unauthorized",
-            ]
-        ]);
     }
 }
