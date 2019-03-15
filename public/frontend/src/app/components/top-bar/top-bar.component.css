@@ -1,4 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+::-webkit-scrollbar {
+  background: #b6b6b6;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px; }
+
+::-webkit-scrollbar-corner {
+  background: #FFF; }
+
+::-webkit-scrollbar-thumb {
+  background: #9F9F9F;
+  border-radius: 10px; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888888; }
+
 * {
   font-family: 'Nunito', sans-serif; }
 

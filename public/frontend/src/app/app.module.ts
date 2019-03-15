@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {LoginComponent} from "./components/login/login.component";
+import {LoadingComponent} from "./components/loading/loading.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent,
         TopBarComponent,
+        LoadingComponent,
         LandingComponent,
         SignUpComponent,
         LoginComponent,

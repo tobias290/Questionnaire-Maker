@@ -1,1 +1,23 @@
-<app-top-bar [title]="title" [hasBackButton]="false"></app-top-bar>
+<app-loading *ngIf="loading"></app-loading>
+
+<app-top-bar *ngIf="!loading" [title]="title" [hasBackButton]="false">
+    <div class="top-bar-right" style="color: white;">
+        <button class="button inverse white">Sign Out</button>
+        <button class="button inverse white">Create Questionnaire</button>
+        <span style="cursor: pointer;">
+            {{ user.email }} &nbsp;
+            <fa-icon [icon]="icons.downCaret"></fa-icon>
+        </span>
+    </div>
+</app-top-bar>
+
+<aside *ngIf="!loading">
+    <div id="sort-filter">
+        <div style="color: #C34A47; font-weight: bold;">To be implemented later</div>
+    </div>
+    <button class="button normal green">Create Questionnaire</button>
+</aside>
+
+<div *ngIf="!loading" id="dashboard-page-center">
+ 
+</div>

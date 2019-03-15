@@ -1,1 +1,35 @@
 @import "../../css/main";
+
+
+aside {
+    left: 90px;
+    position: absolute;
+    top: 100px;
+    
+    #sort-filter {
+        background: $white;
+        box-shadow: 0 5px 5px $shadow-color;
+        height: 360px;
+        left: 90px;
+        top: 100px;
+        width: 300px;
+    }
+    
+    & > button {
+        box-shadow: 0 5px 5px $shadow-color;
+        height: 75px;
+        font-size: 20px;
+        margin-top: 30px;
+        width: 300px;
+    }
+}
+
+
+#dashboard-page-center {
+    @include center;
+    
+    height: calc(100% - 70px);
+    overflow: auto;
+    padding-right: 10px;
+    width: 910px;
+}

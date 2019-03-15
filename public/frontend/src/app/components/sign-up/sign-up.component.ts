@@ -37,7 +37,7 @@ export class SignUpComponent {
         confirmPassword: new FormControl("", Validators.required),
     });
 
-    constructor(private apiService: ApiService, private router: Router) {
+    public constructor(private apiService: ApiService, private router: Router) {
     }
 
 
@@ -48,7 +48,7 @@ export class SignUpComponent {
      * 
      * @returns {FormControl} - Form group
      */
-    input(name: string) {
+    public input(name: string) {
         return this.signUpForm.get(name);
     }
 
@@ -58,21 +58,21 @@ export class SignUpComponent {
      * 
      * @returns {boolean} - Returns true if both passwords fields have data in.
      */
-    showPasswordMatchingIcon() {
+    public showPasswordMatchingIcon() {
         return this.input("password").value != "" && this.input("confirmPassword").value != "";
     }
 
     /**
      * @returns {boolean} - Returns true if password and confirm password match.
      */
-    doPasswordsMatch() {
+    public doPasswordsMatch() {
         return this.input("password").value == this.input("confirmPassword").value;
     }
 
     /**
      * Called when the sign up form is submitted
      */
-    onSubmit() {
+    public onSubmit() {
         // Form is not valid so do not submit
         if (!this.signUpForm.valid) return;
         
@@ -91,13 +91,15 @@ export class SignUpComponent {
             confirm_password: this.signUpForm.value.confirmPassword,
         };
         
-        this.apiService.post(URLS.signUp, data).subscribe(res => {
-            this.success(res);
+        this.apiService.post(URLS.signUp, data).subscribe(success => {
+            this.success(success);
         });
     }
-    
-    success(userData) {
-        if (userData.hasOwnProperty("success")) {
+
+    private success(success) {
+        if (success.hasOwnProperty("success")) {
+            sessionStorage.setItem("token", success.success.token);
+            
             this.router.navigateByUrl("/dashboard");
         }
     }

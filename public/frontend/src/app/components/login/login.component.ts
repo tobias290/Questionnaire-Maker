@@ -29,7 +29,7 @@ export class LoginComponent {
         password: new FormControl("", Validators.required),
     });
 
-    constructor(private apiService: ApiService, private router: Router) {
+    public constructor(private apiService: ApiService, private router: Router) {
     }
 
 
@@ -40,14 +40,14 @@ export class LoginComponent {
      * 
      * @returns {FormControl} - Form group
      */
-    input(name: string) {
+    public input(name: string) {
         return this.loginForm.get(name);
     }
 
     /**
      * Called when the sign up form is submitted
      */
-    onSubmit() {
+    public onSubmit() {
         // Reset server errors
         this.isServerError = false;
         this.serverErrorMessage = null;
@@ -73,8 +73,10 @@ export class LoginComponent {
      * 
      * @param success - Success data returned by the response.
      */
-    success(success) {
+    private success(success) {
         if (success.hasOwnProperty("success")) {
+            sessionStorage.setItem("token", success.success.token);
+            
             this.router.navigateByUrl("/dashboard");
         }
     }
@@ -84,7 +86,7 @@ export class LoginComponent {
      * 
      * @param error
      */
-    error(error) {
+    private error(error) {
         this.isServerError = true;
         this.serverErrorMessage = error.error.message;
     }

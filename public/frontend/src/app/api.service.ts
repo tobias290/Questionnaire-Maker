@@ -1,11 +1,21 @@
 import { Injectable } from "@angular/core";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {throwError} from "rxjs";
 
 @Injectable()
 export class ApiService {
     constructor(private http: HttpClient) { }
+    
+    private static getHeaders(options) {
+        return {
+            headers: new HttpHeaders({
+                "Accept": "application/json",
+                "Content-Type":  "application/json",
+                ...options,
+            })
+        };
+    }
 
     /**
      * Handles any errors returned by API.
@@ -25,19 +35,25 @@ export class ApiService {
         return throwError(error.error);
     };
     
-    get() {
+    public static createTokenHeader(token) {
+        return {"Authorization": `Bearer ${token}`};
+    }
+    
+    public get(url, options = {}) {
+        return this.http.get(url, ApiService.getHeaders(options));
+    }
+
+    public post(url, data, options = {}) {
+        return this.http
+            .post(url, data, ApiService.getHeaders(options))
+            .pipe(catchError(ApiService.handleError));
+    }
+
+    public put() {
         
     }
-    
-    post(url, data, options = {}) {
-        return this.http.post(url, data, options).pipe(catchError(ApiService.handleError));
-    }
-    
-    put() {
-        
-    }
-    
-    delete() {
+
+    public delete() {
         
     }
 }

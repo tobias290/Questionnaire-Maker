@@ -1,0 +1,19 @@
+@import "../../css/main";
+
+.loading {
+    @include center;
+    @include vertical-center(420px - 70px);
+    
+    color: $green;
+    font-size: 50px;
+    height: 270px;
+    line-height: 150px;
+    text-align: center;
+    position: absolute;
+    width: fit-content;
+    
+    & > div {
+        color: $text-dark;
+        font-weight: bold;
+    }
+}
