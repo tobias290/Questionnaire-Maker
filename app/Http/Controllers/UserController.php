@@ -76,6 +76,17 @@ class UserController extends Controller {
     }
 
     /**
+     * Sign outs the user.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function signOut() {
+        Auth::user()->token()->revoke();
+
+        return response()->json(["success" => true], 200);
+    }
+
+    /**
      * @return \Illuminate\Contracts\Auth\Authenticatable|null - Returns the authenticated users details.
      */
     public function details() {
