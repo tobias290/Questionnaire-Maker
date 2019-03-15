@@ -38,7 +38,7 @@ class LogInCest {
     /**
      * Test to see when an incorrect email is given the server response with error message
      *
-     * @param AcceptanceTester $I
+     * @param \Step\Acceptance\QuestionnaireMaker $I
      */
     public function loginWithIncorrectEmail(\Step\Acceptance\QuestionnaireMaker $I) {
         $I->am("Questionnaire Maker");
@@ -70,7 +70,7 @@ class LogInCest {
     /**
      * Test to see when an incorrect password is given the server response with error message
      *
-     * @param AcceptanceTester $I
+     * @param \Step\Acceptance\QuestionnaireMaker $I
      */
     public function loginWithIncorrectPassword(\Step\Acceptance\QuestionnaireMaker $I) {
         $I->am("Questionnaire Maker");
@@ -102,7 +102,7 @@ class LogInCest {
     /**
      * Test to see when a specific field is left empty that the correct error is raised and correct message is shown.
      *
-     * @param AcceptanceTester $I
+     * @param \Step\Acceptance\QuestionnaireMaker $I
      * @param \Codeception\Example $example
      *
      * @dataProvider loginProvider
