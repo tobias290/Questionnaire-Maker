@@ -15,7 +15,7 @@ class CreateQuestionnaireCest {
         // And
         $I->fillField("title", "First Questionnaire");
         $I->fillField("description", "This is the first questionnaire I have made with this website");
-        $I->selectOption("questionnaireCategory", "Other");
+        $I->selectOption("category", "Other");
         // Then
         $I->click("Create Questionnaire", "submit"); // Form button
         // And
@@ -37,7 +37,7 @@ class CreateQuestionnaireCest {
         $I->click("Create Questionnaire"); // Dashboard button
         // And
         $I->fillField("description", "This is the first questionnaire I have made with this website");
-        $I->selectOption("questionnaireCategory", "Other");
+        $I->selectOption("category", "Other");
         // Then
         $I->click("Create Questionnaire", "submit"); // Form Button
         // Then
