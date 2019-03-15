@@ -37,6 +37,10 @@ class DashboardCest {
         // And
         $I->expectTo("be redirected to log in page");
         // And
+        $I->executeJS("sessionStorage.clear()");
+        // And
+        $I->reloadPage();
+        // And
         $I->amOnFrontEndPage("/dashboard");
         // And
         $I->dontSee("Dashboard");
