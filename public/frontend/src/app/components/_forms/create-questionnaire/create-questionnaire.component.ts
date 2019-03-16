@@ -75,8 +75,12 @@ export class CreateQuestionnaireFormComponent implements OnInit {
      */
     public submit() {
         // Form is not valid so do not submit
-        if (!this.createQuestionnaireForm.valid) return;
-
+        if (!this.createQuestionnaireForm.valid) {
+            // if the user disables the expiry box the form will still pick it up as invalid because it is set to be required
+            // There this check that and continues anyway.
+            if (!(this.showExpiryInput == false && this.createQuestionnaireForm.get("expiry").errors.required)) return;
+        }
+        
         // Convert data to comply with API's format.
         let data = {
             title: this.createQuestionnaireForm.value.title,
