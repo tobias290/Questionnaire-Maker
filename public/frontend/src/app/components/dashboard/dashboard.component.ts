@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
             });
     }
     
-    public questionnaireCreated() {
+    public questionnaireCreated(questionnaireId) {
         this.showCreateQuestionnairePopup = false;
         
         this.router.navigateByUrl("edit-questionnaire");

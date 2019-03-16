@@ -21,7 +21,7 @@ export class CreateQuestionnaireFormComponent implements OnInit {
         expiry: faCalendarAlt,
     };
     
-    showExpiryInput = true;
+    showExpiryInput = false;
     
     createQuestionnaireForm = new FormGroup({
         title: new FormControl("", Validators.required),

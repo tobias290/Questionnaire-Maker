@@ -23,5 +23,5 @@
 </div>
 
 <app-popup [show]="showCreateQuestionnairePopup" (close)="showCreateQuestionnairePopup = false;">
-   <app-create-questionnaire-form (onCreate)="questionnaireCreated()"></app-create-questionnaire-form>
+   <app-create-questionnaire-form (onCreate)="questionnaireCreated($event)"></app-create-questionnaire-form>
 </app-popup>

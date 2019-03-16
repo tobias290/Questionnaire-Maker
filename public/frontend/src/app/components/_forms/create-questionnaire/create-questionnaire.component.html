@@ -22,7 +22,7 @@
 
         <div>
             <div class="can-expire">
-                <span>Can Expire: </span><app-toggle-switch [state]="true" (onChange)="toggleExpiry($event)"></app-toggle-switch>
+                <span>Can Expire: </span><app-toggle-switch [state]="false" (onChange)="toggleExpiry($event)"></app-toggle-switch>
             </div>
             <div class="app-input-container">
                 <div class="app-input-label-icon {{ formExpiryDate.invalid && createQuestionnaire.submitted ? 'error' : ''}} {{ !this.showExpiryInput ? 'disabled' : '' }}">
