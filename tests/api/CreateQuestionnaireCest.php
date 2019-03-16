@@ -5,28 +5,24 @@ class CreateQuestionnaireCest {
         $I->login();
     }
 
-    public function createQuestionnaire(ApiTester $I) {
+    /**
+     * Test to see when the applications submits request to create a questionnaire that it returns 201 HTTP response with no errors.
+     *
+     * @param \Step\Api\QuestionnaireMaker $I
+     */
+    public function createQuestionnaire(\Step\Api\QuestionnaireMaker $I) {
         $I->am("Client Side Application");
         // And
         $I->expectTo("get 201 HTTP code because a questionnaire was created");
-        // And
-        $token = $I->getResponse()["success"]["token"];
-        // And
-        $I->amBearerAuthenticated($token);
-        // And
-        $I->sendPOST("questionnaire/create", [
-            "title" =>"First Questionnaire",
-            "description" => "This is the first questionnaire I have made with this website",
-            "questionnaire_category_id" => 13,
-        ]);
         // Then
-        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::CREATED); // 201
-        // And
-        $I->seeResponseIsJson();
-        // And
-        $I->seeResponseJsonMatchesJsonPath("$.success.questionnaire_id");
+        $I->createQuestionnaire();
     }
 
+    /**
+     * Test to see when the applications submits request to create questionnaire that it returns 401 HTTP response with an error because the title is required.
+     *
+     * @param ApiTester $I
+     */
     public function createQuestionnaireWithNoTitle(ApiTester $I) {
         $I->am("Client Side Application");
         // And
@@ -52,6 +48,11 @@ class CreateQuestionnaireCest {
         ]);
     }
 
+    /**
+     * Test to see when the applications submits request to create questionnaire that it returns 401 HTTP response with an error because the category is required.
+     *
+     * @param ApiTester $I
+     */
     public function createQuestionnaireWithNoCategory(ApiTester $I) {
         $I->am("Client Side Application");
         // And

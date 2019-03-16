@@ -52,4 +52,27 @@ class QuestionnaireMaker extends \ApiTester {
         $I->seeResponseJsonMatchesJsonPath('$.success.token');
     }
 
+    /**
+     * Test to see when the applications submits request to create a questionnaire that it returns 201 HTTP response with no errors.
+     */
+    public function createQuestionnaire() {
+        $I = $this;
+
+        $token = $I->getResponse()["success"]["token"];
+        // And
+        $I->amBearerAuthenticated($token);
+        // And
+        $I->sendPOST("questionnaire/create", [
+            "title" =>"First Questionnaire",
+            "description" => "This is the first questionnaire I have made with this website",
+            "questionnaire_category_id" => 13,
+        ]);
+        // Then
+        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::CREATED); // 201
+        // And
+        $I->seeResponseIsJson();
+        // And
+        $I->seeResponseJsonMatchesJsonPath("$.success.questionnaire_id");
+    }
+
 }

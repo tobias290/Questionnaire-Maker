@@ -71,4 +71,34 @@ class QuestionnaireMaker extends \AcceptanceTester {
         // And
         //$I->see("tobysx@gmail.com");
     }
+
+    /**
+     * Test to see whether the application can successfully create a questionnaire.
+     *
+     * @param bool $loadDashboard - True if this action should navigate to dashboard. False will assume the dashboard is already loaded.
+     */
+    public function createQuestionnaire($loadDashboard = false) {
+        $I = $this;
+
+        if ($loadDashboard)
+            $I->amOnFrontEndPage("dashboard");
+
+        // Then
+        $I->click("Create Questionnaire"); // Dashboard button
+        // And
+        $I->fillField("title", "First Questionnaire");
+        $I->fillField("description", "This is the first questionnaire I have made with this website");
+        $I->selectOption("category", "Other");
+        // Then
+        $I->click(["id" => "create-questionnaire-submit"]); // Form button
+        // And
+        $I->wait(1);
+        // Then
+        $I->see("Edit Questionnaire");
+        // And
+        $I->seeInDatabase("questionnaire", [
+            "title" => "First Questionnaire",
+            "description" => "This is the first questionnaire I have made with this website",
+        ]);
+    }
 }

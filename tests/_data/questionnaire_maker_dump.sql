@@ -98,7 +98,7 @@ CREATE TABLE `oauth_access_tokens` (
 
 LOCK TABLES `oauth_access_tokens` WRITE;
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
-INSERT INTO `oauth_access_tokens` VALUES ('0f5830eda108f6bfe4bd6982fcd6cc79d853827d2b0ced235a22a493b81959f87fd2dc2c766ed814',1,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:01:29','2019-03-16 16:01:29','2020-03-16 16:01:29'),('1f998fe8efdfcaf8c60aeb337001878b18cb66a2251735ad96dccfc300a5071357ad0e29a78f6ac9',3,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:45:55','2019-03-16 16:45:55','2020-03-16 16:45:55'),('9f1e8245432ea2a17d06958ede67d7e5d3ec11011a4d2a3b10472091250503433299cb4db4406de8',4,1,'QuestionnaireMaker','[]',0,'2019-03-16 17:03:52','2019-03-16 17:03:52','2020-03-16 17:03:52');
+INSERT INTO `oauth_access_tokens` VALUES ('0f5830eda108f6bfe4bd6982fcd6cc79d853827d2b0ced235a22a493b81959f87fd2dc2c766ed814',1,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:01:29','2019-03-16 16:01:29','2020-03-16 16:01:29'),('1f998fe8efdfcaf8c60aeb337001878b18cb66a2251735ad96dccfc300a5071357ad0e29a78f6ac9',3,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:45:55','2019-03-16 16:45:55','2020-03-16 16:45:55'),('9f1e8245432ea2a17d06958ede67d7e5d3ec11011a4d2a3b10472091250503433299cb4db4406de8',4,1,'QuestionnaireMaker','[]',0,'2019-03-16 17:03:52','2019-03-16 17:03:52','2020-03-16 17:03:52'),('eabf312b6da0a6d7bea49008edcf63afcea92741909c1925bab69c4855dff6069e5757a7f134448d',5,1,'QuestionnaireMaker','[]',0,'2019-03-16 17:31:12','2019-03-16 17:31:12','2020-03-16 17:31:12'),('ff85028000d1cc63d4b0a3e08c4273190b0cf800fcd3f33bcdb9e9472ef5c41cf3bb2befa06d604c',1,1,'QuestionnaireMaker','[]',0,'2019-03-16 17:36:06','2019-03-16 17:36:06','2020-03-16 17:36:06');
 /*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -458,7 +458,7 @@ CREATE TABLE `questionnaire` (
   KEY `questionnaire_user_id_foreign` (`user_id`),
   CONSTRAINT `questionnaire_questionnaire_category_id_foreign` FOREIGN KEY (`questionnaire_category_id`) REFERENCES `questionnaire_category` (`id`),
   CONSTRAINT `questionnaire_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -467,6 +467,7 @@ CREATE TABLE `questionnaire` (
 
 LOCK TABLES `questionnaire` WRITE;
 /*!40000 ALTER TABLE `questionnaire` DISABLE KEYS */;
+INSERT INTO `questionnaire` VALUES (1,'Test Questionnaire','Used by codeception tests.',0,0,0,0,0,NULL,'2019-03-16 17:36:30','2019-03-16 17:36:30',13,1),(2,'Second Questionnaire','Second questionnaire created.',0,0,0,0,0,NULL,'2019-03-16 17:37:02','2019-03-16 17:37:02',9,1);
 /*!40000 ALTER TABLE `questionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -538,7 +539,7 @@ CREATE TABLE `user` (
   `date_joined` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -560,4 +561,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-16 17:04:39
+-- Dump completed on 2019-03-16 17:38:43
