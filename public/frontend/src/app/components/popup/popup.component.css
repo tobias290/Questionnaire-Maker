@@ -141,56 +141,32 @@ a.classic {
   padding-top: 15px;
   width: fit-content; }
 
-.top-bar {
-  align-items: center;
-  background: #16D36B;
-  display: flex;
-  height: 70px;
-  justify-content: space-between;
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  position: absolute;
+  top: 0;
   width: 100%; }
-  .top-bar .top-bar-left {
-    align-items: center;
-    color: #FFF;
-    display: flex;
-    font-size: 26px;
-    font-style: italic;
-    font-weight: bold;
-    height: 70px;
-    line-height: 70px;
-    margin-left: 15px;
-    width: fit-content; }
-    .top-bar .top-bar-left .left-arrow {
-      border-radius: 25px;
-      display: inline-block;
-      font-size: 30px;
-      line-height: 45px;
-      margin-right: 20px;
-      text-align: center;
-      transition: background-color .1s linear;
-      width: 45px;
-      position: relative; }
-      .top-bar .top-bar-left .left-arrow:hover .pulse-box {
-        animation: pulse .5s forwards; }
-      .top-bar .top-bar-left .left-arrow .pulse-box {
-        left: 0;
-        margin: auto;
-        right: 0;
-        position: absolute;
-        top: calc(50% - 0.5px);
-        animation: pulse-reverse .1s;
-        border-radius: 50%;
-        height: 1px;
-        width: 1px;
-        position: absolute; }
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 10px rgba(242, 242, 242, 0.3); }
-  100% {
-    box-shadow: 0 0 0 20px rgba(242, 242, 242, 0.3); } }
-@keyframes pulse-reverse {
-  0% {
-    box-shadow: 0 0 0 20px rgba(242, 242, 242, 0.3); }
-  100% {
-    box-shadow: 0 0 0 10px rgba(242, 242, 242, 0.3); } }
 
-/*# sourceMappingURL=top-bar.component.css.map */
+.close-btn {
+  color: #D9534F;
+  cursor: pointer;
+  font-size: 40px;
+  position: absolute;
+  right: -32px;
+  top: -42px; }
+  .close-btn:hover {
+    color: #C34A47; }
+
+.popup {
+  left: 0;
+  margin: auto;
+  right: 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16);
+  bottom: 0;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  width: fit-content; }
+
+/*# sourceMappingURL=popup.component.css.map */

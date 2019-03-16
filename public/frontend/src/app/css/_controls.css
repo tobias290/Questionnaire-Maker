@@ -1,31 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
-::-webkit-scrollbar {
-  background: #b6b6b6;
-  border-radius: 10px;
-  width: 10px;
-  height: 10px; }
-
-::-webkit-scrollbar-corner {
-  background: #FFF; }
-
-::-webkit-scrollbar-thumb {
-  background: #9F9F9F;
-  border-radius: 10px; }
-
-::-webkit-scrollbar-thumb:hover {
-  background: #888888; }
-
 * {
   font-family: 'Nunito', sans-serif; }
 
 a {
   color: #FFF;
   text-decoration: none; }
-
-a.classic {
-  color: #007FAA !important;
-  cursor: pointer;
-  text-decoration: underline !important; }
 
 .centre-box {
   left: 0;
@@ -43,15 +22,10 @@ a.classic {
   min-height: 40px;
   min-width: 100px;
   outline: none; }
-  .button.large {
-    height: 50px;
-    width: 300px; }
   .button.inverse.green {
     background: none;
     border: 2px solid #16D36B;
     color: #16D36B; }
-    .button.inverse.green > a {
-      color: #16D36B; }
     .button.inverse.green:hover {
       border-color: #13BD60;
       color: #13BD60; }
@@ -59,8 +33,6 @@ a.classic {
     background: none;
     border: 2px solid #E5D200;
     color: #E5D200; }
-    .button.inverse.yellow > a {
-      color: #E5D200; }
     .button.inverse.yellow:hover {
       border-color: #CEBD00;
       color: #CEBD00; }
@@ -75,8 +47,6 @@ a.classic {
     background: none;
     border: 2px solid #D9534F;
     color: #D9534F; }
-    .button.inverse.red > a {
-      color: #D9534F; }
     .button.inverse.red:hover {
       border-color: #C34A47;
       color: #C34A47; }
@@ -93,8 +63,6 @@ a.classic {
   .button.normal.white {
     background: #FFF;
     color: #16D36B; }
-    .button.normal.white > a {
-      color: #16D36B; }
     .button.normal.white:hover {
       background: #F2F2F2; }
   .button.normal.red {
@@ -130,31 +98,29 @@ a.classic {
     height: 5px;
     width: 90px; }
 
-.popup-form-title {
-  left: 0;
-  margin: auto;
-  right: 0;
-  color: #707070;
-  font-size: 30px;
-  font-weight: bold;
-  height: 40px;
-  padding-top: 15px;
-  width: fit-content; }
+.app-input-container {
+  box-sizing: content-box;
+  height: 50px;
+  position: relative;
+  width: 300px; }
+  .app-input-container .app-input-label-icon {
+    background: #16D36B;
+    border-radius: 7px;
+    color: #FFF;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    width: 50px; }
+  .app-input-container .app-input {
+    background: #E4E4E4;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    height: 50px;
+    padding-left: 55px;
+    width: 300px; }
+    .app-input-container .app-input:focus {
+      outline: none; }
 
-#landing-page-center {
-  position: absolute;
-  top: calc(50% - 200px);
-  height: 400px;
-  line-height: 200px;
-  text-align: center;
-  width: calc(100% - 620px); }
-  #landing-page-center > div {
-    color: #707070;
-    font-size: 50px; }
-  #landing-page-center > button {
-    font-size: 25px;
-    height: 60px;
-    width: 300px;
-    margin: 15px; }
-
-/*# sourceMappingURL=landing.component.css.map */
+/*# sourceMappingURL=_controls.css.mapp */

@@ -43,6 +43,9 @@ a.classic {
   min-height: 40px;
   min-width: 100px;
   outline: none; }
+  .button.large {
+    height: 50px;
+    width: 300px; }
   .button.inverse.green {
     background: none;
     border: 2px solid #16D36B;
@@ -126,5 +129,16 @@ a.classic {
     border-radius: 25px;
     height: 5px;
     width: 90px; }
+
+.popup-form-title {
+  left: 0;
+  margin: auto;
+  right: 0;
+  color: #707070;
+  font-size: 30px;
+  font-weight: bold;
+  height: 40px;
+  padding-top: 15px;
+  width: fit-content; }
 
 /*# sourceMappingURL=app.component.css.map */

@@ -141,56 +141,41 @@ a.classic {
   padding-top: 15px;
   width: fit-content; }
 
-.top-bar {
-  align-items: center;
-  background: #16D36B;
-  display: flex;
-  height: 70px;
-  justify-content: space-between;
-  width: 100%; }
-  .top-bar .top-bar-left {
-    align-items: center;
-    color: #FFF;
-    display: flex;
-    font-size: 26px;
-    font-style: italic;
-    font-weight: bold;
-    height: 70px;
-    line-height: 70px;
-    margin-left: 15px;
-    width: fit-content; }
-    .top-bar .top-bar-left .left-arrow {
-      border-radius: 25px;
-      display: inline-block;
-      font-size: 30px;
-      line-height: 45px;
-      margin-right: 20px;
-      text-align: center;
-      transition: background-color .1s linear;
-      width: 45px;
-      position: relative; }
-      .top-bar .top-bar-left .left-arrow:hover .pulse-box {
-        animation: pulse .5s forwards; }
-      .top-bar .top-bar-left .left-arrow .pulse-box {
-        left: 0;
-        margin: auto;
-        right: 0;
-        position: absolute;
-        top: calc(50% - 0.5px);
-        animation: pulse-reverse .1s;
-        border-radius: 50%;
-        height: 1px;
-        width: 1px;
-        position: absolute; }
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 10px rgba(242, 242, 242, 0.3); }
-  100% {
-    box-shadow: 0 0 0 20px rgba(242, 242, 242, 0.3); } }
-@keyframes pulse-reverse {
-  0% {
-    box-shadow: 0 0 0 20px rgba(242, 242, 242, 0.3); }
-  100% {
-    box-shadow: 0 0 0 10px rgba(242, 242, 242, 0.3); } }
+.switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px; }
+  .switch input {
+    height: 0;
+    opacity: 0;
+    width: 0; }
+  .switch input:checked + .slider {
+    background-color: #16D36B; }
+  .switch input:focus + .slider {
+    box-shadow: 0 0 1px #16D36B; }
+  .switch input:checked + .slider:before {
+    transform: translateX(26px); }
 
-/*# sourceMappingURL=top-bar.component.css.map */
+.slider {
+  background-color: #CCC;
+  border-radius: 34px;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s; }
+  .slider:before {
+    background-color: white;
+    border-radius: 50%;
+    content: "";
+    bottom: 4px;
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px; }
+
+/*# sourceMappingURL=toggle-switch.component.css.map */
