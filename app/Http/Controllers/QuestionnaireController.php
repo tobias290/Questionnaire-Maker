@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Questionnaire;
 use App\Models\QuestionnaireCategory;
 use App\Models\User;
 use Illuminate\Http\Request;

@@ -20,7 +20,7 @@ class Questionnaire extends Model {
      * Get the user that owns the questionnaire.
      */
     public function user() {
-        return $this->belongsTo("App\Models\Questionnaire");
+        return $this->belongsTo("App\Models\User");
     }
 
     public function category() {
