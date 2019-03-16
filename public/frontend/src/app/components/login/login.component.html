@@ -19,7 +19,13 @@
             <div class="app-input-label-icon {{ input('email').invalid && login.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.email"></fa-icon>
             </div>
-            <input class="app-input" name="email" formControlName="email" type="text" placeholder="Email">
+            <input 
+                class="app-input {{ input('email').invalid && login.submitted ? 'error' : ''}}" 
+                name="email"
+                formControlName="email" 
+                type="text"
+                placeholder="Email"
+            >
         </div>
 
         <div class="app-input-error" *ngIf="input('email').invalid && login.submitted">
@@ -32,7 +38,13 @@
             <div class="app-input-label-icon {{ input('password').invalid && login.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.password"></fa-icon>
             </div>
-            <input class="app-input" name="password" formControlName="password" type="password" placeholder="Password">
+            <input 
+                class="app-input {{ input('password').invalid && login.submitted ? 'error' : ''}}" 
+                name="password" 
+                formControlName="password"
+                type="password"
+                placeholder="Password"
+            >
         </div>
 
         <div class="app-input-error" *ngIf="input('password').invalid && login.submitted">
@@ -41,7 +53,7 @@
             </ul>
         </div>
         
-        <input id="login-submit" class="button normal green" type="submit" value="Log In">
+        <input class="button normal green large" type="submit" value="Log In">
     </form>
     
     <a id="forgotten-password" class="classic">Forgotten Password?</a>

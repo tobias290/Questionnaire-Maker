@@ -19,13 +19,18 @@ export class DashboardComponent implements OnInit {
         downCaret: faCaretDown,
     };
     
-    loading = true;
+    loading: boolean = true;
     
     user: User;
+    
+    showCreateQuestionnairePopup: boolean = false;
     
     public constructor(private apiService: ApiService, private router: Router) {
     }
 
+    /**
+     * Called when components loads.
+     */
     public ngOnInit() {
         if (!sessionStorage.getItem("token")) {
             this.router.navigateByUrl("/login");
@@ -33,7 +38,7 @@ export class DashboardComponent implements OnInit {
         }
         
         this.apiService
-            .get(URLS.USER.details, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .get(URLS.GET.USER.details, ApiService.createTokenHeader(sessionStorage.getItem("token")))
             .subscribe(res => {
                 this.user = new User(res);
                 
@@ -46,7 +51,7 @@ export class DashboardComponent implements OnInit {
      */
     public signOut() {
         this.apiService
-            .get(URLS.USER.signOut, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .get(URLS.GET.USER.signOut, ApiService.createTokenHeader(sessionStorage.getItem("token")))
             .subscribe(res => {
                 if (res["success"]) {
                     sessionStorage.removeItem("token");
@@ -55,8 +60,10 @@ export class DashboardComponent implements OnInit {
             });
     }
     
-    public createQuestionnaire() {
+    public questionnaireCreated() {
+        this.showCreateQuestionnairePopup = false;
         
+        this.router.navigateByUrl("edit-questionnaire");
     }
 }
 

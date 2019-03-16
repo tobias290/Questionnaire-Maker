@@ -1,6 +1,7 @@
 @import "main";
 
 .app-input-container {
+    border-radius: 7px;
     height: 50px;
     margin: 30px 0 30px 0;
     position: relative;
@@ -20,10 +21,15 @@
         line-height: 50px;
         padding-top: 3px;
         position: absolute;
+        text-align: center;
         width: 50px;
         
         &.error {
             background: $red;
+        }
+        
+        &.disabled {
+            background: $text-light;
         }
     }
     
@@ -36,9 +42,26 @@
         height: 50px;
         padding-left: 55px;
         width: 300px;
+
+        &[type=date]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            display: none;
+        }
+
+        &[type=date]::-webkit-calendar-picker-indicator {
+            color: $green;
+        }
         
         &:focus {
             outline: none;
+        }
+        
+        &:disabled {
+            color: $text-dark !important;
+        }
+        
+        &.error {
+            border: 1px solid $red;
         }
     }
 }
@@ -51,5 +74,19 @@
     
     &:last-of-type {
         margin-bottom: 0;
+    }
+}
+
+.app-textarea {
+    background: $white-hover;
+    border-radius: 7px;
+    border: none;
+    font-size: 16px;
+    height: 200px;
+    padding: 10px;
+    width: 630px;
+    
+    &:focus {
+        outline: none;
     }
 }

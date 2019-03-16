@@ -53,6 +53,11 @@ a.classic {
     min-height: 40px;
     min-width: 100px;
     outline: none;
+    
+    &.large {
+        height: 50px;
+        width: 300px;
+    }
 
     &.inverse {
         &.green {
@@ -185,4 +190,15 @@ a.classic {
         height: 5px;
         width: 90px;
     }
+}
+
+.popup-form-title {
+    @include center;
+    
+    color: $text-dark;
+    font-size: 30px;
+    font-weight: bold;
+    height: 40px;
+    padding-top: 15px;
+    width: fit-content;
 }

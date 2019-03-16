@@ -1,0 +1,41 @@
+<div class="create-questionnaire-form">
+    <div class="popup-form-title">Create Questionnaire</div>
+    <form [formGroup]="createQuestionnaireForm" (ngSubmit)="submit()" #createQuestionnaire="ngForm">
+        <div>
+            <div class="app-input-container">
+                <div class="app-input-label-icon {{ formTitle.invalid && createQuestionnaire.submitted ? 'error' : ''}}">
+                    <fa-icon [icon]="icons.title"></fa-icon>
+                </div>
+                <input class="app-input {{ formTitle.invalid && createQuestionnaire.submitted ? 'error' : ''}}" name="title" formControlName="title" placeholder="Title" autocomplete="on">
+            </div>
+
+            <div class="app-input-container">
+                <div class="app-input-label-icon {{ formCategory.invalid && createQuestionnaire.submitted ? 'error' : ''}}">
+                    <fa-icon [icon]="icons.category"></fa-icon>
+                </div>
+                <select class="app-input {{ formCategory.invalid && createQuestionnaire.submitted ? 'error' : ''}}" name="category" formControlName="category">
+                    <option disabled>Category</option>
+                    <option *ngFor="let category of questionnaireCategories" [value]="category.id">{{ category.name }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <div class="can-expire">
+                <span>Can Expire: </span><app-toggle-switch [state]="true" (onChange)="toggleExpiry($event)"></app-toggle-switch>
+            </div>
+            <div class="app-input-container">
+                <div class="app-input-label-icon {{ formExpiryDate.invalid && createQuestionnaire.submitted ? 'error' : ''}} {{ !this.showExpiryInput ? 'disabled' : '' }}">
+                    <fa-icon [icon]="icons.expiry"></fa-icon>
+                </div>
+                <input class="app-input" name="expiry" formControlName="expiry" type="date">
+            </div>
+        </div>
+        
+        <div>
+            <textarea class="app-textarea" name="description" formControlName="description" placeholder="Description" autocomplete="on"></textarea>
+        </div>
+
+        <input id="create-questionnaire-submit" class="button normal green large" type="submit" value="Create Questionnaire">
+    </form>
+</div>

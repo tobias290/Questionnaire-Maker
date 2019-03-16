@@ -285,6 +285,7 @@ a.classic {
   width: fit-content; }
 
 .app-input-container {
+  border-radius: 7px;
   height: 50px;
   margin: 30px 0 30px 0;
   position: relative;
@@ -305,6 +306,8 @@ a.classic {
     width: 50px; }
     .app-input-container .app-input-label-icon.error {
       background: #D9534F; }
+    .app-input-container .app-input-label-icon.disabled {
+      background: #8D8D8D; }
   .app-input-container .app-input {
     background: #E4E4E4;
     border: none;
@@ -314,8 +317,17 @@ a.classic {
     height: 50px;
     padding-left: 55px;
     width: 300px; }
+    .app-input-container .app-input[type=date]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      display: none; }
+    .app-input-container .app-input[type=date]::-webkit-calendar-picker-indicator {
+      color: #16D36B; }
     .app-input-container .app-input:focus {
       outline: none; }
+    .app-input-container .app-input:disabled {
+      color: #707070 !important; }
+    .app-input-container .app-input.error {
+      border: 1px solid #D9534F; }
 
 .app-input-error {
   color: #D9534F;

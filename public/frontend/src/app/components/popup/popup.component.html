@@ -1,0 +1,8 @@
+<div *ngIf="show" class="overlay"></div>
+
+<div *ngIf="show" class="popup">
+    <div class="close-btn" (click)="closeClick()">
+        <fa-icon [icon]="closeIcon"></fa-icon>
+    </div>
+    <ng-content></ng-content>
+</div>

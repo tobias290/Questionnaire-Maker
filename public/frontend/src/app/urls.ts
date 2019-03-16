@@ -4,13 +4,24 @@ const USER = `${ADDRESS}/user`;
 const QUESTIONNAIRE = `${ADDRESS}/questionnaire`;
 
 export const URLS = {
-    USER: {
-        signUp: `${USER}/sign-up`,
-        login: `${USER}/login`,
-        signOut: `${USER}/sign-out`,
-        details: `${USER}/details`,
+    GET: {
+        USER: {
+            details: `${USER}/details`,
+            signOut: `${USER}/sign-out`,
+        },
+        QUESTIONNAIRE: {
+            categories: `${QUESTIONNAIRE}/categories`,
+        },
     },
-    QUESTIONNAIRE: {
-        create: `${QUESTIONNAIRE}/create`,
-    }
+    POST: {
+        USER: {
+            signUp: `${USER}/sign-up`,
+            login: `${USER}/login`,
+        },
+        QUESTIONNAIRE: {
+            create: `${QUESTIONNAIRE}/create`,
+        },
+    },
+    PUT: {},
+    DELETE: {}
 };

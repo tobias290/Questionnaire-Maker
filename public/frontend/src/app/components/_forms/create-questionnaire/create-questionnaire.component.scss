@@ -1,0 +1,53 @@
+@import "../../../css/main";
+@import "../../../css/controls";
+
+.create-questionnaire-form {
+    background: $white;
+    height: 520px;
+    width: 700px;
+
+    form {
+        margin-top: 30px;
+        width: 100%;
+
+        & > div {
+            @include center(15px auto 15px auto);
+            
+            width: fit-content;
+
+            & > div {
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                width: 300px;
+                margin: 0 15px 0 15px;
+            }
+
+            .can-expire {
+                position: relative;
+
+                & > span {
+                    color: $text-dark;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                & > *:last-child {
+                    @include vertical-center(34px);
+
+                    right: 0;
+                }
+            }
+        }
+
+        textarea {
+            resize: none;
+            width: 610px !important;
+        }
+
+        input[type="submit"] {
+            float: right;
+            margin-right: 35px;
+        }
+    }
+}

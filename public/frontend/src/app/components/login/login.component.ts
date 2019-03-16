@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {faAt, faLock} from "@fortawesome/free-solid-svg-icons";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../api.service";
@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
     styleUrls: ["./login.component.css"],
     providers: [ApiService]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
     title = "Questionnaire Maker";
 
     icons = {
@@ -32,6 +32,11 @@ export class LoginComponent {
     public constructor(private apiService: ApiService, private router: Router) {
     }
 
+    public ngOnInit() {
+        // Automatically take the user to their dashboard if they are already logged in
+        if (sessionStorage.getItem("token"))
+            this.router.navigateByUrl("dashboard");
+    }
 
     /**
      * Returns a form control from the form group.
@@ -61,7 +66,7 @@ export class LoginComponent {
             password: this.loginForm.value.password,
         };
         
-        this.apiService.post(URLS.USER.login, data).subscribe(success => {
+        this.apiService.post(URLS.POST.USER.login, data).subscribe(success => {
             this.success(success);
         }, (err) => {
             this.error(err)
@@ -88,7 +93,8 @@ export class LoginComponent {
      */
     private error(error) {
         this.isServerError = true;
-        this.serverErrorMessage = error.error.message;
+        
+        this.serverErrorMessage = error.error === undefined ? "Cannot connect to server" : error.error.message;
     }
 }
 

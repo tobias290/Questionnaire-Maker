@@ -3,8 +3,8 @@
 <app-top-bar *ngIf="!loading" [title]="title" [hasBackButton]="false">
     <div class="top-bar-right" style="color: white;">
         <button class="button inverse white" (click)="signOut()">Sign Out</button>
-        <button class="button inverse white" (click)="createQuestionnaire()">Create Questionnaire</button>
-        <span style="cursor: pointer;">
+        <button class="button inverse white" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
+        <span style="cursor: pointer; margin-left: 15px;">
             {{ user.email }} &nbsp;
             <fa-icon [icon]="icons.downCaret"></fa-icon>
         </span>
@@ -15,9 +15,13 @@
     <div id="sort-filter">
         <div style="color: #C34A47; font-weight: bold;">To be implemented later</div>
     </div>
-    <button class="button normal green" (click)="createQuestionnaire()">Create Questionnaire</button>
+    <button class="button normal green" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
 </aside>
 
 <div *ngIf="!loading" id="dashboard-page-center">
  
 </div>
+
+<app-popup [show]="showCreateQuestionnairePopup" (close)="showCreateQuestionnairePopup = false;">
+   <app-create-questionnaire-form (onCreate)="questionnaireCreated()"></app-create-questionnaire-form>
+</app-popup>
