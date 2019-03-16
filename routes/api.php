@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,6 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
 
 Route::prefix("user")->group(function (){
     Route::post("sign-up", "UserController@signUp");
@@ -26,6 +26,8 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
     });
 
     Route::prefix("questionnaire")->group(function () {
-       Route::post("create", "QuestionnaireController@create");
+        Route::get("categories", "QuestionnaireController@categories");
+
+        Route::post("create", "QuestionnaireController@create");
     });
 });
