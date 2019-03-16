@@ -2,7 +2,7 @@
 
 class CreateQuestionnaireCest {
     public function _before(\Step\Acceptance\QuestionnaireMaker $I) {
-        $I->login();
+        $I->signUp();
         $I->amOnFrontEndPage("/dashboard");
     }
 

@@ -98,7 +98,7 @@ CREATE TABLE `oauth_access_tokens` (
 
 LOCK TABLES `oauth_access_tokens` WRITE;
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
-INSERT INTO `oauth_access_tokens` VALUES ('0f5830eda108f6bfe4bd6982fcd6cc79d853827d2b0ced235a22a493b81959f87fd2dc2c766ed814',1,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:01:29','2019-03-16 16:01:29','2020-03-16 16:01:29'),('1f998fe8efdfcaf8c60aeb337001878b18cb66a2251735ad96dccfc300a5071357ad0e29a78f6ac9',3,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:45:55','2019-03-16 16:45:55','2020-03-16 16:45:55');
+INSERT INTO `oauth_access_tokens` VALUES ('0f5830eda108f6bfe4bd6982fcd6cc79d853827d2b0ced235a22a493b81959f87fd2dc2c766ed814',1,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:01:29','2019-03-16 16:01:29','2020-03-16 16:01:29'),('1f998fe8efdfcaf8c60aeb337001878b18cb66a2251735ad96dccfc300a5071357ad0e29a78f6ac9',3,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:45:55','2019-03-16 16:45:55','2020-03-16 16:45:55'),('9f1e8245432ea2a17d06958ede67d7e5d3ec11011a4d2a3b10472091250503433299cb4db4406de8',4,1,'QuestionnaireMaker','[]',0,'2019-03-16 17:03:52','2019-03-16 17:03:52','2020-03-16 17:03:52');
 /*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -538,7 +538,7 @@ CREATE TABLE `user` (
   `date_joined` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -560,4 +560,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-16 16:51:35
+-- Dump completed on 2019-03-16 17:04:39
