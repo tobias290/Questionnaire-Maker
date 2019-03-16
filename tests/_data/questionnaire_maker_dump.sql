@@ -36,7 +36,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_100000_create_password_resets_table',1),(2,'2019_03_06_150100_create_user_table',1),(3,'2019_03_06_174013_settings',1),(4,'2019_03_06_174720_questionnaire_category',1),(5,'2019_03_06_174908_questionnaire',1),(6,'2019_03_06_175508_question_scaled',1),(7,'2019_03_06_183106_question_scaled_response',1),(8,'2019_03_06_183334_question_closed',1),(9,'2019_03_06_183515_question_closed_option',1),(10,'2019_03_06_183701_question_closed_response',1),(11,'2019_03_06_183842_question_open',1),(12,'2019_03_06_183958_question_open_response',1),(13,'2019_03_06_184256_create_notification_table',1),(14,'2016_06_01_000001_create_oauth_auth_codes_table',2),(15,'2016_06_01_000002_create_oauth_access_tokens_table',2),(16,'2016_06_01_000003_create_oauth_refresh_tokens_table',2),(17,'2016_06_01_000004_create_oauth_clients_table',2),(18,'2016_06_01_000005_create_oauth_personal_access_clients_table',2);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_100000_create_password_resets_table',1),(2,'2016_06_01_000001_create_oauth_auth_codes_table',1),(3,'2016_06_01_000002_create_oauth_access_tokens_table',1),(4,'2016_06_01_000003_create_oauth_refresh_tokens_table',1),(5,'2016_06_01_000004_create_oauth_clients_table',1),(6,'2016_06_01_000005_create_oauth_personal_access_clients_table',1),(7,'2019_03_06_150100_create_user_table',1),(8,'2019_03_06_174013_settings',1),(9,'2019_03_06_174720_questionnaire_category',1),(10,'2019_03_06_174908_questionnaire',1),(11,'2019_03_06_175508_question_scaled',1),(12,'2019_03_06_183106_question_scaled_response',1),(13,'2019_03_06_183334_question_closed',1),(14,'2019_03_06_183515_question_closed_option',1),(15,'2019_03_06_183701_question_closed_response',1),(16,'2019_03_06_183842_question_open',1),(17,'2019_03_06_183958_question_open_response',1),(18,'2019_03_06_184256_create_notification_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +98,7 @@ CREATE TABLE `oauth_access_tokens` (
 
 LOCK TABLES `oauth_access_tokens` WRITE;
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
-INSERT INTO `oauth_access_tokens` VALUES ('10fcb3f5efc2fa846b6179d944c3746db1900720534beaacd2e45bee44710546b697256a7d456413',8,1,'QuestionnaireMaker','[]',0,'2019-03-15 14:57:08','2019-03-15 14:57:08','2020-03-15 14:57:08'),('6ce92fb142f8a4171b57433750fe6f8cb764b77af2471793359d671503803032040bccd185e42dc5',7,1,'QuestionnaireMaker','[]',0,'2019-03-13 23:58:07','2019-03-13 23:58:07','2020-03-13 23:58:07'),('e2df5db2624331e3da939358f46134f917bcb966cfed26585b68176fa93d13dc09d2fd9c7c150f8e',2,1,'QuestionnaireMaker','[]',0,'2019-03-13 23:54:22','2019-03-13 23:54:22','2020-03-13 23:54:22');
+INSERT INTO `oauth_access_tokens` VALUES ('0f5830eda108f6bfe4bd6982fcd6cc79d853827d2b0ced235a22a493b81959f87fd2dc2c766ed814',1,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:01:29','2019-03-16 16:01:29','2020-03-16 16:01:29'),('1f998fe8efdfcaf8c60aeb337001878b18cb66a2251735ad96dccfc300a5071357ad0e29a78f6ac9',3,1,'QuestionnaireMaker','[]',0,'2019-03-16 16:45:55','2019-03-16 16:45:55','2020-03-16 16:45:55');
 /*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +158,7 @@ CREATE TABLE `oauth_clients` (
 
 LOCK TABLES `oauth_clients` WRITE;
 /*!40000 ALTER TABLE `oauth_clients` DISABLE KEYS */;
-INSERT INTO `oauth_clients` VALUES (1,NULL,'Laravel Personal Access Client','Bz4O6ieaZqMh5z95jOYgHDqxNxWONc4FbniLzDfm','http://localhost',1,0,0,'2019-03-11 13:05:20','2019-03-11 13:05:20'),(2,NULL,'Laravel Password Grant Client','fUJnNU0oypzvcp9Owa4GkJZWbf3O4HVRplO5JXj0','http://localhost',0,1,0,'2019-03-11 13:05:20','2019-03-11 13:05:20');
+INSERT INTO `oauth_clients` VALUES (1,NULL,'Laravel Personal Access Client','QzXohq51Tuo1Qg6A6vkJWVyXw2Ox4n09ACJZDHHe','http://localhost',1,0,0,'2019-03-16 16:01:06','2019-03-16 16:01:06'),(2,NULL,'Laravel Password Grant Client','EvAyoZVH6C5NxvCGHqYjzVzPh65Kr8TJlnA8cTcZ','http://localhost',0,1,0,'2019-03-16 16:01:06','2019-03-16 16:01:06');
 /*!40000 ALTER TABLE `oauth_clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +185,7 @@ CREATE TABLE `oauth_personal_access_clients` (
 
 LOCK TABLES `oauth_personal_access_clients` WRITE;
 /*!40000 ALTER TABLE `oauth_personal_access_clients` DISABLE KEYS */;
-INSERT INTO `oauth_personal_access_clients` VALUES (1,1,'2019-03-11 13:05:20','2019-03-11 13:05:20');
+INSERT INTO `oauth_personal_access_clients` VALUES (1,1,'2019-03-16 16:01:06','2019-03-16 16:01:06');
 /*!40000 ALTER TABLE `oauth_personal_access_clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -441,12 +441,13 @@ DROP TABLE IF EXISTS `questionnaire`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `questionnaire` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_public` tinyint(1) NOT NULL DEFAULT '0',
   `is_complete` tinyint(1) NOT NULL DEFAULT '0',
   `is_reported` tinyint(1) NOT NULL DEFAULT '0',
   `is_locked` tinyint(1) NOT NULL DEFAULT '0',
+  `responses` int(11) NOT NULL DEFAULT '0',
   `expiry_date` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -480,7 +481,7 @@ CREATE TABLE `questionnaire_category` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -489,6 +490,7 @@ CREATE TABLE `questionnaire_category` (
 
 LOCK TABLES `questionnaire_category` WRITE;
 /*!40000 ALTER TABLE `questionnaire_category` DISABLE KEYS */;
+INSERT INTO `questionnaire_category` VALUES (1,'Business'),(2,'Community'),(3,'Customer Feedback'),(4,'Customer Satisfaction'),(5,'Education'),(6,'Events'),(7,'Healthcare'),(8,'Human Resources'),(9,'Just For Fun'),(10,'Marketing'),(11,'Non Profit'),(12,'Political'),(13,'Other');
 /*!40000 ALTER TABLE `questionnaire_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -536,7 +538,7 @@ CREATE TABLE `user` (
   `date_joined` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -545,7 +547,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (8,'Tobias','Essex','tobiascompany@gmail.com',NULL,'$2y$10$V25HzmI8afVZpIXneieiEOL3qGQ2Nzv3EzLcW/pwZHsi9T8TH38R6',NULL,'2019-03-15');
+INSERT INTO `user` VALUES (1,'Tobias','Essex','tobiascompany@gmail.com',NULL,'$2y$10$9erJQk3UuOAAErSWMwXU4Okn4Hw1A1nsS/KtW4HNNKgKJeOQ19Nc6',NULL,'2019-03-16');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -558,4 +560,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-15 20:46:39
+-- Dump completed on 2019-03-16 16:51:35

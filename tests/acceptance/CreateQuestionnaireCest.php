@@ -17,14 +17,14 @@ class CreateQuestionnaireCest {
         $I->fillField("description", "This is the first questionnaire I have made with this website");
         $I->selectOption("category", "Other");
         // Then
-        $I->click("Create Questionnaire", "submit"); // Form button
+        $I->click(["id" => "create-questionnaire-submit"]); // Form button
         // And
         $I->wait(1);
         // Then
         $I->see("Edit Questionnaire");
         // And
         $I->seeInDatabase("questionnaire", [
-            "name" => "First Questionnaire",
+            "title" => "First Questionnaire",
             "description" => "This is the first questionnaire I have made with this website",
         ]);
     }
@@ -39,14 +39,12 @@ class CreateQuestionnaireCest {
         $I->fillField("description", "This is the first questionnaire I have made with this website");
         $I->selectOption("category", "Other");
         // Then
-        $I->click("Create Questionnaire", "submit"); // Form Button
-        // Then
-        $I->see("Title is required");
+        $I->click(["id" => "create-questionnaire-submit"]); // Form Button
         // And
         $I->dontSee("Edit Questionnaire");
         // And
         $I->dontSeeInDatabase("questionnaire", [
-            "name" => "First Questionnaire",
+            "title" => "First Questionnaire",
             "description" => "This is the first questionnaire I have made with this website",
         ]);
     }
@@ -61,14 +59,12 @@ class CreateQuestionnaireCest {
         $I->fillField("title", "First Questionnaire");
         $I->fillField("description", "This is the first questionnaire I have made with this website");
         // Then
-        $I->click("Create Questionnaire", "submit"); // Form Button
-        // Then
-        $I->see("Questionnaire Category is required");
+        $I->click(["id" => "create-questionnaire-submit"]); // Form Button
         // And
         $I->dontSee("Edit Questionnaire");
         // And
         $I->dontSeeInDatabase("questionnaire", [
-            "name" => "First Questionnaire",
+            "title" => "First Questionnaire",
             "description" => "This is the first questionnaire I have made with this website",
         ]);
     }

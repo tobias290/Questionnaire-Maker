@@ -24,7 +24,7 @@ class CreateQuestionnaireCest {
         // And
         $I->seeResponseIsJson();
         // And
-        $I->seeResponseJsonMatchesJsonPath('$.success.questionnaire_id');
+        $I->seeResponseJsonMatchesJsonPath("$.success.questionnaire_id");
     }
 
     public function createQuestionnaireWithNoTitle(ApiTester $I) {
