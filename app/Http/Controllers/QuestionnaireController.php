@@ -53,7 +53,9 @@ class QuestionnaireController extends Controller {
         /** @var Questionnaire $questionnaire */
         $questionnaire = Questionnaire::find($request->input("id"));
 
-        if (Auth::id() != $questionnaire->id) {
+        // Check to see whether the current authenticated user owns the questionnaire
+        // Only if they own it can they delete it
+        if (Auth::id() != $questionnaire->user->id) {
             return response()->json(["error" => [
                 "message" => "You do not own that questionnaire",
             ]], 401);
