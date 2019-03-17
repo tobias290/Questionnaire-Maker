@@ -25,7 +25,7 @@ class DeleteQuestionnaireCest {
         // Then
         $I->moveMouseOver( ".questionnaire-list-item");
         // And
-        $I->click(["id" => "delete-questionnaire"]);
+        $I->click(["class" => "delete-questionnaire"]);
         // And
         $I->wait(1);
         // And
