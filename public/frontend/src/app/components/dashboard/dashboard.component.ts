@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {URLS} from "../../urls";
 import {User} from "../../models/user";
 import {faCaretDown} from "@fortawesome/free-solid-svg-icons";
+import {Questionnaire} from "../../models/questionnaire";
 
 
 @Component({
@@ -15,15 +16,19 @@ import {faCaretDown} from "@fortawesome/free-solid-svg-icons";
 export class DashboardComponent implements OnInit {
     title = "Dashboard";
 
+    userLoading: boolean = true;
+    questionnairesLoading: boolean = true;
+
+    showCreateQuestionnairePopup: boolean = false;
+    
     icons = {
         downCaret: faCaretDown,
     };
     
-    loading: boolean = true;
-    
-    user: User;
-    
-    showCreateQuestionnairePopup: boolean = false;
+    data = {
+        user: null,
+        questionnaires: null,
+    };
     
     public constructor(private apiService: ApiService, private router: Router) {
     }
@@ -40,9 +45,42 @@ export class DashboardComponent implements OnInit {
         this.apiService
             .get(URLS.GET.USER.details, ApiService.createTokenHeader(sessionStorage.getItem("token")))
             .subscribe(res => {
-                this.user = new User(res);
-                
-                this.loading = false;
+                this.data.user = new User(res);
+
+                this.userLoading = false;
+            });
+
+        this.apiService
+            .get(URLS.GET.QUESTIONNAIRE.all, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .subscribe(res => {
+                this.data.questionnaires = [];
+
+                // @ts-ignore
+                for (let questionnaire of res) {
+                    this.data.questionnaires.push(new Questionnaire(questionnaire));
+                }
+
+                this.questionnairesLoading = false;
+            });
+    }
+
+    /**
+     * Reloads the questionnaire list as the data may have changed.
+     */
+    public reload() {
+        this.questionnairesLoading = true;
+        
+        this.apiService
+            .get(URLS.GET.QUESTIONNAIRE.all, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .subscribe(res => {
+                this.data.questionnaires = [];
+
+                // @ts-ignore
+                for (let questionnaire of res) {
+                    this.data.questionnaires.push(new Questionnaire(questionnaire));
+                }
+
+                this.questionnairesLoading = false;
             });
     }
 

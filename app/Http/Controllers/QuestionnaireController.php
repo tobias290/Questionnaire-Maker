@@ -67,4 +67,13 @@ class QuestionnaireController extends Controller {
             "message" => "Questionnaire deleted",
         ]], 200);
     }
+
+    /**
+     * Returns all the questionnaires owned by the current authenticated user.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function all() {
+        return response()->json(Auth::user()->questionnaires, 200);
+    }
 }

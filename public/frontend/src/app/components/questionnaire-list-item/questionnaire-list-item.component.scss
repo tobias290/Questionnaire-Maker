@@ -1,0 +1,81 @@
+@import "../../css/main";
+
+.questionnaire-list-item {
+    background: $white;
+    box-shadow: 0 5px 5px $shadow-color;
+    color: $text-dark;
+    display: flex;
+    height: 150px;
+    margin: 30px 0 30px 0;
+    width: 900px;
+    
+    .left {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        justify-content: space-evenly;
+        max-width: 400px;
+        padding: 10px;
+        width: fit-content;
+        
+        .title {
+            color: black;
+            font-size: 30px;
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    
+    .responses {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 50px;
+        width: 100%;
+        
+        & > div {
+            align-items: center;
+            display: flex;
+            font-size: 25px;
+            font-weight: bold;
+            
+            & > span {
+                color: $green;
+                font-size: 40px;
+            }
+        }
+    }
+    
+    .options {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 15px;
+        width: 100%;
+        
+        & > div {
+            font-size: 30px;
+            height: 40px;
+            margin: 0 5px 0 5px;
+            text-align: center;
+            width: 60px;
+            position: relative;
+            
+            & > span {
+                display: block;
+                font-size: 12px;
+            }
+            
+            &:hover {
+                cursor: pointer;
+                color: $green;
+                
+                & > span {
+                    color: $green;
+                }
+            }
+        }
+    }
+}

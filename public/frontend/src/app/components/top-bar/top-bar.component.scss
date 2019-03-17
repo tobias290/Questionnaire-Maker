@@ -24,6 +24,7 @@
         
         .left-arrow {
             border-radius: 25px;
+            cursor: pointer;
             display: inline-block;
             font-size: 30px;
             line-height: 45px;
@@ -34,7 +35,7 @@
             position: relative;
 
             &:hover .pulse-box {
-                animation: pulse .5s forwards;
+                animation: pulse .3s forwards;
             }
             
             .pulse-box {

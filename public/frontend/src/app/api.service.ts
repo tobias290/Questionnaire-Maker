@@ -39,18 +39,36 @@ export class ApiService {
             })
         };
     }
-    
+
+    /**
+     * Creates a bearer token needed to allow certain requests.
+     * 
+     * @param {string} token - Bearer token.
+     */
     public static createTokenHeader(token) {
         return {"Authorization": `Bearer ${token}`};
     }
-    
+
+    /**
+     * Sends a get request to the given url and returns a response.
+     * 
+     * @param {string} url - URL to send request to.
+     * @param {object} options - Header options.
+     */
     public get(url, options = {}) {
         return this.http.get(url, ApiService.getHeaders(options));
     }
 
-    public post(url, data, options = {}) {
+    /**
+     * Sends a post request to the given url and returns a response.
+     * 
+     * @param {string} url - URL to send request to.
+     * @param body - Body of the request.
+     * @param {object} options - Header options.
+     */
+    public post(url, body, options = {}) {
         return this.http
-            .post(url, data, ApiService.getHeaders(options))
+            .post(url, body, ApiService.getHeaders(options))
             .pipe(catchError(ApiService.handleError));
     }
 
@@ -58,7 +76,15 @@ export class ApiService {
         
     }
 
-    public delete() {
-        
+    /**
+     * Sends a delete request to the given url and returns a response.
+     * 
+     * @param {string} url - URL to send request to.
+     * @param {object} options - Header options.
+     */
+    public delete(url, options = {}) {
+        return this.http
+            .delete(url, ApiService.getHeaders(options))
+            .pipe(catchError(ApiService.handleError));
     }
 }

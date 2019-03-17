@@ -11,6 +11,7 @@ export const URLS = {
         },
         QUESTIONNAIRE: {
             categories: `${QUESTIONNAIRE}/categories`,
+            all: `${QUESTIONNAIRE}/all`
         },
     },
     POST: {
@@ -23,5 +24,9 @@ export const URLS = {
         },
     },
     PUT: {},
-    DELETE: {}
+    DELETE: {
+        QUESTIONNAIRE: {
+            delete: `${QUESTIONNAIRE}/delete`,
+        },
+    }
 };

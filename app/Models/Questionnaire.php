@@ -17,6 +17,17 @@ class Questionnaire extends Model {
     ];
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        "created_at" => "date:d/m/Y",
+        "updated_at" => "date:d/m/Y",
+        "expiry_date" => "date:d/m/Y",
+    ];
+
+    /**
      * Get the user that owns the questionnaire.
      */
     public function user() {

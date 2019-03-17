@@ -1,25 +1,25 @@
-<app-loading *ngIf="loading"></app-loading>
+<app-loading *ngIf="userLoading || questionnairesLoading"></app-loading>
 
-<app-top-bar *ngIf="!loading" [title]="title" [hasBackButton]="false">
+<app-top-bar *ngIf="!userLoading && !questionnairesLoading" [title]="title" [hasBackButton]="false">
     <div class="top-bar-right" style="color: white;">
         <button class="button inverse white" (click)="signOut()">Sign Out</button>
         <button class="button inverse white" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
         <span style="cursor: pointer; margin-left: 15px;">
-            {{ user.email }} &nbsp;
+            {{ data.user.email }} &nbsp;
             <fa-icon [icon]="icons.downCaret"></fa-icon>
         </span>
     </div>
 </app-top-bar>
 
-<aside *ngIf="!loading">
+<aside *ngIf="!userLoading && !questionnairesLoading">
     <div id="sort-filter">
         <div style="color: #C34A47; font-weight: bold;">To be implemented later</div>
     </div>
     <button class="button normal green" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
 </aside>
 
-<div *ngIf="!loading" id="dashboard-page-center">
- 
+<div *ngIf="!userLoading && !questionnairesLoading" id="dashboard-page-center">
+    <app-questionnaire-list-item *ngFor="let q of data.questionnaires" [questionnaire]="q" [canEdit]="true" (reload)="reload()"></app-questionnaire-list-item>
 </div>
 
 <app-popup [show]="showCreateQuestionnairePopup" (close)="showCreateQuestionnairePopup = false;">

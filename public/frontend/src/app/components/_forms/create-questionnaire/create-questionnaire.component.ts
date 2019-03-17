@@ -95,17 +95,16 @@ export class CreateQuestionnaireFormComponent implements OnInit {
             ApiService.createTokenHeader(sessionStorage.getItem("token"))
         ).subscribe(success => {
             this.success(success);
-        }, (err) => {
-            this.error(err)
-        });
+        }, (err) => console.log(err));
     }
-    
+
+    /**
+     * Called when the creation was successfull
+     * 
+     * @param success
+     */
     private success(success) {
         this.onCreate.emit(success.questionnaire_id);
-    }
-    
-    private error(err) {
-        console.log(err);
     }
 }
 
