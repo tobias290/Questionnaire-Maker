@@ -43,6 +43,31 @@ class QuestionnaireController extends Controller {
     }
 
     /**
+     * Edits a questionnaire
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit(Request $request, $id) {
+        $questionnaire = Questionnaire::find($id);
+
+        // Check to see whether the current authenticated user owns the questionnaire
+        // Only if they own it can they delete it
+        if (Auth::id() != $questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire",
+            ]], 401);
+        }
+
+        $questionnaire->fill($request->all());
+
+        return response()->json(["success" => [
+            "message" => "Questionnaire updated",
+        ]], 200);
+    }
+
+    /**
      * Deletes a questionnaire.
      *
      * @param integer $id - Id of questionnaire to delete

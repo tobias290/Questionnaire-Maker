@@ -25,6 +25,10 @@ class Questionnaire extends Model {
         "created_at" => "date:d/m/Y",
         "updated_at" => "date:d/m/Y",
         "expiry_date" => "date:d/m/Y",
+        "is_public" => "boolean",
+        "is_complete" => "boolean",
+        "is_reported" => "boolean",
+        "is_locked" => "boolean",
     ];
 
     /**
