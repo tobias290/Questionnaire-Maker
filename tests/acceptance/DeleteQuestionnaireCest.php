@@ -18,8 +18,14 @@ class DeleteQuestionnaireCest {
         $I->wantTo("delete a questionnaire I created");
         // Then
         $I->createQuestionnaire();
+        // And
+        $I->amOnFrontEndPage("dashboard");
+        // And
+        $I->wait(1);
         // Then
-        $I->click("Delete"); // NOTE: Subject to change one created. Context may be added.
+        $I->moveMouseOver( ".questionnaire-list-item");
+        // And
+        $I->click(["id" => "delete-questionnaire"]);
         // And
         $I->wait(1);
         // And
