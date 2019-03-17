@@ -14,6 +14,7 @@ class Questionnaire extends Model {
      */
     protected $fillable = [
         "title", "description", "expiry_date", "questionnaire_category_id",
+        "is_public", "is_complete", "is_reported", "is_locked",
     ];
 
     /**
