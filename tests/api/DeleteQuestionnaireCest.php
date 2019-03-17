@@ -23,9 +23,7 @@ class DeleteQuestionnaireCest {
         // And
         $id = $I->getResponse()["success"]["questionnaire_id"];
         // And
-        $I->sendDELETE("questionnaire/delete", [
-            "id" => $id,
-        ]);
+        $I->sendDELETE("questionnaire/delete/$id");
         // Then
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 201
         // And

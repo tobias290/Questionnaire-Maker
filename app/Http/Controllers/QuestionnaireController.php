@@ -45,13 +45,13 @@ class QuestionnaireController extends Controller {
     /**
      * Deletes a questionnaire.
      *
-     * @param Request $request
+     * @param integer $id - Id of questionnaire to delete
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function delete(Request $request) {
+    public function delete($id) {
         /** @var Questionnaire $questionnaire */
-        $questionnaire = Questionnaire::find($request->input("id"));
+        $questionnaire = Questionnaire::find($id);
 
         // Check to see whether the current authenticated user owns the questionnaire
         // Only if they own it can they delete it

@@ -30,6 +30,6 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
 
         Route::post("create", "QuestionnaireController@create");
 
-        Route::delete("delete", "QuestionnaireController@delete");
+        Route::delete("delete/{id}", "QuestionnaireController@delete");
     });
 });
