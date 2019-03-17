@@ -19,7 +19,7 @@ class ToggleQuestionnaireVisibilityCest {
         // And
         $id = $I->getResponse()["success"]["questionnaire_id"];
         // And
-        $I->sendPATCH("questionnaire/$id/edit", [
+        $I->sendPATCH("questionnaire/edit/$id", [
             "is_public" => true,
         ]);
         // Then
@@ -46,7 +46,7 @@ class ToggleQuestionnaireVisibilityCest {
         // And
         $id = $I->getResponse()["success"]["questionnaire_id"];
         // And
-        $I->sendPATCH("questionnaire/$id/edit", [
+        $I->sendPATCH("questionnaire/edit/$id", [
             "is_public" => false,
         ]);
         // Then
