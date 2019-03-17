@@ -16,6 +16,8 @@ import {RouterModule, Routes} from "@angular/router";
 import {ToggleSwitchComponent} from "./components/_controls/toggle-switch/toggle-switch.component";
 import {CreateQuestionnaireFormComponent} from "./components/_forms/create-questionnaire/create-questionnaire.component";
 import {EditQuestionnaireComponent} from "./components/edit-questionnaire/edit-questionnaire.component";
+import {QuestionnaireListItemComponent} from "./components/questionnaire-list-item/questionnaire-list-item.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
         DashboardComponent,
         CreateQuestionnaireFormComponent,
         EditQuestionnaireComponent,
+        QuestionnaireListItemComponent,
     ],
     imports: [
         BrowserModule,
@@ -49,6 +52,7 @@ const appRoutes: Routes = [
         FontAwesomeModule,
         ReactiveFormsModule,
         HttpClientModule,
+        BrowserAnimationsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

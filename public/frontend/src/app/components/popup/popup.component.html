@@ -1,5 +1,6 @@
 <div *ngIf="show" class="overlay"></div>
 
+<!--<div class="popup" [@openClose]="show ? 'open' : 'closed'">-->
 <div *ngIf="show" class="popup">
     <div class="close-btn" (click)="closeClick()">
         <fa-icon [icon]="closeIcon"></fa-icon>
