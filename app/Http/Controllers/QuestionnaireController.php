@@ -64,7 +64,7 @@ class QuestionnaireController extends Controller {
         $questionnaire->save();
 
         return response()->json(["success" => [
-            "message" => $request->all(),
+            "message" => "Questionnaire updated",
         ]], 200);
     }
 
