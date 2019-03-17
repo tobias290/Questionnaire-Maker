@@ -27,7 +27,7 @@ class DeleteQuestionnaireCest {
             "id" => $id,
         ]);
         // Then
-        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 401
+        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 201
         // And
         $I->seeResponseIsJson();
         // And
