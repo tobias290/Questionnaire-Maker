@@ -18,6 +18,8 @@ class ToggleQuestionnaireCompletenessCest {
         $I->am("Questionnaire Maker");
         // And
         $I->wantTo("mark my questionnaire as complete");
+        // Then
+        $I->moveMouseOver( ".questionnaire-list-item");
         // And
         $I->click(["class" => "complete-questionnaire"]);
         // And

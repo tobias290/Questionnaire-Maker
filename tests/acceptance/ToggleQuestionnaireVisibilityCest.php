@@ -39,6 +39,8 @@ class ToggleQuestionnaireVisibilityCest {
         $I->am("Questionnaire Maker");
         // And
         $I->wantTo("mark my questionnaire as private");
+        // Then
+        $I->moveMouseOver( ".questionnaire-list-item");
         // And
         $I->click(["class" => "mark-questionnaire-as-public"]);
         // And
