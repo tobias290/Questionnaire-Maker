@@ -7,6 +7,10 @@ class ToggleQuestionnaireCompletenessCest {
         $I->amOnFrontEndPage("dashboard");
         // And
         $I->createQuestionnaire();
+        // And
+        $I->amOnFrontEndPage("dashboard");
+        // And
+        $I->wait(1);
     }
 
     /**
@@ -23,28 +27,21 @@ class ToggleQuestionnaireCompletenessCest {
         // And
         $I->click(["class" => "complete-questionnaire"]);
         // And
-        $I->see("Make Private");
+        $I->wait(1);
+        // And
+        $I->see("Mark Incomplete");
         // And
         $I->seeInDatabase("questionnaire", [
             "title" => "First Questionnaire",
             "description" => "This is the first questionnaire I have made with this website",
             "is_complete" => true,
         ]);
-    }
-
-    /**
-     * Tests to see when the user clicks the complete button that it makes the questionnaire incomplete. (As it is already complete)
-     *
-     * @param \Step\Acceptance\QuestionnaireMaker $I
-     */
-    public function markQuestionnaireAsPrivate(\Step\Acceptance\QuestionnaireMaker $I) {
-        $I->am("Questionnaire Maker");
-        // And
-        $I->wantTo("mark my questionnaire as incomplete");
         // And
         $I->click(["class" => "complete-questionnaire"]);
         // And
-        $I->see("Make Public");
+        $I->wait(1);
+        // And
+        $I->see("Mark Complete");
         // And
         $I->seeInDatabase("questionnaire", [
             "title" => "First Questionnaire",

@@ -7,6 +7,10 @@ class ToggleQuestionnaireVisibilityCest {
         $I->amOnFrontEndPage("dashboard");
         // And
         $I->createQuestionnaire();
+        // And
+        $I->amOnFrontEndPage("dashboard");
+        // And
+        $I->wait(1);
     }
 
     /**
@@ -18,8 +22,12 @@ class ToggleQuestionnaireVisibilityCest {
         $I->am("Questionnaire Maker");
         // And
         $I->wantTo("mark my questionnaire as public");
+        // Then
+        $I->moveMouseOver( ".questionnaire-list-item");
         // And
         $I->click(["class" => "mark-questionnaire-as-public"]);
+        // And
+        $I->wait(1);
         // And
         $I->see("Make Private");
         // And
@@ -28,21 +36,10 @@ class ToggleQuestionnaireVisibilityCest {
             "description" => "This is the first questionnaire I have made with this website",
             "is_public" => true,
         ]);
-    }
-
-    /**
-     * Tests to see when the user clicks the public button that it makes the questionnaire private. (As it is already public)
-     *
-     * @param \Step\Acceptance\QuestionnaireMaker $I
-     */
-    public function markQuestionnaireAsPrivate(\Step\Acceptance\QuestionnaireMaker $I) {
-        $I->am("Questionnaire Maker");
-        // And
-        $I->wantTo("mark my questionnaire as private");
-        // Then
-        $I->moveMouseOver( ".questionnaire-list-item");
         // And
         $I->click(["class" => "mark-questionnaire-as-public"]);
+        // And
+        $I->wait(1);
         // And
         $I->see("Make Public");
         // And
