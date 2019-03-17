@@ -29,13 +29,13 @@
             <fa-icon [icon]="icons.send"></fa-icon>
             <span>Send</span>
         </div>
-        <div>
-            <fa-icon [icon]="icons.public"></fa-icon>
-            <span>Public</span>
+        <div class="mark-questionnaire-as-public" (click)="toggleQuestionnaireVisibility()">
+            <fa-icon [icon]="questionnaire.isPublic ? icons.private : icons.public"></fa-icon>
+            <span>{{ questionnaire.isPublic ? "Make Private" : "Make Public" }}</span>
         </div>
-        <div>
+        <div class="complete-questionnaire {{ questionnaire.isComplete ? 'active' : '' }}" (click)="toggleQuestionnaireCompleteness()"> 
             <fa-icon [icon]="icons.complete"></fa-icon>
-            <span>Complete</span>
+            <span>{{ questionnaire.isComplete ? "Mark Incomplete" : "Mark Complete" }}</span>
         </div>
         <div class="delete-questionnaire" (click)="delete()">
             <fa-icon [icon]="icons.delete"></fa-icon>

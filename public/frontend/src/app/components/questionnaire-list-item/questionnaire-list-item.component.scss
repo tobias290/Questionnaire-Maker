@@ -67,6 +67,14 @@
                 display: block;
                 font-size: 12px;
             }
+
+            &.active {
+                color: $green;
+                
+                &:hover {
+                    color: $green-hover;
+                }
+            }
             
             &:hover {
                 cursor: pointer;

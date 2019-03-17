@@ -72,8 +72,17 @@ export class ApiService {
             .pipe(catchError(ApiService.handleError));
     }
 
-    public put() {
-        
+    /**
+     * Sends a patch request to the given url and returns a response.
+     *
+     * @param {string} url - URL to send request to.
+     * @param body - Body of the request.
+     * @param {object} options - Header options.
+     */
+    public patch(url, body, options = {}) {
+        return this.http
+            .patch(url, body, ApiService.getHeaders(options))
+            .pipe(catchError(ApiService.handleError));
     }
 
     /**

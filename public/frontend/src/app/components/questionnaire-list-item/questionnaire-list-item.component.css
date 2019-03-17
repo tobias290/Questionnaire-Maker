@@ -194,6 +194,10 @@ a.classic {
       .questionnaire-list-item .options > div > span {
         display: block;
         font-size: 12px; }
+      .questionnaire-list-item .options > div.active {
+        color: #16D36B; }
+        .questionnaire-list-item .options > div.active:hover {
+          color: #13BD60; }
       .questionnaire-list-item .options > div:hover {
         cursor: pointer;
         color: #16D36B; }

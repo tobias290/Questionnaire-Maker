@@ -23,7 +23,11 @@ export const URLS = {
             create: `${QUESTIONNAIRE}/create`,
         },
     },
-    PUT: {},
+    PATCH: {
+        QUESTIONNAIRE: {
+            edit: `${QUESTIONNAIRE}/edit`,
+        },
+    },
     DELETE: {
         QUESTIONNAIRE: {
             delete: `${QUESTIONNAIRE}/delete`,

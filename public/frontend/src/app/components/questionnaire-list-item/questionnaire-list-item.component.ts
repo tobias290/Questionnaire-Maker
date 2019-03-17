@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {Questionnaire} from "../../models/questionnaire";
 import {ApiService} from "../../api.service";
-import {faEdit, faChartBar, faPaperPlane, faGlobeEurope, faCheck, faTrashAlt} from "@fortawesome/free-solid-svg-icons"
+import {faEdit, faChartBar, faPaperPlane, faGlobeEurope, faCheck, faTrashAlt, faLock} from "@fortawesome/free-solid-svg-icons"
 import {URLS} from "../../urls";
 
 @Component({
@@ -21,6 +21,7 @@ export class QuestionnaireListItemComponent {
         responses: faChartBar,
         send: faPaperPlane,
         public: faGlobeEurope,
+        private: faLock,
         complete: faCheck,
         delete: faTrashAlt,
     };
@@ -38,6 +39,38 @@ export class QuestionnaireListItemComponent {
             .delete(
                 `${URLS.DELETE.QUESTIONNAIRE.delete}/${this.questionnaire.id}`, 
                 ApiService.createTokenHeader(sessionStorage.getItem("token"))
+            )
+            .subscribe(
+                success => this.reload.emit(true),
+                error => console.log(error),
+            );
+    }
+
+    /**
+     * Change the state of the questionnaire's visibility.
+     */
+    public toggleQuestionnaireVisibility() {
+        this.apiService
+            .patch(
+                `${URLS.PATCH.QUESTIONNAIRE.edit}/${this.questionnaire.id}`,
+                {"is_public": !this.questionnaire.isPublic},
+                ApiService.createTokenHeader(sessionStorage.getItem("token")),
+            )
+            .subscribe(
+                success => this.reload.emit(true),
+                error => console.log(error),
+            );
+    }
+
+    /**
+     * Change the state of the questionnaire's completeness.
+     */
+    public toggleQuestionnaireCompleteness() {
+        this.apiService
+            .patch(
+                `${URLS.PATCH.QUESTIONNAIRE.edit}/${this.questionnaire.id}`,
+                {"is_complete": !this.questionnaire.isComplete},
+                ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
             .subscribe(
                 success => this.reload.emit(true),
