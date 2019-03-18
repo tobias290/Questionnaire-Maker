@@ -23,7 +23,7 @@ class EditQuestionnaireCest {
         // Then
         $id = $I->getResponse()["success"]["questionnaire_id"];
         // And
-        $I->sendPOST("questionnaire/edit/$id", [
+        $I->sendPATCH("questionnaire/edit/$id", [
             "title" =>"First Questionnaire Edited",
             "description" => "The first questionnaire has been edited.",
         ]);
