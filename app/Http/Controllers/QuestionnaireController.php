@@ -106,7 +106,7 @@ class QuestionnaireController extends Controller {
     /**
      * Gets the requested questionnaire.
      *
-     * @param $id
+     * @param $id - Id of questionnaire to get
      * @return \Illuminate\Http\JsonResponse
      */
     public function get($id) {

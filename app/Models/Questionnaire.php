@@ -39,7 +39,31 @@ class Questionnaire extends Model {
         return $this->belongsTo("App\Models\User");
     }
 
+    /**
+     * Get the category this questionnaire belongs to.
+     */
     public function category() {
         return $this->belongsTo("App\Models\QuestionnaireCategory");
+    }
+
+    /**
+     * Gets the closed questions that belongs to this questionnaire.
+     */
+    public function closedQuestions() {
+        return $this->hasMany("App\Models\QuestionClosed");
+    }
+
+    /**
+     * Gets the open questions that belongs to this questionnaire.
+     */
+    public function openQuestions() {
+        return $this->hasMany("App\Models\QuestionOpen");
+    }
+
+    /**
+     * Gets the scaled questions that belongs to this questionnaire.
+     */
+    public function scaledQuestions() {
+        return $this->hasMany("App\Models\QuestionScaled");
     }
 }
