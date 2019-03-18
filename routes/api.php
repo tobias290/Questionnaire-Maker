@@ -37,6 +37,8 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
     });
 
     Route::prefix("question")->group(function () {
+        Route::get("questionnaire/{id}/questions", "QuestionController@questionnaireQuestions");
+
         Route::prefix("add")->group(function () {
             Route::post("open", "QuestionController@addOpen");
             Route::post("closed", "QuestionController@addClosed");

@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 
 class QuestionController extends Controller {
+    public function questionnaireQuestions($id) {
+        /** @var Questionnaire $questionnaire */
+        $questionnaire = Questionnaire::find($id);
+
+        return response()->json(["success" => [
+            "open" => $questionnaire->openQuestions(),
+            "closed" => $questionnaire->closedQuestions(),
+            "scaled" => $questionnaire->scaledQuestions(),
+        ]], 200);
+    }
+
     public function addOpen(Request $request) {
         /** @var Questionnaire $questionnaire */
         $questionnaire = Questionnaire::find($request->input("questionnaire_id"));
@@ -23,7 +34,7 @@ class QuestionController extends Controller {
         ]], 201);
     }
 
-    public function addClosed(Request$request) {
+    public function addClosed(Request $request) {
         /** @var Questionnaire $questionnaire */
         $questionnaire = Questionnaire::find($request->input("questionnaire_id"));
 
