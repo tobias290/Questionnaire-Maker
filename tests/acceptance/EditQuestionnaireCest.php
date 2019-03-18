@@ -24,12 +24,10 @@ class EditQuestionnaireCest {
         // And
         $I->see("First Questionnaire"); // Current Title
         // And
-        $I->see("This is the first questionnaire I have made with this website"); // Current Description
-        // And
         $I->fillField("title", "First Questionnaire Edited");
         $I->fillField("description", "The first questionnaire has been edited.");
         // Then
-        $I->click(["id" => "edit-questionnaire-submit"]);
+        $I->click(["id" => "create-questionnaire-submit"]);
         // And
         $I->wait(1);
         // Then
