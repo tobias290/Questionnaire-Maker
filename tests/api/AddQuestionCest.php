@@ -15,9 +15,9 @@ class AddQuestionCest {
         $id = $I->getResponse()["success"]["questionnaire_id"];
         // And
         $I->sendPOST("question/add/open", [
-            "name" => "Untitled",
             "position" => 1,
             "questionnaire_id" => $id,
+            "is_long" => false,
         ]);
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::CREATED);
@@ -39,7 +39,6 @@ class AddQuestionCest {
         $id = $I->getResponse()["success"]["questionnaire_id"];
         // And
         $I->sendPOST("question/add/closed", [
-            "name" => "Untitled",
             "position" => 1,
             "type" => "radio",
             "questionnaire_id" => $id,
@@ -64,11 +63,7 @@ class AddQuestionCest {
         $id = $I->getResponse()["success"]["questionnaire_id"];
         // And
         $I->sendPOST("question/add/scaled", [
-            "name" => "Untitled",
             "position" => 1,
-            "min" => 0,
-            "max" => 5,
-            "interval" => 1,
             "type" => "star",
             "questionnaire_id" => $id,
         ]);
