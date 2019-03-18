@@ -102,4 +102,14 @@ class QuestionnaireController extends Controller {
     public function all() {
         return response()->json(Auth::user()->questionnaires, 200);
     }
+
+    /**
+     * Gets the requested questionnaire.
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function get($id) {
+        return response()->json(Questionnaire::find($id), 200);
+    }
 }

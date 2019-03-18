@@ -33,5 +33,6 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
         Route::patch("edit/{id}", "QuestionnaireController@edit");
 
         Route::get("all", "QuestionnaireController@all");
+        Route::get("{id}", "QuestionnaireController@get");
     });
 });
