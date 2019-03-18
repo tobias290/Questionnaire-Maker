@@ -11,14 +11,12 @@ class EditQuestionnaireCest {
      *
      * @param AcceptanceTester $I
      */
-    public function editQuestionnaire(AcceptanceTester $I) {
+    public function editQuestionnaire(\Step\Acceptance\QuestionnaireMaker $I) {
         $I->am("Questionnaire Maker");
         // And
         $I->wantTo("edit a questionnaire");
-        // Then
-        $I->moveMouseOver(".questionnaire-list-item");
         // And
-        $I->click(["class" => "edit-questionnaire"]);
+        $I->createQuestionnaire();
         // And
         $I->seeInCurrentUrl("edit");
         // And
