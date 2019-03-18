@@ -11,7 +11,8 @@ export const URLS = {
         },
         QUESTIONNAIRE: {
             categories: `${QUESTIONNAIRE}/categories`,
-            all: `${QUESTIONNAIRE}/all`
+            all: `${QUESTIONNAIRE}/all`,
+            get: `${QUESTIONNAIRE}`
         },
     },
     POST: {

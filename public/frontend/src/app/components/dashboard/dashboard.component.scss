@@ -32,4 +32,12 @@ aside {
     overflow: auto;
     padding-right: 10px;
     width: 910px;
+    
+    #no-questionnaires {
+        color: $green;
+        font-size: 70px;
+        font-weight: bold;
+        margin-top: 200px;
+        text-align: center;
+    }
 }

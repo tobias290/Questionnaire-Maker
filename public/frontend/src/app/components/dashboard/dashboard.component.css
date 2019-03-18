@@ -374,5 +374,11 @@ aside {
   overflow: auto;
   padding-right: 10px;
   width: 910px; }
+  #dashboard-page-center #no-questionnaires {
+    color: #16D36B;
+    font-size: 70px;
+    font-weight: bold;
+    margin-top: 200px;
+    text-align: center; }
 
 /*# sourceMappingURL=dashboard.component.css.map */

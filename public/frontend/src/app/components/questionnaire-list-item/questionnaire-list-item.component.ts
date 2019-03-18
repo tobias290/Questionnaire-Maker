@@ -3,6 +3,7 @@ import {Questionnaire} from "../../models/questionnaire";
 import {ApiService} from "../../api.service";
 import {faEdit, faChartBar, faPaperPlane, faGlobeEurope, faCheck, faTrashAlt, faLock} from "@fortawesome/free-solid-svg-icons"
 import {URLS} from "../../urls";
+import {Router} from "@angular/router";
 
 @Component({
     selector: "app-questionnaire-list-item",
@@ -28,7 +29,14 @@ export class QuestionnaireListItemComponent {
     
     isMouseOver = false;
     
-    public constructor(private apiService: ApiService) {
+    public constructor(private apiService: ApiService, private router: Router) {
+    }
+
+    /**
+     * Loads the edit questionnaire page.
+     */
+    public editQuestionnaire() {
+        this.router.navigate(["edit", this.questionnaire.id]);
     }
 
     /**

@@ -1,5 +1,5 @@
 <div class="create-questionnaire-form">
-    <div class="popup-form-title">Create Questionnaire</div>
+    <div class="popup-form-title">{{ isEditing ? "Edit Questionnaire" : "Create Questionnaire"}}</div>
     <form [formGroup]="createQuestionnaireForm" (ngSubmit)="submit()" #createQuestionnaire="ngForm">
         <div>
             <div class="app-input-container">
@@ -22,7 +22,7 @@
 
         <div>
             <div class="can-expire">
-                <span>Can Expire: </span><app-toggle-switch [state]="false" (onChange)="toggleExpiry($event)"></app-toggle-switch>
+                <span>Can Expire: </span><app-toggle-switch [state]="showExpiryInputStartState" (onChange)="toggleExpiry($event)"></app-toggle-switch>
             </div>
             <div class="app-input-container">
                 <div class="app-input-label-icon {{ formExpiryDate.invalid && createQuestionnaire.submitted ? 'error' : ''}} {{ !this.showExpiryInput ? 'disabled' : '' }}">
@@ -36,6 +36,6 @@
             <textarea class="app-textarea" name="description" formControlName="description" placeholder="Description" autocomplete="on"></textarea>
         </div>
 
-        <input id="create-questionnaire-submit" class="button normal green large" type="submit" value="Create Questionnaire">
+        <input id="create-questionnaire-submit" class="button normal green large" type="submit" [value]="isEditing ? 'Edit Questionnaire' : 'Create Questionnaire'">
     </form>
 </div>

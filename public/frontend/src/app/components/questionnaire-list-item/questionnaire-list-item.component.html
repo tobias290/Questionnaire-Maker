@@ -17,7 +17,7 @@
         </div>
     </div>
     <div *ngIf="isMouseOver" class="options">
-        <div>
+        <div class="edit-questionnaire" (click)="editQuestionnaire()">
             <fa-icon [icon]="icons.edit"></fa-icon>
             <span>Edit</span>
         </div>

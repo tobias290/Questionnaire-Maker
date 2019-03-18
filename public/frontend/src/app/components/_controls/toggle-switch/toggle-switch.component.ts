@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from "@angular/core";
 
 
 @Component({
@@ -6,18 +6,22 @@ import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
     templateUrl: "./toggle-switch.component.html",
     styleUrls: ["./toggle-switch.component.css"],
 })
-export class ToggleSwitchComponent implements OnInit {
-    @Input() state = false;
+export class ToggleSwitchComponent implements OnInit, OnChanges {
+    @Input("state") startState = false;
     
     @Output() onChange = new EventEmitter<boolean>();
     
-    startState: boolean;
+    state: boolean;
 
     /**
      * Set start state in a separate variable so it doesnt change when 'toggle()' is called.
      */
     public ngOnInit() {
-        this.startState = this.state;
+        this.state = this.startState;
+    }
+    
+    public ngOnChanges(changes: SimpleChanges) {
+        this.state = this.startState;
     }
 
     /**

@@ -1,6 +1,6 @@
-<app-loading *ngIf="userLoading || questionnairesLoading"></app-loading>
+<app-loading *ngIf="loading.user || loading.questionnaires"></app-loading>
 
-<app-top-bar *ngIf="!userLoading && !questionnairesLoading" [title]="title" [hasBackButton]="false">
+<app-top-bar *ngIf="!loading.user && !loading.questionnaires" [title]="title" [hasBackButton]="false">
     <div class="top-bar-right" style="color: white;">
         <button class="button inverse white" (click)="signOut()">Sign Out</button>
         <button class="button inverse white" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
@@ -11,14 +11,15 @@
     </div>
 </app-top-bar>
 
-<aside *ngIf="!userLoading && !questionnairesLoading">
+<aside *ngIf="!loading.user && !loading.questionnaires">
     <div id="sort-filter">
         <div style="color: #C34A47; font-weight: bold;">To be implemented later</div>
     </div>
     <button class="button normal green" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
 </aside>
 
-<div *ngIf="!userLoading && !questionnairesLoading" id="dashboard-page-center">
+<div *ngIf="!loading.user && !loading.questionnaires" id="dashboard-page-center">
+    <div *ngIf="data.questionnaires.length == 0" id="no-questionnaires">No Questionnaires</div>
     <app-questionnaire-list-item *ngFor="let q of data.questionnaires" [questionnaire]="q" [canEdit]="true" (reload)="reload()"></app-questionnaire-list-item>
 </div>
 

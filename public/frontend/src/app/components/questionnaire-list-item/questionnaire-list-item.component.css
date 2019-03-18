@@ -154,7 +154,8 @@ a.classic {
     flex-direction: column;
     font-size: 14px;
     justify-content: space-evenly;
-    max-width: 400px;
+    max-width: 500px;
+    min-width: 400px;
     padding: 10px;
     width: fit-content; }
     .questionnaire-list-item .left .title {

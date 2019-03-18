@@ -11,6 +11,7 @@ export class Questionnaire {
     private readonly _createdAt: string;
     private readonly _updatedAt: string;
     private readonly _userId: number;
+    private readonly _categoryId: number;
     
     public constructor(questionnaire) {
         this._id = questionnaire.id;
@@ -25,6 +26,7 @@ export class Questionnaire {
         this._createdAt = questionnaire.created_at;
         this._updatedAt = questionnaire.updated_at;
         this._userId = questionnaire.user_id;
+        this._categoryId = questionnaire.questionnaire_category_id;
     }
     
     get id() {
@@ -73,5 +75,9 @@ export class Questionnaire {
 
     get userId() {
         return this._userId;
+    }
+    
+    get categoryId() {
+        return this._categoryId;
     }
 }

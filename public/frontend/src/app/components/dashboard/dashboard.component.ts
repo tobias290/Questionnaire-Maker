@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {ApiService} from "../../api.service";
 import {Router} from "@angular/router";
 import {URLS} from "../../urls";
@@ -6,6 +6,10 @@ import {User} from "../../models/user";
 import {faCaretDown} from "@fortawesome/free-solid-svg-icons";
 import {Questionnaire} from "../../models/questionnaire";
 
+interface DataMetadata {
+    user: User,
+    questionnaires: Questionnaire[],
+}
 
 @Component({
     selector: "app-dashboard",
@@ -16,8 +20,10 @@ import {Questionnaire} from "../../models/questionnaire";
 export class DashboardComponent implements OnInit {
     title = "Dashboard";
 
-    userLoading: boolean = true;
-    questionnairesLoading: boolean = true;
+    loading = {
+        user: true,
+        questionnaires: true,
+    };
 
     showCreateQuestionnairePopup: boolean = false;
     
@@ -25,7 +31,7 @@ export class DashboardComponent implements OnInit {
         downCaret: faCaretDown,
     };
     
-    data = {
+    data: DataMetadata = {
         user: null,
         questionnaires: null,
     };
@@ -47,7 +53,7 @@ export class DashboardComponent implements OnInit {
             .subscribe(res => {
                 this.data.user = new User(res);
 
-                this.userLoading = false;
+                this.loading.user = false;
             });
 
         this.apiService
@@ -60,7 +66,7 @@ export class DashboardComponent implements OnInit {
                     this.data.questionnaires.push(new Questionnaire(questionnaire));
                 }
 
-                this.questionnairesLoading = false;
+                this.loading.questionnaires = false;
             });
     }
 
@@ -68,7 +74,7 @@ export class DashboardComponent implements OnInit {
      * Reloads the questionnaire list as the data may have changed.
      */
     public reload() {
-        this.questionnairesLoading = true;
+        this.loading.questionnaires = true;
         
         this.apiService
             .get(URLS.GET.QUESTIONNAIRE.all, ApiService.createTokenHeader(sessionStorage.getItem("token")))
@@ -80,7 +86,7 @@ export class DashboardComponent implements OnInit {
                     this.data.questionnaires.push(new Questionnaire(questionnaire));
                 }
 
-                this.questionnairesLoading = false;
+                this.loading.questionnaires = false;
             });
     }
 
@@ -101,7 +107,7 @@ export class DashboardComponent implements OnInit {
     public questionnaireCreated(questionnaireId) {
         this.showCreateQuestionnairePopup = false;
         
-        this.router.navigateByUrl("edit-questionnaire");
+        this.router.navigate(["edit", questionnaireId]);
     }
 }
 

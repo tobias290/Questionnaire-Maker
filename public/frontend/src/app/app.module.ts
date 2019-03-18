@@ -24,7 +24,7 @@ const appRoutes: Routes = [
     { path: "sign-up", component: SignUpComponent },
     { path: "login", component: LoginComponent },
     { path: "dashboard", component: DashboardComponent },
-    { path: "edit-questionnaire", component: EditQuestionnaireComponent },
+    { path: "edit/:id", component: EditQuestionnaireComponent },
 ];
 
 @NgModule({
