@@ -3,14 +3,19 @@
 class DeleteQuestionCest {
     public function _before(\Step\Api\QuestionnaireMaker $I) {
         $I->signUp();
-        // And
-        $I->createQuestionnaire();
     }
 
+    /**
+     * Test to see whether a question can be deleted or not.
+     *
+     * @param \Step\Api\QuestionnaireMaker $I
+     */
     public function deleteQuestion(\Step\Api\QuestionnaireMaker $I) {
         $I->am("Client Side Application");
         // And
         $I->wantTo("delete a question from a questionnaire");
+        // And
+        $I->createQuestionnaire();
         // And
         $id = $I->getResponse()["success"]["questionnaire_id"];
         // And
@@ -30,7 +35,7 @@ class DeleteQuestionCest {
             ]
         ]);
         // Then
-        $I->sendDELETE("question/delete/open/1");
+        $I->sendDELETE("question/delete/open/3");
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
         // And
@@ -39,6 +44,33 @@ class DeleteQuestionCest {
         $I->seeResponseContainsJson([
             "success" => [
                 "message" => "Question deleted"
+            ]
+        ]);
+    }
+
+    /**
+     * Test to see whether a when trying to delete a random question it refuses.
+     *
+     * @param \Step\Api\QuestionnaireMaker $I
+     */
+    public function deleteRandomQuestion(\Step\Api\QuestionnaireMaker $I) {
+        $I->am("Client Side Application");
+        // And
+        $I->expectTo("not be able to delete a random question");
+        // And
+        $token = $I->getResponse()["success"]["token"];
+        // And
+        $I->amBearerAuthenticated($token);
+        // Then
+        $I->sendDELETE("question/delete/open/1");
+        // And
+        $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED);
+        // And
+        $I->seeResponseIsJson();
+        // And
+        $I->seeResponseContainsJson([
+            "error" => [
+                "message" => "You do not own that questionnaire, therefore you cannot delete a question"
             ]
         ]);
     }
