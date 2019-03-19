@@ -34,7 +34,7 @@ class QuestionnaireMaker extends \AcceptanceTester {
         // And
         $I->see("Dashboard", "div.top-bar-left");
         // And
-        //$I->see("tobysx@gmail.com");
+        $I->see("tobysx@gmail.com");
 
         $I->seeInDatabase("user", [
             "email" => "tobysx@gmail.com",

@@ -7,6 +7,11 @@ class AddQuestionCest {
         $I->createQuestionnaire();
     }
 
+    /**
+     * Test to see when the data to add a open question is send to the server that the correct response is returned.
+     *
+     * @param \Step\Api\QuestionnaireMaker $I
+     */
     public function addOpenQuestion(\Step\Api\QuestionnaireMaker $I) {
         $I->am("Client Side Application");
         // And
@@ -31,6 +36,11 @@ class AddQuestionCest {
         ]);
     }
 
+    /**
+     * Test to see when the data to add a closed question is send to the server that the correct response is returned.
+     *
+     * @param \Step\Api\QuestionnaireMaker $I
+     */
     public function addClosedQuestion(\Step\Api\QuestionnaireMaker $I) {
         $I->am("Client Side Application");
         // And
@@ -55,6 +65,11 @@ class AddQuestionCest {
         ]);
     }
 
+    /**
+     * Test to see when the data to add a scaled question is send to the server that the correct response is returned.
+     *
+     * @param \Step\Api\QuestionnaireMaker $I
+     */
     public function addScaledQuestion(\Step\Api\QuestionnaireMaker $I) {
         $I->am("Client Side Application");
         // And
