@@ -10,7 +10,7 @@ class ToggleQuestionnaireVisibilityCest {
         // And
         $I->amOnFrontEndPage("dashboard");
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
     }
 
     /**
@@ -27,7 +27,7 @@ class ToggleQuestionnaireVisibilityCest {
         // And
         $I->click(["class" => "mark-questionnaire-as-public"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->see("Make Private");
         // And
@@ -39,7 +39,7 @@ class ToggleQuestionnaireVisibilityCest {
         // And
         $I->click(["class" => "mark-questionnaire-as-public"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->see("Make Public");
         // And

@@ -28,7 +28,7 @@ class QuestionnaireMaker extends \AcceptanceTester {
         // And
         $I->click("Sign Up");
         // Then
-        $I->wait(1);
+        $I->wait($this::WAIT_TIME);
         // And Then
         $I->seeInCurrentUrl("dashboard");
         // And
@@ -63,7 +63,7 @@ class QuestionnaireMaker extends \AcceptanceTester {
         // And
         $I->click("Log In");
         // Then
-        $I->wait(1);
+        $I->wait($this::WAIT_TIME);
         // And Then
         $I->seeInCurrentUrl("dashboard");
         // And
@@ -92,7 +92,7 @@ class QuestionnaireMaker extends \AcceptanceTester {
         // Then
         $I->click(["id" => "create-questionnaire-submit"]); // Form button
         // And
-        $I->wait(1);
+        $I->wait($this::WAIT_TIME);
         // Then
         $I->see("Edit Questionnaire");
         // And

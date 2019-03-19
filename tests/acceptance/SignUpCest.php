@@ -150,7 +150,7 @@ class SignUpCest {
         // And
         $I->click("Sign Up");
         // Then
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And Then
         $I->expect("that the form is not submitted");
         // And
@@ -194,7 +194,7 @@ class SignUpCest {
         // And
         $I->click("Sign Up");
         // Then
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And Then
         $I->expect("that the form is not submitted");
         // And

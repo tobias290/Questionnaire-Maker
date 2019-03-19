@@ -56,7 +56,7 @@ class LogInCest {
         // And
         $I->click("Log In");
         // Then
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->see("Email or password is incorrect");
         // And Then
@@ -88,7 +88,7 @@ class LogInCest {
         // And
         $I->click("Log In");
         // Then
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->see("Email or password is incorrect");
         // And Then
@@ -123,7 +123,7 @@ class LogInCest {
         // And
         $I->click("Log In");
         // Then
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->see("{$example["missing"]} is required");
         // And Then

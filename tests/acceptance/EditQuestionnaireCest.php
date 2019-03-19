@@ -29,7 +29,7 @@ class EditQuestionnaireCest {
         // Then
         $I->click(["id" => "create-questionnaire-submit"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // Then
         $I->see("First Questionnaire Edited");
         // And

@@ -19,6 +19,8 @@
 class AcceptanceTester extends \Codeception\Actor {
     use _generated\AcceptanceTesterActions;
 
+    const WAIT_TIME = 5;
+
     /**
      * Extends "\Codeception\Actor::amOnPage" by adds the necessary part to show the page on the front end.
      *

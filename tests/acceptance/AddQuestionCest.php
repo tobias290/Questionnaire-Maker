@@ -23,7 +23,7 @@ class AddQuestionCest {
         // And
         $I->click(["id" => "add-single-line-question"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->seeInDatabase("question_open", [
             "name" => "Untitled",
@@ -42,7 +42,7 @@ class AddQuestionCest {
         // And
         $I->click(["id" => "add-check-box-question"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->seeInDatabase("question_closed", [
             "name" => "Untitled",
@@ -61,7 +61,7 @@ class AddQuestionCest {
         // And
         $I->click(["id" => "add-star-rating-question"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->seeInDatabase("question_scaled", [
             "name" => "Untitled",

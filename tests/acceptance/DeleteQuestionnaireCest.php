@@ -21,13 +21,13 @@ class DeleteQuestionnaireCest {
         // And
         $I->amOnFrontEndPage("dashboard");
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // Then
         $I->moveMouseOver( ".questionnaire-list-item");
         // And
         $I->click(["class" => "delete-questionnaire"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->dontSee("First Questionnaire");
         // And

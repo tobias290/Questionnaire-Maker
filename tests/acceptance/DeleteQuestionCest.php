@@ -19,7 +19,7 @@ class DeleteQuestionCest {
         // Then
         $I->click(["id" => "add-single-line-question"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->seeInDatabase("question_open", [
             "name" => "Untitled",
@@ -28,6 +28,8 @@ class DeleteQuestionCest {
         $I->moveMouseOver( ".question-answerable");
         // And
         $I->click(["id" => "delete-question"]);
+        // And
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->dontSeeInDatabase("question_open", [
             "name" => "Untitled",

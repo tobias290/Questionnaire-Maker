@@ -10,7 +10,7 @@ class ToggleQuestionnaireCompletenessCest {
         // And
         $I->amOnFrontEndPage("dashboard");
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
     }
 
     /**
@@ -27,7 +27,7 @@ class ToggleQuestionnaireCompletenessCest {
         // And
         $I->click(["class" => "complete-questionnaire"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->see("Mark Incomplete");
         // And
@@ -39,7 +39,7 @@ class ToggleQuestionnaireCompletenessCest {
         // And
         $I->click(["class" => "complete-questionnaire"]);
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->see("Mark Complete");
         // And

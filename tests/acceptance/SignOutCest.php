@@ -26,7 +26,7 @@ class SignOutCest {
         // Then
         $I->click("Sign Out");
         // And
-        $I->wait(1);
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // Then
         $I->seeInCurrentUrl("login");
         // Now
