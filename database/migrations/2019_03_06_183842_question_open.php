@@ -16,7 +16,7 @@ class QuestionOpen extends Migration {
 
             $table->string("name");
             $table->integer("position");
-            $table->boolean("is_required");
+            $table->boolean("is_required")->default(false);
             $table->boolean("is_long");
             $table->integer("questionnaire_id")->unsigned();
 

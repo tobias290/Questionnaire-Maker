@@ -18,13 +18,13 @@ class QuestionScaled extends Migration {
 
             $table->integer("position");
 
-            $table->float("min");
-            $table->float("max");
-            $table->float("interval");
+            $table->float("min")->default(0);
+            $table->float("max")->default(5);
+            $table->float("interval")->default(1);
 
-            $table->enum("type", ["scaled", "star", "slider"]);
+            $table->enum("type", ["star", "slider"]);
 
-            $table->boolean("is_required");
+            $table->boolean("is_required")->default(false);
 
             $table->integer("questionnaire_id")->unsigned();
 
