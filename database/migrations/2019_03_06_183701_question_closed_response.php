@@ -17,7 +17,8 @@ class QuestionClosedResponse extends Migration {
 
             $table->foreign("question_closed_option_id")
                 ->references("id")
-                ->on("question_closed_option");
+                ->on("question_closed_option")
+                ->onDelete("cascade");
         });
     }
 

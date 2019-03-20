@@ -32,11 +32,13 @@ class Questionnaire extends Migration {
 
             $table->foreign("questionnaire_category_id")
                 ->references("id")
-                ->on("questionnaire_category");
+                ->on("questionnaire_category")
+                ->onDelete("cascade");
 
             $table->foreign("user_id")
                 ->references("id")
-                ->on("user");
+                ->on("user")
+                ->onDelete("cascade");
         });
     }
 

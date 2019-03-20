@@ -17,7 +17,7 @@ class Settings extends Migration {
             $table->boolean("enable_email_notifications")->default(true);
             $table->enum("questionnaire_expiration_notification", ["none", "day", "week", "month"])->default("day");
 
-            $table->foreign("user_id")->references("id")->on("user");
+            $table->foreign("user_id")->references("id")->on("user")->onDelete("cascade");
         });
     }
 

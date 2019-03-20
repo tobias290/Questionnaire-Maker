@@ -30,7 +30,8 @@ class QuestionScaled extends Migration {
 
             $table->foreign("questionnaire_id")
                 ->references("id")
-                ->on("questionnaire");
+                ->on("questionnaire")
+                ->onDelete("cascade");
         });
     }
 

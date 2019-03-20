@@ -18,7 +18,8 @@ class QuestionOpenResponse extends Migration {
 
             $table->foreign("question_open_id")
                 ->references("id")
-                ->on("question_open");
+                ->on("question_open")
+                ->onDelete("cascade");
         });
     }
 

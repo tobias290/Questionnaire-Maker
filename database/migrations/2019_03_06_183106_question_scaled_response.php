@@ -13,13 +13,15 @@ class QuestionScaledResponse extends Migration {
     public function up() {
         Schema::create("question_scaled_response", function (Blueprint $table) {
             $table->increments("id");
-            $table->string("response");
+
+            $table->float("response");
 
             $table->integer("question_scaled_id")->unsigned();
 
             $table->foreign("question_scaled_id")
                 ->references("id")
-                ->on("question_scaled");
+                ->on("question_scaled")
+                ->onDelete("cascade");
         });
     }
 
