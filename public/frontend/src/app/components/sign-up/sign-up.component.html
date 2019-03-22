@@ -12,12 +12,11 @@
 <div id="sign-up-page-center" class="centre-box">
     <form id="sign-up" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" #signUp="ngForm">
         <div class="app-input-container">
-            <div class="app-input-label-icon {{ input('email').invalid && signUp.submitted ? 'error' : ''}}">
+            <label class="app-input-label-icon {{ input('email').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.email"></fa-icon>
-            </div>
+            </label>
             <input 
-                class="app-input {{ input('email').invalid && signUp.submitted ? 'error' : ''}}" 
-                id="name"
+                class="app-input {{ input('email').invalid && signUp.submitted ? 'error' : ''}}"
                 name="email" 
                 formControlName="email" 
                 type="text"
@@ -33,12 +32,11 @@
         </div>
         
         <div class="app-input-container">
-            <div class="app-input-label-icon {{ input('firstName').invalid && signUp.submitted ? 'error' : ''}}">
+            <label class="app-input-label-icon {{ input('firstName').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.name"></fa-icon>
-            </div>
+            </label>
             <input 
                 class="app-input {{ input('firstName').invalid && signUp.submitted ? 'error' : ''}}"
-                id="firstName"
                 name="firstName"
                 formControlName="firstName"
                 type="text"
@@ -53,12 +51,11 @@
         </div>
 
         <div class="app-input-container">
-            <div class="app-input-label-icon {{ input('surname').invalid && signUp.submitted ? 'error' : ''}}">
+            <label class="app-input-label-icon {{ input('surname').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.name"></fa-icon>
-            </div>
+            </label>
             <input 
                 class="app-input {{ input('surname').invalid && signUp.submitted ? 'error' : ''}}"
-                id="surname" 
                 name="surname" 
                 formControlName="surname" 
                 type="text" 
@@ -73,12 +70,11 @@
         </div>
         
         <div class="app-input-container">
-            <div class="app-input-label-icon {{ input('password').invalid && signUp.submitted ? 'error' : ''}}">
+            <label class="app-input-label-icon {{ input('password').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.password"></fa-icon>
-            </div>
+            </label>
             <input 
-                class="app-input {{ input('password').invalid && signUp.submitted ? 'error' : ''}}" 
-                id="password"
+                class="app-input {{ input('password').invalid && signUp.submitted ? 'error' : ''}}"
                 name="password" 
                 formControlName="password"
                 type="password"
@@ -93,13 +89,12 @@
         </div>
         
         <div class="app-input-container">
-            <div class="app-input-label-icon {{ input('confirmPassword').invalid && signUp.submitted ? 'error' : ''}}">
+            <label class="app-input-label-icon {{ input('confirmPassword').invalid && signUp.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.password"></fa-icon>
-            </div>
+            </label>
             
             <input 
-                class="app-input no-password-match {{ input('confirmPassword').invalid && signUp.submitted ? 'error' : ''}}" 
-                id="confirmPassword"
+                class="app-input no-password-match {{ input('confirmPassword').invalid && signUp.submitted ? 'error' : ''}}"
                 name="confirmPassword" 
                 formControlName="confirmPassword" 
                 type="password" 

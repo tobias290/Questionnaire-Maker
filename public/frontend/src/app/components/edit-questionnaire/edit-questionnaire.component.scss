@@ -17,6 +17,7 @@
 #question-list {
     background: $white;
     box-shadow: 5px 0 5px $shadow-color;
+    float: left;
     height: calc(100% - 70px);
     position: relative;
     width: 300px;
@@ -75,5 +76,23 @@
         &:hover {
             background: $red-hover;
         }
+    }
+}
+
+
+#edit-questionnaire-page-center {
+    @include center;
+
+    height: calc(100% - 70px);
+    overflow: auto;
+    padding-right: 10px;
+    width: 1010px;
+
+    #no-questions {
+        color: $green;
+        font-size: 70px;
+        font-weight: bold;
+        margin-top: 200px;
+        text-align: center;
     }
 }

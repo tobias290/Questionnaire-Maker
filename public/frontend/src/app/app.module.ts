@@ -18,6 +18,9 @@ import {CreateQuestionnaireFormComponent} from "./components/_forms/create-quest
 import {EditQuestionnaireComponent} from "./components/edit-questionnaire/edit-questionnaire.component";
 import {QuestionnaireListItemComponent} from "./components/questionnaire-list-item/questionnaire-list-item.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {QuestionClosedComponent} from "./components/_questions/closed/question-closed.component";
+import {QuestionOpenComponent} from "./components/_questions/open/question-open.component";
+import {QuestionScaledComponent} from "./components/_questions/scaled/question-scaled.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
@@ -41,6 +44,9 @@ const appRoutes: Routes = [
         CreateQuestionnaireFormComponent,
         EditQuestionnaireComponent,
         QuestionnaireListItemComponent,
+        QuestionClosedComponent,
+        QuestionOpenComponent,
+        QuestionScaledComponent,
     ],
     imports: [
         BrowserModule,

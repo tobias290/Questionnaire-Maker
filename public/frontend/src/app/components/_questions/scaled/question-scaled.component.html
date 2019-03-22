@@ -1,0 +1,91 @@
+<div *ngIf="!inEditableForm" class="question-answerable">
+    <div class="question-display">
+        <div class="question-title">
+            {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
+        </div>
+
+        <div *ngIf="question.type === 'slider'" class="slider-container" (input)="slider.value">
+            {{ question.min }}
+            <input name="a" class="slider" type="range" [min]="question.min" [max]="question.max"
+                   [step]="question.interval" value="0" #slider>
+            {{ question.max }}
+            <div class="output">
+                {{ slider.value }}
+            </div>
+        </div>
+
+        <div *ngIf="question.type === 'star'" class="star-rating-container">
+            <div *ngFor="let _ of Arr(question.max).fill(1)">
+                <fa-icon [icon]="icons.starRating"></fa-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-options">
+        <button id="edit-question" class="button normal green large tall" (click)="inEditableForm = true;">
+            <fa-icon [icon]="icons.edit"></fa-icon>&nbsp;Edit
+        </button>
+        <button id="duplicate-question" class="button normal green large tall">
+            <fa-icon [icon]="icons.duplicate"></fa-icon>&nbsp;Duplicate
+        </button>
+        <button id="delete-question" class="button normal red large tall" (click)="deleteQuestion()">
+            <fa-icon [icon]="icons.delete"></fa-icon>&nbsp;Delete
+        </button>
+    </div>
+</div>
+
+<div *ngIf="inEditableForm" class="question-editable">
+    <div class="question-edit">
+        <div class="app-input-container question-title">
+            <label class="app-input-label-icon {{ questionName.invalid ? 'error' : ''}}" [title]="question.type === 'star' ? 'Star Rating' : 'Slider'">
+                {{ question.position }}.
+            </label>
+            <input name="questionScaledName" class="app-input {{ questionName.invalid ? 'error' : ''}}" type="text" [formControl]="questionName">
+        </div>
+
+        <div *ngIf="question.type === 'slider'" class="slider-options">
+            <div class="app-input-container no-margin">
+                <label>Min:</label> &nbsp;
+                <input name="questionScaledMin" class="app-input no-icon" type="number" [formControl]="questionMin" placeholder="Min">
+            </div>
+            <div class="app-input-container no-margin">
+                <label>Max:</label> &nbsp;
+                <input name="questionScaledMax" class="app-input no-icon" type="number" [formControl]="questionMax" placeholder="Max">
+            </div>
+            <div class="app-input-container no-margin">
+                <label>Interval:</label> &nbsp;
+                <input name="questionScaledInterval" class="app-input no-icon" type="number" [formControl]="questionInterval" placeholder="Interval">
+            </div>
+        </div>
+
+        <div *ngIf="question.type === 'star'" class="app-input-container">
+            <label class="app-input-label-icon">
+                <fa-icon [icon]="icons.numbers"></fa-icon>
+            </label>
+            <select name="questionScaledMax" class="app-input" [formControl]="questionMax">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="question-options">
+        <button class="button normal green medium" (click)="save()" [disabled]="this.questionName.invalid">
+            <fa-icon [icon]="icons.save"></fa-icon>&nbsp;Save
+        </button>
+        <button class="button inverse red medium" (click)="inEditableForm = false;">
+            <fa-icon [icon]="icons.cancel"></fa-icon>&nbsp;Cancel
+        </button>
+        <div class="is-required">
+            <span>Required: </span>
+            <app-toggle-switch [state]="question.isRequired" (onChange)="isRequired = $event"></app-toggle-switch>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,99 @@
+@import "../question";
+
+.slider-container {
+    align-items: center;
+    color: $text-light;
+    display: flex;
+    font-size: 20px;
+    margin-left: 20px;
+    
+    & > * {
+        margin: 0 20px 0 20px;
+    }
+    
+    .slider {
+        background: $dark-white;
+        height: 10px;
+        outline: none;
+        width: 500px;
+        -webkit-appearance: none;
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            background: $text-dark;
+            border-radius: 25px;
+            box-shadow: 0 3px 5px $shadow-color;
+            cursor: pointer;
+            height: 30px;
+            -webkit-appearance: none;
+            width: 30px;
+            
+            &:hover {
+                background: $green;
+            }
+        }
+
+        .slider::-moz-range-thumb {
+            background: $text-dark;
+            box-shadow: 0 3px 5px $shadow-color;
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+
+            &:hover {
+                background: $green;
+            }
+        }
+    }
+    
+    .output {
+        box-sizing: border-box;
+        border: 2px solid $text-dark;
+        border-radius: 7px;
+        color: $text-dark;
+        height: 50px;
+        line-height: 50px;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        width: 50px;
+    }
+}
+
+.star-rating-container {
+    color: $text-dark;
+    display: flex;
+    font-size: 35px;
+    margin-left: 20px;
+    width: 500px;
+    justify-content: space-evenly;
+    
+    &:hover > div {
+        color: $star-gold;
+    }
+    
+    & > div {
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        
+        &:hover ~ div {
+            color: $text-dark;
+        }
+    }
+}
+
+.slider-options {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    
+    & > div {
+        margin-right: 10px;
+        width: fit-content;
+        
+        & > input {
+            width: 100px;
+        }
+    }
+}

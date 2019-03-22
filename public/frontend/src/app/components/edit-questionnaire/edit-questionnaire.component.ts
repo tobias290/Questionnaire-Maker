@@ -18,10 +18,15 @@ import {
     faTrashAlt
 } from "@fortawesome/free-solid-svg-icons";
 import {User} from "../../models/user";
+import {Question} from "../../models/question";
+import {QuestionOpen} from "../../models/question-open";
+import {QuestionClosed} from "../../models/question-closed";
+import {QuestionScaled} from "../../models/question-scaled";
 
 interface DataMetadata {
     user: User,
-    questionnaire: Questionnaire
+    questionnaire: Questionnaire,
+    questions: Question[],
 }
 
 @Component({
@@ -46,7 +51,7 @@ export class EditQuestionnaireComponent implements OnInit {
             singleLine: faICursor,
             paragraph: faParagraph,
             starRating: faStar,
-            sliders: faSlidersH,
+            slider: faSlidersH,
         },
         delete: faTrashAlt,
     };
@@ -54,11 +59,13 @@ export class EditQuestionnaireComponent implements OnInit {
     loading = {
         user: true,
         questionnaire: true,
+        questions: true,
     };
     
     data: DataMetadata = {
         user: null,
-        questionnaire: null
+        questionnaire: null,
+        questions: [],
     };
     
     showEditQuestionnairePopup: boolean = true;
@@ -84,6 +91,8 @@ export class EditQuestionnaireComponent implements OnInit {
      * Gets the questionnaire based of the ID parsed via the URL.
      */
     public getQuestionnaire() {
+        this.loading.questionnaire = true;
+        
         // Get the questionnaire ID param from the route and get the requested questionnaire
         this.route.paramMap.subscribe((params: ParamMap) =>  {
             this.apiService
@@ -95,11 +104,95 @@ export class EditQuestionnaireComponent implements OnInit {
                     success => {
                         this.data.questionnaire = new Questionnaire(success);
                         this.loading.questionnaire = false;
+
+                        this.getQuestions();
                     }
                 )
         });
         
         this.showEditQuestionnairePopup = false;
+    }
+
+    /**
+     * Gets the questions for the given questionnaire.
+     */
+    public getQuestions() {
+        this.loading.questions = true;
+        this.data.questions = [];
+        
+        this.apiService
+            .get(
+                URLS.GET.QUESTION.questionnaireQuestions(this.data.questionnaire.id), 
+                ApiService.createTokenHeader(sessionStorage.getItem("token"))
+            )
+            .subscribe(
+                success => {
+                    // @ts-ignore
+                    for (let openQuestion of success.success.open || []) {
+                        this.data.questions.push(new QuestionOpen(openQuestion));
+                    }
+                    
+                    // @ts-ignore
+                    for (let closedQuestion of success.success.closed || []) {
+                        this.data.questions.push(new QuestionClosed(closedQuestion));
+                    }
+
+                    // @ts-ignore
+                    for (let scaledQuestion of success.success.scaled || []) {
+                        this.data.questions.push(new QuestionScaled(scaledQuestion));
+                    }
+                    
+                    // Sort questions into the order they should be in the questionnaire.
+                    this.data.questions.sort((a, b) => a.position - b.position);
+                    this.loading.questions = false;
+                },
+            );
+    }
+
+    /**
+     * Adds a question to the questionnaire.
+     * 
+     * @param {string} type - Question type (open, closed, scaled)
+     * @param {string} subType - Question sub type.
+     */
+    public addQuestion(type, subType) {
+        let url;
+        let data;
+        
+        if (type === "open") {
+            url = URLS.POST.QUESTION.addOpen;
+            
+            data = {
+                position: this.data.questions.length + 1,
+                is_long: subType === "long",
+                questionnaire_id: this.data.questionnaire.id
+            };
+        } else if (type === "closed" || type === "scaled") {
+            url = type === "closed" ? URLS.POST.QUESTION.addClosed : URLS.POST.QUESTION.addScaled;
+
+            data = {
+                position: this.data.questions.length + 1,
+                type: subType,
+                questionnaire_id: this.data.questionnaire.id
+            };
+        }
+        
+        this.apiService
+            .post(url, data, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .subscribe(success => this.getQuestions(), error => console.log(error));
+    }
+    
+    private isQuestionType(instance, type) {
+        switch (type) {
+            case "open":
+                return instance instanceof QuestionOpen;
+            case "closed":
+                return instance instanceof QuestionClosed;
+            case "scaled":
+                return instance instanceof QuestionScaled;
+            default:
+                return false;
+        }
     }
 }
 

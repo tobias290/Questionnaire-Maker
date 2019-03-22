@@ -3,16 +3,16 @@
     <form [formGroup]="createQuestionnaireForm" (ngSubmit)="submit()" #createQuestionnaire="ngForm">
         <div>
             <div class="app-input-container">
-                <div class="app-input-label-icon {{ formTitle.invalid && createQuestionnaire.submitted ? 'error' : ''}}">
+                <label class="app-input-label-icon {{ formTitle.invalid && createQuestionnaire.submitted ? 'error' : ''}}">
                     <fa-icon [icon]="icons.title"></fa-icon>
-                </div>
+                </label>
                 <input class="app-input {{ formTitle.invalid && createQuestionnaire.submitted ? 'error' : ''}}" name="title" formControlName="title" placeholder="Title" autocomplete="on">
             </div>
 
             <div class="app-input-container">
-                <div class="app-input-label-icon {{ formCategory.invalid && createQuestionnaire.submitted ? 'error' : ''}}">
+                <label class="app-input-label-icon {{ formCategory.invalid && createQuestionnaire.submitted ? 'error' : ''}}">
                     <fa-icon [icon]="icons.category"></fa-icon>
-                </div>
+                </label>
                 <select class="app-input {{ formCategory.invalid && createQuestionnaire.submitted ? 'error' : ''}}" name="category" formControlName="category">
                     <option disabled>Category</option>
                     <option *ngFor="let category of questionnaireCategories" [value]="category.id">{{ category.name }}</option>
@@ -25,9 +25,9 @@
                 <span>Can Expire: </span><app-toggle-switch [state]="showExpiryInputStartState" (onChange)="toggleExpiry($event)"></app-toggle-switch>
             </div>
             <div class="app-input-container">
-                <div class="app-input-label-icon {{ formExpiryDate.invalid && createQuestionnaire.submitted ? 'error' : ''}} {{ !this.showExpiryInput ? 'disabled' : '' }}">
+                <label class="app-input-label-icon {{ formExpiryDate.invalid && createQuestionnaire.submitted ? 'error' : ''}} {{ !this.showExpiryInput ? 'disabled' : '' }}">
                     <fa-icon [icon]="icons.expiry"></fa-icon>
-                </div>
+                </label>
                 <input class="app-input" name="expiry" formControlName="expiry" type="date">
             </div>
         </div>

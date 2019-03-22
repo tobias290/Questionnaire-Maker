@@ -1,0 +1,17 @@
+@import "../question";
+
+
+.app-input-container {
+    margin-left: 20px;
+    margin-top: 0;
+    width: 500px !important;
+    
+    .app-input {
+        width: 500px !important;
+    }
+}
+
+textarea {
+    height: 100px !important;
+    width: 500px !important;
+}

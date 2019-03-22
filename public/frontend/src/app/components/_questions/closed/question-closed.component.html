@@ -1,0 +1,58 @@
+<div *ngIf="!inEditableForm" class="question-answerable">
+    <div class="question-display">
+        <div class="question-title">
+            {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
+        </div>
+
+        <div *ngIf="question.type == 'drop_down'">
+
+        </div>
+
+        <div *ngIf="question.type == 'check'">
+
+        </div>
+
+        <div *ngIf="question.type == 'radio'">
+
+        </div>
+    </div>
+
+    <div class="question-options">
+        <button id="edit-question" class="button normal green large tall" (click)="inEditableForm = true;">
+            <fa-icon [icon]="icons.edit"></fa-icon>&nbsp;Edit
+        </button>
+        <button id="duplicate-question" class="button normal green large tall">
+            <fa-icon [icon]="icons.duplicate"></fa-icon>&nbsp;Duplicate
+        </button>
+        <button id="delete-question" class="button normal red large tall" (click)="deleteQuestion()">
+            <fa-icon [icon]="icons.delete"></fa-icon>&nbsp;Delete
+        </button>
+    </div>
+</div>
+
+<div *ngIf="inEditableForm" class="question-editable">
+    <div class="question-edit">
+        <div class="app-input-container question-title">
+            <label class="app-input-label-icon {{ questionName.invalid ? 'error' : ''}}">
+                {{ question.position }}
+            </label>
+            <input name="questionClosedName" class="app-input {{ questionName.invalid ? 'error' : ''}}" type="text" [formControl]="questionName">
+        </div>
+
+
+    </div>
+
+    <div class="question-options">
+        <button class="button normal green medium" (click)="save()" [disabled]="this.questionName.invalid">
+            <fa-icon [icon]="icons.save"></fa-icon>&nbsp;Save
+        </button>
+        <button class="button inverse red medium" (click)="inEditableForm = false;">
+            <fa-icon [icon]="icons.cancel"></fa-icon>&nbsp;Cancel
+        </button>
+        <div class="is-required">
+            <span>Required: </span>
+            <app-toggle-switch [state]="question.isRequired" (onChange)="isRequired = $event"></app-toggle-switch>
+        </div>
+    </div>
+</div>
+

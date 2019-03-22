@@ -44,16 +44,24 @@ a.classic {
   min-height: 40px;
   min-width: 100px;
   outline: none; }
+  .button:disabled {
+    cursor: not-allowed; }
+  .button.medium {
+    height: 50px;
+    width: 200px; }
   .button.large {
     height: 50px;
     width: 300px; }
+  .button.tall {
+    font-size: 20px;
+    height: 75px; }
   .button.inverse.green {
     background: none;
     border: 2px solid #16D36B;
     color: #16D36B; }
     .button.inverse.green > a {
       color: #16D36B; }
-    .button.inverse.green:hover {
+    .button.inverse.green:not(.button.inverse.green:disabled):hover {
       border-color: #13BD60;
       color: #13BD60; }
   .button.inverse.yellow {
@@ -62,14 +70,14 @@ a.classic {
     color: #E5D200; }
     .button.inverse.yellow > a {
       color: #E5D200; }
-    .button.inverse.yellow:hover {
+    .button.inverse.yellow:not(.button.inverse.yellow:disabled):hover {
       border-color: #CEBD00;
       color: #CEBD00; }
   .button.inverse.white {
     background: none;
     border: 2px solid #FFF;
     color: #FFF; }
-    .button.inverse.white:hover {
+    .button.inverse.white:not(.button.inverse.white:disabled):hover {
       border-color: #F2F2F2;
       color: #F2F2F2; }
   .button.inverse.red {
@@ -78,30 +86,30 @@ a.classic {
     color: #D9534F; }
     .button.inverse.red > a {
       color: #D9534F; }
-    .button.inverse.red:hover {
+    .button.inverse.red:not(.button.inverse.red:disabled):hover {
       border-color: #C34A47;
       color: #C34A47; }
   .button.normal.green {
     background: #16D36B;
     color: #FFF; }
-    .button.normal.green:hover {
+    .button.normal.green:not(.button.normal.green:disabled):hover {
       background: #13BD60; }
   .button.normal.yellow {
     background: #E5D200;
     color: #FFF; }
-    .button.normal.yellow:hover {
+    .button.normal.yellow:not(.button.normal.yellow:disabled):hover {
       background: #CEBD00; }
   .button.normal.white {
     background: #FFF;
     color: #16D36B; }
     .button.normal.white > a {
       color: #16D36B; }
-    .button.normal.white:hover {
+    .button.normal.white:not(.button.normal.white:disabled):hover {
       background: #F2F2F2; }
   .button.normal.red {
     background: #D9534F;
     color: #FFF; }
-    .button.normal.red:hover {
+    .button.normal.red:not(.button.normal.red:disabled):hover {
       background: #C34A47; }
 
 .top-bar-title {
@@ -186,16 +194,24 @@ a.classic {
   min-height: 40px;
   min-width: 100px;
   outline: none; }
+  .button:disabled {
+    cursor: not-allowed; }
+  .button.medium {
+    height: 50px;
+    width: 200px; }
   .button.large {
     height: 50px;
     width: 300px; }
+  .button.tall {
+    font-size: 20px;
+    height: 75px; }
   .button.inverse.green {
     background: none;
     border: 2px solid #16D36B;
     color: #16D36B; }
     .button.inverse.green > a {
       color: #16D36B; }
-    .button.inverse.green:hover {
+    .button.inverse.green:not(.button.inverse.green:disabled):hover {
       border-color: #13BD60;
       color: #13BD60; }
   .button.inverse.yellow {
@@ -204,14 +220,14 @@ a.classic {
     color: #E5D200; }
     .button.inverse.yellow > a {
       color: #E5D200; }
-    .button.inverse.yellow:hover {
+    .button.inverse.yellow:not(.button.inverse.yellow:disabled):hover {
       border-color: #CEBD00;
       color: #CEBD00; }
   .button.inverse.white {
     background: none;
     border: 2px solid #FFF;
     color: #FFF; }
-    .button.inverse.white:hover {
+    .button.inverse.white:not(.button.inverse.white:disabled):hover {
       border-color: #F2F2F2;
       color: #F2F2F2; }
   .button.inverse.red {
@@ -220,30 +236,30 @@ a.classic {
     color: #D9534F; }
     .button.inverse.red > a {
       color: #D9534F; }
-    .button.inverse.red:hover {
+    .button.inverse.red:not(.button.inverse.red:disabled):hover {
       border-color: #C34A47;
       color: #C34A47; }
   .button.normal.green {
     background: #16D36B;
     color: #FFF; }
-    .button.normal.green:hover {
+    .button.normal.green:not(.button.normal.green:disabled):hover {
       background: #13BD60; }
   .button.normal.yellow {
     background: #E5D200;
     color: #FFF; }
-    .button.normal.yellow:hover {
+    .button.normal.yellow:not(.button.normal.yellow:disabled):hover {
       background: #CEBD00; }
   .button.normal.white {
     background: #FFF;
     color: #16D36B; }
     .button.normal.white > a {
       color: #16D36B; }
-    .button.normal.white:hover {
+    .button.normal.white:not(.button.normal.white:disabled):hover {
       background: #F2F2F2; }
   .button.normal.red {
     background: #D9534F;
     color: #FFF; }
-    .button.normal.red:hover {
+    .button.normal.red:not(.button.normal.red:disabled):hover {
       background: #C34A47; }
 
 .top-bar-title {
@@ -292,12 +308,15 @@ a.classic {
   width: 300px; }
   .app-input-container:first-child {
     margin-top: 0; }
+  .app-input-container.no-margin {
+    margin: 0; }
   .app-input-container .app-input-label-icon {
     background: #16D36B;
     border-radius: 7px;
     box-sizing: border-box;
     color: #FFF;
     font-size: 20px;
+    font-weight: bold;
     height: 50px;
     line-height: 50px;
     padding-top: 3px;
@@ -317,17 +336,22 @@ a.classic {
     height: 50px;
     padding-left: 55px;
     width: 300px; }
-    .app-input-container .app-input[type=date]::-webkit-inner-spin-button {
+    .app-input-container .app-input[type="date"]::-webkit-inner-spin-button {
       -webkit-appearance: none;
       display: none; }
-    .app-input-container .app-input[type=date]::-webkit-calendar-picker-indicator {
+    .app-input-container .app-input[type="date"]::-webkit-calendar-picker-indicator {
       color: #16D36B; }
+    .app-input-container .app-input[type="number"]::-webkit-inner-spin-button {
+      margin-right: 10px; }
     .app-input-container .app-input:focus {
+      background: #CDCDCD;
       outline: none; }
     .app-input-container .app-input:disabled {
       color: #707070 !important; }
     .app-input-container .app-input.error {
       border: 1px solid #D9534F; }
+    .app-input-container .app-input.no-icon {
+      padding-left: 10px; }
 
 .app-input-error {
   color: #D9534F;

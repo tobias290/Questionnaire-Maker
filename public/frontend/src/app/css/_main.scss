@@ -54,9 +54,23 @@ a.classic {
     min-width: 100px;
     outline: none;
     
+    &:disabled {
+        cursor: not-allowed;
+    }
+    
+    &.medium {
+        height: 50px;
+        width: 200px;
+    }
+    
     &.large {
         height: 50px;
         width: 300px;
+    }
+    
+    &.tall {
+        font-size: 20px;
+        height: 75px;
     }
 
     &.inverse {
@@ -69,7 +83,7 @@ a.classic {
                 color: $green;
             }
 
-            &:hover {
+            &:not(&:disabled):hover {
                 border-color: $green-hover;
                 color: $green-hover;
             }
@@ -84,7 +98,7 @@ a.classic {
                 color: $yellow;
             }
 
-            &:hover {
+            &:not(&:disabled):hover {
                 border-color: $yellow-hover;
                 color: $yellow-hover;
             }
@@ -95,7 +109,7 @@ a.classic {
             border: 2px solid $white;
             color: $white;
 
-            &:hover {
+            &:not(&:disabled):hover {
                 border-color: $white-hover;
                 color: $white-hover;
             }
@@ -110,7 +124,7 @@ a.classic {
                 color: $red;
             }
             
-            &:hover {
+            &:not(&:disabled):hover {
                 border-color: $red-hover;
                 color: $red-hover;
             }
@@ -122,7 +136,7 @@ a.classic {
             background: $green;
             color: $white;
 
-            &:hover {
+            &:not(&:disabled):hover {
                 background: $green-hover;
             }
         }
@@ -131,7 +145,7 @@ a.classic {
             background: $yellow;
             color: $white;
 
-            &:hover {
+            &:not(&:disabled):hover {
                 background: $yellow-hover;
             }
         }
@@ -144,7 +158,7 @@ a.classic {
                 color: $green;
             }
 
-            &:hover {
+            &:not(&:disabled):hover {
                 background: $white-hover;
             }
         }
@@ -153,7 +167,7 @@ a.classic {
             background: $red;
             color: $white;
 
-            &:hover {
+            &:not(&:disabled):hover {
                 background: $red-hover;
             }
         }

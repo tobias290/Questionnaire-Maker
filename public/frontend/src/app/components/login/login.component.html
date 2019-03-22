@@ -16,9 +16,9 @@
     
     <form id="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()" #login="ngForm">
         <div class="app-input-container">
-            <div class="app-input-label-icon {{ input('email').invalid && login.submitted ? 'error' : ''}}">
+            <label class="app-input-label-icon {{ input('email').invalid && login.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.email"></fa-icon>
-            </div>
+            </label>
             <input 
                 class="app-input {{ input('email').invalid && login.submitted ? 'error' : ''}}" 
                 name="email"
@@ -35,9 +35,9 @@
         </div>
         
         <div class="app-input-container">
-            <div class="app-input-label-icon {{ input('password').invalid && login.submitted ? 'error' : ''}}">
+            <label class="app-input-label-icon {{ input('password').invalid && login.submitted ? 'error' : ''}}">
                 <fa-icon [icon]="icons.password"></fa-icon>
-            </div>
+            </label>
             <input 
                 class="app-input {{ input('password').invalid && login.submitted ? 'error' : ''}}" 
                 name="password" 

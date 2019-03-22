@@ -1,6 +1,6 @@
-<app-loading *ngIf="loading.user || loading.questionnaire"></app-loading>
+<app-loading *ngIf="loading.user || loading.questionnaire || loading.questions"></app-loading>
 
-<app-top-bar *ngIf="!loading.user && !loading.questionnaire" [title]="'Edit Questionnaire'" [hasBackButton]="true">
+<app-top-bar *ngIf="!loading.user && !loading.questionnaire && !loading.questions" [title]="'Edit Questionnaire'" [hasBackButton]="true">
     <div class="top-bar-center">
         <span id="title">
             {{ data.questionnaire.title }} 
@@ -18,55 +18,49 @@
     </div>
 </app-top-bar>
 
-<aside *ngIf="!loading.user && !loading.questionnaire" id="question-list">
+<aside *ngIf="!loading.user && !loading.questionnaire && !loading.questions" id="question-list">
     <div id="question-list-title">Question Types</div>
     
-    <div class="question-list-question">
+    <div class="question-list-question" id="add-multiple-choice-question" (click)="addQuestion('closed', 'radio')">
         <span><fa-icon [icon]="icons.questionTypes.multipleChoice"></fa-icon></span>
         &nbsp;
         <span>Multiple Choice</span>
     </div>
     
-    <div class="question-list-question">
+    <div class="question-list-question" id="add-check-box-question" (click)="addQuestion('closed', 'check')">
         <span><fa-icon [icon]="icons.questionTypes.checkBox"></fa-icon></span>
         &nbsp;
         <span>Check Boxes</span>
     </div>
 
-    <div class="question-list-question">
+    <div class="question-list-question" id="add-drop-down-question" (click)="addQuestion('closed', 'drop_down')">
         <span><fa-icon [icon]="icons.questionTypes.dropDown"></fa-icon></span>
         &nbsp;
         <span>Drop Down</span>
     </div>
 
-    <div class="question-list-question">
+    <div class="question-list-question" id="add-single-line-question" (click)="addQuestion('open', 'short')">
         <span><fa-icon [icon]="icons.questionTypes.singleLine"></fa-icon></span>
         &nbsp;
         <span>Single Line</span>
     </div>
 
-    <div class="question-list-question">
+    <div class="question-list-question" id="add-paragraph-question" (click)="addQuestion('open', 'long')">
         <span><fa-icon [icon]="icons.questionTypes.paragraph"></fa-icon></span>
         &nbsp;
         <span>Paragraph</span>
     </div>
 
-    <div class="question-list-question">
+    <div class="question-list-question" id="add-star-rating-question" (click)="addQuestion('scaled', 'star')">
         <span><fa-icon [icon]="icons.questionTypes.starRating"></fa-icon></span>
         &nbsp;
-        <span>Star</span>
+        <span>Star Rating</span>
     </div>
 
-    <div class="question-list-question">
-        <span><fa-icon [icon]="icons.questionTypes.sliders"></fa-icon></span>
+    <div class="question-list-question" id="add-slider-question" (click)="addQuestion('scaled', 'slider')">
+        <span><fa-icon [icon]="icons.questionTypes.slider"></fa-icon></span>
         &nbsp;
         <span>Slider</span>
-    </div>
-
-    <div class="question-list-question">
-        <span><fa-icon [icon]="icons.questionTypes.sliders"></fa-icon></span>
-        &nbsp;
-        <span>Scale</span>
     </div>
     
     <div id="delete-questionnaire">
@@ -74,6 +68,15 @@
     </div>
 </aside>
 
-<app-popup *ngIf="!loading.user && !loading.questionnaire" [show]="showEditQuestionnairePopup" (close)="showEditQuestionnairePopup = false;">
+<div *ngIf="!loading.user && !loading.questionnaire && !loading.questions" id="edit-questionnaire-page-center">
+    <div *ngIf="data.questions.length == 0" id="no-questions">No Questions</div>
+    <ng-container *ngFor="let question of data.questions">
+        <app-question-open *ngIf="isQuestionType(question, 'open')" [question]="question" (refresh)="getQuestions()"></app-question-open>
+        <app-question-closed *ngIf="isQuestionType(question, 'closed')" [question]="question" (refresh)="getQuestions()"></app-question-closed>
+        <app-question-scaled *ngIf="isQuestionType(question, 'scaled')" [question]="question" (refresh)="getQuestions()"></app-question-scaled>
+    </ng-container>
+</div>
+
+<app-popup *ngIf="!loading.user && !loading.questionnaire && !loading.questions" [show]="showEditQuestionnairePopup" (close)="showEditQuestionnairePopup = false;">
     <app-create-questionnaire-form [questionnaire]="data.questionnaire" (onCreate)="getQuestionnaire()"></app-create-questionnaire-form>
 </app-popup>

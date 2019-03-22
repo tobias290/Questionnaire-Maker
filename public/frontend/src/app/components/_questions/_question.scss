@@ -1,0 +1,102 @@
+@import "../../css/main";
+@import "../../css/controls";
+
+%question {
+    @include center(30px auto 30px auto);
+
+    background: $white;
+    box-shadow: 0 5px 5px $shadow-color;
+    display: flex;
+    height: 230px;
+    width: 100%;
+}
+
+.question-answerable {
+    @extend %question;
+
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    position: relative;
+    height: fit-content;
+    
+    &:hover {
+        border: 1px solid $green;
+        
+        .question-options {
+            visibility: visible;
+        }
+    }
+
+    .question-display {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+        width: calc(100% - 300px);
+
+        .question-title {
+            color: $green;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 0 15px 15px 15px;
+        }
+    }
+
+    .question-options {
+        align-items: center;
+        background: rgba(black, 0.7);
+        display: flex;
+        height: 100%;
+        justify-content: space-evenly;
+        position: absolute;
+        visibility: hidden;
+        width: 100%;
+    }
+}
+
+.question-editable {
+    @extend %question;
+    
+    border: 2px dashed $green;
+    
+    .question-edit {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 30px;
+        width: calc(100% - 300px);
+
+        .question-title {
+            & > input {
+                width: 500px !important;
+            }
+        }
+    }
+    
+    .question-options {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-evenly;
+        padding-right: 30px;
+        width: 300px;
+
+        .is-required {
+            position: relative;
+            width: 200px;
+
+            & > span {
+                color: $text-dark;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            & > *:last-child {
+                @include vertical-center(34px);
+
+                right: 0;
+            }
+        }
+    }
+}

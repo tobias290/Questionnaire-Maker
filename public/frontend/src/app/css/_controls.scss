@@ -11,12 +11,17 @@
         margin-top: 0;
     }
     
+    &.no-margin {
+        margin: 0;
+    }
+    
     .app-input-label-icon {
         background: $green;
         border-radius: 7px;
         box-sizing: border-box;
         color: $white;
         font-size: 20px;
+        font-weight: bold;
         height: 50px;
         line-height: 50px;
         padding-top: 3px;
@@ -43,16 +48,21 @@
         padding-left: 55px;
         width: 300px;
 
-        &[type=date]::-webkit-inner-spin-button {
+        &[type="date"]::-webkit-inner-spin-button {
             -webkit-appearance: none;
             display: none;
         }
 
-        &[type=date]::-webkit-calendar-picker-indicator {
+        &[type="date"]::-webkit-calendar-picker-indicator {
             color: $green;
         }
         
+        &[type="number"]::-webkit-inner-spin-button {
+            margin-right: 10px;
+        }
+        
         &:focus {
+            background: #CDCDCD;
             outline: none;
         }
         
@@ -62,6 +72,10 @@
         
         &.error {
             border: 1px solid $red;
+        }
+
+        &.no-icon {
+            padding-left: 10px;
         }
     }
 }
