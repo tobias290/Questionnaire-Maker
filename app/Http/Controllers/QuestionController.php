@@ -36,118 +36,30 @@ class QuestionController extends Controller {
         ]], 200);
     }
 
+    // _________________________________________________________________________________________________________________
+
     /**
-     * Adds an open question to a given questionnaire.
+     * Edits the details of a question.
      *
-     * @param Request $request
+     * @param QuestionClosed | QuestionOpen | QuestionScaled $question
+     * @param array $data
      * @return \Illuminate\Http\JsonResponse
      */
-    public function addOpen(Request $request) {
-        /** @var Questionnaire $questionnaire */
-        $questionnaire = Questionnaire::find($request->input("questionnaire_id"));
-
+    public function edit($question, $data) {
         // Check to see whether the current authenticated user owns the questionnaire
         // Only if they own it can they add a question
-        if (Auth::id() != $questionnaire->user->id) {
+        if (Auth::id() != $question->questionnaire->user->id) {
             return response()->json(["error" => [
-                "message" => "You do not own that questionnaire",
+                "message" => "You do not own that questionnaire, therefore you cannot edit the question",
             ]], 401);
         }
 
-        $questionnaire->openQuestions()->create([
-            "name" => "Untitled",
-            "position" => $request->input("position"),
-            "is_long" => $request->input("is_long"),
-        ]);
+        $question->fill($data);
+        $question->save();
 
         return response()->json(["success" => [
-            "message" => "Question added"
-        ]], 201);
-    }
-
-    /**
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Exception
-     */
-    public function deleteOpen($id) {
-       return $this->delete(QuestionOpen::find($id));
-    }
-
-    /**
-     * Adds an closed question to a given questionnaire.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function addClosed(Request $request) {
-        /** @var Questionnaire $questionnaire */
-        $questionnaire = Questionnaire::find($request->input("questionnaire_id"));
-
-        // Check to see whether the current authenticated user owns the questionnaire
-        // Only if they own it can they add a question
-        if (Auth::id() != $questionnaire->user->id) {
-            return response()->json(["error" => [
-                "message" => "You do not own that questionnaire",
-            ]], 401);
-        }
-
-        $questionnaire->closedQuestions()->create([
-            "name" => "Untitled",
-            "position" => $request->input("position"),
-            "type" => $request->input("type"),
-        ]);
-
-        return response()->json(["success" => [
-            "message" => "Question added"
-        ]], 201);
-    }
-
-    /**
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Exception
-     */
-    public function deleteClosed($id) {
-        return $this->delete(QuestionClosed::find($id));
-    }
-
-    /**
-     * Adds an scaled question to a given questionnaire.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function addScaled(Request $request) {
-        /** @var Questionnaire $questionnaire */
-        $questionnaire = Questionnaire::find($request->input("questionnaire_id"));
-
-        // Check to see whether the current authenticated user owns the questionnaire
-        // Only if they own it can they add a question
-        if (Auth::id() != $questionnaire->user->id) {
-            return response()->json(["error" => [
-                "message" => "You do not own that questionnaire",
-            ]], 401);
-        }
-
-        $questionnaire->scaledQuestions()->create([
-            "name" => "Untitled",
-            "position" => $request->input("position"),
-            "type" => $request->input("type"),
-        ]);
-
-        return response()->json(["success" => [
-            "message" => "Question added"
-        ]], 201);
-    }
-
-    /**
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Exception
-     */
-    public function deleteScaled($id) {
-        return $this->delete(QuestionScaled::find($id));
+            "message" => "Question edited"
+        ]], 200);
     }
 
     /**
@@ -171,5 +83,161 @@ class QuestionController extends Controller {
         return response()->json(["error" => [
             "message" => "Question deleted",
         ]], 200);
+    }
+
+    // _________________________________________________________________________________________________________________
+
+    /**
+     * Adds an open question to a given questionnaire.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addOpen(Request $request) {
+        /** @var Questionnaire $questionnaire */
+        $questionnaire = Questionnaire::find($request->input("questionnaire_id"));
+
+        // Check to see whether the current authenticated user owns the questionnaire
+        // Only if they own it can they add a question
+        if (Auth::id() != $questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire",
+            ]], 401);
+        }
+
+        $question = $questionnaire->openQuestions()->create([
+            "name" => "Untitled",
+            "position" => $request->input("position"),
+            "is_long" => $request->input("is_long"),
+        ]);
+
+        return response()->json(["success" => [
+            "id" => $question->id,
+            "message" => "Question added"
+        ]], 201);
+    }
+
+    /**
+     * Edits the details of an open question.
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editOpen(Request $request, $id) {
+        return $this->edit(QuestionOpen::find($id), $request->all());
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function deleteOpen($id) {
+       return $this->delete(QuestionOpen::find($id));
+    }
+
+    // _________________________________________________________________________________________________________________
+
+    /**
+     * Adds an closed question to a given questionnaire.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addClosed(Request $request) {
+        /** @var Questionnaire $questionnaire */
+        $questionnaire = Questionnaire::find($request->input("questionnaire_id"));
+
+        // Check to see whether the current authenticated user owns the questionnaire
+        // Only if they own it can they add a question
+        if (Auth::id() != $questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire",
+            ]], 401);
+        }
+
+        $question = $questionnaire->closedQuestions()->create([
+            "name" => "Untitled",
+            "position" => $request->input("position"),
+            "type" => $request->input("type"),
+        ]);
+
+        return response()->json(["success" => [
+            "id" => $question->id,
+            "message" => "Question added"
+        ]], 201);
+    }
+
+    /**
+     * Edits the details of an closed question.
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editClosed(Request $request, $id) {
+        return $this->edit(QuestionClosed::find($id), $request->all());
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function deleteClosed($id) {
+        return $this->delete(QuestionClosed::find($id));
+    }
+
+    // _________________________________________________________________________________________________________________
+
+    /**
+     * Adds an scaled question to a given questionnaire.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addScaled(Request $request) {
+        /** @var Questionnaire $questionnaire */
+        $questionnaire = Questionnaire::find($request->input("questionnaire_id"));
+
+        // Check to see whether the current authenticated user owns the questionnaire
+        // Only if they own it can they add a question
+        if (Auth::id() != $questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire",
+            ]], 401);
+        }
+
+        $question = $questionnaire->scaledQuestions()->create([
+            "name" => "Untitled",
+            "position" => $request->input("position"),
+            "type" => $request->input("type"),
+        ]);
+
+        return response()->json(["success" => [
+            "id" => $question->id,
+            "message" => "Question added"
+        ]], 201);
+    }
+
+    /**
+     * Edits the details of an scaled question.
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editScaled(Request $request, $id) {
+        return $this->edit(QuestionScaled::find($id), $request->all());
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function deleteScaled($id) {
+        return $this->delete(QuestionScaled::find($id));
     }
 }

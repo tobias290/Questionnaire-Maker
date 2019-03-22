@@ -52,5 +52,12 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
             // Route::delete("closed/option/{id}", "");
             Route::delete("scaled/{id}", "QuestionController@deleteScaled");
         });
+
+        Route::prefix("edit")->group(function () {
+            Route::patch("open/{id}", "QuestionController@editOpen");
+            Route::patch("closed/{id}", "QuestionController@editClosed");
+            // Route::patch("closed/option/{id}", "");
+            Route::patch("scaled/{id}", "QuestionController@editScaled");
+        });
     });
 });
