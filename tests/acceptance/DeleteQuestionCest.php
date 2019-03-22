@@ -11,7 +11,11 @@ class DeleteQuestionCest {
         $I->seeInCurrentUrl("edit");
     }
 
-
+    /**
+     * Test to see when you delete a question from a questionnaire that it removed it from the database.
+     *
+     * @param \Step\Acceptance\QuestionnaireMaker $I
+     */
     public function deleteQuestion(\Step\Acceptance\QuestionnaireMaker $I) {
         $I->am("Questionnaire Maker");
         // And

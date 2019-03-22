@@ -17,12 +17,12 @@ class DeleteQuestionCest {
         // And
         $I->createQuestionnaire();
         // And
-        $id = $I->getResponse()["success"]["questionnaire_id"];
+        $questionnaire_id = $I->getResponse()["success"]["questionnaire_id"];
         // And
         $I->sendPOST("question/add/open", [
             "position" => 1,
             "is_long" => false,
-            "questionnaire_id" => $id,
+            "questionnaire_id" => $questionnaire_id,
         ]);
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::CREATED);
@@ -34,8 +34,10 @@ class DeleteQuestionCest {
                 "message" => "Question added"
             ]
         ]);
+        // And
+        $question_id = $I->getResponse()["success"]["id"];
         // Then
-        $I->sendDELETE("question/delete/open/3");
+        $I->sendDELETE("question/delete/open/$question_id");
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
         // And
@@ -62,7 +64,7 @@ class DeleteQuestionCest {
         // And
         $I->amBearerAuthenticated($token);
         // Then
-        $I->sendDELETE("question/delete/open/1");
+        $I->sendDELETE("question/delete/open/4");
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::UNAUTHORIZED);
         // And
