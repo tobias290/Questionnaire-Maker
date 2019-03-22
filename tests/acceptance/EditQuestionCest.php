@@ -29,6 +29,8 @@ class EditQuestionCest {
             "name" => "Untitled",
         ]);
         // Then
+        $I->moveMouseOver( ".question-answerable");
+        // And
         $I->click(["id" => "edit-question"]);
         // And
         $I->fillField("questionOpenName", "First open question");
@@ -62,6 +64,8 @@ class EditQuestionCest {
             "name" => "Untitled",
         ]);
         // Then
+        $I->moveMouseOver( ".question-answerable");
+        // And
         $I->click(["id" => "edit-question"]);
         // And
         $I->fillField("questionClosedName", "First closed question");
@@ -95,6 +99,8 @@ class EditQuestionCest {
             "name" => "Untitled",
         ]);
         // Then
+        $I->moveMouseOver( ".question-answerable");
+        // And
         $I->click(["id" => "edit-question"]);
         // And
         $I->fillField("questionScaledName", "First scaled question");
