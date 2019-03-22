@@ -39,7 +39,7 @@ class EditQuestionCest {
         // And
         $I->wait(AcceptanceTester::WAIT_TIME);
         // And
-        $I->see("First open question");
+        $I->see("1. First open question");
         // And
         $I->seeInDatabase("question_open", [
             "name" => "First open question",
@@ -74,7 +74,7 @@ class EditQuestionCest {
         // And
         $I->wait(AcceptanceTester::WAIT_TIME);
         // And
-        $I->see("First closed question");
+        $I->see("1. First closed question");
         // And
         $I->seeInDatabase("question_closed", [
             "name" => "First closed question",
@@ -110,7 +110,7 @@ class EditQuestionCest {
         // And
         $I->wait(AcceptanceTester::WAIT_TIME);
         // And
-        $I->see("First closed question");
+        $I->see("1. First scaled question");
         // And
         $I->seeInDatabase("question_scaled", [
             "name" => "First scaled question",
