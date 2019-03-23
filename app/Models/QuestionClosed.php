@@ -36,4 +36,11 @@ class QuestionClosed extends Model {
     public function questionnaire() {
         return $this->belongsTo("App\Models\Questionnaire");
     }
+
+    /**
+     * Gets all the options for this question.
+     */
+    public function options() {
+        return $this->hasMany("App\Models\QuestionClosedOption");
+    }
 }

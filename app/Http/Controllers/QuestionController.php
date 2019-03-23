@@ -12,40 +12,13 @@ use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller {
     /**
-     * Returns all the questions related to the given id.
-     *
-     * @param $id - Questionnaire ID.
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function questionnaireQuestions($id) {
-        /** @var Questionnaire $questionnaire */
-        $questionnaire = Questionnaire::find($id);
-
-        // Check to see whether the current authenticated user owns the questionnaire
-        // Only if they own it can they add a question
-        if (Auth::id() != $questionnaire->user->id) {
-            return response()->json(["error" => [
-                "message" => "You do not own that questionnaire",
-            ]], 401);
-        }
-
-        return response()->json(["success" => [
-            "open" => $questionnaire->openQuestions,
-            "closed" => $questionnaire->closedQuestions,
-            "scaled" => $questionnaire->scaledQuestions,
-        ]], 200);
-    }
-
-    // _________________________________________________________________________________________________________________
-
-    /**
      * Edits the details of a question.
      *
      * @param QuestionClosed | QuestionOpen | QuestionScaled $question
      * @param array $data
      * @return \Illuminate\Http\JsonResponse
      */
-    public function edit($question, $data) {
+    private function edit($question, $data) {
         // Check to see whether the current authenticated user owns the questionnaire
         // Only if they own it can they add a question
         if (Auth::id() != $question->questionnaire->user->id) {
@@ -69,7 +42,7 @@ class QuestionController extends Controller {
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function delete($question) {
+    private function delete($question) {
         // Check to see whether the current authenticated user owns the questionnaire that the question belongs to
         // Only if they own it can they delete the question
         if (Auth::id() != $question->questionnaire->user->id) {
@@ -82,6 +55,33 @@ class QuestionController extends Controller {
 
         return response()->json(["error" => [
             "message" => "Question deleted",
+        ]], 200);
+    }
+
+    // _________________________________________________________________________________________________________________
+
+    /**
+     * Returns all the questions related to the given id.
+     *
+     * @param $id - Questionnaire ID.
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function questionnaireQuestions($id) {
+        /** @var Questionnaire $questionnaire */
+        $questionnaire = Questionnaire::find($id);
+
+        // Check to see whether the current authenticated user owns the questionnaire
+        // Only if they own it can they add a question
+        if (Auth::id() != $questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire",
+            ]], 401);
+        }
+
+        return response()->json(["success" => [
+            "open" => $questionnaire->openQuestions,
+            "closed" => $questionnaire->closedQuestions,
+            "scaled" => $questionnaire->scaledQuestions,
         ]], 200);
     }
 

@@ -42,22 +42,25 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
         Route::prefix("add")->group(function () {
             Route::post("open", "QuestionController@addOpen");
             Route::post("closed", "QuestionController@addClosed");
-            // Route::post("closed/option", "");
             Route::post("scaled", "QuestionController@addScaled");
+
+            Route::post("closed/option", "QuestionClosedOptionController@add");
         });
 
         Route::prefix("delete")->group(function () {
             Route::delete("open/{id}", "QuestionController@deleteOpen");
             Route::delete("closed/{id}", "QuestionController@deleteClosed");
-            // Route::delete("closed/option/{id}", "");
             Route::delete("scaled/{id}", "QuestionController@deleteScaled");
+
+            Route::delete("closed/option/{id}", "QuestionClosedOptionController@delete");
         });
 
         Route::prefix("edit")->group(function () {
             Route::patch("open/{id}", "QuestionController@editOpen");
             Route::patch("closed/{id}", "QuestionController@editClosed");
-            // Route::patch("closed/option/{id}", "");
             Route::patch("scaled/{id}", "QuestionController@editScaled");
+
+            Route::patch("closed/option/{id}", "QuestionClosedOptionController@edit");
         });
     });
 });
