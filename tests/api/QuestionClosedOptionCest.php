@@ -38,6 +38,7 @@ class QuestionClosedOptionCest {
         $question_id = $I->getResponse()["success"]["id"];
         // And
         $I->sendPOST("question/add/closed/option", [
+            "option" => "Option 1",
             "question_closed_id" => $question_id,
         ]);
         // And
@@ -65,6 +66,7 @@ class QuestionClosedOptionCest {
         $question_id = $I->getResponse()["success"]["id"];
         // And
         $I->sendPOST("question/add/closed/option", [
+            "option" => "Option 1",
             "question_closed_id" => $question_id,
         ]);
         // And
@@ -81,7 +83,7 @@ class QuestionClosedOptionCest {
         $option_id = $I->getResponse()["success"]["id"];
         // And
         $I->sendPATCH("question/edit/closed/option/$option_id", [
-            "option" => "Option 1",
+            "option" => "New Option 1",
         ]);
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
@@ -108,6 +110,7 @@ class QuestionClosedOptionCest {
         $question_id = $I->getResponse()["success"]["id"];
         // And
         $I->sendPOST("question/add/closed/option", [
+            "option" => "Option 1",
             "question_closed_id" => $question_id,
         ]);
         // And

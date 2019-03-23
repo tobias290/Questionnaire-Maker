@@ -33,7 +33,7 @@ class QuestionClosedOptionCest {
         // And
         $I->wantTo("add an option to one of my closed questions");
         // Then
-        $I->click(["id" => "add-question-option"]);
+        $I->click(["class" => "add-question-option"]);
         // And
         $I->wait(AcceptanceTester::WAIT_TIME);
         // And
@@ -56,7 +56,7 @@ class QuestionClosedOptionCest {
         // And
         $I->wantTo("edit an option to one of my closed questions");
         // Then
-        $I->click(["id" => "add-question-option"]);
+        $I->click(["class" => "add-question-option"]);
         // And
         $I->wait(AcceptanceTester::WAIT_TIME);
         // And
@@ -76,6 +76,8 @@ class QuestionClosedOptionCest {
         // And
         $I->click("Save");
         // And
+        $I->wait(AcceptanceTester::WAIT_TIME);
+        // And
         $I->seeInDatabase("question_closed_option", [
             "option" => "New Option",
         ]);
@@ -91,7 +93,7 @@ class QuestionClosedOptionCest {
         // And
         $I->wantTo("delete an option to one of my closed questions");
         // Then
-        $I->click(["id" => "add-question-option"]);
+        $I->click(["class" => "add-question-option"]);
         // And
         $I->wait(AcceptanceTester::WAIT_TIME);
         // And
@@ -112,6 +114,8 @@ class QuestionClosedOptionCest {
         $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->click("Save");
+        // And
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->dontSeeInDatabase("question_closed_option", [
             "option" => "Untitled",
