@@ -61,7 +61,7 @@ a.classic {
     color: #16D36B; }
     .button.inverse.green > a {
       color: #16D36B; }
-    .button.inverse.green:not(.button.inverse.green:disabled):hover {
+    .button.inverse.green:hover:enabled {
       border-color: #13BD60;
       color: #13BD60; }
   .button.inverse.yellow {
@@ -70,14 +70,14 @@ a.classic {
     color: #E5D200; }
     .button.inverse.yellow > a {
       color: #E5D200; }
-    .button.inverse.yellow:not(.button.inverse.yellow:disabled):hover {
+    .button.inverse.yellow:hover:enabled {
       border-color: #CEBD00;
       color: #CEBD00; }
   .button.inverse.white {
     background: none;
     border: 2px solid #FFF;
     color: #FFF; }
-    .button.inverse.white:not(.button.inverse.white:disabled):hover {
+    .button.inverse.white:hover:enabled {
       border-color: #F2F2F2;
       color: #F2F2F2; }
   .button.inverse.red {
@@ -86,13 +86,13 @@ a.classic {
     color: #D9534F; }
     .button.inverse.red > a {
       color: #D9534F; }
-    .button.inverse.red:not(.button.inverse.red:disabled):hover {
+    .button.inverse.red:hover:enabled {
       border-color: #C34A47;
       color: #C34A47; }
   .button.normal.green {
     background: #16D36B;
     color: #FFF; }
-    .button.normal.green:not(.button.normal.green:disabled):hover {
+    .button.normal.green:hover:enabled {
       background: #13BD60; }
   .button.normal.yellow {
     background: #E5D200;
@@ -104,12 +104,12 @@ a.classic {
     color: #16D36B; }
     .button.normal.white > a {
       color: #16D36B; }
-    .button.normal.white:not(.button.normal.white:disabled):hover {
+    .button.normal.white:hover:enabled {
       background: #F2F2F2; }
   .button.normal.red {
     background: #D9534F;
     color: #FFF; }
-    .button.normal.red:not(.button.normal.red:disabled):hover {
+    .button.normal.red:hover:enabled {
       background: #C34A47; }
 
 .top-bar-title {
@@ -211,7 +211,7 @@ a.classic {
     color: #16D36B; }
     .button.inverse.green > a {
       color: #16D36B; }
-    .button.inverse.green:not(.button.inverse.green:disabled):hover {
+    .button.inverse.green:hover:enabled {
       border-color: #13BD60;
       color: #13BD60; }
   .button.inverse.yellow {
@@ -220,14 +220,14 @@ a.classic {
     color: #E5D200; }
     .button.inverse.yellow > a {
       color: #E5D200; }
-    .button.inverse.yellow:not(.button.inverse.yellow:disabled):hover {
+    .button.inverse.yellow:hover:enabled {
       border-color: #CEBD00;
       color: #CEBD00; }
   .button.inverse.white {
     background: none;
     border: 2px solid #FFF;
     color: #FFF; }
-    .button.inverse.white:not(.button.inverse.white:disabled):hover {
+    .button.inverse.white:hover:enabled {
       border-color: #F2F2F2;
       color: #F2F2F2; }
   .button.inverse.red {
@@ -236,13 +236,13 @@ a.classic {
     color: #D9534F; }
     .button.inverse.red > a {
       color: #D9534F; }
-    .button.inverse.red:not(.button.inverse.red:disabled):hover {
+    .button.inverse.red:hover:enabled {
       border-color: #C34A47;
       color: #C34A47; }
   .button.normal.green {
     background: #16D36B;
     color: #FFF; }
-    .button.normal.green:not(.button.normal.green:disabled):hover {
+    .button.normal.green:hover:enabled {
       background: #13BD60; }
   .button.normal.yellow {
     background: #E5D200;
@@ -254,12 +254,12 @@ a.classic {
     color: #16D36B; }
     .button.normal.white > a {
       color: #16D36B; }
-    .button.normal.white:not(.button.normal.white:disabled):hover {
+    .button.normal.white:hover:enabled {
       background: #F2F2F2; }
   .button.normal.red {
     background: #D9534F;
     color: #FFF; }
-    .button.normal.red:not(.button.normal.red:disabled):hover {
+    .button.normal.red:hover:enabled {
       background: #C34A47; }
 
 .top-bar-title {
@@ -371,6 +371,83 @@ a.classic {
   width: 630px; }
   .app-textarea:focus {
     outline: none; }
+
+.app-radio-container {
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-left: 35px;
+  padding-top: 3px;
+  position: relative;
+  margin-left: -5px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+  .app-radio-container input {
+    cursor: pointer;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+    width: 0; }
+  .app-radio-container .checkmark {
+    background-color: #E4E4E4;
+    border-radius: 7px;
+    height: 25px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 25px; }
+  .app-radio-container:hover input ~ .checkmark {
+    background-color: #CDCDCD; }
+  .app-radio-container input:checked ~ .checkmark {
+    background-color: #16D36B; }
+  .app-radio-container input:checked:hover ~ .checkmark {
+    background-color: #13BD60; }
+  .app-radio-container input:checked ~ .checkmark:after {
+    display: block; }
+  .app-radio-container .checkmark:after {
+    content: "";
+    display: none;
+    position: absolute; }
+  .app-radio-container .checkmark:after {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    height: 10px;
+    left: 9px;
+    top: 5px;
+    transform: rotate(45deg);
+    width: 5px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg); }
+  .app-radio-container .radio {
+    background-color: #E4E4E4;
+    border-radius: 50%;
+    height: 25px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 25px; }
+  .app-radio-container:hover input ~ .radio {
+    background-color: #CDCDCD; }
+  .app-radio-container input:checked ~ .radio {
+    background-color: #16D36B; }
+  .app-radio-container input:checked:hover ~ .radio {
+    background-color: #13BD60; }
+  .app-radio-container .radio:after {
+    content: "";
+    display: none;
+    position: absolute; }
+  .app-radio-container input:checked ~ .radio:after {
+    display: block; }
+  .app-radio-container .radio:after {
+    background: white;
+    border-radius: 50%;
+    height: 9px;
+    left: 8px;
+    top: 8px;
+    width: 9px; }
 
 aside {
   left: 90px;

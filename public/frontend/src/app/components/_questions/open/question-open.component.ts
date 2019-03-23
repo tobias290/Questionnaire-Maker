@@ -71,4 +71,14 @@ export class QuestionOpenComponent implements OnChanges {
             )
             .subscribe(success => this.refresh.emit());
     }
+
+    /**
+     * Cancels editing the question and removes any changes made.
+     */
+    public cancel() {
+        this.questionName.setValue(this.question.name);
+        this.isRequired = this.question.isRequired;
+        
+        this.inEditableForm = false;
+    }
 }

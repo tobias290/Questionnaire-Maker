@@ -37,7 +37,7 @@
 <div *ngIf="inEditableForm" class="question-editable">
     <div class="question-edit">
         <div class="app-input-container question-title">
-            <label class="app-input-label-icon {{ questionName.invalid ? 'error' : ''}}" [title]="question.type === 'star' ? 'Star Rating' : 'Slider'">
+            <label class="app-input-label-icon {{ questionName.invalid ? 'error' : ''}}">
                 {{ question.position }}.
             </label>
             <input name="questionScaledName" class="app-input {{ questionName.invalid ? 'error' : ''}}" type="text" [formControl]="questionName">
@@ -79,7 +79,7 @@
         <button class="button normal green medium" (click)="save()" [disabled]="this.questionName.invalid">
             <fa-icon [icon]="icons.save"></fa-icon>&nbsp;Save
         </button>
-        <button class="button inverse red medium" (click)="inEditableForm = false;">
+        <button class="button inverse red medium" (click)="cancel()">
             <fa-icon [icon]="icons.cancel"></fa-icon>&nbsp;Cancel
         </button>
         <div class="is-required">

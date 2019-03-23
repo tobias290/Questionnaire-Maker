@@ -1,1 +1,68 @@
 @import "../question";
+
+.question-margin {
+    margin-left: 20px;
+}
+
+.question-options-options {
+    .question-option {
+        align-items: center;
+        display: flex;
+        
+        & > span {
+            color: $red;
+            cursor: pointer;
+            font-size: 30px;
+            text-align: center;
+            width: 50px;
+            
+            &:hover {
+                color: $red-hover;
+                transform: scale(1.1);
+            }
+        }
+        
+        & > input {
+            background: $dark-white;
+            border: none;
+            border-radius: 7px;
+            color: black;
+            font-size: 14px;
+            height: 30px;
+            padding-left: 10px;
+            width: 450px;
+            
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    
+    .add-question-option {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        
+        &:hover {
+            & > span:first-child {
+                color: $green-hover;
+                transform: scale(1.1);
+            }
+        }
+        
+        & > span:first-child {
+            color: $green;
+            cursor: pointer;
+            font-size: 30px;
+            text-align: center;
+            width: 50px;
+        }
+        
+        & > span:last-child {
+            color: $text-dark;
+            font-size: 16px;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+    }
+}

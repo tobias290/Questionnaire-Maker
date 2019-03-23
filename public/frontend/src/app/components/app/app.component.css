@@ -60,7 +60,7 @@ a.classic {
     color: #16D36B; }
     .button.inverse.green > a {
       color: #16D36B; }
-    .button.inverse.green:not(.button.inverse.green:disabled):hover {
+    .button.inverse.green:hover:enabled {
       border-color: #13BD60;
       color: #13BD60; }
   .button.inverse.yellow {
@@ -69,14 +69,14 @@ a.classic {
     color: #E5D200; }
     .button.inverse.yellow > a {
       color: #E5D200; }
-    .button.inverse.yellow:not(.button.inverse.yellow:disabled):hover {
+    .button.inverse.yellow:hover:enabled {
       border-color: #CEBD00;
       color: #CEBD00; }
   .button.inverse.white {
     background: none;
     border: 2px solid #FFF;
     color: #FFF; }
-    .button.inverse.white:not(.button.inverse.white:disabled):hover {
+    .button.inverse.white:hover:enabled {
       border-color: #F2F2F2;
       color: #F2F2F2; }
   .button.inverse.red {
@@ -85,13 +85,13 @@ a.classic {
     color: #D9534F; }
     .button.inverse.red > a {
       color: #D9534F; }
-    .button.inverse.red:not(.button.inverse.red:disabled):hover {
+    .button.inverse.red:hover:enabled {
       border-color: #C34A47;
       color: #C34A47; }
   .button.normal.green {
     background: #16D36B;
     color: #FFF; }
-    .button.normal.green:not(.button.normal.green:disabled):hover {
+    .button.normal.green:hover:enabled {
       background: #13BD60; }
   .button.normal.yellow {
     background: #E5D200;
@@ -103,12 +103,12 @@ a.classic {
     color: #16D36B; }
     .button.normal.white > a {
       color: #16D36B; }
-    .button.normal.white:not(.button.normal.white:disabled):hover {
+    .button.normal.white:hover:enabled {
       background: #F2F2F2; }
   .button.normal.red {
     background: #D9534F;
     color: #FFF; }
-    .button.normal.red:not(.button.normal.red:disabled):hover {
+    .button.normal.red:hover:enabled {
       background: #C34A47; }
 
 .top-bar-title {

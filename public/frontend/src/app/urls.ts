@@ -17,6 +17,9 @@ export const URLS = {
         },
         QUESTION: {
             questionnaireQuestions: id => `${QUESTION}/questionnaire/${id}/questions`
+        },
+        QUESTION_OPTION: {
+            questionClosedOptions: id => `${QUESTION}/closed/${id}/options`
         }
     },
     POST: {
@@ -31,6 +34,9 @@ export const URLS = {
             addOpen: `${QUESTION}/add/open`,
             addClosed: `${QUESTION}/add/closed`,
             addScaled: `${QUESTION}/add/scaled`,
+        },
+        QUESTION_OPTION: {
+            addOption: `${QUESTION}/add/closed/option`
         }
     },
     PATCH: {
@@ -41,6 +47,9 @@ export const URLS = {
             editOpen: `${QUESTION}/edit/open`,
             editClosed: `${QUESTION}/edit/closed`,
             editScaled: `${QUESTION}/edit/scaled`,
+        },
+        QUESTION_OPTION: {
+            editOption: `${QUESTION}/edit/closed/option`
         }
     },
     DELETE: {
@@ -51,6 +60,9 @@ export const URLS = {
             deleteOpen: `${QUESTION}/delete/open`,
             deleteClosed: `${QUESTION}/delete/closed`,
             deleteScaled: `${QUESTION}/delete/scaled`,
+        },
+        QUESTION_OPTION: {
+            deleteOption: `${QUESTION}/delete/closed/option`
         }
     }
 };

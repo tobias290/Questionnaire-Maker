@@ -93,4 +93,17 @@ export class QuestionScaledComponent implements OnChanges {
             )
             .subscribe(success => this.refresh.emit());
     }
+
+    /**
+     * Cancels editing the question and removes any changes made.
+     */
+    public cancel() {
+        this.questionName.setValue(this.question.name);
+        this.questionMin.setValue(this.question.min);
+        this.questionMax.setValue(this.question.max);
+        this.questionInterval.setValue(this.question.interval);
+        this.isRequired = this.question.isRequired;
+
+        this.inEditableForm = false;
+    }
 }

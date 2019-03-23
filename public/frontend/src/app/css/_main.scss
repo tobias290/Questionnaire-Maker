@@ -83,7 +83,7 @@ a.classic {
                 color: $green;
             }
 
-            &:not(&:disabled):hover {
+            &:hover:enabled {
                 border-color: $green-hover;
                 color: $green-hover;
             }
@@ -98,7 +98,7 @@ a.classic {
                 color: $yellow;
             }
 
-            &:not(&:disabled):hover {
+            &:hover:enabled {
                 border-color: $yellow-hover;
                 color: $yellow-hover;
             }
@@ -109,7 +109,7 @@ a.classic {
             border: 2px solid $white;
             color: $white;
 
-            &:not(&:disabled):hover {
+            &:hover:enabled {
                 border-color: $white-hover;
                 color: $white-hover;
             }
@@ -124,7 +124,7 @@ a.classic {
                 color: $red;
             }
             
-            &:not(&:disabled):hover {
+            &:hover:enabled {
                 border-color: $red-hover;
                 color: $red-hover;
             }
@@ -136,7 +136,7 @@ a.classic {
             background: $green;
             color: $white;
 
-            &:not(&:disabled):hover {
+            &:hover:enabled {
                 background: $green-hover;
             }
         }
@@ -158,7 +158,7 @@ a.classic {
                 color: $green;
             }
 
-            &:not(&:disabled):hover {
+            &:hover:enabled {
                 background: $white-hover;
             }
         }
@@ -167,7 +167,7 @@ a.classic {
             background: $red;
             color: $white;
 
-            &:not(&:disabled):hover {
+            &:hover:enabled {
                 background: $red-hover;
             }
         }

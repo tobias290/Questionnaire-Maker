@@ -4,16 +4,28 @@
             {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
         </div>
 
-        <div *ngIf="question.type == 'drop_down'">
-
+        <div *ngIf="question.type == 'drop_down'" class="app-input-container question-margin">
+            <select name="questionScaledMax" class="app-input no-icon">
+               <option *ngFor="let option of existingOptions">{{ option.option }}</option>
+            </select>
         </div>
 
-        <div *ngIf="question.type == 'check'">
-
+        <div *ngIf="question.type == 'check'" class="question-margin">
+            <ng-container *ngFor="let option of existingOptions">
+                <label class="app-radio-container">{{ option.option }}
+                    <input type="checkbox" [name]="option.id">
+                    <span class="checkmark"></span>
+                </label>
+            </ng-container>
         </div>
 
-        <div *ngIf="question.type == 'radio'">
-
+        <div *ngIf="question.type == 'radio'" class="question-margin">
+            <ng-container *ngFor="let option of existingOptions">
+                <label class="app-radio-container">{{ option.option }}
+                    <input type="radio" name="radioOption">
+                    <span class="radio"></span>
+                </label>
+            </ng-container>
         </div>
     </div>
 
@@ -34,19 +46,29 @@
     <div class="question-edit">
         <div class="app-input-container question-title">
             <label class="app-input-label-icon {{ questionName.invalid ? 'error' : ''}}">
-                {{ question.position }}
+                {{ question.position }}.
             </label>
             <input name="questionClosedName" class="app-input {{ questionName.invalid ? 'error' : ''}}" type="text" [formControl]="questionName">
         </div>
 
-
+        <div class="question-options-options">
+            <div *ngFor="let option of options; let i = index" class="question-option">
+                <span class="delete-question-option" (click)="deleteOption(i)"><fa-icon [icon]="icons.deleteOption"></fa-icon></span>
+                <input [name]="'option_' + (i + 1)" [value]="option.option" (change)="option.option = optionInput.value" #optionInput>
+            </div>
+            
+            <div class="add-question-option" (click)="addOption()">
+                <span><fa-icon [icon]="icons.addOption"></fa-icon></span>
+                <span>Add Option</span>
+            </div>
+        </div>
     </div>
 
     <div class="question-options">
         <button class="button normal green medium" (click)="save()" [disabled]="this.questionName.invalid">
             <fa-icon [icon]="icons.save"></fa-icon>&nbsp;Save
         </button>
-        <button class="button inverse red medium" (click)="inEditableForm = false;">
+        <button class="button inverse red medium" (click)="cancel()">
             <fa-icon [icon]="icons.cancel"></fa-icon>&nbsp;Cancel
         </button>
         <div class="is-required">

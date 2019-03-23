@@ -10,11 +10,11 @@
     &:first-child {
         margin-top: 0;
     }
-    
+
     &.no-margin {
         margin: 0;
     }
-    
+
     .app-input-label-icon {
         background: $green;
         border-radius: 7px;
@@ -28,16 +28,16 @@
         position: absolute;
         text-align: center;
         width: 50px;
-        
+
         &.error {
             background: $red;
         }
-        
+
         &.disabled {
             background: $text-light;
         }
     }
-    
+
     .app-input {
         background: $dark-white;
         border: none;
@@ -56,20 +56,20 @@
         &[type="date"]::-webkit-calendar-picker-indicator {
             color: $green;
         }
-        
+
         &[type="number"]::-webkit-inner-spin-button {
             margin-right: 10px;
         }
-        
+
         &:focus {
             background: #CDCDCD;
             outline: none;
         }
-        
+
         &:disabled {
             color: $text-dark !important;
         }
-        
+
         &.error {
             border: 1px solid $red;
         }
@@ -85,7 +85,7 @@
     font-size: 12px;
     margin: -15px 0 -15px 0;
     text-align: left;
-    
+
     &:last-of-type {
         margin-bottom: 0;
     }
@@ -99,8 +99,120 @@
     height: 200px;
     padding: 10px;
     width: 630px;
-    
+
     &:focus {
         outline: none;
+    }
+}
+
+.app-radio-container {
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-left: 35px;
+    padding-top: 3px;
+    position: relative;
+    margin-left: -5px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    
+    & input {
+        cursor: pointer;
+        height: 0;
+        position: absolute;
+        opacity: 0;
+        width: 0;
+    }
+    
+    .checkmark {
+        background-color: $dark-white;
+        border-radius: 7px;
+        height: 25px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 25px;
+    }
+    
+    &:hover input ~ .checkmark {
+        background-color: #CDCDCD;
+    }
+    
+    & input {
+        &:checked ~ .checkmark {
+            background-color: $green;
+        }
+
+        &:checked:hover ~ .checkmark {
+            background-color: $green-hover;
+        }
+        
+        &:checked ~ .checkmark:after {
+            display: block;
+        }
+    }
+    
+    .checkmark:after {
+        content: "";
+        display: none;
+        position: absolute;
+    }
+    
+    & .checkmark:after {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        height: 10px;
+        left: 9px;
+        top: 5px;
+        transform: rotate(45deg);
+        width: 5px;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+    }
+
+    .radio {
+        background-color: $dark-white;
+        border-radius: 50%;
+        height: 25px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 25px;
+    }
+    
+    &:hover input ~ .radio {
+        background-color: #CDCDCD;
+    }
+    
+    & input {
+        &:checked ~ .radio {
+            background-color: $green;
+        }
+
+        &:checked:hover ~ .radio {
+            background-color: $green-hover;
+        }
+    }
+    
+    .radio:after {
+        content: "";
+        display: none;
+        position: absolute;
+    }
+    
+    & input:checked ~ .radio:after {
+        display: block;
+    }
+    
+    & .radio:after {
+        background: white;
+        border-radius: 50%;
+        height: 9px;
+        left: 8px;
+        top: 8px;
+        width: 9px;
     }
 }

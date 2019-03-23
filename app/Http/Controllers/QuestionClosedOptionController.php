@@ -8,6 +8,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class QuestionClosedOptionController extends Controller {
+
+    public function questionClosedOptions($id) {
+        /** @var QuestionClosed $questionnaire */
+        $question_closed = QuestionClosed::find($id);
+
+        // Check to see whether the current authenticated user owns the questionnaire
+        // Only if they own it can they add a question
+        if (Auth::id() != $question_closed->questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own the questionnaire that this question belongs to, therefore you cannot get its options",
+            ]], 401);
+        }
+
+        return response()->json(["success" => [
+            "options" => $question_closed->options,
+        ]], 200);
+    }
+
     /**
      * Adds an option to a question
      *
@@ -27,7 +45,7 @@ class QuestionClosedOptionController extends Controller {
         }
 
         $question_option = $question->options()->create([
-            "option" => "Untitled",
+            "option" => $request->input("option"),
         ]);
 
         return response()->json(["success" => [

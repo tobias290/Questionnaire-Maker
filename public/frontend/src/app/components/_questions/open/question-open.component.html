@@ -39,7 +39,7 @@
         <button class="button normal green medium" (click)="save()" [disabled]="this.questionName.invalid">
             <fa-icon [icon]="icons.save"></fa-icon>&nbsp;Save
         </button>
-        <button class="button inverse red medium" (click)="inEditableForm = false;">
+        <button class="button inverse red medium" (click)="cancel()">
             <fa-icon [icon]="icons.cancel"></fa-icon>&nbsp;Cancel
         </button>
         <div class="is-required">
