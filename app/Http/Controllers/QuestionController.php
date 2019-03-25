@@ -78,7 +78,11 @@ class QuestionController extends Controller {
             ]], 401);
         }
 
+        // TODO: change the position of all questions after the deleted one
+
+
         $question->delete();
+
 
         return response()->json(["success" => [
             "message" => "Question deleted",

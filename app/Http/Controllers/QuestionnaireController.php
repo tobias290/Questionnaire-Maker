@@ -110,6 +110,23 @@ class QuestionnaireController extends Controller {
      * @return \Illuminate\Http\JsonResponse
      */
     public function get($id) {
+        $questionnaire = Questionnaire::find($id);
+
+        if (Auth::id() != $questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire",
+            ]], 401);
+        }
+
         return response()->json(Questionnaire::find($id), 200);
+    }
+
+    /**
+     * Returns a list of all the public & complete questionnaires.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function publicQuestionnaires() {
+        return response()->json(Questionnaire::where("is_public", true)->where("is_complete", true)->get(), 200);
     }
 }

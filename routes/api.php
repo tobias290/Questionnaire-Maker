@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix("public")->group(function () {
+    Route::get("questionnaires", "QuestionnaireController@publicQuestionnaires");
+});
+
 
 Route::prefix("user")->group(function (){
     Route::post("sign-up", "UserController@signUp");
