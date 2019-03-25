@@ -16,6 +16,8 @@ class PublicQuestionnaireListCest {
         // And
         $I->amOnFrontEndPage("public/questionnaires");
         // And
+        $I->wait(AcceptanceTester::WAIT_TIME);
+        // And
         $I->see("Public Questionnaires");
         // And
         $I->wait(AcceptanceTester::WAIT_TIME);
