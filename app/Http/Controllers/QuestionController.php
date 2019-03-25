@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\QuestionClosed;
+use App\Models\QuestionClosedOption;
 use App\Models\Questionnaire;
 use App\Models\QuestionOpen;
 use App\Models\QuestionScaled;
@@ -51,6 +52,7 @@ class QuestionController extends Controller {
             ]], 401);
         }
 
+        // Copy the question and save it
         $duplicated = $question->replicate();
         $duplicated->position = $newPosition;
         $duplicated->save();
@@ -233,11 +235,16 @@ class QuestionController extends Controller {
             ]], 401);
         }
 
+        /** @var QuestionClosed $duplicated */
         $duplicated = $question->replicate();
         $duplicated->position = $request->input("position");
-        $duplicated->push();
+        $duplicated->save();
 
-        $duplicated->options()->saveMany($question->options);
+        /** @var QuestionClosedOption $option */
+        foreach ($question->options as $option) {
+            // Copy the options for the question that is to be duplicated
+            $duplicated->options()->save($option->replicate());
+        }
 
         return response()->json(["success" => [
             "message" => "Question duplicated",
