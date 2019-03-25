@@ -19,7 +19,5 @@ class PublicQuestionnaireListCest {
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 201
         // And
         $I->seeResponseIsJson();
-        // And
-        $I->seeResponseJsonMatchesJsonPath('$.success');
     }
 }
