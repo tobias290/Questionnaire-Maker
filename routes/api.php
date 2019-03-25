@@ -64,5 +64,11 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
 
             Route::patch("closed/option/{id}", "QuestionClosedOptionController@edit");
         });
+
+        Route::prefix("duplicate")->group(function () {
+            Route::post("open", "QuestionController@duplicateOpen");
+            Route::post("closed", "QuestionController@duplicateClosed");
+            Route::post("scaled", "QuestionController@duplicateScaled");
+        });
     });
 });

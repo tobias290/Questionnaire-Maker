@@ -36,6 +36,31 @@ class QuestionController extends Controller {
     }
 
     /**
+     * Duplicates a question from a questionnaire.
+     *
+     * @param QuestionClosed | QuestionOpen | QuestionScaled $question
+     * @param int $newPosition - New position of the question.
+     * @return \Illuminate\Http\JsonResponse
+     */
+    private function duplicate($question, $newPosition) {
+        // Check to see whether the current authenticated user owns the questionnaire that the question belongs to
+        // Only if they own it can they delete the question
+        if (Auth::id() != $question->questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire, therefore you cannot duplicate a question",
+            ]], 401);
+        }
+
+        $duplicated = $question->replicate();
+        $duplicated->position = $newPosition;
+        $duplicated->save();
+
+        return response()->json(["success" => [
+            "message" => "Question duplicated",
+        ]], 201);
+    }
+
+    /**
      * Delete a question from a questionnaire.
      *
      * @param QuestionClosed | QuestionOpen | QuestionScaled $question
@@ -53,7 +78,7 @@ class QuestionController extends Controller {
 
         $question->delete();
 
-        return response()->json(["error" => [
+        return response()->json(["success" => [
             "message" => "Question deleted",
         ]], 200);
     }
@@ -129,6 +154,16 @@ class QuestionController extends Controller {
     }
 
     /**
+     * Duplicates a question from a questionnaire.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function duplicateOpen(Request $request) {
+        return $this->duplicate(QuestionOpen::find($request->input("question_id")), $request->input("position"));
+    }
+
+    /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
@@ -181,6 +216,35 @@ class QuestionController extends Controller {
     }
 
     /**
+     * Duplicates a question from a questionnaire.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function duplicateClosed(Request $request) {
+        /** @var QuestionClosed $question */
+        $question = QuestionClosed::find($request->input("question_id"));
+
+        // Check to see whether the current authenticated user owns the questionnaire that the question belongs to
+        // Only if they own it can they delete the question
+        if (Auth::id() != $question->questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire, therefore you cannot duplicate a question",
+            ]], 401);
+        }
+
+        $duplicated = $question->replicate();
+        $duplicated->position = $request->input("position");
+        $duplicated->push();
+
+        $duplicated->options()->saveMany($question->options);
+
+        return response()->json(["success" => [
+            "message" => "Question duplicated",
+        ]], 201);
+    }
+
+    /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
@@ -230,6 +294,16 @@ class QuestionController extends Controller {
      */
     public function editScaled(Request $request, $id) {
         return $this->edit(QuestionScaled::find($id), $request->all());
+    }
+
+    /**
+     * Duplicates a question from a questionnaire.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function duplicateScaled(Request $request) {
+        return $this->duplicate(QuestionScaled::find($request->input("question_id")), $request->input("position"));
     }
 
     /**
