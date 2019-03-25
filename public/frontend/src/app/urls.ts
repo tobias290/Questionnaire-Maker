@@ -34,6 +34,10 @@ export const URLS = {
             addOpen: `${QUESTION}/add/open`,
             addClosed: `${QUESTION}/add/closed`,
             addScaled: `${QUESTION}/add/scaled`,
+
+            duplicateOpen: `${QUESTION}/duplicate/open`,
+            duplicateClosed: `${QUESTION}/duplicate/closed`,
+            duplicateScaled: `${QUESTION}/duplicate/scaled`,
         },
         QUESTION_OPTION: {
             addOption: `${QUESTION}/add/closed/option`

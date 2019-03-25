@@ -14,6 +14,7 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class QuestionScaledComponent implements OnChanges {
     @Input() question: QuestionScaled;
+    @Input() lastPosition: number;
     
     @Output() refresh = new EventEmitter();
 
@@ -47,6 +48,19 @@ export class QuestionScaledComponent implements OnChanges {
         this.questionMax.setValue(this.question.max);
         this.questionInterval.setValue(this.question.interval);
         this.isRequired = this.question.isRequired;
+    }
+
+    /**
+     * Duplicates the question.
+     */
+    public duplicateQuestion() {
+        this.apiService
+            .post(
+                URLS.POST.QUESTION.duplicateScaled,
+                {question_id: this.question.id, position: this.lastPosition + 1},
+                ApiService.createTokenHeader(sessionStorage.getItem("token")),
+            )
+            .subscribe(success => this.refresh.emit());
     }
     
     /**

@@ -343,6 +343,8 @@ a.classic {
       color: #16D36B; }
     .app-input-container .app-input[type="number"]::-webkit-inner-spin-button {
       margin-right: 10px; }
+    .app-input-container .app-input:hover {
+      background: #DEDEDE; }
     .app-input-container .app-input:focus {
       background: #CDCDCD;
       outline: none; }
@@ -369,7 +371,10 @@ a.classic {
   height: 200px;
   padding: 10px;
   width: 630px; }
+  .app-textarea:hover {
+    background: #DEDEDE; }
   .app-textarea:focus {
+    background: #CDCDCD;
     outline: none; }
 
 .app-radio-container {

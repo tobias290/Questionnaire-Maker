@@ -27,6 +27,7 @@ interface OptionMeta {
 })
 export class QuestionClosedComponent implements OnChanges {
     @Input() question: QuestionClosed;
+    @Input() lastPosition: number;
     
     @Output() refresh = new EventEmitter();
     
@@ -66,6 +67,19 @@ export class QuestionClosedComponent implements OnChanges {
                 this.options.push({id: option.id, option: option.option});
             }
         })
+    }
+
+    /**
+     * Duplicates the question.
+     */
+    public duplicateQuestion() {
+        this.apiService
+            .post(
+                URLS.POST.QUESTION.duplicateClosed,
+                {question_id: this.question.id, position: this.lastPosition + 1},
+                ApiService.createTokenHeader(sessionStorage.getItem("token")),
+            )
+            .subscribe(success => this.refresh.emit());
     }
     
     /**

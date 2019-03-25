@@ -13,6 +13,7 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class QuestionOpenComponent implements OnChanges {
     @Input() question: QuestionOpen;
+    @Input() lastPosition: number;
     
     @Output() refresh = new EventEmitter();
     
@@ -35,6 +36,19 @@ export class QuestionOpenComponent implements OnChanges {
     ngOnChanges() {
         this.questionName.setValue(this.question.name);
         this.isRequired = this.question.isRequired;
+    }
+
+    /**
+     * Duplicates the question.
+     */
+    public duplicateQuestion() {
+        this.apiService
+            .post(
+                URLS.POST.QUESTION.duplicateOpen,
+                {question_id: this.question.id, position: this.lastPosition + 1},
+                ApiService.createTokenHeader(sessionStorage.getItem("token")),
+            )
+            .subscribe(success => this.refresh.emit());
     }
 
     /**

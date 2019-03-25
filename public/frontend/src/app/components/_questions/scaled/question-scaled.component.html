@@ -25,7 +25,7 @@
         <button id="edit-question" class="button normal green large tall" (click)="inEditableForm = true;">
             <fa-icon [icon]="icons.edit"></fa-icon>&nbsp;Edit
         </button>
-        <button id="duplicate-question" class="button normal green large tall">
+        <button id="duplicate-question" class="button normal green large tall" (click)="duplicateQuestion()">
             <fa-icon [icon]="icons.duplicate"></fa-icon>&nbsp;Duplicate
         </button>
         <button id="delete-question" class="button normal red large tall" (click)="deleteQuestion()">

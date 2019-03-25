@@ -179,7 +179,19 @@ export class EditQuestionnaireComponent implements OnInit {
         
         this.apiService
             .post(url, data, ApiService.createTokenHeader(sessionStorage.getItem("token")))
-            .subscribe(success => this.getQuestions(), error => console.log(error));
+            .subscribe(success => {
+                // If a closed question was added, automatically give it one option
+                if (type == "closed") {
+                    this.apiService
+                        .post(`${URLS.POST.QUESTION_OPTION.addOption}`,
+                            // @ts-ignore
+                            {option: "Option 1", question_closed_id: success.success.id},
+                            ApiService.createTokenHeader(sessionStorage.getItem("token")))
+                        .subscribe(success => this.getQuestions());
+                } else {
+                    this.getQuestions()
+                }
+            });
     }
     
     private isQuestionType(instance, type) {
