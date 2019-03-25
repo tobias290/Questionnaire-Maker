@@ -71,9 +71,9 @@
 <div *ngIf="!loading.user && !loading.questionnaire && !loading.questions" id="edit-questionnaire-page-center">
     <div *ngIf="data.questions.length == 0" id="no-questions">No Questions</div>
     <ng-container *ngFor="let question of data.questions">
-        <app-question-open   *ngIf="isQuestionType(question, 'open')"   [question]="question" [lastPosition]="data.questions.length" (refresh)="getQuestions()"></app-question-open>
-        <app-question-closed *ngIf="isQuestionType(question, 'closed')" [question]="question" [lastPosition]="data.questions.length" (refresh)="getQuestions()"></app-question-closed>
-        <app-question-scaled *ngIf="isQuestionType(question, 'scaled')" [question]="question" [lastPosition]="data.questions.length" (refresh)="getQuestions()"></app-question-scaled>
+        <app-question-open-editable   *ngIf="isQuestionType(question, 'open')"   [question]="question" [lastPosition]="data.questions.length" (refresh)="getQuestions()"></app-question-open-editable>
+        <app-question-closed-editable *ngIf="isQuestionType(question, 'closed')" [question]="question" [lastPosition]="data.questions.length" (refresh)="getQuestions()"></app-question-closed-editable>
+        <app-question-scaled-editable *ngIf="isQuestionType(question, 'scaled')" [question]="question" [lastPosition]="data.questions.length" (refresh)="getQuestions()"></app-question-scaled-editable>
     </ng-container>
 </div>
 

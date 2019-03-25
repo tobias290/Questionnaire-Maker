@@ -18,9 +18,9 @@ import {CreateQuestionnaireFormComponent} from "./components/_forms/create-quest
 import {EditQuestionnaireComponent} from "./components/edit-questionnaire/edit-questionnaire.component";
 import {QuestionnaireListItemComponent} from "./components/questionnaire-list-item/questionnaire-list-item.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {QuestionClosedComponent} from "./components/_questions/closed/question-closed.component";
-import {QuestionOpenComponent} from "./components/_questions/open/question-open.component";
-import {QuestionScaledComponent} from "./components/_questions/scaled/question-scaled.component";
+import {QuestionClosedEditableComponent} from "./components/_questions/closed/_editable/question-closed-editable.component";
+import {QuestionOpenEditableComponent} from "./components/_questions/open/_editable/question-open-editable.component";
+import {QuestionScaledEditableComponent} from "./components/_questions/scaled/_editable/question-scaled-editable.component";
 import {PublicQuestionnaireListComponent} from "./components/_public/questionnaire-list/questionnaire-list.component";
 
 const appRoutes: Routes = [
@@ -46,9 +46,9 @@ const appRoutes: Routes = [
         CreateQuestionnaireFormComponent,
         EditQuestionnaireComponent,
         QuestionnaireListItemComponent,
-        QuestionClosedComponent,
-        QuestionOpenComponent,
-        QuestionScaledComponent,
+        QuestionClosedEditableComponent,
+        QuestionOpenEditableComponent,
+        QuestionScaledEditableComponent,
         PublicQuestionnaireListComponent
     ],
     imports: [

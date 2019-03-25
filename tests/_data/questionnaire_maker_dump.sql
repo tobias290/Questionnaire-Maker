@@ -98,7 +98,7 @@ CREATE TABLE `oauth_access_tokens` (
 
 LOCK TABLES `oauth_access_tokens` WRITE;
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
-INSERT INTO `oauth_access_tokens` VALUES ('0ca1d07709d762b0959472851b470516737988f36e80444b5c4919a374fae66c64ad56b921f28462',1,1,'QuestionnaireMaker','[]',0,'2019-03-22 13:13:18','2019-03-22 13:13:18','2020-03-22 13:13:18'),('54b45bc4eaa80bfed9ec09e93b626dbd04189bdcbc6e538ef4d2dbbc5133b57b032ddc4482a222ae',1,1,'QuestionnaireMaker','[]',0,'2019-03-20 16:57:44','2019-03-20 16:57:44','2020-03-20 16:57:44'),('7da9ac790b5e1ea68fe19b343f86836f3718259d6081d008e54158a8265189b2dd553beccac7c4f7',2,1,'QuestionnaireMaker','[]',0,'2019-03-20 16:59:37','2019-03-20 16:59:37','2020-03-20 16:59:37'),('836671025488b2b401e143a1b27df14f682eba5244c6e7d7c5e07526424a42f69f0cd4b04a4e76b9',1,1,'QuestionnaireMaker','[]',0,'2019-03-22 17:06:37','2019-03-22 17:06:37','2020-03-22 17:06:37'),('bd5bec44813b9e58e7977f008184d014e4cf80ed3d805143e4aa572aded49716a8166305a8f5e472',3,1,'QuestionnaireMaker','[]',0,'2019-03-22 12:49:41','2019-03-22 12:49:41','2020-03-22 12:49:41');
+INSERT INTO `oauth_access_tokens` VALUES ('0ca1d07709d762b0959472851b470516737988f36e80444b5c4919a374fae66c64ad56b921f28462',1,1,'QuestionnaireMaker','[]',0,'2019-03-22 13:13:18','2019-03-22 13:13:18','2020-03-22 13:13:18'),('54b45bc4eaa80bfed9ec09e93b626dbd04189bdcbc6e538ef4d2dbbc5133b57b032ddc4482a222ae',1,1,'QuestionnaireMaker','[]',0,'2019-03-20 16:57:44','2019-03-20 16:57:44','2020-03-20 16:57:44'),('7da9ac790b5e1ea68fe19b343f86836f3718259d6081d008e54158a8265189b2dd553beccac7c4f7',2,1,'QuestionnaireMaker','[]',0,'2019-03-20 16:59:37','2019-03-20 16:59:37','2020-03-20 16:59:37'),('836671025488b2b401e143a1b27df14f682eba5244c6e7d7c5e07526424a42f69f0cd4b04a4e76b9',1,1,'QuestionnaireMaker','[]',0,'2019-03-22 17:06:37','2019-03-22 17:06:37','2020-03-22 17:06:37'),('abee6b80a6079450b18dba06a612936fb7963822b7829c3aca34fe863ccf618ac905cd3d72fd767a',1,1,'QuestionnaireMaker','[]',1,'2019-03-25 17:48:58','2019-03-25 17:48:58','2020-03-25 17:48:58'),('bd5bec44813b9e58e7977f008184d014e4cf80ed3d805143e4aa572aded49716a8166305a8f5e472',3,1,'QuestionnaireMaker','[]',0,'2019-03-22 12:49:41','2019-03-22 12:49:41','2020-03-22 12:49:41');
 /*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,7 +460,7 @@ CREATE TABLE `questionnaire` (
   KEY `questionnaire_user_id_foreign` (`user_id`),
   CONSTRAINT `questionnaire_questionnaire_category_id_foreign` FOREIGN KEY (`questionnaire_category_id`) REFERENCES `questionnaire_category` (`id`) ON DELETE CASCADE,
   CONSTRAINT `questionnaire_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -469,7 +469,7 @@ CREATE TABLE `questionnaire` (
 
 LOCK TABLES `questionnaire` WRITE;
 /*!40000 ALTER TABLE `questionnaire` DISABLE KEYS */;
-INSERT INTO `questionnaire` VALUES (4,'Test Questionnaire','New test questionnaire with description.',0,0,0,0,0,NULL,'2019-03-22 13:13:39','2019-03-22 13:13:39',9,1);
+INSERT INTO `questionnaire` VALUES (4,'Test Questionnaire','New test questionnaire with description.',0,0,0,0,0,NULL,'2019-03-22 13:13:39','2019-03-22 13:13:39',9,1),(25,'Public Questionnaire',NULL,1,1,0,0,0,NULL,'2019-03-25 17:49:16','2019-03-25 17:49:39',1,1),(26,'Public Questionnaire 2',NULL,1,1,0,0,0,NULL,'2019-03-25 17:49:32','2019-03-25 17:49:41',11,1);
 /*!40000 ALTER TABLE `questionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -563,4 +563,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-22 17:34:03
+-- Dump completed on 2019-03-25 17:49:59

@@ -13,5 +13,10 @@
 
 <div *ngIf="!loading" id="public-questionnaires-page-center">
     <div *ngIf="questionnaires.length == 0" id="no-questionnaires">No Public Questionnaires</div>
-    <app-questionnaire-list-item *ngFor="let question of questionnaires" [questionnaire]="question" [category]="getCategory(question.categoryId)" [canEdit]="false"></app-questionnaire-list-item>
+    <app-questionnaire-list-item
+        *ngFor="let question of questionnaires" 
+        [questionnaire]="question" 
+        [category]="getCategory(question.categoryId)"
+        [canEdit]="false"
+    ></app-questionnaire-list-item>
 </div>

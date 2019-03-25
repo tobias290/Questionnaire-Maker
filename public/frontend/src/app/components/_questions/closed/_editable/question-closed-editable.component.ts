@@ -7,11 +7,11 @@ import {
     faTrashAlt,
     faMinusCircle, faPlusCircle
 } from "@fortawesome/free-solid-svg-icons";
-import {QuestionClosed} from "../../../models/question-closed";
-import {URLS} from "../../../urls";
-import {ApiService} from "../../../api.service";
+import {QuestionClosed} from "../../../../models/question-closed";
+import {URLS} from "../../../../urls";
+import {ApiService} from "../../../../api.service";
 import {FormControl, Validators} from "@angular/forms";
-import {QuestionClosedOption} from "../../../models/question-closed-option";
+import {QuestionClosedOption} from "../../../../models/question-closed-option";
 
 
 interface OptionMeta {
@@ -20,12 +20,12 @@ interface OptionMeta {
 }
 
 @Component({
-    selector: "app-question-closed",
-    templateUrl: "./question-closed.component.html",
-    styleUrls: ["./question-closed.component.css"],
+    selector: "app-question-closed-editable",
+    templateUrl: "./question-closed-editable.component.html",
+    styleUrls: ["./question-closed-editable.component.css"],
     providers: [ApiService],
 })
-export class QuestionClosedComponent implements OnChanges {
+export class QuestionClosedEditableComponent implements OnChanges {
     @Input() question: QuestionClosed;
     @Input() lastPosition: number;
     
