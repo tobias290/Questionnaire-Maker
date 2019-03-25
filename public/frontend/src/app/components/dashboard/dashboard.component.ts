@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
                 this.data.user = new User(res);
 
                 this.loading.user = false;
-            });
+            }, error => console.log(error));
 
         this.apiService
             .get(URLS.GET.QUESTIONNAIRE.all, ApiService.createTokenHeader(sessionStorage.getItem("token")))
@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
                 }
 
                 this.loading.questionnaires = false;
-            });
+            }, error => console.log(error));
     }
 
     /**
@@ -87,7 +87,7 @@ export class DashboardComponent implements OnInit {
                 }
 
                 this.loading.questionnaires = false;
-            });
+            }, error => console.log(error));
     }
 
     /**
@@ -101,7 +101,7 @@ export class DashboardComponent implements OnInit {
                     sessionStorage.removeItem("token");
                     this.router.navigateByUrl("/login");
                 }
-            });
+            }, error => console.log(error));
     }
     
     public questionnaireCreated(questionnaireId) {

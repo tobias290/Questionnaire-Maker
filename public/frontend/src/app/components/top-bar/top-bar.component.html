@@ -4,7 +4,8 @@
             <fa-icon [icon]="faArrowLeft" [styles]="{'height': '25px'}"></fa-icon>
             <div class="pulse-box"></div>
         </div>
-        {{ title }}
+        <a *ngIf="titleLink" [routerLink]="titleLink">{{ title }}</a>
+        <span *ngIf="!titleLink">{{ title }}</span>
     </div>
     <ng-content select="div.top-bar-center"></ng-content>
     <ng-content select="div.top-bar-right"></ng-content>

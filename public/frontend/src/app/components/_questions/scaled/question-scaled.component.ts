@@ -60,7 +60,7 @@ export class QuestionScaledComponent implements OnChanges {
                 {question_id: this.question.id, position: this.lastPosition + 1},
                 ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
-            .subscribe(success => this.refresh.emit());
+            .subscribe(success => this.refresh.emit(), error => console.log(error));
     }
     
     /**
@@ -72,7 +72,7 @@ export class QuestionScaledComponent implements OnChanges {
                 `${URLS.DELETE.QUESTION.deleteScaled}/${this.question.id}`,
                 ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
-            .subscribe(success => this.refresh.emit());
+            .subscribe(success => this.refresh.emit(), error => console.log(error));
     }
 
 
@@ -105,7 +105,7 @@ export class QuestionScaledComponent implements OnChanges {
                 data,
                 ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
-            .subscribe(success => this.refresh.emit());
+            .subscribe(success => this.refresh.emit(), error => console.log(error));
     }
 
     /**

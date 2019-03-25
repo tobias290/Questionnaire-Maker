@@ -36,8 +36,7 @@ interface DataMetadata {
     providers: [ApiService],
 })
 export class EditQuestionnaireComponent implements OnInit {
-    public constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute) {
-    }
+    title = "Edit Questionnaire";
     
     icons = {
         downCaret: faCaretDown,
@@ -69,6 +68,9 @@ export class EditQuestionnaireComponent implements OnInit {
     };
     
     showEditQuestionnairePopup: boolean = true;
+
+    public constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute) {
+    }
     
     ngOnInit() {
         if (!sessionStorage.getItem("token")) {
@@ -76,13 +78,14 @@ export class EditQuestionnaireComponent implements OnInit {
             return;
         }
 
+        // Get the user's data
         this.apiService
             .get(URLS.GET.USER.details, ApiService.createTokenHeader(sessionStorage.getItem("token")))
             .subscribe(res => {
                 this.data.user = new User(res);
 
                 this.loading.user = false;
-            });
+            }, error => console.log(error));
         
         this.getQuestionnaire();
     }
@@ -106,7 +109,8 @@ export class EditQuestionnaireComponent implements OnInit {
                         this.loading.questionnaire = false;
 
                         this.getQuestions();
-                    }
+                    },
+                    error => console.log(error)
                 )
         });
         
@@ -146,6 +150,7 @@ export class EditQuestionnaireComponent implements OnInit {
                     this.data.questions.sort((a, b) => a.position - b.position);
                     this.loading.questions = false;
                 },
+                error => console.log(error)
             );
     }
 
@@ -191,10 +196,16 @@ export class EditQuestionnaireComponent implements OnInit {
                 } else {
                     this.getQuestions()
                 }
-            });
+            }, error => console.log(error));
     }
-    
-    private isQuestionType(instance, type) {
+
+    /**
+     * Determines whether the given question is an instance of the given type.
+     * 
+     * @param {QuestionOpen|QuestionClosed|QuestionScaled} instance - Instance of question.
+     * @param {string} type - Type to check instance against.
+     */
+    public isQuestionType(instance, type) {
         switch (type) {
             case "open":
                 return instance instanceof QuestionOpen;

@@ -97,7 +97,7 @@ a.classic {
   .button.normal.yellow {
     background: #E5D200;
     color: #FFF; }
-    .button.normal.yellow:not(.button.normal.yellow:disabled):hover {
+    .button.normal.yellow:hover:enabled {
       background: #CEBD00; }
   .button.normal.white {
     background: #FFF;
@@ -247,7 +247,7 @@ a.classic {
   .button.normal.yellow {
     background: #E5D200;
     color: #FFF; }
-    .button.normal.yellow:not(.button.normal.yellow:disabled):hover {
+    .button.normal.yellow:hover:enabled {
       background: #CEBD00; }
   .button.normal.white {
     background: #FFF;

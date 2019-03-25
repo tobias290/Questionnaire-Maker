@@ -2,9 +2,12 @@
 
 #landing-page-center {
     @include vertical-center(400px);
-
-    height: 400px;
-    line-height: 200px;
+    
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    min-height: 400px;
+    justify-content: space-evenly;
     text-align: center;
     width: calc(100% - 620px);
 
@@ -13,7 +16,7 @@
         font-size: 50px;
     }
 
-    & > button {
+    & > div > button {
         font-size: 25px;
         height: 60px;
         width: 300px;

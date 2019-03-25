@@ -1,0 +1,30 @@
+@import "../../../css/main";
+@import "../../../css/controls";
+
+
+#public-questionnaires-page-center {
+    @include center;
+
+    height: calc(100% - 70px);
+    overflow: auto;
+    padding-right: 10px;
+    width: 910px;
+
+    #no-questionnaires {
+        color: $green;
+        font-size: 70px;
+        font-weight: bold;
+        margin-top: 200px;
+        text-align: center;
+    }
+}
+
+aside {
+    background: $white;
+    box-shadow: 0 5px 5px $shadow-color;
+    height: 160px;
+    left: 90px;
+    top: 100px;
+    position: absolute;
+    width: 300px;
+}

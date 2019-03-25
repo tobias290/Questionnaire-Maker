@@ -145,7 +145,7 @@ a.classic {
             background: $yellow;
             color: $white;
 
-            &:not(&:disabled):hover {
+            &:hover:enabled {
                 background: $yellow-hover;
             }
         }

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix("public")->group(function () {
+    Route::get("questionnaire-categories", "QuestionnaireController@categories");
     Route::get("questionnaires", "QuestionnaireController@publicQuestionnaires");
 });
 
@@ -30,8 +31,6 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
     });
 
     Route::prefix("questionnaire")->group(function () {
-        Route::get("categories", "QuestionnaireController@categories");
-
         Route::post("create", "QuestionnaireController@create");
         Route::delete("delete/{id}", "QuestionnaireController@delete");
         Route::patch("edit/{id}", "QuestionnaireController@edit");

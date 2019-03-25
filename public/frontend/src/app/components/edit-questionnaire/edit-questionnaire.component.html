@@ -1,6 +1,6 @@
 <app-loading *ngIf="loading.user || loading.questionnaire || loading.questions"></app-loading>
 
-<app-top-bar *ngIf="!loading.user && !loading.questionnaire && !loading.questions" [title]="'Edit Questionnaire'" [hasBackButton]="true">
+<app-top-bar *ngIf="!loading.user && !loading.questionnaire && !loading.questions" [title]="title" [hasBackButton]="true">
     <div class="top-bar-center">
         <span id="title">
             {{ data.questionnaire.title }} 

@@ -9,6 +9,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 export class TopBarComponent {
     @Input() hasBackButton: boolean;
     @Input() title: string;
+    @Input() titleLink: string;
 
     faArrowLeft = faArrowLeft;
 

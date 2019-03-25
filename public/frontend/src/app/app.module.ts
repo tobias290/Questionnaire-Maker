@@ -21,9 +21,11 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {QuestionClosedComponent} from "./components/_questions/closed/question-closed.component";
 import {QuestionOpenComponent} from "./components/_questions/open/question-open.component";
 import {QuestionScaledComponent} from "./components/_questions/scaled/question-scaled.component";
+import {PublicQuestionnaireListComponent} from "./components/_public/questionnaire-list/questionnaire-list.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
+    { path: "public/questionnaires", component: PublicQuestionnaireListComponent },
     { path: "sign-up", component: SignUpComponent },
     { path: "login", component: LoginComponent },
     { path: "dashboard", component: DashboardComponent },
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
         QuestionClosedComponent,
         QuestionOpenComponent,
         QuestionScaledComponent,
+        PublicQuestionnaireListComponent
     ],
     imports: [
         BrowserModule,

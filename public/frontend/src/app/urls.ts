@@ -1,17 +1,21 @@
 const ADDRESS = "http://localhost:8000/api";
 
+const PUBLIC = `${ADDRESS}/public`;
 const USER = `${ADDRESS}/user`;
 const QUESTIONNAIRE = `${ADDRESS}/questionnaire`;
 const QUESTION = `${ADDRESS}/question`;
 
 export const URLS = {
     GET: {
+        PUBLIC: {
+            questionnaires: `${PUBLIC}/questionnaires`,
+            categories: `${PUBLIC}/questionnaire-categories`,
+        },
         USER: {
             details: `${USER}/details`,
             signOut: `${USER}/sign-out`,
         },
         QUESTIONNAIRE: {
-            categories: `${QUESTIONNAIRE}/categories`,
             all: `${QUESTIONNAIRE}/all`,
             get: `${QUESTIONNAIRE}`
         },

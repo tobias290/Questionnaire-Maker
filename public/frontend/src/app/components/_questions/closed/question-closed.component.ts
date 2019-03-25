@@ -66,7 +66,7 @@ export class QuestionClosedComponent implements OnChanges {
                 this.existingOptions.push(new QuestionClosedOption(option));
                 this.options.push({id: option.id, option: option.option});
             }
-        })
+        }, error => console.log(error))
     }
 
     /**
@@ -79,7 +79,7 @@ export class QuestionClosedComponent implements OnChanges {
                 {question_id: this.question.id, position: this.lastPosition + 1},
                 ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
-            .subscribe(success => this.refresh.emit());
+            .subscribe(success => this.refresh.emit(), error => console.log(error));
     }
     
     /**
@@ -91,7 +91,7 @@ export class QuestionClosedComponent implements OnChanges {
                 `${URLS.DELETE.QUESTION.deleteClosed}/${this.question.id}`,
                 ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
-            .subscribe(success => this.refresh.emit());
+            .subscribe(success => this.refresh.emit(), error => console.log(error));
     }
 
     /**
@@ -127,7 +127,7 @@ export class QuestionClosedComponent implements OnChanges {
                 ).subscribe(success => {
                     if (this.options.length - 1 === i)
                         this.refresh.emit();
-                });
+                }, error => console.log(error));
         });
 
         /**
@@ -145,7 +145,7 @@ export class QuestionClosedComponent implements OnChanges {
                     ).subscribe(success => {
                         if (this.options.length - 1 === i)
                             this.deleteOptions.length !== 0 ? deleteOptions() : this.refresh.emit();
-                    })
+                    }, error => console.log(error))
             :
                 // Add new option as it has no id
                 this.apiService
@@ -156,7 +156,7 @@ export class QuestionClosedComponent implements OnChanges {
                     ).subscribe(success =>  {
                         if (this.options.length - 1 === i) 
                             this.deleteOptions.length !== 0 ? deleteOptions() : this.refresh.emit();
-                    })
+                    }, error => console.log(error))
         });
         
         let data = {};
@@ -182,7 +182,7 @@ export class QuestionClosedComponent implements OnChanges {
                     deleteOptions();
                 else
                     this.refresh.emit();
-            });
+            }, error => console.log(error));
     }
 
     /**
@@ -204,7 +204,7 @@ export class QuestionClosedComponent implements OnChanges {
                     this.existingOptions.push(new QuestionClosedOption(option));
                     this.options.push({id: option.id, option: option.option});
                 }
-            });
+            }, error => console.log(error));
         
         this.inEditableForm = false;
     }

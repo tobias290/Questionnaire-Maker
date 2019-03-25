@@ -1,0 +1,17 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-top-bar *ngIf="!loading" [title]="title" [hasBackButton]="true">
+    <div class="top-bar-right">
+        <button class="button normal white"><a routerLink="/login">Log In</a></button>
+        <button class="button inverse white"><a routerLink="/sign-up">Sign Up</a></button>
+    </div>
+</app-top-bar>
+
+<aside *ngIf="!loading">
+    <div style="color: #C34A47; font-weight: bold;">To be implemented later</div>
+</aside>
+
+<div *ngIf="!loading" id="public-questionnaires-page-center">
+    <div *ngIf="questionnaires.length == 0" id="no-questionnaires">No Public Questionnaires</div>
+    <app-questionnaire-list-item *ngFor="let question of questionnaires" [questionnaire]="question" [category]="getCategory(question.categoryId)" [canEdit]="false"></app-questionnaire-list-item>
+</div>

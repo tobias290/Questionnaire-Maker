@@ -45,6 +45,20 @@
     </div>
 </div>
 
-<div class="questionnaire-list-item" *ngIf="!canEdit">
-    
+<div class="questionnaire-list-item answerable" *ngIf="!canEdit">
+    <div class="left">
+        <div class="title">{{ questionnaire.title }}</div> <!-- • -->
+        <div>
+            <strong>Category:</strong> {{ category }}
+        </div>
+        <div>
+            <strong>Created:</strong> {{ questionnaire.createdAt }}
+        </div>
+    </div>
+    <div class="options">
+        <div class="delete-questionnaire">
+            <fa-icon [icon]="icons.report"></fa-icon>
+            <span>Report</span>
+        </div>
+    </div>
 </div>

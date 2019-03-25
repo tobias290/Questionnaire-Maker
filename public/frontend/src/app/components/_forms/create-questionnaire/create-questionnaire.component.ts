@@ -58,7 +58,7 @@ export class CreateQuestionnaireFormComponent implements OnInit, OnChanges {
      */
     public ngOnInit() {
         this.apiService
-            .get(URLS.GET.QUESTIONNAIRE.categories, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .get(URLS.GET.PUBLIC.categories)
             .subscribe(res => {
                 this.questionnaireCategories = res;
             });

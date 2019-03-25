@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {Questionnaire} from "../../models/questionnaire";
 import {ApiService} from "../../api.service";
-import {faEdit, faChartBar, faPaperPlane, faGlobeEurope, faCheck, faTrashAlt, faLock} from "@fortawesome/free-solid-svg-icons"
+import {faEdit, faChartBar, faPaperPlane, faGlobeEurope, faCheck, faTrashAlt, faLock, faFlag} from "@fortawesome/free-solid-svg-icons"
 import {URLS} from "../../urls";
 import {Router} from "@angular/router";
 
@@ -14,6 +14,7 @@ import {Router} from "@angular/router";
 export class QuestionnaireListItemComponent {
     @Input() canEdit: boolean;
     @Input() questionnaire: Questionnaire;
+    @Input() category: string;
     
     @Output() reload = new EventEmitter<boolean>();
     
@@ -25,6 +26,7 @@ export class QuestionnaireListItemComponent {
         private: faLock,
         complete: faCheck,
         delete: faTrashAlt,
+        report: faFlag,
     };
     
     isMouseOver = false;

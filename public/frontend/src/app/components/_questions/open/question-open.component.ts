@@ -48,7 +48,7 @@ export class QuestionOpenComponent implements OnChanges {
                 {question_id: this.question.id, position: this.lastPosition + 1},
                 ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
-            .subscribe(success => this.refresh.emit());
+            .subscribe(success => this.refresh.emit(), error => console.log(error));
     }
 
     /**
@@ -60,7 +60,7 @@ export class QuestionOpenComponent implements OnChanges {
                 `${URLS.DELETE.QUESTION.deleteOpen}/${this.question.id}`,
                 ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
-            .subscribe(success => this.refresh.emit());
+            .subscribe(success => this.refresh.emit(), error => console.log(error));
     }
 
     /**
@@ -83,7 +83,7 @@ export class QuestionOpenComponent implements OnChanges {
                 data,
                 ApiService.createTokenHeader(sessionStorage.getItem("token")),
             )
-            .subscribe(success => this.refresh.emit());
+            .subscribe(success => this.refresh.emit(), error => console.log(error));
     }
 
     /**

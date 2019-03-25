@@ -9,6 +9,15 @@
     margin: 30px 0 30px 0;
     width: 900px;
     
+    &.answerable {
+        border-bottom: 5px solid transparent;
+        cursor: pointer;
+        
+        &:hover {
+            border-bottom: 5px solid $green;
+        }
+    }
+    
     .left {
         display: flex;
         flex-direction: column;
