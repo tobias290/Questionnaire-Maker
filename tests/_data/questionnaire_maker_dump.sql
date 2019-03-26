@@ -27,7 +27,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_100000_create_password_resets_table',1),(2,'2016_06_01_000001_create_oauth_auth_codes_table',1),(3,'2016_06_01_000002_create_oauth_access_tokens_table',1),(4,'2016_06_01_000003_create_oauth_refresh_tokens_table',1),(5,'2016_06_01_000004_create_oauth_clients_table',1),(6,'2016_06_01_000005_create_oauth_personal_access_clients_table',1),(7,'2019_03_06_150100_create_user_table',1),(8,'2019_03_06_174013_settings',1),(9,'2019_03_06_174720_questionnaire_category',1),(10,'2019_03_06_174908_questionnaire',1),(11,'2019_03_06_175508_question_scaled',1),(12,'2019_03_06_183106_question_scaled_response',1),(13,'2019_03_06_183334_question_closed',1),(14,'2019_03_06_183515_question_closed_option',1),(15,'2019_03_06_183701_question_closed_response',1),(16,'2019_03_06_183842_question_open',1),(17,'2019_03_06_183958_question_open_response',1),(18,'2019_03_06_184256_create_notification_table',1);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_100000_create_password_resets_table',1),(2,'2016_06_01_000001_create_oauth_auth_codes_table',1),(3,'2016_06_01_000002_create_oauth_access_tokens_table',1),(4,'2016_06_01_000003_create_oauth_refresh_tokens_table',1),(5,'2016_06_01_000004_create_oauth_clients_table',1),(6,'2016_06_01_000005_create_oauth_personal_access_clients_table',1),(7,'2019_03_06_150100_create_user_table',1),(8,'2019_03_06_174013_settings',1),(9,'2019_03_06_174720_questionnaire_category',1),(10,'2019_03_06_174908_questionnaire',1),(11,'2019_03_06_175508_question_scaled',1),(12,'2019_03_06_183106_question_scaled_response',1),(13,'2019_03_06_183334_question_closed',1),(14,'2019_03_06_183515_question_closed_option',1),(15,'2019_03_06_183842_question_open',1),(16,'2019_03_06_183958_question_open_response',1),(17,'2019_03_06_184256_create_notification_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +98,7 @@ CREATE TABLE `oauth_access_tokens` (
 
 LOCK TABLES `oauth_access_tokens` WRITE;
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
-INSERT INTO `oauth_access_tokens` VALUES ('0ca1d07709d762b0959472851b470516737988f36e80444b5c4919a374fae66c64ad56b921f28462',1,1,'QuestionnaireMaker','[]',0,'2019-03-22 13:13:18','2019-03-22 13:13:18','2020-03-22 13:13:18'),('54b45bc4eaa80bfed9ec09e93b626dbd04189bdcbc6e538ef4d2dbbc5133b57b032ddc4482a222ae',1,1,'QuestionnaireMaker','[]',0,'2019-03-20 16:57:44','2019-03-20 16:57:44','2020-03-20 16:57:44'),('7da9ac790b5e1ea68fe19b343f86836f3718259d6081d008e54158a8265189b2dd553beccac7c4f7',2,1,'QuestionnaireMaker','[]',0,'2019-03-20 16:59:37','2019-03-20 16:59:37','2020-03-20 16:59:37'),('836671025488b2b401e143a1b27df14f682eba5244c6e7d7c5e07526424a42f69f0cd4b04a4e76b9',1,1,'QuestionnaireMaker','[]',0,'2019-03-22 17:06:37','2019-03-22 17:06:37','2020-03-22 17:06:37'),('abee6b80a6079450b18dba06a612936fb7963822b7829c3aca34fe863ccf618ac905cd3d72fd767a',1,1,'QuestionnaireMaker','[]',1,'2019-03-25 17:48:58','2019-03-25 17:48:58','2020-03-25 17:48:58'),('bd5bec44813b9e58e7977f008184d014e4cf80ed3d805143e4aa572aded49716a8166305a8f5e472',3,1,'QuestionnaireMaker','[]',0,'2019-03-22 12:49:41','2019-03-22 12:49:41','2020-03-22 12:49:41');
+INSERT INTO `oauth_access_tokens` VALUES ('4a31e051d77543a8cff1d82d061c44719592c9ab0dc2f31d2ba49a136f6a101e4aa9c52bc482ac83',1,1,'QuestionnaireMaker','[]',0,'2019-03-26 20:02:01','2019-03-26 20:02:01','2020-03-26 20:02:01');
 /*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +158,7 @@ CREATE TABLE `oauth_clients` (
 
 LOCK TABLES `oauth_clients` WRITE;
 /*!40000 ALTER TABLE `oauth_clients` DISABLE KEYS */;
-INSERT INTO `oauth_clients` VALUES (1,NULL,'Laravel Personal Access Client','CtgRbH4dRvBSUAaHiZf8IcoapqkiaxT3nd0n2qt4','http://localhost',1,0,0,'2019-03-20 16:57:19','2019-03-20 16:57:19'),(2,NULL,'Laravel Password Grant Client','2o4ZSuxzrEadpPV9wBdkFk0kBaXHpmhD0bazzWz1','http://localhost',0,1,0,'2019-03-20 16:57:19','2019-03-20 16:57:19');
+INSERT INTO `oauth_clients` VALUES (1,NULL,'Laravel Personal Access Client','QepY1BJhqxZbsisJH86HmB9MhJazVh5K2RPs5pOc','http://localhost',1,0,0,'2019-03-26 20:01:36','2019-03-26 20:01:36'),(2,NULL,'Laravel Password Grant Client','BSZuYmdiQhFlO87HhFSfGPGdmT1d6lLnJ7ahMjgt','http://localhost',0,1,0,'2019-03-26 20:01:36','2019-03-26 20:01:36');
 /*!40000 ALTER TABLE `oauth_clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +185,7 @@ CREATE TABLE `oauth_personal_access_clients` (
 
 LOCK TABLES `oauth_personal_access_clients` WRITE;
 /*!40000 ALTER TABLE `oauth_personal_access_clients` DISABLE KEYS */;
-INSERT INTO `oauth_personal_access_clients` VALUES (1,1,'2019-03-20 16:57:19','2019-03-20 16:57:19');
+INSERT INTO `oauth_personal_access_clients` VALUES (1,1,'2019-03-26 20:01:36','2019-03-26 20:01:36');
 /*!40000 ALTER TABLE `oauth_personal_access_clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,7 +256,7 @@ CREATE TABLE `question_closed` (
   PRIMARY KEY (`id`),
   KEY `question_closed_questionnaire_id_foreign` (`questionnaire_id`),
   CONSTRAINT `question_closed_questionnaire_id_foreign` FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaire` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -265,6 +265,7 @@ CREATE TABLE `question_closed` (
 
 LOCK TABLES `question_closed` WRITE;
 /*!40000 ALTER TABLE `question_closed` DISABLE KEYS */;
+INSERT INTO `question_closed` VALUES (1,'Allow multiple options',2,'radio',1,1),(2,'Drop down question',3,'drop_down',0,1);
 /*!40000 ALTER TABLE `question_closed` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,11 +279,12 @@ DROP TABLE IF EXISTS `question_closed_option`;
 CREATE TABLE `question_closed_option` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `option` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `responses` int(11) NOT NULL DEFAULT '0',
   `question_closed_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `question_closed_option_question_closed_id_foreign` (`question_closed_id`),
   CONSTRAINT `question_closed_option_question_closed_id_foreign` FOREIGN KEY (`question_closed_id`) REFERENCES `question_closed` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,32 +293,8 @@ CREATE TABLE `question_closed_option` (
 
 LOCK TABLES `question_closed_option` WRITE;
 /*!40000 ALTER TABLE `question_closed_option` DISABLE KEYS */;
+INSERT INTO `question_closed_option` VALUES (1,'This',0,1),(2,'That',0,1),(3,'Other One',0,1),(4,'Option 1',0,2),(5,'Option 2',0,2),(6,'Option 3',0,2),(7,'Option 4',0,2);
 /*!40000 ALTER TABLE `question_closed_option` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `question_closed_response`
---
-
-DROP TABLE IF EXISTS `question_closed_response`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `question_closed_response` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `question_closed_option_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `question_closed_response_question_closed_option_id_foreign` (`question_closed_option_id`),
-  CONSTRAINT `question_closed_response_question_closed_option_id_foreign` FOREIGN KEY (`question_closed_option_id`) REFERENCES `question_closed_option` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `question_closed_response`
---
-
-LOCK TABLES `question_closed_response` WRITE;
-/*!40000 ALTER TABLE `question_closed_response` DISABLE KEYS */;
-/*!40000 ALTER TABLE `question_closed_response` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -336,7 +314,7 @@ CREATE TABLE `question_open` (
   PRIMARY KEY (`id`),
   KEY `question_open_questionnaire_id_foreign` (`questionnaire_id`),
   CONSTRAINT `question_open_questionnaire_id_foreign` FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaire` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -345,7 +323,7 @@ CREATE TABLE `question_open` (
 
 LOCK TABLES `question_open` WRITE;
 /*!40000 ALTER TABLE `question_open` DISABLE KEYS */;
-INSERT INTO `question_open` VALUES (4,'Testing with angular',1,1,0,4),(14,'First open question',3,1,1,4);
+INSERT INTO `question_open` VALUES (1,'Single Line Question',4,0,0,1);
 /*!40000 ALTER TABLE `question_open` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,7 +373,7 @@ CREATE TABLE `question_scaled` (
   PRIMARY KEY (`id`),
   KEY `question_scaled_questionnaire_id_foreign` (`questionnaire_id`),
   CONSTRAINT `question_scaled_questionnaire_id_foreign` FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaire` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -404,7 +382,7 @@ CREATE TABLE `question_scaled` (
 
 LOCK TABLES `question_scaled` WRITE;
 /*!40000 ALTER TABLE `question_scaled` DISABLE KEYS */;
-INSERT INTO `question_scaled` VALUES (1,'First scaled question',2,0.00,5.00,1.00,'star',1,4),(6,'Scale Test',4,0.00,100.00,1.00,'slider',1,4);
+INSERT INTO `question_scaled` VALUES (1,'Star rating question',1,0.00,5.00,1.00,'star',0,1);
 /*!40000 ALTER TABLE `question_scaled` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,7 +438,7 @@ CREATE TABLE `questionnaire` (
   KEY `questionnaire_user_id_foreign` (`user_id`),
   CONSTRAINT `questionnaire_questionnaire_category_id_foreign` FOREIGN KEY (`questionnaire_category_id`) REFERENCES `questionnaire_category` (`id`) ON DELETE CASCADE,
   CONSTRAINT `questionnaire_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -469,7 +447,7 @@ CREATE TABLE `questionnaire` (
 
 LOCK TABLES `questionnaire` WRITE;
 /*!40000 ALTER TABLE `questionnaire` DISABLE KEYS */;
-INSERT INTO `questionnaire` VALUES (4,'Test Questionnaire','New test questionnaire with description.',0,0,0,0,0,NULL,'2019-03-22 13:13:39','2019-03-22 13:13:39',9,1),(25,'Public Questionnaire',NULL,1,1,0,0,0,NULL,'2019-03-25 17:49:16','2019-03-25 17:49:39',1,1),(26,'Public Questionnaire 2',NULL,1,1,0,0,0,NULL,'2019-03-25 17:49:32','2019-03-25 17:49:41',11,1);
+INSERT INTO `questionnaire` VALUES (1,'Public Questionnaire','Public questionnaire to use as answer and responses test.',1,1,0,0,0,NULL,'2019-03-26 20:03:08','2019-03-26 20:04:48',1,1);
 /*!40000 ALTER TABLE `questionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -541,7 +519,7 @@ CREATE TABLE `user` (
   `date_joined` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -550,7 +528,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Tobias','Essex','tobiascompany@gmail.com',NULL,'$2y$10$ZwLoaxuKpqK4S6qYyr7j1.P41Fs4CBfXb3gXBVWlH4YyYQHhl1tfG',NULL,'2019-03-20');
+INSERT INTO `user` VALUES (1,'Tobias','Essex','tobiascompany@gmail.com',NULL,'$2y$10$OI0pvlPg9cnd0.uIiG9a2eNdAIqj4kwbiD4uobKBVPoy1juOGYVNa',NULL,'2019-03-26');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -563,4 +541,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-25 17:49:59
+-- Dump completed on 2019-03-26 20:05:09
