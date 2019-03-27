@@ -19,8 +19,10 @@ class EditQuestionnaireCest {
         $I->createQuestionnaire();
         // And
         $I->seeInCurrentUrl("edit");
+        // Then
+        $I->moveMouseOver( ".questionnaire-list-item");
         // And
-        $I->click(["id" => "edit-questionnaire"]);
+        $I->click(["class" => "edit-questionnaire"]);
         // And
         $I->see("First Questionnaire"); // Current Title
         // And
