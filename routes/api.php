@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::prefix("public")->group(function () {
     Route::get("questionnaire-categories", "QuestionnaireController@categories");
     Route::get("questionnaires", "QuestionnaireController@publicQuestionnaires");
-});
 
+    Route::post("questionnaire/{id}/submit", "QuestionnaireController@submitQuestionnaire");
+});
 
 Route::prefix("user")->group(function (){
     Route::post("sign-up", "UserController@signUp");
