@@ -17,7 +17,7 @@ class AnswerQuestionnaireCest {
         // And
         $id = 25;
         // And
-        $I->sendPOST("public/questionnaire/$id/answer", [
+        $I->sendPOST("public/questionnaire/$id/submit", [
             "open" => [
                [ // Single line question
                    "id" => 1,
@@ -26,14 +26,16 @@ class AnswerQuestionnaireCest {
             ],
             "closed" => [
                 [
-                    "options" => [ // Drop down question
-                        5,
-                    ],
-                ],
-                [
+                    "id" => 1,
                     "options" => [ // Multiple choice, therefore multiple answers can be submitted,
                         1,
                         3,
+                    ],
+                ],
+                [
+                    "id" => 2,
+                    "options" => [ // Drop down question
+                        5,
                     ],
                 ],
             ],
@@ -66,7 +68,7 @@ class AnswerQuestionnaireCest {
         // And
         $id = 25;
         // And
-        $I->sendPOST("public/questionnaire/$id/answer", [
+        $I->sendPOST("public/questionnaire/$id/submit", [
             "open" => [ // NOTE: left out as it is required
 //                [ // Single line question
 //                    "id" => 1,
