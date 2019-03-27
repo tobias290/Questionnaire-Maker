@@ -36,4 +36,11 @@ class QuestionScaled extends Model {
     public function questionnaire() {
         return $this->belongsTo("App\Models\Questionnaire");
     }
+
+    /**
+     * Gets the responses for this question.
+     */
+    public function responses() {
+        return $this->hasMany("App\Models\QuestionScaledResponse");
+    }
 }

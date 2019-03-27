@@ -15,7 +15,7 @@ class AnswerQuestionnaireCest {
         // And
         $I->wantTo("send responses to a questionnaire and get a HTTP 201 response");
         // And
-        $id = 25;
+        $id = 1;
         // And
         $I->sendPOST("public/questionnaire/$id/submit", [
             "open" => [
@@ -66,7 +66,7 @@ class AnswerQuestionnaireCest {
         // And
         $I->expectTo("get HTTP 401 error as required question was missing");
         // And
-        $id = 25;
+        $id = 1;
         // And
         $I->sendPOST("public/questionnaire/$id/submit", [
             "open" => [ // NOTE: left out as it is required

@@ -106,11 +106,11 @@ class AnswerQuestionnaireCest {
         // And
         // TODO: Click star button
         // And
-        // TODO: I DO NOT click radio button
+        // TODO: I click radio button
         // And
         // TODO: I select drop down element
         // And
-        // TODO: I fill input field
+        // TODO: I DO NOT fill input field
         // And
         $I->click("Submit");
         // And
