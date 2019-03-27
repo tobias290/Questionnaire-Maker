@@ -45,6 +45,11 @@ class AnswerQuestionnaireCest {
         $I->seeNumRecords(7, "question_closed_option");
     }
 
+    /**
+     * Test to see that the user is taken to the thank you page when the questionnaire is submitted successfully
+     *
+     * @param AcceptanceTester $I
+     */
     public function submitQuestionnaire(AcceptanceTester $I) {
         $I->am("Respondent");
         // And
@@ -77,10 +82,15 @@ class AnswerQuestionnaireCest {
         $I->see("Thank you for taking this questionnaire!");
     }
 
+    /**
+     * Test to see that the questionnaire is not submitted when a required question is not answered.
+     *
+     * @param AcceptanceTester $I
+     */
     public function submitQuestionnaireWithRequiredQuestionMissing(AcceptanceTester $I) {
         $I->am("Respondent");
         // And
-        $I->wantTo("answer a questionnaire to help a questionnaire maker");
+        $I->expectTo("see an error because a required question is missing");
         // And
         $I->amOnFrontEndPage("public/questionnaires");
         // And
@@ -109,6 +119,11 @@ class AnswerQuestionnaireCest {
         $I->dontSee("Thank you for taking this questionnaire!");
     }
 
+    /**
+     * Test to see that the user is redirected to the public questionnaire page when they cancel answering a questionnaire.
+     *
+     * @param AcceptanceTester $I
+     */
     public function cancelQuestionnaire(AcceptanceTester $I) {
         $I->am("Respondent");
         // And

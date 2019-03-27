@@ -5,6 +5,11 @@ class AnswerQuestionnaireCest {
         // Database will already have a pre-loaded questionnaire ready to answer
     }
 
+    /**
+     * Test to see that the correct response is returned when submitting a valid questionnaire
+     *
+     * @param ApiTester $I
+     */
     public function submitQuestionnaire(ApiTester $I) {
         $I->am("Client Side Application");
         // And
@@ -49,6 +54,11 @@ class AnswerQuestionnaireCest {
         ]]);
     }
 
+    /**
+     * Test to see that an error is returned when submitting a questionnaire with a required question missing.
+     *
+     * @param ApiTester $I
+     */
     public function submitQuestionnaireWithRequiredQuestionMissing(ApiTester $I) {
         $I->am("Client Side Application");
         // And
