@@ -1,11 +1,11 @@
-<div *ngIf="!inEditableForm" class="question-answerable">
+<div *ngIf="!inEditableForm" class="question">
     <div class="question-display">
         <div class="question-title">
             {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
         </div>
 
         <div *ngIf="question.type == 'drop_down'" class="app-input-container question-margin">
-            <select name="questionScaledMax" class="app-input no-icon">
+            <select class="app-input no-icon">
                <option *ngFor="let option of existingOptions">{{ option.option }}</option>
             </select>
         </div>
@@ -13,7 +13,7 @@
         <div *ngIf="question.type == 'check'" class="question-margin">
             <ng-container *ngFor="let option of existingOptions">
                 <label class="app-radio-container">{{ option.option }}
-                    <input type="checkbox" [name]="option.id">
+                    <input type="checkbox">
                     <span class="checkmark"></span>
                 </label>
             </ng-container>

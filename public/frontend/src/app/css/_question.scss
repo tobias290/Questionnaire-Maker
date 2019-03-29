@@ -11,7 +11,7 @@
     width: 100%;
 }
 
-.question-answerable {
+.question {
     @extend %question;
 
     border: 1px solid transparent;
@@ -51,6 +51,18 @@
         position: absolute;
         visibility: hidden;
         width: 100%;
+    }
+}
+
+.question-answerable {
+    @extend .question;
+
+    &:hover {
+        border: 1px solid transparent;
+    }
+
+    .question-display .question-title.error {
+        color: $red;
     }
 }
 

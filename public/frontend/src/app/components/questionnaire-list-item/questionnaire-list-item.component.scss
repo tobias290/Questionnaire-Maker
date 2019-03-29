@@ -2,6 +2,7 @@
 
 .questionnaire-list-item {
     background: $white;
+    border-bottom: 5px solid transparent;
     box-shadow: 0 5px 5px $shadow-color;
     color: $text-dark;
     display: flex;
@@ -9,13 +10,12 @@
     margin: 30px 0 30px 0;
     width: 900px;
     
-    &.answerable {
-        border-bottom: 5px solid transparent;
+    &:hover {
+        border-bottom: 5px solid $green;
+    }
+    
+    &.answerable:hover {
         cursor: pointer;
-        
-        &:hover {
-            border-bottom: 5px solid $green;
-        }
     }
     
     .left {

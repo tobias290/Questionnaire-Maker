@@ -1,0 +1,14 @@
+<div class="question-answerable">
+    <div class="question-display">
+        <div class="question-title {{ isError ? 'error' : '' }}">
+            {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
+        </div>
+
+        <div *ngIf="!question.isLong" class="app-input-container">
+            <input #singleLine class="app-input no-icon {{ isError ? 'error' : '' }}" type="text" placeholder="Answer...">
+    </div>
+        <div *ngIf="question.isLong" style="margin-left: 20px;">
+            <textarea #paragraph class="app-textarea {{ isError ? 'error' : '' }}" placeholder="Answer..."></textarea>
+        </div>
+    </div>
+</div>

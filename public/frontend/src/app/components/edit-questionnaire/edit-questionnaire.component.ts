@@ -155,6 +155,21 @@ export class EditQuestionnaireComponent implements OnInit {
     }
 
     /**
+     * Deletes the questionnaire.
+     */
+    public delete() {
+        this.apiService
+            .delete(
+                `${URLS.DELETE.QUESTIONNAIRE.delete}/${this.data.questionnaire.id}`,
+                ApiService.createTokenHeader(sessionStorage.getItem("token"))
+            )
+            .subscribe(
+                success => this.router.navigateByUrl("dashboard"),
+                error => console.log(error),
+            );
+    }
+
+    /**
      * Adds a question to the questionnaire.
      * 
      * @param {string} type - Question type (open, closed, scaled)

@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix("public")->group(function () {
-    Route::get("questionnaire-categories", "QuestionnaireController@categories");
-    Route::get("questionnaires", "QuestionnaireController@publicQuestionnaires");
+    Route::get("questionnaire-categories", "PublicController@categories");
+    Route::get("questionnaires", "PublicController@publicQuestionnaires");
+    Route::get("questionnaire/{id}/answer", "PublicController@answerQuestionnaire");
 
-    Route::post("questionnaire/{id}/submit", "QuestionnaireController@submitQuestionnaire");
+    Route::post("questionnaire/{id}/submit", "PublicController@submitQuestionnaire");
 });
 
 Route::prefix("user")->group(function (){

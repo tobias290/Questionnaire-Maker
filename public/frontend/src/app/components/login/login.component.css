@@ -335,6 +335,7 @@ a.classic {
     font-size: 16px;
     height: 50px;
     padding-left: 55px;
+    transition: background .1s linear;
     width: 300px; }
     .app-input-container .app-input[type="date"]::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -370,12 +371,15 @@ a.classic {
   font-size: 16px;
   height: 200px;
   padding: 10px;
+  transition: background .1s linear;
   width: 630px; }
   .app-textarea:hover {
     background: #DEDEDE; }
   .app-textarea:focus {
     background: #CDCDCD;
     outline: none; }
+  .app-textarea.error {
+    border: 1px solid #D9534F; }
 
 .app-radio-container {
   cursor: pointer;
@@ -396,7 +400,7 @@ a.classic {
     position: absolute;
     opacity: 0;
     width: 0; }
-  .app-radio-container .checkmark {
+  .app-radio-container .check {
     background-color: #E4E4E4;
     border-radius: 7px;
     height: 25px;
@@ -404,19 +408,19 @@ a.classic {
     position: absolute;
     top: 0;
     width: 25px; }
-  .app-radio-container:hover input ~ .checkmark {
+  .app-radio-container:hover input ~ .check {
     background-color: #CDCDCD; }
-  .app-radio-container input:checked ~ .checkmark {
+  .app-radio-container input:checked ~ .check {
     background-color: #16D36B; }
-  .app-radio-container input:checked:hover ~ .checkmark {
+  .app-radio-container input:checked:hover ~ .check {
     background-color: #13BD60; }
-  .app-radio-container input:checked ~ .checkmark:after {
+  .app-radio-container input:checked ~ .check:after {
     display: block; }
-  .app-radio-container .checkmark:after {
+  .app-radio-container .check:after {
     content: "";
     display: none;
     position: absolute; }
-  .app-radio-container .checkmark:after {
+  .app-radio-container .check:after {
     border: solid white;
     border-width: 0 3px 3px 0;
     height: 10px;

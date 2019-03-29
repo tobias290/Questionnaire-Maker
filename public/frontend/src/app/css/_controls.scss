@@ -46,6 +46,7 @@
         font-size: 16px;
         height: 50px;
         padding-left: 55px;
+        transition: background .1s linear;
         width: 300px;
 
         &[type="date"]::-webkit-inner-spin-button {
@@ -102,6 +103,7 @@
     font-size: 16px;
     height: 200px;
     padding: 10px;
+    transition: background .1s linear;
     width: 630px;
 
     &:hover {
@@ -111,6 +113,10 @@
     &:focus {
         background: #CDCDCD;
         outline: none;
+    }
+
+    &.error {
+        border: 1px solid $red;
     }
 }
 
@@ -136,7 +142,7 @@
         width: 0;
     }
     
-    .checkmark {
+    .check {
         background-color: $dark-white;
         border-radius: 7px;
         height: 25px;
@@ -146,31 +152,31 @@
         width: 25px;
     }
     
-    &:hover input ~ .checkmark {
+    &:hover input ~ .check {
         background-color: #CDCDCD;
     }
     
     & input {
-        &:checked ~ .checkmark {
+        &:checked ~ .check {
             background-color: $green;
         }
 
-        &:checked:hover ~ .checkmark {
+        &:checked:hover ~ .check {
             background-color: $green-hover;
         }
         
-        &:checked ~ .checkmark:after {
+        &:checked ~ .check:after {
             display: block;
         }
     }
     
-    .checkmark:after {
+    .check:after {
         content: "";
         display: none;
         position: absolute;
     }
     
-    & .checkmark:after {
+    & .check:after {
         border: solid white;
         border-width: 0 3px 3px 0;
         height: 10px;

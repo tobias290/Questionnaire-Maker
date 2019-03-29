@@ -1,0 +1,22 @@
+<div class="question-answerable">
+    <div class="question-display">
+        <div class="question-title {{ isError ? 'error' : '' }}">
+            {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
+        </div>
+
+        <div *ngIf="question.type === 'slider'" class="slider-container" (input)="slider.value">
+            {{ question.min }}
+            <input #slider class="slider" type="range" [min]="question.min" [max]="question.max" [step]="question.interval" value="0">
+            {{ question.max }}
+            <div class="output">
+                {{ slider.value }}
+            </div>
+        </div>
+
+        <div *ngIf="question.type === 'star'" class="star-rating-container">
+            <div *ngFor="let _ of Arr(question.max).fill(1); let i = index;" [style.color]="currentStarRating > i ? '#FFD700' : '#707070' ">
+                <fa-icon [icon]="starIcon" (click)="currentStarRating = i + 1;"></fa-icon>
+            </div>
+        </div>
+    </div>
+</div>

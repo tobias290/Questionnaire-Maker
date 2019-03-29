@@ -151,17 +151,17 @@ a.classic {
 
 .questionnaire-list-item {
   background: #FFF;
+  border-bottom: 5px solid transparent;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16);
   color: #707070;
   display: flex;
   height: 150px;
   margin: 30px 0 30px 0;
   width: 900px; }
-  .questionnaire-list-item.answerable {
-    border-bottom: 5px solid transparent;
+  .questionnaire-list-item:hover {
+    border-bottom: 5px solid #16D36B; }
+  .questionnaire-list-item.answerable:hover {
     cursor: pointer; }
-    .questionnaire-list-item.answerable:hover {
-      border-bottom: 5px solid #16D36B; }
   .questionnaire-list-item .left {
     display: flex;
     flex-direction: column;

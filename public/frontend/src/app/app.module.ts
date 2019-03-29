@@ -22,10 +22,15 @@ import {QuestionClosedEditableComponent} from "./components/_questions/closed/_e
 import {QuestionOpenEditableComponent} from "./components/_questions/open/_editable/question-open-editable.component";
 import {QuestionScaledEditableComponent} from "./components/_questions/scaled/_editable/question-scaled-editable.component";
 import {PublicQuestionnaireListComponent} from "./components/_public/questionnaire-list/questionnaire-list.component";
+import {QuestionnaireComponent} from "./components/_public/questionnaire/questionnaire.component";
+import {QuestionClosedAnswerableComponent} from "./components/_questions/closed/_answerable/question-closed-answerable.component";
+import {QuestionOpenAnswerableComponent} from "./components/_questions/open/_answerable/question-open-answerable.component";
+import {QuestionScaledAnswerableComponent} from "./components/_questions/scaled/_answerable/question-scaled-answerable.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
     { path: "public/questionnaires", component: PublicQuestionnaireListComponent },
+    { path: "public/questionnaires/:id/answer", component: QuestionnaireComponent },
     { path: "sign-up", component: SignUpComponent },
     { path: "login", component: LoginComponent },
     { path: "dashboard", component: DashboardComponent },
@@ -49,7 +54,11 @@ const appRoutes: Routes = [
         QuestionClosedEditableComponent,
         QuestionOpenEditableComponent,
         QuestionScaledEditableComponent,
-        PublicQuestionnaireListComponent
+        PublicQuestionnaireListComponent,
+        QuestionnaireComponent,
+        QuestionClosedAnswerableComponent,
+        QuestionOpenAnswerableComponent,
+        QuestionScaledAnswerableComponent,
     ],
     imports: [
         BrowserModule,

@@ -28,7 +28,7 @@
             -webkit-appearance: none;
             width: 30px;
             
-            &:hover {
+            &:hover, &:focus {
                 background: $green;
             }
         }
@@ -56,7 +56,8 @@
         font-size: 25px;
         font-weight: bold;
         text-align: center;
-        width: 50px;
+        min-width: 50px;
+        width: fit-content;
     }
 }
 
@@ -69,7 +70,7 @@
     justify-content: space-evenly;
     
     &:hover > div {
-        color: $star-gold;
+        color: $star-gold !important;
     }
     
     & > div {
@@ -78,7 +79,7 @@
         width: 100%;
         
         &:hover ~ div {
-            color: $text-dark;
+            color: $text-dark !important;
         }
     }
 }

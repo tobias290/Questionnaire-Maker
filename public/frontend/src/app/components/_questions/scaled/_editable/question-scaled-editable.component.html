@@ -1,4 +1,4 @@
-<div *ngIf="!inEditableForm" class="question-answerable">
+<div *ngIf="!inEditableForm" class="question">
     <div class="question-display">
         <div class="question-title">
             {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
@@ -6,7 +6,7 @@
 
         <div *ngIf="question.type === 'slider'" class="slider-container" (input)="slider.value">
             {{ question.min }}
-            <input name="a" class="slider" type="range" [min]="question.min" [max]="question.max"
+            <input class="slider" type="range" [min]="question.min" [max]="question.max"
                    [step]="question.interval" value="0" #slider>
             {{ question.max }}
             <div class="output">

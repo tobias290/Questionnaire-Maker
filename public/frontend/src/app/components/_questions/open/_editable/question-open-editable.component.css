@@ -396,7 +396,7 @@ a.classic {
     position: absolute;
     opacity: 0;
     width: 0; }
-  .app-radio-container .checkmark {
+  .app-radio-container .check {
     background-color: #E4E4E4;
     border-radius: 7px;
     height: 25px;
@@ -404,19 +404,19 @@ a.classic {
     position: absolute;
     top: 0;
     width: 25px; }
-  .app-radio-container:hover input ~ .checkmark {
+  .app-radio-container:hover input ~ .check {
     background-color: #CDCDCD; }
-  .app-radio-container input:checked ~ .checkmark {
+  .app-radio-container input:checked ~ .check {
     background-color: #16D36B; }
-  .app-radio-container input:checked:hover ~ .checkmark {
+  .app-radio-container input:checked:hover ~ .check {
     background-color: #13BD60; }
-  .app-radio-container input:checked ~ .checkmark:after {
+  .app-radio-container input:checked ~ .check:after {
     display: block; }
-  .app-radio-container .checkmark:after {
+  .app-radio-container .check:after {
     content: "";
     display: none;
     position: absolute; }
-  .app-radio-container .checkmark:after {
+  .app-radio-container .check:after {
     border: solid white;
     border-width: 0 3px 3px 0;
     height: 10px;
@@ -454,7 +454,7 @@ a.classic {
     top: 8px;
     width: 9px; }
 
-.question-answerable, .question-editable {
+.question, .question-answerable, .question-editable {
   left: 0;
   margin: 30px auto 30px auto;
   right: 0;
@@ -464,27 +464,27 @@ a.classic {
   height: fit-content;
   width: 100%; }
 
-.question-answerable {
+.question, .question-answerable {
   border: 1px solid transparent;
   box-sizing: border-box;
   min-height: 100px;
   position: relative; }
-  .question-answerable:hover {
+  .question:hover, .question-answerable:hover {
     border: 1px solid #16D36B; }
-    .question-answerable:hover .question-options {
+    .question:hover .question-options, .question-answerable:hover .question-options {
       visibility: visible; }
-  .question-answerable .question-display {
+  .question .question-display, .question-answerable .question-display {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 10px;
     width: calc(100% - 300px); }
-    .question-answerable .question-display .question-title {
+    .question .question-display .question-title, .question-answerable .question-display .question-title {
       color: #16D36B;
       font-size: 25px;
       font-weight: bold;
       margin: 0 15px 15px 15px; }
-  .question-answerable .question-options {
+  .question .question-options, .question-answerable .question-options {
     align-items: center;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
@@ -493,6 +493,9 @@ a.classic {
     position: absolute;
     visibility: hidden;
     width: 100%; }
+
+.question-answerable:hover {
+  border: 1px solid transparent; }
 
 .question-editable {
   border: 2px dashed #16D36B;

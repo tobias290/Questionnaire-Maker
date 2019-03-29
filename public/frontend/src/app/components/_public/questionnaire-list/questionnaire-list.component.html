@@ -18,5 +18,19 @@
         [questionnaire]="question" 
         [category]="getCategory(question.categoryId)"
         [canEdit]="false"
+        (click)="showQuestionnairePopup(question)"
     ></app-questionnaire-list-item>
 </div>
+
+<app-popup [show]="showPopupQuestionnaire" (close)="showPopupQuestionnaire = false;">
+    <div id="questionnaire-popup">
+        <div id="title">
+            {{ popupQuestionnaire.title }}
+            <div id="bar"></div>
+        </div>
+        <p id="description">{{ popupQuestionnaire.description }}</p>
+        
+        <button class="button normal green large" (click)="showQuestionnaire()">Take Questionnaire</button>
+        <button class="button normal red large" (click)="showPopupQuestionnaire = false;">Cancel</button>
+    </div>
+</app-popup>

@@ -1,0 +1,33 @@
+<div class="question-answerable">
+    <div class="question-display">
+        <div class="question-title {{ isError ? 'error' : '' }}">
+            {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
+        </div>
+
+        <div *ngIf="question.type == 'drop_down'" class="app-input-container question-margin">
+            <select #dropDown class="app-input no-icon {{ isError ? 'error' : '' }}">
+                <option selected disabled>Choose</option>
+                <option *ngFor="let option of options" [value]="option.id">{{ option.option }}</option>
+            </select>
+        </div>
+
+        <div *ngIf="question.type == 'check'" class="question-margin">
+            <ng-container *ngFor="let option of options">
+                <label class="app-radio-container">{{ option.option }}
+                    <input type="checkbox" (click)="checkMultipleChoice(option.id)">
+                    <span class="check"></span>
+                </label>
+            </ng-container>
+        </div>
+
+        <div *ngIf="question.type == 'radio'" class="question-margin">
+            <ng-container *ngFor="let option of options">
+                <label class="app-radio-container">{{ option.option }}
+                    <input type="radio" name="radio" (click)="radioOption = option;">
+                    <span class="radio"></span>
+                </label>
+            </ng-container>
+        </div>
+    </div>
+</div>
+

@@ -10,6 +10,7 @@ export const URLS = {
         PUBLIC: {
             questionnaires: `${PUBLIC}/questionnaires`,
             categories: `${PUBLIC}/questionnaire-categories`,
+            answerQuestionnaire: id => `${PUBLIC}/questionnaire/${id}/answer`,
         },
         USER: {
             details: `${USER}/details`,
@@ -27,6 +28,9 @@ export const URLS = {
         }
     },
     POST: {
+        PUBLIC: {
+            submitQuestionnaire: id => `${PUBLIC}/questionnaire/${id}/submit`,
+        },
         USER: {
             signUp: `${USER}/sign-up`,
             login: `${USER}/login`,
