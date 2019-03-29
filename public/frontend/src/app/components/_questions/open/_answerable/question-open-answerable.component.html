@@ -6,7 +6,8 @@
 
         <div *ngIf="!question.isLong" class="app-input-container">
             <input #singleLine class="app-input no-icon {{ isError ? 'error' : '' }}" type="text" placeholder="Answer...">
-    </div>
+        </div>
+    
         <div *ngIf="question.isLong" style="margin-left: 20px;">
             <textarea #paragraph class="app-textarea {{ isError ? 'error' : '' }}" placeholder="Answer..."></textarea>
         </div>

@@ -9,8 +9,8 @@
         </span>
     </div>
     <div class="top-bar-right">
-        <button class="button normal white"><fa-icon [icon]="icons.send"></fa-icon>&nbsp;Send</button>
-        <button class="button inverse white"><fa-icon [icon]="icons.preview"></fa-icon>&nbsp;Preview</button>
+        <button class="button normal white" (click)="showSendQuestionnairePopup = true;"><fa-icon [icon]="icons.send"></fa-icon>&nbsp;Send</button>
+        <button class="button inverse white"><a routerLink="/edit/{{ data.questionnaire.id }}/preview"><fa-icon [icon]="icons.preview"></fa-icon>&nbsp;Preview</a></button>
         <span style="color: white; cursor: pointer; margin-left: 15px;">
             {{ data.user.email }} &nbsp;
             <fa-icon [icon]="icons.downCaret"></fa-icon>
@@ -79,4 +79,17 @@
 
 <app-popup *ngIf="!loading.user && !loading.questionnaire && !loading.questions" [show]="showEditQuestionnairePopup" (close)="showEditQuestionnairePopup = false;">
     <app-create-questionnaire-form [questionnaire]="data.questionnaire" (onCreate)="getQuestionnaire()"></app-create-questionnaire-form>
+</app-popup>
+
+<app-popup *ngIf="!loading.user && !loading.questionnaire && !loading.questions" [show]="showSendQuestionnairePopup" (close)="showSendQuestionnairePopup = false;">
+    <div id="send-questionnaire-popup">
+        <div id="popup-title">
+            Send Questionnaire
+            <div id="bar"></div>
+        </div>
+        <input #copyLinkInput type="text" readonly [value]="'http://localhost:8000/frontend/dist/frontend/#/public/questionnaires/' + data.questionnaire.id + '/answer'">
+        <div title="Copy Link" (click)="copyLink(copyLinkInput)">
+            <fa-icon [icon]="icons.copy"></fa-icon>
+        </div>
+    </div>
 </app-popup>

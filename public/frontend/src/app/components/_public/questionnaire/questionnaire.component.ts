@@ -1,4 +1,4 @@
-import {Component, OnInit, QueryList, ViewChildren} from "@angular/core";
+import {Component, Input, OnInit, QueryList, ViewChildren} from "@angular/core";
 import {ApiService} from "../../../api.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {URLS} from "../../../urls";
@@ -27,13 +27,15 @@ interface DataMetadata {
 })
 export class QuestionnaireComponent implements OnInit {
     @ViewChildren(QuestionOpenAnswerableComponent) openQuestionComponents: QueryList<QuestionOpenAnswerableComponent>;
+
     @ViewChildren(QuestionClosedAnswerableComponent) closedQuestionComponents: QueryList<QuestionClosedAnswerableComponent>;
     @ViewChildren(QuestionScaledAnswerableComponent) scaledQuestionComponents: QueryList<QuestionScaledAnswerableComponent>;
-    
     loading = {
         questionnaire: true,
         questions: true,
     };
+
+    preview: boolean = false;
 
     data: DataMetadata = {
         questionnaire: null,
@@ -45,6 +47,9 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     public ngOnInit() {
+        // @ts-ignore
+        this.preview = this.route.data.value.preview;
+        
         this.route.paramMap.subscribe((params: ParamMap) =>  {
             this.apiService
                 .get(URLS.GET.PUBLIC.answerQuestionnaire(params.get("id")), ApiService.createTokenHeader(sessionStorage.getItem("token")))
@@ -108,6 +113,10 @@ export class QuestionnaireComponent implements OnInit {
         }
     }
     
+    public back() {
+        window.history.back();
+    }
+    
     public submit() {
         let isError = false;
         let openAnswers = [];
@@ -156,7 +165,7 @@ export class QuestionnaireComponent implements OnInit {
                     URLS.POST.PUBLIC.submitQuestionnaire(this.data.questionnaire.id), 
                     {open: openAnswers, closed: closedAnswers, scaled: scaledAnswers}
                 )
-                .subscribe(success => this.router.navigateByUrl("public/questionnaires"), error => console.log(error));
+                .subscribe(success => this.router.navigateByUrl("public/thank-you"), error => console.log(error));
         }
     }
 

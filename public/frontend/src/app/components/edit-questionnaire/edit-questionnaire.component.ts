@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, ViewChild} from "@angular/core";
 import {ApiService} from "../../api.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {URLS} from "../../urls";
@@ -12,10 +12,10 @@ import {
     faCheckSquare,
     faCaretSquareDown,
     faParagraph,
-    faStar, 
-    faSlidersH, 
-    faICursor, 
-    faTrashAlt
+    faStar,
+    faSlidersH,
+    faICursor,
+    faTrashAlt, faCopy
 } from "@fortawesome/free-solid-svg-icons";
 import {User} from "../../models/user";
 import {Question} from "../../models/question";
@@ -53,6 +53,7 @@ export class EditQuestionnaireComponent implements OnInit {
             slider: faSlidersH,
         },
         delete: faTrashAlt,
+        copy: faCopy,
     };
     
     loading = {
@@ -67,7 +68,8 @@ export class EditQuestionnaireComponent implements OnInit {
         questions: [],
     };
     
-    showEditQuestionnairePopup: boolean = true;
+    showEditQuestionnairePopup: boolean = false;
+    showSendQuestionnairePopup: boolean = false;
 
     public constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute) {
     }
@@ -231,6 +233,16 @@ export class EditQuestionnaireComponent implements OnInit {
             default:
                 return false;
         }
+    }
+
+    /**
+     * Copies the link to answer the current questionnaire.
+     * 
+     * @param copyLinkInput - Element to get the link from.
+     */
+    public copyLink(copyLinkInput) {
+        copyLinkInput.select();
+        document.execCommand("copy");
     }
 }
 

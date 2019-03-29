@@ -26,15 +26,18 @@ import {QuestionnaireComponent} from "./components/_public/questionnaire/questio
 import {QuestionClosedAnswerableComponent} from "./components/_questions/closed/_answerable/question-closed-answerable.component";
 import {QuestionOpenAnswerableComponent} from "./components/_questions/open/_answerable/question-open-answerable.component";
 import {QuestionScaledAnswerableComponent} from "./components/_questions/scaled/_answerable/question-scaled-answerable.component";
+import {ThankYouComponent} from "./components/_public/post-questionnaire-thank-you/thank-you.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
     { path: "public/questionnaires", component: PublicQuestionnaireListComponent },
     { path: "public/questionnaires/:id/answer", component: QuestionnaireComponent },
+    { path: "public/thank-you", component: ThankYouComponent },
     { path: "sign-up", component: SignUpComponent },
     { path: "login", component: LoginComponent },
     { path: "dashboard", component: DashboardComponent },
     { path: "edit/:id", component: EditQuestionnaireComponent },
+    { path: "edit/:id/preview", component: QuestionnaireComponent, data: { preview: true } },
 ];
 
 @NgModule({
@@ -59,6 +62,7 @@ const appRoutes: Routes = [
         QuestionClosedAnswerableComponent,
         QuestionOpenAnswerableComponent,
         QuestionScaledAnswerableComponent,
+        ThankYouComponent,
     ],
     imports: [
         BrowserModule,

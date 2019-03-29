@@ -1,11 +1,13 @@
 <app-loading *ngIf="loading.questionnaire && loading.questions"></app-loading>
 
-<app-top-bar *ngIf="!loading.questionnaire && !loading.questions">
+<app-top-bar *ngIf="!loading.questionnaire && !loading.questions && !preview">
     <div id="questionnaire-title" class="top-bar-center">
         {{ data.questionnaire.title }}
     </div>
     <div class="top-bar-right"></div>
 </app-top-bar>
+
+<app-top-bar *ngIf="!loading.questionnaire && !loading.questions && preview" [title]="'Preview'" [hasBackButton]="true"></app-top-bar>
 
 <div *ngIf="!loading.questionnaire && !loading.questions" id="questionnaire-center">
     <ng-container *ngFor="let question of data.questions">
@@ -13,7 +15,9 @@
         <app-question-closed-answerable *ngIf="isQuestionType(question, 'closed')" [question]="question" [options]="data.questionClosedOptions[question.id]"></app-question-closed-answerable>
         <app-question-scaled-answerable *ngIf="isQuestionType(question, 'scaled')" [question]="question"></app-question-scaled-answerable>
     </ng-container>
-    <button class="button normal green large" (click)="submit()">Submit</button>
-    <button class="button normal  red  large" (click)="cancel()">Cancel</button>
+    
+    <button *ngIf="preview" class="button normal green large" (click)="back()">Back</button>
+    <button *ngIf="!preview" class="button normal green large" (click)="submit()">Submit</button>
+    <button *ngIf="!preview" class="button normal  red  large" (click)="cancel()">Cancel</button>
 </div>
 
