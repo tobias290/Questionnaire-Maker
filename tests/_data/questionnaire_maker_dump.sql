@@ -98,7 +98,7 @@ CREATE TABLE `oauth_access_tokens` (
 
 LOCK TABLES `oauth_access_tokens` WRITE;
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
-INSERT INTO `oauth_access_tokens` VALUES ('4a31e051d77543a8cff1d82d061c44719592c9ab0dc2f31d2ba49a136f6a101e4aa9c52bc482ac83',1,1,'QuestionnaireMaker','[]',0,'2019-03-26 20:02:01','2019-03-26 20:02:01','2020-03-26 20:02:01');
+INSERT INTO `oauth_access_tokens` VALUES ('4a31e051d77543a8cff1d82d061c44719592c9ab0dc2f31d2ba49a136f6a101e4aa9c52bc482ac83',1,1,'QuestionnaireMaker','[]',0,'2019-03-26 20:02:01','2019-03-26 20:02:01','2020-03-26 20:02:01'),('87bbffbbf8433a3f42f66799206df1567e5481a1c49cdb3ad4c5dd912c141a524773cbcfb2d0a551',1,1,'QuestionnaireMaker','[]',1,'2019-03-29 18:49:14','2019-03-29 18:49:14','2020-03-29 18:49:14'),('ca6fc87426a761019a166741e3eaf428155f31cc615a8408edfa76a54f01857825af4f2b3c235407',1,1,'QuestionnaireMaker','[]',0,'2019-03-29 20:39:20','2019-03-29 20:39:20','2020-03-29 20:39:20'),('e2c02a1298569bfd4770758ec10f38c3044e670023fc4957e4f47f53c3bb07007ec814265e2a465e',1,1,'QuestionnaireMaker','[]',0,'2019-03-29 19:03:48','2019-03-29 19:03:48','2020-03-29 19:03:48'),('f3a1f1df7ed651f635cfcb0406234e023bef93bec3e68b385e8b28b12b33852f47605d6af0ff6459',1,1,'QuestionnaireMaker','[]',0,'2019-03-29 19:03:48','2019-03-29 19:03:48','2020-03-29 19:03:48');
 /*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,7 +265,7 @@ CREATE TABLE `question_closed` (
 
 LOCK TABLES `question_closed` WRITE;
 /*!40000 ALTER TABLE `question_closed` DISABLE KEYS */;
-INSERT INTO `question_closed` VALUES (1,'Allow multiple options',2,'radio',1,1),(2,'Drop down question',3,'drop_down',0,1);
+INSERT INTO `question_closed` VALUES (1,'Allow multiple options',2,'radio',0,1),(2,'Drop down question',3,'drop_down',0,1);
 /*!40000 ALTER TABLE `question_closed` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +293,7 @@ CREATE TABLE `question_closed_option` (
 
 LOCK TABLES `question_closed_option` WRITE;
 /*!40000 ALTER TABLE `question_closed_option` DISABLE KEYS */;
-INSERT INTO `question_closed_option` VALUES (1,'This',0,1),(2,'That',0,1),(3,'Other One',0,1),(4,'Option 1',0,2),(5,'Option 2',0,2),(6,'Option 3',0,2),(7,'Option 4',0,2);
+INSERT INTO `question_closed_option` VALUES (1,'This',2,1),(2,'That',1,1),(3,'Other One',0,1),(4,'Option 1',1,2),(5,'Option 2',1,2),(6,'Option 3',1,2),(7,'Option 4',0,2);
 /*!40000 ALTER TABLE `question_closed_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -323,7 +323,7 @@ CREATE TABLE `question_open` (
 
 LOCK TABLES `question_open` WRITE;
 /*!40000 ALTER TABLE `question_open` DISABLE KEYS */;
-INSERT INTO `question_open` VALUES (1,'Single Line Question',4,0,0,1);
+INSERT INTO `question_open` VALUES (1,'Single Line Question',4,1,0,1);
 /*!40000 ALTER TABLE `question_open` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -341,7 +341,7 @@ CREATE TABLE `question_open_response` (
   PRIMARY KEY (`id`),
   KEY `question_open_response_question_open_id_foreign` (`question_open_id`),
   CONSTRAINT `question_open_response_question_open_id_foreign` FOREIGN KEY (`question_open_id`) REFERENCES `question_open` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -350,6 +350,7 @@ CREATE TABLE `question_open_response` (
 
 LOCK TABLES `question_open_response` WRITE;
 /*!40000 ALTER TABLE `question_open_response` DISABLE KEYS */;
+INSERT INTO `question_open_response` VALUES (1,'First Response',1),(2,'Second Response',1),(3,'Third Response',1);
 /*!40000 ALTER TABLE `question_open_response` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -400,7 +401,7 @@ CREATE TABLE `question_scaled_response` (
   PRIMARY KEY (`id`),
   KEY `question_scaled_response_question_scaled_id_foreign` (`question_scaled_id`),
   CONSTRAINT `question_scaled_response_question_scaled_id_foreign` FOREIGN KEY (`question_scaled_id`) REFERENCES `question_scaled` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -409,6 +410,7 @@ CREATE TABLE `question_scaled_response` (
 
 LOCK TABLES `question_scaled_response` WRITE;
 /*!40000 ALTER TABLE `question_scaled_response` DISABLE KEYS */;
+INSERT INTO `question_scaled_response` VALUES (1,3.00,1),(2,5.00,1),(3,1.00,1);
 /*!40000 ALTER TABLE `question_scaled_response` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -438,7 +440,7 @@ CREATE TABLE `questionnaire` (
   KEY `questionnaire_user_id_foreign` (`user_id`),
   CONSTRAINT `questionnaire_questionnaire_category_id_foreign` FOREIGN KEY (`questionnaire_category_id`) REFERENCES `questionnaire_category` (`id`) ON DELETE CASCADE,
   CONSTRAINT `questionnaire_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -519,7 +521,7 @@ CREATE TABLE `user` (
   `date_joined` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -541,4 +543,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-26 20:05:09
+-- Dump completed on 2019-03-29 21:09:05
