@@ -4,6 +4,7 @@ const PUBLIC = `${ADDRESS}/public`;
 const USER = `${ADDRESS}/user`;
 const QUESTIONNAIRE = `${ADDRESS}/questionnaire`;
 const QUESTION = `${ADDRESS}/question`;
+const RESPONSES = `${ADDRESS}/responses`;
 
 export const URLS = {
     GET: {
@@ -25,7 +26,10 @@ export const URLS = {
         },
         QUESTION_OPTION: {
             questionClosedOptions: id => `${QUESTION}/closed/${id}/options`
-        }
+        },
+        RESPONSES: {
+            questionnaireResponses: id => `${RESPONSES}/questionnaire/${id}/responses`
+        },
     },
     POST: {
         PUBLIC: {

@@ -1,0 +1,45 @@
+@import "../../css/main";
+
+.top-bar-center {
+    color: white;
+    font-size: 25px;
+}
+
+aside {
+    background: $white;
+    box-shadow: 0 5px 5px $shadow-color;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    justify-content: space-around;
+    left: 90px;
+    top: 100px;
+    position: absolute;
+    width: 300px;
+    
+    & > div {
+        color: $text-dark;
+        font-size: 16px;
+        margin-left: 10px;
+        
+        & > strong {
+            float: right;
+            margin-right: 10px;
+        }
+        
+        &:first-of-type {
+            font-size: 20px;
+            text-align: center;
+            text-decoration: underline;
+        }
+    }
+}
+
+#questionnaire-responses-center {
+    @include center;
+
+    height: calc(100% - 90px);
+    padding-right: 10px;
+    width: 1010px;
+    overflow: auto;
+}

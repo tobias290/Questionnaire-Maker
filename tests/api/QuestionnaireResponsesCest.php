@@ -20,7 +20,7 @@ class QuestionnaireResponsesCest {
         // And
         $I->seeResponseIsJson();
         // And
-        $I->seeResponseJsonMatchesJsonPath("$.success");
+        $I->seeResponseJsonMatchesJsonPath("$.success.questionnaire");
     }
 
     public function getResponsesWithoutAuthentication(ApiTester $I) {

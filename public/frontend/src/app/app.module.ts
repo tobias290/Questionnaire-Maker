@@ -27,6 +27,13 @@ import {QuestionClosedAnswerableComponent} from "./components/_questions/closed/
 import {QuestionOpenAnswerableComponent} from "./components/_questions/open/_answerable/question-open-answerable.component";
 import {QuestionScaledAnswerableComponent} from "./components/_questions/scaled/_answerable/question-scaled-answerable.component";
 import {ThankYouComponent} from "./components/_public/post-questionnaire-thank-you/thank-you.component";
+import {QuestionnaireResponsesComponent} from "./components/questionnaire-responses/questionnaire-responses.component";
+import {QuestionOpenResponsesComponent} from "./components/_questions/open/_responses/question-open-responses.component";
+import {QuestionClosedResponsesComponent} from "./components/_questions/closed/_responses/question-closed-responses.component";
+import {QuestionScaledResponsesComponent} from "./components/_questions/scaled/_responses/question-scaled-responses.component";
+import {ChartsModule} from "ng2-charts";
+import {SendQuestionnaireComponent} from "./components/_forms/send-questionnaire/send-questionnaire.component";
+import {SearchBarComponent} from "./components/_controls/search-bar/search-bar.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
@@ -38,6 +45,7 @@ const appRoutes: Routes = [
     { path: "dashboard", component: DashboardComponent },
     { path: "edit/:id", component: EditQuestionnaireComponent },
     { path: "edit/:id/preview", component: QuestionnaireComponent, data: { preview: true } },
+    { path: "responses/:id", component: QuestionnaireResponsesComponent },
 ];
 
 @NgModule({
@@ -57,12 +65,18 @@ const appRoutes: Routes = [
         QuestionClosedEditableComponent,
         QuestionOpenEditableComponent,
         QuestionScaledEditableComponent,
+        QuestionnaireResponsesComponent,
         PublicQuestionnaireListComponent,
         QuestionnaireComponent,
         QuestionClosedAnswerableComponent,
         QuestionOpenAnswerableComponent,
         QuestionScaledAnswerableComponent,
         ThankYouComponent,
+        QuestionOpenResponsesComponent,
+        QuestionClosedResponsesComponent,
+        QuestionScaledResponsesComponent,
+        SendQuestionnaireComponent,
+        SearchBarComponent,
     ],
     imports: [
         BrowserModule,
@@ -75,6 +89,7 @@ const appRoutes: Routes = [
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        ChartsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

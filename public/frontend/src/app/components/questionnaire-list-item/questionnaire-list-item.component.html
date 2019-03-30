@@ -22,11 +22,11 @@
             <fa-icon [icon]="icons.edit"></fa-icon>
             <span>Edit</span>
         </div>
-        <div>
+        <div (click)="viewResponses()">
             <fa-icon [icon]="icons.responses"></fa-icon>
             <span>Responses</span>
         </div>
-        <div>
+        <div (click)="sendQuestionnaire()">
             <fa-icon [icon]="icons.send"></fa-icon>
             <span>Send</span>
         </div>

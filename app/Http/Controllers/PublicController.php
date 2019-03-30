@@ -47,7 +47,7 @@ class PublicController extends Controller {
             ->with(["closedQuestions", "closedQuestions.options", "scaledQuestions", "openQuestions"])
             ->first();
 
-        if (!$questionnaire->is_public && !$questionnaire->is_complete) {
+        if (!$questionnaire->is_complete) {
             return response()->json(["error" =>[
                 "message" => "You cannot access that questionnaire",
             ]], 401);
@@ -171,6 +171,9 @@ class PublicController extends Controller {
                 ]);
             }
         }
+
+        $questionnaire->responses += 1;
+        $questionnaire->save();
 
         return response()->json(["success" => [
             "message" => "Response saved",

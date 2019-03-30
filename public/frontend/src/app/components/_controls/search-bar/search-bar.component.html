@@ -1,0 +1,9 @@
+<div class="search-bar">
+    <div>
+        <fa-icon [icon]="icons.search"></fa-icon>
+    </div>
+    <input #search class="search-input" type="text" placeholder="Search" (input)="onSearch($event)">
+    <div *ngIf="searchInput.nativeElement.value !== ''" (click)="clear()">
+        <fa-icon [icon]="icons.clear"></fa-icon>
+    </div>
+</div>

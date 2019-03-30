@@ -1,0 +1,42 @@
+@import "../../../css/main";
+
+.search-bar {
+    position: relative;
+    width: fit-content;
+    
+    & > div {
+        color: $text-dark;
+        font-size: 25px;
+        position: absolute;
+        top: 10px;
+        width: 25px;
+        height: 25px;
+        
+        &:first-of-type {
+            left: 10px;
+        }
+        
+        &:last-of-type {
+            right: 10px;
+            
+            &:hover {
+                color: $red;
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .search-input {
+        background: $white;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        height: 50px;
+        padding-left: 55px;
+        width: 900px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

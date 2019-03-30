@@ -1,0 +1,41 @@
+<app-loading *ngIf="loading.user || loading.responses"></app-loading>
+
+<app-top-bar *ngIf="!loading.user && !loading.responses" [title]="data.questionnaire.title + ' Responses'" [hasBackButton]="true">
+    <div class="top-bar-center">
+        <strong>{{ data.questionnaire.responses }}</strong> {{ data.questionnaire.responses === 1 ? "Response" : "Responses" }}
+    </div>
+
+    <div class="top-bar-right" style="color: white;">
+        <button class="button inverse white"><fa-icon [icon]="icons.csv"></fa-icon>&nbsp; Export CSV</button>
+        <span style="cursor: pointer; margin-left: 15px;">
+            {{ data.user.email }} &nbsp;
+            <fa-icon [icon]="icons.downCaret"></fa-icon>
+        </span>
+    </div>
+</app-top-bar>
+
+<aside *ngIf="!loading.user && !loading.responses">
+    <div>
+        Questionnaire Information
+    </div>
+    <div>
+        Created At: <strong>{{ data.questionnaire.createdAt }}</strong>
+    </div>
+    <div>
+        Updated At: <strong>{{ data.questionnaire.updatedAt }}</strong>
+    </div>
+    <div>
+        Expires At: <strong>{{ data.questionnaire.expiryDate ? data.questionnaire.expiryDate : 'No Expiry Date'}}</strong>
+    </div>
+    <div>
+        Responses: <strong>{{ data.questionnaire.responses }}</strong>
+    </div>
+</aside>
+
+<div *ngIf="!loading.user && !loading.responses" id="questionnaire-responses-center">
+    <ng-container *ngFor="let question of data.questions">
+        <app-question-open-responses   *ngIf="isQuestionType(question, 'open')" [question]="question" [responses]="data.openQuestionResponses[question.id]"></app-question-open-responses>
+        <app-question-closed-responses *ngIf="isQuestionType(question, 'closed')" [question]="question" [options]="data.questionClosedOptions[question.id]"></app-question-closed-responses >
+        <app-question-scaled-responses *ngIf="isQuestionType(question, 'scaled')" [question]="question" [responses]="data.scaledQuestionResponses[question.id]"></app-question-scaled-responses>
+    </ng-container>
+</div>

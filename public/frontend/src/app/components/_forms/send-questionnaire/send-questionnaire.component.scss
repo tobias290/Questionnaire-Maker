@@ -1,0 +1,68 @@
+@import "../../../css/main";
+
+.send-questionnaire-popup {
+    align-items: center;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-around;
+    position: relative;
+    width: 700px;
+
+    .popup-title {
+        color: $text-dark;
+        font-size: 40px;
+        font-weight: bold;
+        height: fit-content;
+        width: fit-content;
+
+        .bar {
+            @include center;
+
+            background: $green;
+            border-radius: 25px;
+            height: 5px;
+            margin-top: 5px;
+            width: 150px;
+        }
+    }
+
+    & > input {
+        background: $dark-white;
+        border: none;
+        border-radius: 7px;
+        box-sizing: border-box;
+        color: black;
+        cursor: text;
+        font-size: 20px;
+        font-weight: bold;
+        height: 50px;
+        padding-left: 10px;
+        padding-right: 50px;
+        text-overflow: ellipsis;
+        transition: background .1s linear;
+        width: 650px;
+
+        &:hover {
+            background: #DEDEDE;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    & > div:last-of-type {
+        bottom: 28px;
+        color: $text-dark;
+        cursor: pointer;
+        font-size: 25px;
+        position: absolute;
+        right: 40px;
+
+        &:hover {
+            color: #555;
+        }
+    }
+}

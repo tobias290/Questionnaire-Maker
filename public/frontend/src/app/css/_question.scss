@@ -112,3 +112,41 @@
         }
     }
 }
+
+.question-responses {
+    @extend .question;
+
+    border: none;
+    
+    &:hover {
+        border: none;
+    }
+
+    .chart-options {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 10px;
+
+        & > div {
+            background: $dark-white;
+            border-radius: 7px;
+            color: $text-dark;
+            cursor: pointer;
+            font-size: 30px;
+            height: 40px;
+            line-height: 43px;
+            text-align: center;
+            margin-right: 10px;
+            width: 40px;
+
+            &:hover {
+                background: #CDCDCD;
+            }
+
+            &.active {
+                color: $green;
+            }
+        }
+    }
+}

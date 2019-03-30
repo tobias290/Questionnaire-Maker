@@ -17,6 +17,7 @@ export class QuestionnaireListItemComponent {
     @Input() category: string;
     
     @Output() reload = new EventEmitter<boolean>();
+    @Output() showSendQuestionnairePopup = new EventEmitter<number>();
     
     icons = {
         edit: faEdit,
@@ -39,6 +40,20 @@ export class QuestionnaireListItemComponent {
      */
     public editQuestionnaire() {
         this.router.navigate(["edit", this.questionnaire.id]);
+    }
+
+    /**
+     * Navigate to page to view questionnaire responses.
+     */
+    public viewResponses() {
+        this.router.navigate(["responses", this.questionnaire.id]);
+    }
+
+    /**
+     * Opens a popup with a link to the questionnaire
+     */
+    public sendQuestionnaire() {
+        this.showSendQuestionnairePopup.emit(this.questionnaire.id);
     }
 
     /**

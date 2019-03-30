@@ -1,0 +1,40 @@
+<div class="question-responses">
+    <div class="chart-options">
+        <div 
+            class="{{ chartType === 'pie' ? 'active' : '' }}"
+            title="Pie Chart"
+            (click)="changeChartType('pie')"
+        >
+            <fa-icon [icon]="icons.pie"></fa-icon>
+        </div>
+        <div 
+            class="{{ chartType === 'bar' ? 'active' : '' }}" 
+            title="Bar Chart"
+            (click)="changeChartType('bar')"
+        >
+            <fa-icon [icon]="icons.bar"></fa-icon>
+        </div>
+        <div
+            class="{{ chartType === 'horizontalBar' ? 'active' : '' }}" 
+             title="Horizontal Bar Chart" 
+             (click)="changeChartType('horizontalBar')"
+        >
+            <fa-icon [icon]="icons.bar" rotate="90"></fa-icon>
+        </div>
+    </div>
+    
+    <div class="question-display">
+        <div class="question-title">
+            {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
+        </div>
+        <canvas
+            baseChart
+            [data]="chartData"
+            [labels]="chartLabels"
+            [chartType]="chartType"
+            [options]="chartOptions"
+            [legend]="chartLegend"
+        >
+        </canvas>
+    </div>
+</div>

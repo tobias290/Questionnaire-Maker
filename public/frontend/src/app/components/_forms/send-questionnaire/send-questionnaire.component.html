@@ -1,0 +1,10 @@
+<div class="send-questionnaire-popup">
+    <div class="popup-title">
+        Send Questionnaire
+        <div class="bar"></div>
+    </div>
+    <input #copyLinkInput type="text" readonly [value]="'http://localhost:8000/frontend/dist/frontend/#/public/questionnaires/' + questionnaireId + '/answer'">
+    <div title="Copy Link" (click)="copyLink(copyLinkInput)">
+        <fa-icon [icon]="copyIcon"></fa-icon>
+    </div>
+</div>

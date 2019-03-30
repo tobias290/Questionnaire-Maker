@@ -1,6 +1,9 @@
 <app-loading *ngIf="loading.user || loading.questionnaires"></app-loading>
 
 <app-top-bar *ngIf="!loading.user && !loading.questionnaires" [title]="title" [hasBackButton]="false">
+    <div class="top-bar-center">
+        <app-search-bar (onSearch)="searchQuery = $event;"></app-search-bar>
+    </div>
     <div class="top-bar-right" style="color: white;">
         <button class="button inverse white" (click)="signOut()">Sign Out</button>
         <button class="button inverse white" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
@@ -13,16 +16,52 @@
 
 <aside *ngIf="!loading.user && !loading.questionnaires">
     <div id="sort-filter">
-        <div style="color: #C34A47; font-weight: bold;">To be implemented later</div>
+        <div id="order-toggle">
+            Ascending: &nbsp; &nbsp; <app-toggle-switch [state]="true" (onChange)="ascending = $event"></app-toggle-switch>
+        </div>
+        <div>
+            Sort
+        </div>
+        <label class="app-radio-container">
+            A-Z
+            <input type="radio" name="sort" [checked]="currentSort === sortTypes.AZ" (click)="currentSort = sortTypes.AZ">
+            <span class="check"></span>
+        </label>
+        <label class="app-radio-container">
+            Created At
+            <input type="radio" name="sort" [checked]="currentSort === sortTypes.CREATED_AT" (click)="currentSort = sortTypes.CREATED_AT">
+            <span class="check"></span>
+        </label>
+        <label class="app-radio-container">
+            Last Modified
+            <input type="radio" name="sort" [checked]="currentSort === sortTypes.LAST_MODIFIED" (click)="currentSort = sortTypes.LAST_MODIFIED">
+            <span class="check"></span>
+        </label>
+        <label class="app-radio-container">
+            Responses
+            <input type="radio" name="sort" [checked]="currentSort === sortTypes.RESPONSES" (click)="currentSort = sortTypes.RESPONSES">
+            <span class="check"></span>
+        </label>
     </div>
     <button class="button normal green" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
 </aside>
 
 <div *ngIf="!loading.user && !loading.questionnaires" id="dashboard-page-center">
     <div *ngIf="data.questionnaires.length == 0" id="no-questionnaires">No Questionnaires</div>
-    <app-questionnaire-list-item *ngFor="let q of data.questionnaires" [questionnaire]="q" [canEdit]="true" (reload)="reload()"></app-questionnaire-list-item>
+    <app-questionnaire-list-item 
+        *ngFor="let questionnaire of getQuestionnaires()" 
+        [questionnaire]="questionnaire"
+        [canEdit]="true" 
+        (reload)="reload()"
+        (showSendQuestionnairePopup)="showSendQuestionnairePopup = true; sendQuestionnaireId = $event"
+    ></app-questionnaire-list-item>
 </div>
 
-<app-popup [show]="showCreateQuestionnairePopup" (close)="showCreateQuestionnairePopup = false;">
+<app-popup *ngIf="!loading.user && !loading.questionnaires" [show]="showCreateQuestionnairePopup" (close)="showCreateQuestionnairePopup = false;">
    <app-create-questionnaire-form (onCreate)="questionnaireCreated($event)"></app-create-questionnaire-form>
+</app-popup>
+
+
+<app-popup [show]="showSendQuestionnairePopup" (close)="showSendQuestionnairePopup = false;">
+    <app-send-questionnaire [questionnaireId]="sendQuestionnaireId"></app-send-questionnaire>
 </app-popup>

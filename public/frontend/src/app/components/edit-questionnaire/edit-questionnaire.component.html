@@ -82,14 +82,5 @@
 </app-popup>
 
 <app-popup *ngIf="!loading.user && !loading.questionnaire && !loading.questions" [show]="showSendQuestionnairePopup" (close)="showSendQuestionnairePopup = false;">
-    <div id="send-questionnaire-popup">
-        <div id="popup-title">
-            Send Questionnaire
-            <div id="bar"></div>
-        </div>
-        <input #copyLinkInput type="text" readonly [value]="'http://localhost:8000/frontend/dist/frontend/#/public/questionnaires/' + data.questionnaire.id + '/answer'">
-        <div title="Copy Link" (click)="copyLink(copyLinkInput)">
-            <fa-icon [icon]="icons.copy"></fa-icon>
-        </div>
-    </div>
+    <app-send-questionnaire [questionnaireId]="data.questionnaire.id"></app-send-questionnaire>
 </app-popup>

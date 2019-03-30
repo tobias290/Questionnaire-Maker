@@ -465,10 +465,29 @@ aside {
   aside #sort-filter {
     background: #FFF;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16);
-    height: 360px;
+    box-sizing: border-box;
+    color: #707070;
+    font-size: 20px;
+    height: 195px;
     left: 90px;
+    padding: 10px;
     top: 100px;
     width: 300px; }
+    aside #sort-filter #order-toggle {
+      align-items: center;
+      color: #707070;
+      display: flex;
+      font-size: 14px;
+      margin-right: 10px;
+      margin-top: -3px;
+      position: absolute;
+      right: 0; }
+    aside #sort-filter > div {
+      font-weight: bold;
+      margin-bottom: 5px; }
+    aside #sort-filter > label {
+      width: fit-content;
+      margin-left: 1px; }
   aside > button {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16);
     height: 75px;

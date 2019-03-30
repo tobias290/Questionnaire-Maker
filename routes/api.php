@@ -76,4 +76,8 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
             Route::post("scaled", "QuestionController@duplicateScaled");
         });
     });
+
+    Route::prefix("responses")->group(function () {
+        Route::get("questionnaire/{id}/responses", "QuestionnaireResponsesController@responses");
+    });
 });

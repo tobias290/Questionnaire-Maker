@@ -18,7 +18,7 @@ export class QuestionScaledAnswerableComponent {
 
     isError: boolean = false;
 
-    currentStarRating: number = 0;
+    currentStarRating: number = null;
     
     /**
      * Check to see whether the question is required and has no answer. Therefore it is invalid.
