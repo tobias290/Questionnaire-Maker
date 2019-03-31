@@ -522,12 +522,86 @@ class AccountCest {
         $I->see("Delete Account");
         // And
         $I->see("Are you sure you want to delete your account?");
+        // And
+        $I->see("Please enter you current password to confirm");
+        // And
+        $I->fillField("currentPassword", new PasswordArgument("pass1234"));
         // Then
         $I->click("Delete");
+        // And
+        $I->wait(AcceptanceTester::WAIT_TIME);
         // And
         $I->seeInCurrentUrl("/");
         // And
         $I->dontSeeInDatabase("user", [
+            "email" => "tobysx@gmail.com",
+            "first_name" => "Toby",
+            "surname" => "Essex"
+        ]);
+    }
+
+    /**
+     * Tests to see that the applications give an error when the current password is incorrect.
+     *
+     * @param AcceptanceTester $I
+     */
+    public function deleteAccountWithIncorrectCurrentPassword(AcceptanceTester $I) {
+        $I->am("Questionnaire Maker");
+        // And
+        $I->expectTo("get an error as the current password is incorrect");
+        // Then
+        $I->click(["id" => "delete-account"]);
+        // And
+        $I->see("Delete Account");
+        // And
+        $I->see("Are you sure you want to delete your account?");
+        // And
+        $I->see("Please enter you current password to confirm");
+        // And
+        $I->fillField("currentPassword", new PasswordArgument("pass1234"));
+        // Then
+        $I->click("Delete");
+        // And
+        $I->wait(AcceptanceTester::WAIT_TIME);
+        // And
+        $I->see("Current password is incorrect");
+        // And
+        $I->dontSeeInCurrentUrl("/");
+        // And
+        $I->seeInDatabase("user", [
+            "email" => "tobysx@gmail.com",
+            "first_name" => "Toby",
+            "surname" => "Essex"
+        ]);
+    }
+
+    /**
+     * Tests to see that the applications give an error when the password is missing.
+     *
+     * @param AcceptanceTester $I
+     */
+    public function deleteAccountWithCurrentPasswordMissing(AcceptanceTester $I) {
+        $I->am("Questionnaire Maker");
+        // And
+        $I->expectTo("get an error as the current password is incorrect");
+        // Then
+        $I->click(["id" => "delete-account"]);
+        // And
+        $I->see("Delete Account");
+        // And
+        $I->see("Are you sure you want to delete your account?");
+        // And
+        $I->see("Please enter you current password to confirm");
+        // Then
+        $I->click("Delete");
+        // And
+        $I->wait(AcceptanceTester::WAIT_TIME);
+        // And
+        $I->see("Current password is required");
+        // And
+        $I->dontSeeInCurrentUrl("/");
+        // And
+        $I->seeInDatabase("user", [
             "email" => "tobysx@gmail.com",
             "first_name" => "Toby",
             "surname" => "Essex"
