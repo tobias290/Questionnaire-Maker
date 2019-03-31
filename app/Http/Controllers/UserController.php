@@ -87,9 +87,72 @@ class UserController extends Controller {
     }
 
     /**
+     * Gets the user's details
+     *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null - Returns the authenticated users details.
      */
     public function details() {
         return Auth::user();
+    }
+
+    /**
+     * Edits the user's details
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit(Request $request) {
+        /** @var User $user */
+        $user = Auth::user();
+
+        // If their password or email is being updated their current password is needed
+        if ($request->has("email") or $request->has("password")) {
+            // If the current password is missing or is incorrect return unauthorised error
+            if (!$request->has("current_password")) {
+                return response()->json(["error" => [
+                    "message" => "Current password is required to update these account details"
+                ]], 401);
+            } else if (!Hash::check($request->input("current_password"), $user->password)) {
+                return response()->json(["error" => [
+                    "message" => "Current password is incorrect"
+                ]], 401);
+            }
+        }
+
+        $user->fill($request->all());
+        $user->save();
+
+        return response()->json(["success" => [
+            "message" => "Account details edited",
+        ]], 200);
+    }
+
+    /**
+     * Deletes the user's details
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function delete(Request $request) {
+        /** @var User $user */
+        $user = Auth::user();
+
+        // If the current password is missing or is incorrect return unauthorised error
+        if (!$request->has("current_password")) {
+            return response()->json(["error" => [
+                "message" => "Current password is required"
+            ]], 401);
+        } else if (!Hash::check($request->input("current_password"), $user->password)) {
+            return response()->json(["error" => [
+                "message" => "Current password is incorrect"
+            ]], 401);
+        }
+
+        $user->delete();
+
+        return response()->json(["success" => [
+            "message" => "Account deleted"
+        ]], 200);
     }
 }

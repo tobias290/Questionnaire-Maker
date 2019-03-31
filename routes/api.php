@@ -30,6 +30,8 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
     Route::prefix("user")->group(function () {
         Route::get("sign-out", "UserController@signOut");
         Route::get("details", "UserController@details");
+        Route::post("edit", "UserController@edit");
+        Route::delete("delete", "UserController@delete");
     });
 
     Route::prefix("questionnaire")->group(function () {
