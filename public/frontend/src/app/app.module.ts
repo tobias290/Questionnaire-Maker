@@ -14,7 +14,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {ToggleSwitchComponent} from "./components/_controls/toggle-switch/toggle-switch.component";
-import {CreateQuestionnaireFormComponent} from "./components/_forms/create-questionnaire/create-questionnaire.component";
+import {CreateQuestionnaireFormComponent} from "./components/_forms/_questionnaire/create-questionnaire/create-questionnaire.component";
 import {EditQuestionnaireComponent} from "./components/edit-questionnaire/edit-questionnaire.component";
 import {QuestionnaireListItemComponent} from "./components/questionnaire-list-item/questionnaire-list-item.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -32,8 +32,13 @@ import {QuestionOpenResponsesComponent} from "./components/_questions/open/_resp
 import {QuestionClosedResponsesComponent} from "./components/_questions/closed/_responses/question-closed-responses.component";
 import {QuestionScaledResponsesComponent} from "./components/_questions/scaled/_responses/question-scaled-responses.component";
 import {ChartsModule} from "ng2-charts";
-import {SendQuestionnaireComponent} from "./components/_forms/send-questionnaire/send-questionnaire.component";
+import {SendQuestionnaireComponent} from "./components/_forms/_questionnaire/send-questionnaire/send-questionnaire.component";
 import {SearchBarComponent} from "./components/_controls/search-bar/search-bar.component";
+import {AccountComponent} from "./components/account/account.component";
+import {ChangeNameComponent} from "./components/_forms/_account/change-name/change-name.component";
+import {ChangeEmailComponent} from "./components/_forms/_account/change-email/change-email.component";
+import {ChangePasswordComponent} from "./components/_forms/_account/change-password/change-password.component";
+import {DeleteAccountComponent} from "./components/_forms/_account/delete-account/delete-account.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
@@ -46,6 +51,7 @@ const appRoutes: Routes = [
     { path: "edit/:id", component: EditQuestionnaireComponent },
     { path: "edit/:id/preview", component: QuestionnaireComponent, data: { preview: true } },
     { path: "responses/:id", component: QuestionnaireResponsesComponent },
+    { path: "account", component: AccountComponent },
 ];
 
 @NgModule({
@@ -77,6 +83,11 @@ const appRoutes: Routes = [
         QuestionScaledResponsesComponent,
         SendQuestionnaireComponent,
         SearchBarComponent,
+        AccountComponent,
+        ChangeNameComponent,
+        ChangeEmailComponent,
+        ChangePasswordComponent,
+        DeleteAccountComponent,
     ],
     imports: [
         BrowserModule,

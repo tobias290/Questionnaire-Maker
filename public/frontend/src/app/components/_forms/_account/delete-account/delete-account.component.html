@@ -1,0 +1,41 @@
+<form class="account-form" [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()" #deleteAccount="ngForm">
+    <div class="title">
+        Delete Account
+        <div class="bar"></div>
+    </div>
+    <div class="form">
+        <div style="font-size: 16px; margin-bottom: 20px;">
+            <div style="text-align: center;">
+                <strong>Are you sure you want to delete your account?</strong>
+            </div>
+            <div>
+                Please enter you current password to confirm
+            </div>
+        </div>
+        <div>
+            <div class="app-input-container">
+                <label class="app-input-label-icon {{ currentPasswordInput.invalid && deleteAccount.submitted ? 'error' : ''}}">
+                    <fa-icon [icon]="icons.password"></fa-icon>
+                </label>
+                <input
+                    class="app-input {{ currentPasswordInput.invalid && deleteAccount.submitted ? 'error' : ''}}"
+                    type="password"
+                    name="currentPassword"
+                    placeholder="Current Password"
+                    formControlName="currentPassword"
+                >
+            </div>
+
+            <div class="app-input-error" *ngIf="(currentPasswordInput.invalid && deleteAccount.submitted) || isServerError">
+                <ul>
+                    <li *ngIf="currentPasswordInput.hasError('required')">Current password is required</li>
+                    <li *ngIf="isServerError">{{ serverErrorMessage }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button normal red medium" id="delete-account-submit">Delete Account</button>
+        <button class="button normal green medium" (click)="cancel.emit()">Cancel</button>
+    </div>
+</form>

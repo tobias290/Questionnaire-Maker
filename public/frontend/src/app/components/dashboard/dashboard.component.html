@@ -8,7 +8,7 @@
         <button class="button inverse white" (click)="signOut()">Sign Out</button>
         <button class="button inverse white" (click)="showCreateQuestionnairePopup = true;">Create Questionnaire</button>
         <span style="cursor: pointer; margin-left: 15px;">
-            {{ data.user.email }} &nbsp;
+            <a routerLink="/account">{{ data.user.email }}</a> &nbsp;
             <fa-icon [icon]="icons.downCaret"></fa-icon>
         </span>
     </div>
@@ -63,5 +63,5 @@
 
 
 <app-popup [show]="showSendQuestionnairePopup" (close)="showSendQuestionnairePopup = false;">
-    <app-send-questionnaire [questionnaireId]="sendQuestionnaireId"></app-send-questionnaire>
+    <app-send-questionnaire-form [questionnaireId]="sendQuestionnaireId"></app-send-questionnaire-form>
 </app-popup>

@@ -1,0 +1,74 @@
+<form class="account-form" [formGroup]="changeEmailForm" (ngSubmit)="onSubmit()" #changeEmail="ngForm">
+    <div class="title">
+        Change Email
+        <div class="bar"></div>
+    </div>
+    <div class="form">
+        <div>
+            <div class="app-input-container">
+                <label class="app-input-label-icon {{ newEmailInput.invalid && changeEmail.submitted ? 'error' : ''}}">
+                    <fa-icon [icon]="icons.email"></fa-icon>
+                </label>
+                <input
+                    class="app-input {{ newEmailInput.invalid && changeEmail.submitted ? 'error' : ''}}"
+                    type="text"
+                    name="newEmail"
+                    placeholder="New Email"
+                    formControlName="newEmail"
+                >
+            </div>
+
+            <div class="app-input-error" *ngIf="newEmailInput.invalid && changeEmail.submitted">
+                <ul>
+                    <li *ngIf="newEmailInput.hasError('email')">New email is invalid</li>
+                    <li *ngIf="newEmailInput.hasError('required')">New email is required</li>
+                </ul>
+            </div>
+
+            <div class="app-input-container">
+                <label class="app-input-label-icon {{ confirmEmailInput.invalid && changeEmail.submitted ? 'error' : ''}}">
+                    <fa-icon [icon]="icons.email"></fa-icon>
+                </label>
+                <input
+                    class="app-input {{ confirmEmailInput.invalid && changeEmail.submitted ? 'error' : ''}}"
+                    type="text"
+                    name="confirmEmail"
+                    placeholder="Confirm Email"
+                    formControlName="confirmEmail"
+                >
+            </div>
+
+            <div class="app-input-error" *ngIf="(confirmEmailInput.invalid && changeEmail.submitted) || emailMatchingError">
+                <ul>
+                    <li *ngIf="confirmEmailInput.hasError('email')">Confirm email is invalid</li>
+                    <li *ngIf="confirmEmailInput.hasError('required')">Confirm email is required</li>
+                    <li *ngIf="emailMatchingError">Emails do not match</li>
+                </ul>
+            </div>
+
+            <div class="app-input-container">
+                <label class="app-input-label-icon {{ currentPasswordInput.invalid && changeEmail.submitted ? 'error' : ''}}">
+                    <fa-icon [icon]="icons.password"></fa-icon>
+                </label>
+                <input
+                    class="app-input {{ currentPasswordInput.invalid && changeEmail.submitted ? 'error' : ''}}"
+                    type="password"
+                    name="currentPassword"
+                    placeholder="Current Password"
+                    formControlName="currentPassword"
+                >
+            </div>
+
+            <div class="app-input-error" *ngIf="(currentPasswordInput.invalid && changeEmail.submitted) || isServerError">
+                <ul>
+                    <li *ngIf="currentPasswordInput.hasError('required')">Current password is required</li>
+                    <li *ngIf="isServerError">{{ serverErrorMessage }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button normal green medium">Change Email</button>
+        <button class="button normal red medium" (click)="cancel.emit()">Cancel</button>
+    </div>
+</form>

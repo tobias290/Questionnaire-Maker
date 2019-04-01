@@ -1,0 +1,51 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<app-top-bar *ngIf="!loading" [title]="title" [hasBackButton]="true">
+    <div class="top-bar-right">
+        <button class="button inverse white" (click)="signOut()">Sign Out</button>
+        <span style="color: white; cursor: pointer; margin-left: 15px;">
+            <a routerLink="/account">{{ user.email }}</a> &nbsp;
+            <fa-icon [icon]="icons.downCaret"></fa-icon>
+        </span>
+    </div>
+</app-top-bar>
+
+<div *ngIf="!loading" class="section-title">Account</div>
+
+<div *ngIf="!loading" class="section">
+    <div id="account-details">
+        <div>
+            <div class="detail-title">Name</div> 
+            <div class="detail">{{ user.fullName }} &nbsp; <span id="edit-name" (click)="forms.showChangeNameForm = true;">Edit</span></div>
+            
+            <div class="detail-title">Date Joined</div>
+            <div class="detail">{{ user.dateJoined }}</div>
+            <button class="button normal green medium" (click)="signOut()">Sign Out</button>
+        </div>
+        <div>
+            <div class="detail-title">Email</div>
+            <div class="detail">{{ user.email }} &nbsp; <span id="edit-email" (click)="forms.showChangEmailForm = true;">Edit</span></div>
+            
+            <div class="detail-title">Password</div>
+            <div class="detail">********** &nbsp; <span id="edit-password" (click)="forms.showChangePasswordForm = true;">Edit</span></div>
+            <button class="button normal red medium" id="delete-account" (click)="forms.showDeleteAccountForm = true;">Delete Account</button>
+        </div>
+    </div>
+</div>
+
+<app-popup *ngIf="!loading" [show]="forms.showChangeNameForm" (close)="forms.showChangeNameForm = false;">
+    <app-change-name-form [user]="user" (cancel)="forms.showChangeNameForm = false;" (reload)="forms.showChangeNameForm = false; getUserDetails()"></app-change-name-form>
+</app-popup>
+
+<app-popup *ngIf="!loading" [show]="forms.showChangEmailForm" (close)="forms.showChangEmailForm = false;">
+    <app-change-email-form [user]="user" (cancel)="forms.showChangEmailForm = false;" (reload)="forms.showChangEmailForm = false; getUserDetails()"></app-change-email-form>
+</app-popup>
+
+<app-popup *ngIf="!loading" [show]="forms.showChangePasswordForm" (close)="forms.showChangePasswordForm = false;">
+    <app-change-password-form [user]="user" (cancel)="forms.showChangePasswordForm = false;" (reload)="forms.showChangePasswordForm = false; getUserDetails()"></app-change-password-form>
+</app-popup>
+
+<app-popup *ngIf="!loading" [show]="forms.showDeleteAccountForm" (close)="forms.showDeleteAccountForm = false;">
+    <app-delete-account-form [user]="user" (cancel)="forms.showDeleteAccountForm = false;"></app-delete-account-form>
+</app-popup>
+

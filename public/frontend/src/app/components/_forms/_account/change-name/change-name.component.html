@@ -1,0 +1,51 @@
+<form class="account-form" [formGroup]="changeNameForm" (ngSubmit)="onSubmit()" #changeName="ngForm">
+    <div class="title">
+        Change Name
+        <div class="bar"></div>
+    </div>
+    <div class="form">
+        <div>
+            <div class="app-input-container">
+                <label class="app-input-label-icon {{ firstNameInput.invalid && changeName.submitted ? 'error' : ''}}">
+                    <fa-icon [icon]="icons.user"></fa-icon>
+                </label>
+                <input
+                    class="app-input {{ firstNameInput.invalid && changeName.submitted ? 'error' : ''}}"
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    formControlName="firstName"
+                >
+            </div>
+
+            <div class="app-input-error" *ngIf="firstNameInput.invalid && changeName.submitted">
+                <ul>
+                    <li *ngIf="firstNameInput.hasError('required')">First Name is required</li>
+                </ul>
+            </div>
+            
+            <div class="app-input-container">
+                <label class="app-input-label-icon {{ surnameInput.invalid && changeName.submitted ? 'error' : ''}}">
+                    <fa-icon [icon]="icons.user"></fa-icon>
+                </label>
+                <input
+                    class="app-input {{ surnameInput.invalid && changeName.submitted ? 'error' : ''}}"
+                    type="text"
+                    name="surname"
+                    placeholder="Surname"
+                    formControlName="surname"
+                >
+            </div>
+
+            <div class="app-input-error" *ngIf="surnameInput.invalid && changeName.submitted">
+                <ul>
+                    <li *ngIf="surnameInput.hasError('required')">Surname is required</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button normal green medium">Change Name</button>
+        <button class="button normal red medium" (click)="cancel.emit()">Cancel</button>
+    </div>
+</form>

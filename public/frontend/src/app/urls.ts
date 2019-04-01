@@ -38,6 +38,7 @@ export const URLS = {
         USER: {
             signUp: `${USER}/sign-up`,
             login: `${USER}/login`,
+            edit: `${USER}/edit`
         },
         QUESTIONNAIRE: {
             create: `${QUESTIONNAIRE}/create`,
@@ -69,6 +70,9 @@ export const URLS = {
         }
     },
     DELETE: {
+        USER: {
+            delete: `${USER}/delete`
+        },
         QUESTIONNAIRE: {
             delete: `${QUESTIONNAIRE}/delete`,
         },

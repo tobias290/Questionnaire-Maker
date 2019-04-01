@@ -1,0 +1,39 @@
+@import "main";
+@import "controls";
+
+
+.account-form {
+    align-items: center;
+    background: $white;
+    box-shadow: 0 5px 5px $shadow-color;
+    color: $text-dark;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: space-around;
+    min-height: 350px;
+    padding: 10px 0 20px 0;
+    width: 500px;
+
+    .title {
+        font-size: 30px;
+        font-weight: bold;
+        
+        .bar {
+            @include center;
+
+            background: $green;
+            border-radius: 25px;
+            height: 5px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 100px;
+        }
+    }
+    
+    .buttons {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+}

@@ -86,7 +86,6 @@ class AccountCest {
 //        $I->see("Change Name");
 //        // And
 //        $I->fillField("firstName", " "); // As it is pre-filled it must be set to empty
-//        $I->wait(AcceptanceTester::WAIT_TIME);
 //        // And
 //        $I->fillField("surname", "Newham");
 //        // Then

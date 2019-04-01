@@ -3,7 +3,7 @@ import {faCopy} from "@fortawesome/free-solid-svg-icons";
 
 
 @Component({
-    selector: "app-send-questionnaire",
+    selector: "app-send-questionnaire-form",
     templateUrl: "./send-questionnaire.component.html",
     styleUrls: ["./send-questionnaire.component.css"],
 })

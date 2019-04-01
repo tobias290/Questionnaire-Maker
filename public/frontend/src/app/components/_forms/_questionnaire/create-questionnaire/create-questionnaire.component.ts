@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from "@angular/core";
 import {faFont, faThLarge, faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
-import {URLS} from "../../../urls";
-import {ApiService} from "../../../api.service";
+import {URLS} from "../../../../urls";
+import {ApiService} from "../../../../api.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Questionnaire} from "../../../models/questionnaire";
+import {Questionnaire} from "../../../../models/questionnaire";
 import {lintSyntaxError} from "tslint/lib/verify/lintError";
-import {ToggleSwitchComponent} from "../../_controls/toggle-switch/toggle-switch.component";
+import {ToggleSwitchComponent} from "../../../_controls/toggle-switch/toggle-switch.component";
 
 @Component({
     selector: "app-create-questionnaire-form",
