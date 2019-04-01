@@ -1,25 +1,32 @@
 <div class="question-responses">
     <div class="chart-options">
         <div 
-            class="{{ chartType === 'pie' ? 'active' : '' }}"
+            class="{{ chartType === 'pie' && !isTable ? 'active' : '' }}"
             title="Pie Chart"
             (click)="changeChartType('pie')"
         >
             <fa-icon [icon]="icons.pie"></fa-icon>
         </div>
         <div 
-            class="{{ chartType === 'bar' ? 'active' : '' }}" 
+            class="{{ chartType === 'bar' && !isTable ? 'active' : '' }}" 
             title="Bar Chart"
             (click)="changeChartType('bar')"
         >
             <fa-icon [icon]="icons.bar"></fa-icon>
         </div>
         <div
-            class="{{ chartType === 'horizontalBar' ? 'active' : '' }}" 
+            class="{{ chartType === 'horizontalBar' && !isTable ? 'active' : '' }}" 
              title="Horizontal Bar Chart" 
              (click)="changeChartType('horizontalBar')"
         >
             <fa-icon [icon]="icons.bar" rotate="90"></fa-icon>
+        </div>
+        <div
+            class="{{ isTable ? 'active' : '' }}"
+            title="Table (Raw Data)"
+            (click)="changeChartType('table')"
+        >
+            <fa-icon [icon]="icons.table"></fa-icon>
         </div>
     </div>
     
@@ -27,7 +34,12 @@
         <div class="question-title">
             {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
         </div>
+        <div *ngIf="isTable" class="hide-no-responses-toggle">
+            Hide No Responses: &nbsp;
+            <app-toggle-switch [state]="false" (onChange)="hideNoResponses = $event;"></app-toggle-switch>
+        </div>
         <canvas
+            *ngIf="!isTable"
             baseChart
             [data]="chartData"
             [labels]="chartLabels"
@@ -36,5 +48,21 @@
             [legend]="chartLegend"
         >
         </canvas>
+        <table *ngIf="isTable">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Responses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let label of chartLabels; let i = index">
+                    <tr *ngIf="!(hideNoResponses && chartData[i] === 0)">
+                        <td>{{ label }}</td>
+                        <td>{{ chartData[i] }}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
     </div>
 </div>

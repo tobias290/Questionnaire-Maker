@@ -149,4 +149,41 @@
             }
         }
     }
+    
+    .question-display {
+        .hide-no-responses-toggle {
+            align-items: center;
+            display: flex;
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
+        
+        & > table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-left: 20px;
+
+            tr:first-child {
+                border-radius: 7px 7px 0 0;
+            }
+
+            tr:last-child {
+                border-radius: 0 0 7px 7px;
+            }
+
+            tr {
+                height: 30px;
+            }
+
+            th, tr:nth-child(even) {
+                background-color: $dark-white;
+            }
+
+            td, th {
+                border: 1px solid $text-light;
+                padding-left: 10px;
+                text-align: left;
+            }
+        }
+    }
 }

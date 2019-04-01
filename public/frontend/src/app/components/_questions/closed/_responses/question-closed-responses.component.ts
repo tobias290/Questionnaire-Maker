@@ -3,7 +3,7 @@ import {QuestionOpen} from "../../../../models/question-open";
 import {QuestionClosedOption} from "../../../../models/question-closed-option";
 import {Label, SingleDataSet} from "ng2-charts";
 import {ChartOptions, ChartType} from "chart.js";
-import {faChartBar, faChartPie} from "@fortawesome/free-solid-svg-icons";
+import {faChartBar, faChartPie, faTable} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
     selector: "app-question-closed-responses",
@@ -17,7 +17,11 @@ export class QuestionClosedResponsesComponent implements OnInit {
     icons = {
         pie: faChartPie,
         bar: faChartBar,
+        table: faTable,
     };
+    
+    isTable: boolean = false;
+    hideNoResponses: boolean = false;
     
     chartOptions: ChartOptions = {
         responsive: true,
@@ -46,6 +50,8 @@ export class QuestionClosedResponsesComponent implements OnInit {
      * @param {string} type - Updates the type of graph used to show the data.
      */
     changeChartType(type) {
+        this.isTable = false;
+        
         if (type === "pie") {
             this.chartType = "pie";
             
@@ -61,8 +67,18 @@ export class QuestionClosedResponsesComponent implements OnInit {
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Responses"
                         }
-                    }]
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Options"
+                        }
+                    }],
                 }
             };
             this.chartLegend = false;
@@ -71,14 +87,27 @@ export class QuestionClosedResponsesComponent implements OnInit {
             this.chartOptions = {
                 responsive: true,
                 scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Options"
+                        }
+                    }],
                     xAxes: [{
                         ticks: {
                             beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Responses"
                         }
-                    }]
+                    }],
                 }
             };
             this.chartLegend = false;
+        } else if (type === "table") {
+            this.isTable = true;
+            this.hideNoResponses = false;
         }
     }
 }

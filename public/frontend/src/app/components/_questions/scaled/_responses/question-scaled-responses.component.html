@@ -1,18 +1,32 @@
 <div class="question-responses">
     <div *ngIf="question.type === 'star'" class="chart-options">
-        <div class="{{ chartType === 'pie' ? 'active' : '' }}" title="Pie Chart" (click)="changeChartType('pie')">
+        <div class="{{ chartType === 'pie' && !isTable ? 'active' : '' }}" title="Pie Chart" (click)="changeChartType('pie')">
             <fa-icon [icon]="icons.pie"></fa-icon>
         </div>
-        <div class="{{ chartType === 'bar' ? 'active' : '' }}" title="Bar Chart" (click)="changeChartType('bar')">
+        <div class="{{ chartType === 'bar' && !isTable ? 'active' : '' }}" title="Bar Chart" (click)="changeChartType('bar')">
             <fa-icon [icon]="icons.bar"></fa-icon>
         </div>
-        <div class="{{ chartType === 'horizontalBar' ? 'active' : '' }}" title="Horizontal Bar Chart" (click)="changeChartType('horizontalBar')">
+        <div class="{{ chartType === 'horizontalBar' && !isTable ? 'active' : '' }}" title="Horizontal Bar Chart" (click)="changeChartType('horizontalBar')">
             <fa-icon [icon]="icons.bar" rotate="90"></fa-icon>
+        </div>
+        <div
+            class="{{ isTable ? 'active' : '' }}"
+            title="Table (Raw Data)"
+            (click)="changeChartType('table')"
+        >
+            <fa-icon [icon]="icons.table"></fa-icon>
         </div>
     </div>
     <div *ngIf="question.type === 'slider'" class="chart-options">
-        <div class="{{ chartType === 'line' ? 'active' : '' }}" title="Line Graph">
+        <div class="{{ chartType === 'line' && !isTable ? 'active' : '' }}" title="Line Graph" (click)="changeChartType('line')">
             <fa-icon [icon]="icons.line"></fa-icon>
+        </div>
+        <div
+            class="{{ isTable ? 'active' : '' }}"
+            title="Table (Raw Data)"
+            (click)="changeChartType('table')"
+        >
+            <fa-icon [icon]="icons.table"></fa-icon>
         </div>
     </div>
 
@@ -21,6 +35,7 @@
             {{ question.isRequired ? "*" : "" }} {{ question.position }}. <span>{{ question.name }}</span>
         </div>
         <canvas
+            *ngIf="!isTable"
             baseChart
             [data]="chartData"
             [labels]="chartLabels"
@@ -29,5 +44,25 @@
             [legend]="chartLegend"
         >
         </canvas>
+        <div *ngIf="isTable" class="hide-no-responses-toggle">
+            Hide No Responses: &nbsp;
+            <app-toggle-switch [state]="false" (onChange)="hideNoResponses = $event;"></app-toggle-switch>
+        </div>
+        <table *ngIf="isTable">
+            <thead>
+                <tr>
+                    <th>{{ question.type === "star" ? "Star" : "Slider Value" }}</th>
+                    <th>Responses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let label of chartLabels; let i = index">
+                    <tr *ngIf="!(hideNoResponses && chartData[i] === 0)">
+                        <td>{{ label }}</td>
+                        <td>{{ chartData[i] }}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
     </div>
 </div>

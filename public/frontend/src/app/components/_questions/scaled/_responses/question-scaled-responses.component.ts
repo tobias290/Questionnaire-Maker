@@ -1,7 +1,7 @@
 import {Component, Input} from "@angular/core";
 import {QuestionScaled} from "../../../../models/question-scaled";
 import {QuestionScaledResponse} from "../../../../models/question-scaled-response";
-import {faChartBar, faChartLine, faChartPie} from "@fortawesome/free-solid-svg-icons";
+import {faChartBar, faChartLine, faChartPie, faTable} from "@fortawesome/free-solid-svg-icons";
 import {ChartOptions, ChartType} from "chart.js";
 import {Label, SingleDataSet} from "ng2-charts";
 
@@ -18,8 +18,12 @@ export class QuestionScaledResponsesComponent {
         pie: faChartPie,
         bar: faChartBar,
         line: faChartLine,
+        table: faTable,
     };
 
+    isTable: boolean = false;
+    hideNoResponses: boolean = false;
+    
     chartOptions: ChartOptions = {
         responsive: true,
     };
@@ -86,6 +90,8 @@ export class QuestionScaledResponsesComponent {
      * @param {string} type - Updates the type of graph used to show the data.
      */
     changeChartType(type) {
+        this.isTable = false;
+        
         if (type === "pie") {
             this.chartType = "pie";
 
@@ -127,6 +133,13 @@ export class QuestionScaledResponsesComponent {
                 }
             };
             this.chartLegend = false;
+        } else if (type === "line") {
+            this.chartType = "line";
+            
+            // No need to set chart options as they will never get changed
+        } else if (type === "table") {
+            this.isTable = true;
+            this.hideNoResponses = false;
         }
     }
 }
