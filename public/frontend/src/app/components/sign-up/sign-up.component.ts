@@ -76,7 +76,7 @@ export class SignUpComponent {
         // Form is not valid so do not submit
         if (!this.signUpForm.valid) return;
         
-        // If passwords do not match show error message and return without submitting
+        // If the passwords do not match show error message and return without submitting
         if (this.input("password").value != this.input("confirmPassword").value) {
             this.passwordMatchingError = true;
             return;

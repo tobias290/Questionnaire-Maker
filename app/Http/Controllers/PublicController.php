@@ -10,6 +10,7 @@ use App\Models\{QuestionClosed,
     QuestionOpen,
     QuestionScaled};
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class PublicController extends Controller {
     /**
@@ -25,12 +26,11 @@ class PublicController extends Controller {
      * @return \Illuminate\Http\JsonResponse
      */
     public function publicQuestionnaires() {
-        // TODO: Check date as well
-
         return response()->json(
             Questionnaire::where("is_public", true)
                 ->where("is_complete", true)
-                //->whereDate("expiry_date", ">", Carbon::now()) // NOTE: Needs more advanced query
+                ->whereDate("expiry_date", ">", Carbon::now()->format("Y-m-d"))
+                ->orWhere("expiry_date", null)
                 ->get(),
             200);
     }
