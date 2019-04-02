@@ -53,4 +53,11 @@ class User extends Authenticatable {
     public function questionnaires() {
         return $this->hasMany("App\Models\Questionnaire");
     }
+
+    /**
+     * Gets the user's settings
+     */
+    public function settings(){
+        return $this->hasOne("App\Models\Settings");
+    }
 }

@@ -30,11 +30,16 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
     Route::prefix("user")->group(function () {
         Route::get("sign-out", "UserController@signOut");
         Route::get("details", "UserController@details");
-        Route::post("edit", "UserController@edit");
+        Route::patch("edit", "UserController@edit");
 
         // NOTE: Post method use as body cannot be send using angular with delete method
         // NOTE: Body is needed as the current password is used for extra verification
         Route::post("delete", "UserController@delete");
+
+        Route::prefix("settings")->group(function () {
+            Route::get("all", "SettingsController@all");
+            Route::patch("edit", "SettingsController@edit");
+        });
     });
 
     Route::prefix("questionnaire")->group(function () {

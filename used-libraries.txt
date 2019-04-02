@@ -2,3 +2,5 @@ Codeception
 https://github.com/barryvdh/laravel-cors
 Angular
 Scss
+ChartJS
+    - Write section about logical thinking behind how I read the documentation to know how to format the data from JSON to apply it to chartJS
