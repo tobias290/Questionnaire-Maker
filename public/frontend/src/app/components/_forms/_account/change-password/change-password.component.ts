@@ -63,7 +63,7 @@ export class ChangePasswordComponent {
         }
 
         this.apiService
-            .post(URLS.POST.USER.edit, {
+            .patch(URLS.PATCH.USER.edit, {
                 password: this.changePasswordForm.value.newPassword,
                 current_password: this.changePasswordForm.value.currentPassword,
             }, ApiService.createTokenHeader(sessionStorage.getItem("token")))

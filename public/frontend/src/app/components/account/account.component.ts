@@ -4,6 +4,7 @@ import {User} from "../../models/user";
 import {URLS} from "../../urls";
 import {Router} from "@angular/router";
 import {faCaretDown} from "@fortawesome/free-solid-svg-icons";
+import {Settings} from "../../models/settings";
 
 
 @Component({
@@ -29,6 +30,10 @@ export class AccountComponent implements OnInit {
     };
     
     user: User;
+    settings: Settings;
+    
+    appToggleSwitchStartState: boolean = false;
+    emailToggleSwitchState: boolean = false;
     
     public constructor(private apiService: ApiService, private router: Router) {
     }
@@ -47,8 +52,28 @@ export class AccountComponent implements OnInit {
             .get(URLS.GET.USER.details, ApiService.createTokenHeader(sessionStorage.getItem("token")))
             .subscribe(success => {
                 this.user = new User(success);
+                
+                this.getUserSettings();
+            }, error => console.log(error));
+    }
+    
+    getUserSettings() {
+        this.apiService
+            .get(URLS.GET.USER.settings, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .subscribe(success => {
+                this.settings = new Settings(success);
+                
+                this.appToggleSwitchStartState = this.settings.enableInAppNotifications;
+                this.emailToggleSwitchState = this.settings.enableEmailNotifications;
+                
                 this.loading = false;
             }, error => console.log(error));
+    }
+    
+    changeSettings(setting) {
+        this.apiService
+            .patch(URLS.PATCH.USER.editSettings, setting, ApiService.createTokenHeader(sessionStorage.getItem("token")))
+            .subscribe(success => this.getUserDetails(), error => console.log(error));
     }
 
     /**

@@ -7,10 +7,7 @@
 
     <div class="top-bar-right" style="color: white;">
         <button class="button inverse white"><fa-icon [icon]="icons.csv"></fa-icon>&nbsp; Export CSV</button>
-        <span style="cursor: pointer; margin-left: 15px;">
-            <a routerLink="/account">{{ data.user.email }}</a> &nbsp;
-            <fa-icon [icon]="icons.downCaret"></fa-icon>
-        </span>
+        <app-account-drop-down [user]="data.user"></app-account-drop-down>
     </div>
 </app-top-bar>
 

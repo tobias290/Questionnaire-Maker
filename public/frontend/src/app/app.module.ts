@@ -5,7 +5,6 @@ import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import {LoginComponent} from "./components/login/login.component";
 import {LoadingComponent} from "./components/loading/loading.component";
 import {PopupComponent} from "./components/popup/popup.component";
-
 import {BrowserModule} from "@angular/platform-browser";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
@@ -39,6 +38,7 @@ import {ChangeNameComponent} from "./components/_forms/_account/change-name/chan
 import {ChangeEmailComponent} from "./components/_forms/_account/change-email/change-email.component";
 import {ChangePasswordComponent} from "./components/_forms/_account/change-password/change-password.component";
 import {DeleteAccountComponent} from "./components/_forms/_account/delete-account/delete-account.component";
+import {AccountDropDownComponent} from "./components/account-drop-down/account-drop-down.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
@@ -60,6 +60,7 @@ const appRoutes: Routes = [
         PopupComponent,
         ToggleSwitchComponent,
         TopBarComponent,
+        AccountDropDownComponent,
         LoadingComponent,
         LandingComponent,
         SignUpComponent,

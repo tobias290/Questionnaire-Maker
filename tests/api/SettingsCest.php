@@ -34,7 +34,7 @@ class SettingsCest {
 
 
     /**
-     * Tests to see that we client can retrieve the user's settings from the API.
+     * Tests to see that we client can edit the user's settings.
      *
      * @param ApiTester $I
      */

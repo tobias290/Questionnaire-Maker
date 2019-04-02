@@ -1,0 +1,38 @@
+<div class="account-drop-down-container">
+    <span class="clickable" (click)="showDropDown = !showDropDown">
+        <span class="{{ showDropDown ? 'underline' : '' }}">{{ user.email }}</span> &nbsp;
+        <fa-icon [icon]="icons.downArrow"></fa-icon>
+    </span>
+    
+    <div *ngIf="showDropDown" class="account-drop-down">
+        <div (click)="account()">
+            <fa-icon [icon]="icons.user"></fa-icon> 
+            &nbsp; 
+            <span>My Account</span>
+        </div>
+        <div></div>
+        <div (click)="account()">
+            <fa-icon [icon]="icons.settings"></fa-icon>
+            &nbsp;
+            <span>Settings</span>
+        </div>
+        <div></div>
+        <div>
+            <fa-icon [icon]="icons.notifications"></fa-icon>
+            &nbsp; 
+            <span>Notifications</span>
+        </div>
+        <div></div>
+        <div (click)="publicQuestionnaires()">
+            <fa-icon [icon]="icons.public"></fa-icon>
+            &nbsp;
+            <span>Public Questionnaires</span>
+        </div>
+        <div></div>
+        <div (click)="signOut()">
+            <fa-icon [icon]="icons.signOut"></fa-icon> 
+            &nbsp;
+            <span>Sign Out</span>
+        </div>
+    </div>
+</div>

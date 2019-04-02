@@ -3,10 +3,7 @@
 <app-top-bar *ngIf="!loading" [title]="title" [hasBackButton]="true">
     <div class="top-bar-right">
         <button class="button inverse white" (click)="signOut()">Sign Out</button>
-        <span style="color: white; cursor: pointer; margin-left: 15px;">
-            <a routerLink="/account">{{ user.email }}</a> &nbsp;
-            <fa-icon [icon]="icons.downCaret"></fa-icon>
-        </span>
+        <app-account-drop-down [user]="user"></app-account-drop-down>
     </div>
 </app-top-bar>
 
@@ -29,6 +26,38 @@
             <div class="detail-title">Password</div>
             <div class="detail">********** &nbsp; <span id="edit-password" (click)="forms.showChangePasswordForm = true;">Edit</span></div>
             <button class="button normal red medium" id="delete-account" (click)="forms.showDeleteAccountForm = true;">Delete Account</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!loading" class="section-title">Settings</div>
+
+<div *ngIf="!loading" class="section">
+    <div id="settings">
+        <div>
+            <span>Enable In App Notifications</span>
+            <app-toggle-switch 
+                [state]="appToggleSwitchStartState"
+                (onChange)="changeSettings({enable_in_app_notifications: $event})"
+            ></app-toggle-switch>
+        </div>
+        <div>
+            <span>Enable Email Notifications</span>
+            <app-toggle-switch 
+                [state]="emailToggleSwitchState"
+                (onChange)="changeSettings({enable_email_notifications: $event})"
+            ></app-toggle-switch>
+        </div>
+        <div>
+            <span>Notification before questionnaire expiration</span>
+            <div class="app-input-container">
+                <select class="app-input no-icon" (change)="changeSettings({questionnaire_expiration_notification: $event.target.value})">
+                    <option value="none" [selected]="settings.questionnaireExpirationNotification === 'none'">None</option>
+                    <option value="day" [selected]="settings.questionnaireExpirationNotification === 'day'">Day Before</option>
+                    <option value="week" [selected]="settings.questionnaireExpirationNotification === 'week'">Week Before</option>
+                    <option value="month" [selected]="settings.questionnaireExpirationNotification === 'month'">Month Before</option>
+                </select>
+            </div>
         </div>
     </div>
 </div>

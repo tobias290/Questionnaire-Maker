@@ -51,7 +51,7 @@ export class ChangeNameComponent implements OnInit {
         if (!this.changeNameForm.valid) return;
         
         this.apiService
-            .post(URLS.POST.USER.edit, {
+            .patch(URLS.PATCH.USER.edit, {
                 first_name: this.changeNameForm.value.firstName,
                 surname: this.changeNameForm.value.surname,
             }, ApiService.createTokenHeader(sessionStorage.getItem("token")))

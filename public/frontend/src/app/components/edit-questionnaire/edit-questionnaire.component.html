@@ -11,10 +11,7 @@
     <div class="top-bar-right">
         <button class="button normal white" (click)="showSendQuestionnairePopup = true;"><fa-icon [icon]="icons.send"></fa-icon>&nbsp;Send</button>
         <button class="button inverse white"><a routerLink="/edit/{{ data.questionnaire.id }}/preview"><fa-icon [icon]="icons.preview"></fa-icon>&nbsp;Preview</a></button>
-        <span style="color: white; cursor: pointer; margin-left: 15px;">
-            <a routerLink="/account">{{ data.user.email }}</a> &nbsp;
-            <fa-icon [icon]="icons.downCaret"></fa-icon>
-        </span>
+        <app-account-drop-down [user]="data.user"></app-account-drop-down>
     </div>
 </app-top-bar>
 

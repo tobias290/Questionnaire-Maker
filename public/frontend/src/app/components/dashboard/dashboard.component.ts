@@ -105,20 +105,6 @@ export class DashboardComponent implements OnInit {
     }
 
     /**
-     * Sign outs the user.
-     */
-    public signOut() {
-        this.apiService
-            .get(URLS.GET.USER.signOut, ApiService.createTokenHeader(sessionStorage.getItem("token")))
-            .subscribe(res => {
-                if (res["success"]) {
-                    sessionStorage.removeItem("token");
-                    this.router.navigateByUrl("/login");
-                }
-            }, error => console.log(error));
-    }
-
-    /**
      * Returns either all the questionnaires or a filter of search query is used then returned the filtered questionnaires.
      * 
      * @returns {Questionnaire[]} - Returns list of questionnaires.

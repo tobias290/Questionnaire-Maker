@@ -16,6 +16,7 @@ export const URLS = {
         USER: {
             details: `${USER}/details`,
             signOut: `${USER}/sign-out`,
+            settings: `${USER}/settings/all`
         },
         QUESTIONNAIRE: {
             all: `${QUESTIONNAIRE}/all`,
@@ -38,7 +39,6 @@ export const URLS = {
         USER: {
             signUp: `${USER}/sign-up`,
             login: `${USER}/login`,
-            edit: `${USER}/edit`
         },
         QUESTIONNAIRE: {
             create: `${QUESTIONNAIRE}/create`,
@@ -57,6 +57,10 @@ export const URLS = {
         }
     },
     PATCH: {
+        USER: {
+            edit: `${USER}/edit`,
+            editSettings: `${USER}/settings/edit`,
+        },
         QUESTIONNAIRE: {
             edit: `${QUESTIONNAIRE}/edit`,
         },

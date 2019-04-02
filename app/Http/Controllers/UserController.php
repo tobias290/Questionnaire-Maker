@@ -49,6 +49,8 @@ class UserController extends Controller {
         $json["email"] = $user->email;
         $json["token"] = $user->createToken("QuestionnaireMaker")->accessToken;
 
+        // Create the user's settings.
+        // Everything has an automatic default so no values are needed to passed
         $user->settings()->create([]);
 
         // Return HTTP 201, resource created

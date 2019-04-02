@@ -64,7 +64,7 @@ export class ChangeEmailComponent {
         }
         
         this.apiService
-            .post(URLS.POST.USER.edit, {
+            .patch(URLS.PATCH.USER.edit, {
                 email: this.changeEmailForm.value.newEmail,
                 current_password: this.changeEmailForm.value.currentPassword,
             }, ApiService.createTokenHeader(sessionStorage.getItem("token")))
