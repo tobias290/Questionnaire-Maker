@@ -32,13 +32,23 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
         Route::get("details", "UserController@details");
         Route::patch("edit", "UserController@edit");
 
-        // NOTE: Post method use as body cannot be send using angular with delete method
-        // NOTE: Body is needed as the current password is used for extra verification
+        // _NOTE: Post method use as body cannot be send using angular with delete method
+        // _NOTE: Body is needed as the current password is used for extra verification
         Route::post("delete", "UserController@delete");
 
         Route::prefix("settings")->group(function () {
             Route::get("all", "SettingsController@all");
             Route::patch("edit", "SettingsController@edit");
+        });
+
+        Route::prefix("notifications")->group(function () {
+            Route::get("all", "NotificationsController@all");
+
+            Route::post("read/{id}", "NotificationsController@read");
+            Route::post("read-all", "NotificationsController@readAll");
+
+            Route::delete("delete/{id}", "NotificationsController@delete");
+            Route::delete("delete-all", "NotificationsController@deleteAll");
         });
     });
 
