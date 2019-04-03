@@ -1,0 +1,92 @@
+@import "../../css/main";
+
+.number-unread {
+    background: $green;
+    border-radius: 25px;
+    color: $white;
+    display: inline-block;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-right: 10px;
+    min-width: 50px;
+}
+
+#notifications-page-center {
+    box-sizing: border-box;
+    min-height: 80%;
+    padding: 10px;
+    width: 800px;
+    
+    .notification {
+        border-bottom: 1px solid $text-dark;
+        box-sizing: border-box;
+        height: 140px;
+        padding: 10px;
+        width: 100%;
+        
+        &.unread {
+            background: $dark-white;
+            cursor: pointer;
+            
+            &:hover {
+                background: #CDCDCD;
+            }
+        }
+        
+        .top {
+            .title {
+                display: inline;
+                font-size: 20px;
+                font-weight: bold;
+                
+                & > span  {
+                    color: $link-blue;
+                    cursor: pointer;
+                    font-size: 14px;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            
+            & > span {
+                float: right;
+                font-size: 16px;
+            }
+        }
+        
+        .bottom {
+            margin-top: 10px;
+            position: relative;
+            
+            .message {
+                width: 500px;
+            }
+            
+            .unread-icon {
+                background: #167BD3;
+                border-radius: 25px;
+                height: 15px;
+                float: right;
+                position: absolute;
+                right: 10px;
+                top: 30px;
+                width: 15px;
+            }
+        }
+    }
+    
+    .no-notifications {
+        color: $green;
+        font-size: 50px;
+        font-weight: bold;
+        margin-top: 50px;
+        text-align: center;
+        width: 100%;
+    }
+}

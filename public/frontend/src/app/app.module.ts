@@ -39,6 +39,7 @@ import {ChangeEmailComponent} from "./components/_forms/_account/change-email/ch
 import {ChangePasswordComponent} from "./components/_forms/_account/change-password/change-password.component";
 import {DeleteAccountComponent} from "./components/_forms/_account/delete-account/delete-account.component";
 import {AccountDropDownComponent} from "./components/account-drop-down/account-drop-down.component";
+import {NotificationsComponent} from "./components/notifications/notifications.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
     { path: "edit/:id/preview", component: QuestionnaireComponent, data: { preview: true } },
     { path: "responses/:id", component: QuestionnaireResponsesComponent },
     { path: "account", component: AccountComponent },
+    { path: "notifications", component: NotificationsComponent },
 ];
 
 @NgModule({
@@ -89,6 +91,7 @@ const appRoutes: Routes = [
         ChangeEmailComponent,
         ChangePasswordComponent,
         DeleteAccountComponent,
+        NotificationsComponent,
     ],
     imports: [
         BrowserModule,

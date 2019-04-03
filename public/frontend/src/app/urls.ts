@@ -16,7 +16,8 @@ export const URLS = {
         USER: {
             details: `${USER}/details`,
             signOut: `${USER}/sign-out`,
-            settings: `${USER}/settings/all`
+            settings: `${USER}/settings/all`,
+            notifications: `${USER}/notifications/all`,
         },
         QUESTIONNAIRE: {
             all: `${QUESTIONNAIRE}/all`,
@@ -54,13 +55,15 @@ export const URLS = {
             duplicateScaled: `${QUESTION}/duplicate/scaled`,
         },
         QUESTION_OPTION: {
-            addOption: `${QUESTION}/add/closed/option`
+            addOption: `${QUESTION}/add/closed/option`,
         }
     },
     PATCH: {
         USER: {
             edit: `${USER}/edit`,
             editSettings: `${USER}/settings/edit`,
+            readNotification: `${USER}/notifications/read`,
+            readAllNotifications: `${USER}/notifications/read-all`,
         },
         QUESTIONNAIRE: {
             edit: `${QUESTIONNAIRE}/edit`,
@@ -76,7 +79,9 @@ export const URLS = {
     },
     DELETE: {
         USER: {
-            delete: `${USER}/delete`
+            delete: `${USER}/delete`,
+            deleteNotification: `${USER}/notifications/delete`,
+            deleteAllNotifications: `${USER}/notifications/delete-all`,
         },
         QUESTIONNAIRE: {
             delete: `${QUESTIONNAIRE}/delete`,

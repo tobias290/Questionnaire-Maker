@@ -36,6 +36,13 @@ export class AccountDropDownComponent {
     }
 
     /**
+     * Navigates to the notifications page.
+     */
+    public notifications() {
+        this.router.navigateByUrl("notifications");
+    }
+
+    /**
      * Navigates to the public questionnaires.
      */
     public publicQuestionnaires() {

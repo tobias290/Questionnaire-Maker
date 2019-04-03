@@ -149,12 +149,23 @@ a.classic {
   padding-top: 15px;
   width: fit-content; }
 
+.section-title {
+  left: 0;
+  margin: 30px auto 30px auto;
+  right: 0;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+  width: 800px; }
+
 .top-bar {
   align-items: center;
   background: #16D36B;
   display: flex;
   height: 70px;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
   width: 100%; }
   .top-bar .top-bar-left {
     align-items: center;

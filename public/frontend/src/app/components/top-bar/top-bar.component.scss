@@ -8,6 +8,8 @@
     display: flex;
     height: $height;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
     width: 100%;
 
     .top-bar-left {

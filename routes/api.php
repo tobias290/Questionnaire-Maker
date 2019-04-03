@@ -44,8 +44,8 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
         Route::prefix("notifications")->group(function () {
             Route::get("all", "NotificationsController@all");
 
-            Route::post("read/{id}", "NotificationsController@read");
-            Route::post("read-all", "NotificationsController@readAll");
+            Route::patch("read/{id}", "NotificationsController@read");
+            Route::patch("read-all", "NotificationsController@readAll");
 
             Route::delete("delete/{id}", "NotificationsController@delete");
             Route::delete("delete-all", "NotificationsController@deleteAll");

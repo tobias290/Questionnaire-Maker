@@ -26,7 +26,7 @@ class NotificationsCest {
         // And
         $I->wantTo("get HTTP 200 response as we have read all of the user's notifications");
         // And
-        $I->sendPOST("user/notifications/read-all");
+        $I->sendPATCH("user/notifications/read-all");
         // And
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
         // And

@@ -1,0 +1,34 @@
+<app-loading *ngIf="loading.user || loading.notifications"></app-loading>
+
+<app-top-bar *ngIf="!loading.user && !loading.notifications" [title]="title" [hasBackButton]="true">
+    <div class="top-bar-right">
+        <button class="button inverse white" (click)="readAllNotifications()">Read All Notifications</button>
+        <button class="button inverse white" (click)="deleteAllNotifications()">Delete All Notifications</button>
+        <app-account-drop-down [user]="user"></app-account-drop-down>
+    </div>
+</app-top-bar>
+
+<div *ngIf="!loading.user && !loading.notifications" class="section-title">
+    Notifications
+    <div class="number-unread">{{ getNumberOfUnreadNotifications() }}</div>
+</div>
+
+<div *ngIf="!loading.user && !loading.notifications" class="centre-box" id="notifications-page-center">
+    <div *ngFor="let notification of notifications" class="notification {{ !notification.isRead ? 'unread' : '' }}" [title]="!notification.isRead ? 'Click to mark as read' : ''" (click)="!notification.isRead ? readNotification(notification.id) : null">
+        <div class="top">
+            <div class="title">
+                {{ notification.title }} 
+                &nbsp; &nbsp; 
+                <span class="delete-notification" (click)="deleteNotification(notification.id); $event.stopPropagation()">Delete</span>
+            </div>
+            <span>{{ notification.createdAt | date : 'dd/MM/yy HH:mm' }}</span>
+        </div>
+        <div class="bottom">
+            <div class="message">
+                {{ notification.message }}
+            </div>
+            <div *ngIf="!notification.isRead" class="unread-icon"></div>
+        </div>
+    </div>
+    <div *ngIf="notifications.length === 0" class="no-notifications">No Notifications</div>
+</div>

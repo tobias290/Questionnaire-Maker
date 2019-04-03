@@ -150,6 +150,15 @@ a.classic {
   padding-top: 15px;
   width: fit-content; }
 
+.section-title {
+  left: 0;
+  margin: 30px auto 30px auto;
+  right: 0;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+  width: 800px; }
+
 ::-webkit-scrollbar {
   background: #b6b6b6;
   border-radius: 10px;
@@ -299,6 +308,15 @@ a.classic {
   height: 40px;
   padding-top: 15px;
   width: fit-content; }
+
+.section-title {
+  left: 0;
+  margin: 30px auto 30px auto;
+  right: 0;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+  width: 800px; }
 
 .app-input-container {
   border-radius: 7px;

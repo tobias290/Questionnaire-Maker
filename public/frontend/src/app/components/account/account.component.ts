@@ -39,7 +39,12 @@ export class AccountComponent implements OnInit {
     }
 
     ngOnInit() {
-       this.getUserDetails();
+        if (!sessionStorage.getItem("token")) {
+            this.router.navigateByUrl("/login");
+            return;
+        }
+        
+        this.getUserDetails();
     }
 
     /**

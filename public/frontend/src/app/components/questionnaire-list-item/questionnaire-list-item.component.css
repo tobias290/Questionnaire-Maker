@@ -149,6 +149,15 @@ a.classic {
   padding-top: 15px;
   width: fit-content; }
 
+.section-title {
+  left: 0;
+  margin: 30px auto 30px auto;
+  right: 0;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+  width: 800px; }
+
 .questionnaire-list-item {
   background: #FFF;
   border-bottom: 5px solid transparent;
