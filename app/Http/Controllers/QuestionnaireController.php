@@ -115,4 +115,27 @@ class QuestionnaireController extends Controller {
 
         return response()->json(Questionnaire::find($id), 200);
     }
+
+    /**
+     * Returns a the requested questionnaire to preview it.
+     *
+     * @param $id - ID of questionnaire
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function previewQuestionnaire($id) {
+        /** @var Questionnaire $questionnaire */
+        $questionnaire = Questionnaire::where("id", $id)
+            ->with(["closedQuestions", "closedQuestions.options", "scaledQuestions", "openQuestions"])
+            ->first();
+
+        if (Auth::id() != $questionnaire->user->id) {
+            return response()->json(["error" => [
+                "message" => "You do not own that questionnaire",
+            ]], 401);
+        }
+
+        return response()->json(["success" => [
+            "questionnaire" => $questionnaire
+        ]], 200);
+    }
 }

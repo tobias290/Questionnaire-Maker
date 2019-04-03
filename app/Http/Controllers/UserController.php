@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Notifications\Welcome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -45,6 +46,7 @@ class UserController extends Controller {
         $data["date_joined"] = date("Y-m-d");
 
         // Create user and create access token
+        /** @var User $user */
         $user = User::create($data);
         $json["email"] = $user->email;
         $json["token"] = $user->createToken("QuestionnaireMaker")->accessToken;
@@ -52,6 +54,8 @@ class UserController extends Controller {
         // Create the user's settings.
         // Everything has an automatic default so no values are needed to passed
         $user->settings()->create([]);
+
+        $user->notify(new Welcome());
 
         // Return HTTP 201, resource created
         return response()->json(["success" => $json], 201);

@@ -9,6 +9,7 @@ use App\Models\{QuestionClosed,
     QuestionnaireCategory,
     QuestionOpen,
     QuestionScaled};
+use App\Notifications\QuestionnaireResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -52,6 +53,14 @@ class PublicController extends Controller {
                 "message" => "You cannot access that questionnaire",
             ]], 401);
         }
+
+        if (Carbon::parse($questionnaire->expiry_date) <= Carbon::now()->format("Y-m-d")) {
+            return response()->json(["error" =>[
+                "message" => "That questionnaire has expired",
+            ]], 401);
+        }
+
+        // TODO: Check hasn't expired
 
         return response()->json(["success" => [
             "questionnaire" => $questionnaire
@@ -174,6 +183,10 @@ class PublicController extends Controller {
 
         $questionnaire->responses += 1;
         $questionnaire->save();
+
+        // TODO: Send response notification to user
+
+        $questionnaire->user->notify(new QuestionnaireResponse($questionnaire->title, $questionnaire->responses));
 
         return response()->json(["success" => [
             "message" => "Response saved",

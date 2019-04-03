@@ -18,3 +18,20 @@
         float: right;
     }
 }
+
+#error {
+    @include vertical-center(400px);
+
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    min-height: 400px;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 75%;
+
+    & > div {
+        color: $text-dark;
+        font-size: 50px;
+    }
+}

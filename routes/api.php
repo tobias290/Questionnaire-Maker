@@ -49,6 +49,7 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
 
         Route::get("all", "QuestionnaireController@all");
         Route::get("{id}", "QuestionnaireController@get");
+        Route::get("{id}/preview", "QuestionnaireController@previewQuestionnaire");
     });
 
     Route::prefix("question")->group(function () {
@@ -91,3 +92,6 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
         Route::get("questionnaire/{id}/responses", "QuestionnaireResponsesController@responses");
     });
 });
+
+
+Route::get("/email-test", "UserController@emailTest");

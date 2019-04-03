@@ -30,6 +30,7 @@ export class QuestionnaireComponent implements OnInit {
 
     @ViewChildren(QuestionClosedAnswerableComponent) closedQuestionComponents: QueryList<QuestionClosedAnswerableComponent>;
     @ViewChildren(QuestionScaledAnswerableComponent) scaledQuestionComponents: QueryList<QuestionScaledAnswerableComponent>;
+   
     loading = {
         questionnaire: true,
         questions: true,
@@ -37,6 +38,9 @@ export class QuestionnaireComponent implements OnInit {
 
     preview: boolean = false;
 
+    accessError: boolean = false;
+    expireError: boolean = false;
+    
     data: DataMetadata = {
         questionnaire: null,
         questions: [],
@@ -49,17 +53,22 @@ export class QuestionnaireComponent implements OnInit {
     public ngOnInit() {
         // @ts-ignore
         this.preview = this.route.data.value.preview;
+        this.expireError = false;
+        this.accessError = false;
         
         this.route.paramMap.subscribe((params: ParamMap) =>  {
             this.apiService
-                .get(URLS.GET.PUBLIC.answerQuestionnaire(params.get("id")), ApiService.createTokenHeader(sessionStorage.getItem("token")))
+                .get(
+                    this.preview ? URLS.GET.QUESTIONNAIRE.preview(params.get("id")) : URLS.GET.PUBLIC.answerQuestionnaire(params.get("id")),
+                    this.preview ? ApiService.createTokenHeader(sessionStorage.getItem("token")) : {},
+                )
                 .subscribe(
                     success => {
                         // @ts-ignore
                         // Add the questionnaire
                         this.data.questionnaire = new Questionnaire(success.success.questionnaire);
                         this.loading.questionnaire = false;
-                        
+
                         // @ts-ignore
                         // Add all the open questions
                         for (let openQuestion of success.success.questionnaire.open_questions || [])
@@ -69,13 +78,13 @@ export class QuestionnaireComponent implements OnInit {
                         // Add all the closed questions
                         for (let closedQuestion of success.success.questionnaire.closed_questions || []) {
                             this.data.questions.push(new QuestionClosed(closedQuestion));
-                            
+
                             // Empty array for the question options
                             let options: QuestionClosedOption[] = [];
-                         
+
                             // Push each option to the options array after instantiating the correct model
                             closedQuestion.options.forEach(option => options.push(new QuestionClosedOption(option)));
-                            
+
                             // Add the list of options with the key being the question ID
                             this.data.questionClosedOptions[closedQuestion.id] = options;
                         }
@@ -89,9 +98,19 @@ export class QuestionnaireComponent implements OnInit {
                         this.data.questions.sort((a, b) => a.position - b.position);
                         this.loading.questions = false;
                     },
-                    error => console.log(error)
-                )
+                    error => {
+                        if (!this.preview && error.error.error.message === "You cannot access that questionnaire") {
+                            this.loading.questionnaire = false;
+                            this.loading.questions = false;
+                            this.accessError = true;
+                        } else if (!this.preview && error.error.error.message === "That questionnaire has expired") {
+                            this.loading.questionnaire = false;
+                            this.loading.questions = false;
+                            this.expireError = true;
+                        }
+                    });
         });
+        
     }
 
     /**

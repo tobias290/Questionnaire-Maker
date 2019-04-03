@@ -30,6 +30,8 @@ class Questionnaire extends Model {
         "is_complete" => "boolean",
         "is_reported" => "boolean",
         "is_locked" => "boolean",
+        "expiry_date_notified" => "boolean",
+        "expiry_date_advanced_notified" => "boolean",
     ];
 
     /**

@@ -25,6 +25,10 @@ class Questionnaire extends Migration {
             $table->integer("responses")->default(0);
 
             $table->date("expiry_date")->nullable();
+
+            $table->boolean("expiry_date_advanced_notified")->default(false);
+            $table->boolean("expiry_date_notified")->default(false);
+
             $table->timestamps();
 
             $table->integer("questionnaire_category_id")->unsigned();

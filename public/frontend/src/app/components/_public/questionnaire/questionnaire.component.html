@@ -1,6 +1,8 @@
 <app-loading *ngIf="loading.questionnaire && loading.questions"></app-loading>
 
-<app-top-bar *ngIf="!loading.questionnaire && !loading.questions && !preview">
+<app-top-bar *ngIf="accessError || expireError" [title]="'Questionnaire Maker'"></app-top-bar>
+
+<app-top-bar *ngIf="!loading.questionnaire && !loading.questions && !preview && !accessError && !expireError">
     <div id="questionnaire-title" class="top-bar-center">
         {{ data.questionnaire.title }}
     </div>
@@ -9,7 +11,7 @@
 
 <app-top-bar *ngIf="!loading.questionnaire && !loading.questions && preview" [title]="'Preview'" [hasBackButton]="true"></app-top-bar>
 
-<div *ngIf="!loading.questionnaire && !loading.questions" id="questionnaire-center">
+<div *ngIf="!loading.questionnaire && !loading.questions && !accessError && !expireError" id="questionnaire-center">
     <ng-container *ngFor="let question of data.questions">
         <app-question-open-answerable   *ngIf="isQuestionType(question, 'open')"   [question]="question"></app-question-open-answerable>
         <app-question-closed-answerable *ngIf="isQuestionType(question, 'closed')" [question]="question" [options]="data.questionClosedOptions[question.id]"></app-question-closed-answerable>
@@ -21,3 +23,7 @@
     <button *ngIf="!preview" class="button normal  red  large" (click)="cancel()">Cancel</button>
 </div>
 
+<div *ngIf="accessError || expireError" class="centre-box" id="error">
+    <div *ngIf="accessError">Sorry, that questionnaire cannot be answered.</div>
+    <div *ngIf="expireError">Sorry, that questionnaire has expired.</div>
+</div>

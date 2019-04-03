@@ -20,7 +20,8 @@ export const URLS = {
         },
         QUESTIONNAIRE: {
             all: `${QUESTIONNAIRE}/all`,
-            get: `${QUESTIONNAIRE}`
+            get: `${QUESTIONNAIRE}`,
+            preview: id => `${QUESTIONNAIRE}/${id}/preview`,
         },
         QUESTION: {
             questionnaireQuestions: id => `${QUESTION}/questionnaire/${id}/questions`
