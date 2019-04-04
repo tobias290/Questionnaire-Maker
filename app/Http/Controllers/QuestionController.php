@@ -78,11 +78,31 @@ class QuestionController extends Controller {
             ]], 401);
         }
 
-        // TODO: change the position of all questions after the deleted one
+        // Loop over all the other questions in the questionnaire
+        // If they are after the current question, reduce its position by one as they have all moved back once position
 
+        foreach ($question->questionnaire->openQuestions as $_question) {
+            if ($_question->id > $question->id) {
+                $_question->position -= 1;
+                $_question->save();
+            }
+        }
+
+        foreach ($question->questionnaire->closedQuestions as $_question) {
+            if ($_question->id > $question->id) {
+                $_question->position -= 1;
+                $_question->save();
+            }
+        }
+
+        foreach ($question->questionnaire->scaledQuestions as $_question) {
+            if ($_question->id > $question->id) {
+                $_question->position -= 1;
+                $_question->save();
+            }
+        }
 
         $question->delete();
-
 
         return response()->json(["success" => [
             "message" => "Question deleted",
