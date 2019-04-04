@@ -79,7 +79,7 @@ class PublicController extends Controller {
         $questionnaire = Questionnaire::find($id);
 
         if (!$questionnaire->is_public && !$questionnaire->is_complete) {
-            return response()->json(["error" =>[
+            return response()->json(["error" => [
                 "message" => "You cannot answer this questionnaire",
             ]], 401);
         }
@@ -184,12 +184,27 @@ class PublicController extends Controller {
         $questionnaire->responses += 1;
         $questionnaire->save();
 
-        // TODO: Send response notification to user
-
         $questionnaire->user->notify(new QuestionnaireResponse($questionnaire->title, $questionnaire->responses));
 
         return response()->json(["success" => [
             "message" => "Response saved",
+        ]], 201);
+    }
+
+    /**
+     * Reports a questionnaire.
+     *
+     * @param integer $id - Questionnaire ID.
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function report($id) {
+        $questionnaire = Questionnaire::find($id);
+
+        $questionnaire->is_reported = true;
+        $questionnaire->save();
+
+        return response()->json(["success" => [
+            "message" => "Questionnaire Reported",
         ]], 201);
     }
 }

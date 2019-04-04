@@ -59,6 +59,9 @@ export const URLS = {
         }
     },
     PATCH: {
+        PUBLIC: {
+            report: id => `${PUBLIC}/questionnaire/${id}/report`
+        },
         USER: {
             edit: `${USER}/edit`,
             editSettings: `${USER}/settings/edit`,

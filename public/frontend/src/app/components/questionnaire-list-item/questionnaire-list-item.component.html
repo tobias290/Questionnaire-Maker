@@ -56,9 +56,11 @@
         </div>
     </div>
     <div class="options">
-        <div class="delete-questionnaire">
+        <div class="delete-questionnaire" (click)="reportQuestionnaire(); $event.stopPropagation()">
             <fa-icon [icon]="icons.report"></fa-icon>
             <span>Report</span>
         </div>
     </div>
 </div>
+
+<div class="questionnaire-reported-notification {{ questionnaireReported ? 'visible' : 'hidden' }}">Questionnaire Reported</div>

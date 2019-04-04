@@ -47,12 +47,12 @@ export class QuestionScaledResponsesComponent {
         } else {
             this.chartType = "line";
 
-            for (let i = 0; i < this.question.max; i++) {
-                labels.push(i + 1);
+            for (let i = -1; i < this.question.max; i+=this.question.interval) {
+                labels.push(i+1);
                 data.push(0);
             }
             
-            this.responses.forEach(response => data[response.response - 1] += 1);
+            this.responses.forEach(response => data[response.response/this.question.interval] += 1);
 
             this.chartLegend = false;
             this.chartOptions = {

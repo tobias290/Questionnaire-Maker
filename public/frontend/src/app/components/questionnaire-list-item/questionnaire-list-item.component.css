@@ -227,4 +227,23 @@ a.classic {
         .questionnaire-list-item .options > div:hover > span {
           color: #16D36B; }
 
+.questionnaire-reported-notification {
+  background: #707070;
+  border-left: 5px solid #16D36B;
+  bottom: 50px;
+  color: #FFF;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 50px;
+  height: 50px;
+  position: absolute;
+  text-align: center;
+  transition: opacity .5s linear;
+  right: 0;
+  width: 300px; }
+  .questionnaire-reported-notification.visible {
+    opacity: 1; }
+  .questionnaire-reported-notification.hidden {
+    opacity: 0; }
+
 /*# sourceMappingURL=questionnaire-list-item.component.css.map */

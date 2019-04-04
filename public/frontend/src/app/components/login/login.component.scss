@@ -57,6 +57,11 @@
         bottom: 50px;
         font-weight: bold;
         position: absolute;
+        text-decoration: none !important;
         width: fit-content;
+        
+        &:hover {
+            text-decoration: underline !important;
+        }
     }
 }

@@ -522,6 +522,9 @@ a.classic {
     bottom: 50px;
     font-weight: bold;
     position: absolute;
+    text-decoration: none !important;
     width: fit-content; }
+    #login-page-center #forgotten-password:hover {
+      text-decoration: underline !important; }
 
 /*# sourceMappingURL=login.component.css.map */

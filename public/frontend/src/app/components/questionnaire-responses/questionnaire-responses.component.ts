@@ -12,6 +12,7 @@ import {QuestionOpenResponse} from "../../models/question-open-response";
 import {QuestionScaledResponse} from "../../models/question-scaled-response";
 import {User} from "../../models/user";
 import {faCaretDown, faFileCsv} from "@fortawesome/free-solid-svg-icons";
+import {DomSanitizer} from "@angular/platform-browser";
 
 interface DataMetadata {
     user: User,
@@ -48,7 +49,7 @@ export class QuestionnaireResponsesComponent implements OnInit {
         scaledQuestionResponses: [],
     };
 
-    public constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute) {
+    public constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
     }
     
     public ngOnInit() {

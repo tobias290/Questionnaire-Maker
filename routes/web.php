@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get("/", function () {
     return redirect("/frontend/dist/frontend/index.html");
 });
@@ -18,3 +20,15 @@ Route::get("/", function () {
 Route::get("login", function () {
     return redirect("/frontend/dist/frontend/#/login");
 })->name("login");
+
+
+Route::prefix("admin")->group(function() {
+    Route::match(["GET", "POST"], "login", "AdminController@login")->name("adminLogin");
+    Route::get("sign-out", "AdminController@signOut")->name("adminSignOut");
+    Route::get("dashboard", "AdminController@dashboard");
+
+    Route::prefix("questionnaire")->group(function() {
+        Route::get("{id}/lock", "AdminController@lockQuestionnaire");
+        Route::get("{id}/un-report", "AdminController@unReportQuestionnaire");
+    });
+});

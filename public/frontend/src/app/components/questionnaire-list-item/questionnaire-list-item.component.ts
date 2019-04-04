@@ -32,6 +32,8 @@ export class QuestionnaireListItemComponent {
     
     isMouseOver = false;
     
+    questionnaireReported: boolean = false;
+    
     public constructor(private apiService: ApiService, private router: Router) {
     }
 
@@ -101,6 +103,19 @@ export class QuestionnaireListItemComponent {
                 success => this.reload.emit(true),
                 error => console.log(error),
             );
+    }
+
+    /**
+     * Reports a questionnaire.
+     */
+    public reportQuestionnaire() {
+        this.apiService
+            .patch(URLS.PATCH.PUBLIC.report(this.questionnaire.id), {})
+            .subscribe(success => {
+                this.questionnaireReported = true;
+
+                setTimeout(() => this.questionnaireReported = false, 3000);
+            }, error => console.log(error),);
     }
 }
 

@@ -19,6 +19,8 @@ Route::prefix("public")->group(function () {
     Route::get("questionnaire/{id}/answer", "PublicController@answerQuestionnaire");
 
     Route::post("questionnaire/{id}/submit", "PublicController@submitQuestionnaire");
+
+    Route::patch("questionnaire/{id}/report", "PublicController@report");
 });
 
 Route::prefix("user")->group(function (){

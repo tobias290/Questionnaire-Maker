@@ -166,7 +166,8 @@ a.classic {
   justify-content: space-between;
   position: sticky;
   top: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 10; }
   .top-bar .top-bar-left {
     align-items: center;
     color: #FFF;
