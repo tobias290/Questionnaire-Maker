@@ -1,9 +1,8 @@
-import {Component, Input, OnInit, QueryList, ViewChildren} from "@angular/core";
+import {Component, OnInit, QueryList, ViewChildren} from "@angular/core";
 import {ApiService} from "../../../api.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {URLS} from "../../../urls";
 import {Questionnaire} from "../../../models/questionnaire";
-import {User} from "../../../models/user";
 import {Question} from "../../../models/question";
 import {QuestionOpen} from "../../../models/question-open";
 import {QuestionClosed} from "../../../models/question-closed";
@@ -27,7 +26,6 @@ interface DataMetadata {
 })
 export class QuestionnaireComponent implements OnInit {
     @ViewChildren(QuestionOpenAnswerableComponent) openQuestionComponents: QueryList<QuestionOpenAnswerableComponent>;
-
     @ViewChildren(QuestionClosedAnswerableComponent) closedQuestionComponents: QueryList<QuestionClosedAnswerableComponent>;
     @ViewChildren(QuestionScaledAnswerableComponent) scaledQuestionComponents: QueryList<QuestionScaledAnswerableComponent>;
    
@@ -38,6 +36,7 @@ export class QuestionnaireComponent implements OnInit {
 
     preview: boolean = false;
 
+    lockedError: boolean = false;
     accessError: boolean = false;
     expireError: boolean = false;
     
@@ -53,8 +52,9 @@ export class QuestionnaireComponent implements OnInit {
     public ngOnInit() {
         // @ts-ignore
         this.preview = this.route.data.value.preview;
-        this.expireError = false;
+        this.lockedError = false;
         this.accessError = false;
+        this.expireError = false;
         
         this.route.paramMap.subscribe((params: ParamMap) =>  {
             this.apiService
@@ -99,11 +99,15 @@ export class QuestionnaireComponent implements OnInit {
                         this.loading.questions = false;
                     },
                     error => {
-                        if (!this.preview && error.error.error.message === "You cannot access that questionnaire") {
+                        if (!this.preview && error.error.error.message === "This questionnaire has been locked") {
+                            this.loading.questionnaire = false;
+                            this.loading.questions = false;
+                            this.lockedError = true;
+                        } else if (!this.preview && error.error.error.message === "You cannot access that questionnaire") {
                             this.loading.questionnaire = false;
                             this.loading.questions = false;
                             this.accessError = true;
-                        } else if (!this.preview && error.error.error.message === "That questionnaire has expired") {
+                        } else if (!this.preview && error.error.error.message === "This questionnaire has expired") {
                             this.loading.questionnaire = false;
                             this.loading.questions = false;
                             this.expireError = true;

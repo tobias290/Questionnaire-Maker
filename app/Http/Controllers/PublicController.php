@@ -48,6 +48,12 @@ class PublicController extends Controller {
             ->with(["closedQuestions", "closedQuestions.options", "scaledQuestions", "openQuestions"])
             ->first();
 
+        if ($questionnaire->is_locked) {
+            return response()->json(["error" =>[
+                "message" => "This questionnaire has been locked",
+            ]], 401);
+        }
+
         if (!$questionnaire->is_complete) {
             return response()->json(["error" =>[
                 "message" => "You cannot access that questionnaire",
