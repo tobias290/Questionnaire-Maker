@@ -1,8 +1,8 @@
 # Questionnaire Maker
 
 Questionnaire Maker is a website where you can build, edit and send questionnaires and collect responses.
-[Responses](#responses) can be viewed using graphs (ChartJS) or as raw data in a table format. 
-Questionnaire Maker supports 7 [questions](#questions) types split into 3 categories.
+Responses can be viewed using graphs (ChartJS) or as raw data in a table format. 
+Questionnaire Maker supports 7 questions types split into 3 categories.
 
 ### Frameworks Used
 * MySQL
@@ -14,7 +14,7 @@ Questionnaire Maker supports 7 [questions](#questions) types split into 3 catego
 
 ## Features
 
-### <a name="account-settings">Account and Settings</a>
+### Account and Settings
 The account page allows the user to edit account details (email, name, password).
 The account page also holds the users settings:
 * Enable in app notifications
@@ -28,15 +28,15 @@ The account page also holds the users settings:
         * Week - Notify you one week before one of your questionnaires is about to expire
         * Month - Notify you one month before one of your questionnaires is about to expire
    
-For more on notifications check out the [notifications](#notifications) section.    
+For more on notifications check out the notifications section.    
 
-### <a name="notifications">Notifications</a>    
+### Notifications 
 This application has 3 main notifications in which you will receive.
 * New response
     * You will receive a notification each time a new response comes on for one of your questionnaires
 * Upcoming expiry
     * Notifies you the specified time ahead of when one of your questionnaires is about to expire
-    * For more on expiry times check the [Account and Settings](#account-settings) section.
+    * For more on expiry times check the Account and Settings section.
 * Expiry
     * Notifies you that one of your questionnaires has expired.
 
@@ -52,8 +52,8 @@ Each questionnaire has 2 main options:
     * __Private__ questionnaires can still be answered but are not displayed to the public.
    
 
-### <a name="questions">Questions</a>
-Each question as the choice of being requried (must be submitted) or not required where the user gets to decide.
+### Questions
+Each question as the choice of being required (must be submitted) or not required where the user gets to decide.
 #### Open
 Opens questions allow the user to answer with text in any way they want. 
 Both questions are the same programmatically with the only different being in how they are presented ot the user.
@@ -79,7 +79,7 @@ This question supports between 3 and 10 stars as the max.
 This questions displays a slider in which the user picks a number.
 This question supports a range between any numbers with a interval of the creators choosing.
 
-### <a name="responses">Responses</a>
+### Responses
 Each question type responses are viewed in different ways with different graphs available.
 #### Open
 Both open question types are views in a table format. (This is the only option).
