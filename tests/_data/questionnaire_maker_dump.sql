@@ -93,7 +93,7 @@ CREATE TABLE `notifications` (
 
 LOCK TABLES `notifications` WRITE;
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
-INSERT INTO `notifications` VALUES ('1d6b242f-f3f1-4b26-97b3-3990bc42bcab','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 1 responses!\"}',NULL,'2019-04-03 12:27:19','2019-04-03 12:27:19'),('240879ff-8461-4a4d-835a-7f2bb5ada496','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 4 responses!\"}',NULL,'2019-04-03 12:28:18','2019-04-03 12:28:18'),('5b49d001-a4a1-47e0-9faa-02a531066986','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 6 responses!\"}',NULL,'2019-04-03 12:28:51','2019-04-03 12:28:51'),('880f2db5-5678-4f77-88cc-ec0f9506f5e8','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 5 responses!\"}',NULL,'2019-04-03 12:28:27','2019-04-03 12:28:27'),('cbbb16f9-0d3d-45af-a458-e5a5db8814dc','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 2 responses!\"}',NULL,'2019-04-03 12:27:32','2019-04-03 12:27:32'),('ff0edfbb-a741-415e-a322-278ba76e8f13','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 3 responses!\"}',NULL,'2019-04-03 12:28:07','2019-04-03 12:28:07');
+INSERT INTO `notifications` VALUES ('1d6b242f-f3f1-4b26-97b3-3990bc42bcab','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 1 responses!\"}',NULL,'2019-04-03 12:27:19','2019-04-03 12:27:19'),('240879ff-8461-4a4d-835a-7f2bb5ada496','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 4 responses!\"}',NULL,'2019-04-03 12:28:18','2019-04-03 12:28:18'),('5b49d001-a4a1-47e0-9faa-02a531066986','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 6 responses!\"}',NULL,'2019-04-03 12:28:51','2019-04-03 12:28:51'),('63fb74d8-652c-4f4f-86d6-240440b6de4e','App\\Notifications\\Welcome','App\\Models\\User',2,'{\"title\":\"Welcome to Questionnaire Maker\",\"message\":\"Thank You Toby Essex for signing up with us!\"}',NULL,'2019-04-05 13:09:44','2019-04-05 13:09:44'),('880f2db5-5678-4f77-88cc-ec0f9506f5e8','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 5 responses!\"}',NULL,'2019-04-03 12:28:27','2019-04-03 12:28:27'),('cbbb16f9-0d3d-45af-a458-e5a5db8814dc','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 2 responses!\"}',NULL,'2019-04-03 12:27:32','2019-04-03 12:27:32'),('ff0edfbb-a741-415e-a322-278ba76e8f13','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 3 responses!\"}',NULL,'2019-04-03 12:28:07','2019-04-03 12:28:07');
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +125,7 @@ CREATE TABLE `oauth_access_tokens` (
 
 LOCK TABLES `oauth_access_tokens` WRITE;
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
-INSERT INTO `oauth_access_tokens` VALUES ('29a60419e42541bdd49f4b17e8bed4893aa3b2dd794a2756cbf02ce1a77cdfcc40f9ee0243e0de23',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 12:08:31','2019-04-03 12:08:31','2020-04-03 13:08:31'),('4fc5edaefde0263b0ed4f705e81db820316893a770d70baa1c99b90bb5b987b1dbcb04a1c9fcb7ad',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 11:10:54','2019-04-03 11:10:54','2020-04-03 12:10:54'),('d00a7795b50714a225f01d42c78a82c27eb70f1e85da41928433482de9364efe3ee48ef002bf0bd6',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 11:58:48','2019-04-03 11:58:48','2020-04-03 12:58:48');
+INSERT INTO `oauth_access_tokens` VALUES ('29a60419e42541bdd49f4b17e8bed4893aa3b2dd794a2756cbf02ce1a77cdfcc40f9ee0243e0de23',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 12:08:31','2019-04-03 12:08:31','2020-04-03 13:08:31'),('4fc5edaefde0263b0ed4f705e81db820316893a770d70baa1c99b90bb5b987b1dbcb04a1c9fcb7ad',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 11:10:54','2019-04-03 11:10:54','2020-04-03 12:10:54'),('98e532e256c3000367c74a0d6f729d97e47094b387447c555a3eb1ac45eb11f21f4e67816e4bedd4',2,1,'QuestionnaireMaker','[]',0,'2019-04-05 13:09:43','2019-04-05 13:09:43','2020-04-05 14:09:43'),('d00a7795b50714a225f01d42c78a82c27eb70f1e85da41928433482de9364efe3ee48ef002bf0bd6',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 11:58:48','2019-04-03 11:58:48','2020-04-03 12:58:48');
 /*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -529,7 +529,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,1,0,'week');
+INSERT INTO `settings` VALUES (1,1,0,'week'),(2,1,1,'day');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -551,7 +551,7 @@ CREATE TABLE `user` (
   `date_joined` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -560,7 +560,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Toby','Essex','tobiascompany@gmail.com',NULL,'$2y$10$aEakPpANXwnc4jbBamWGUeSj7R6V1h6UEh9yi96RZMMiLlHi3oGBC',NULL,'2019-04-03');
+INSERT INTO `user` VALUES (1,'Toby','Essex','tobiascompany@gmail.com',NULL,'$2y$10$aEakPpANXwnc4jbBamWGUeSj7R6V1h6UEh9yi96RZMMiLlHi3oGBC',NULL,'2019-04-03'),(2,'Toby','Essex','tobysx@gmail.com',NULL,'$2y$10$gUx3aZo9LCL00lCpny470OtX0FGVoyzNZSy6XPLL5tak1WI16kAGa',NULL,'2019-04-05');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -573,4 +573,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-04 14:35:35
+-- Dump completed on 2019-04-05 15:10:34
