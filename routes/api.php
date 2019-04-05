@@ -26,6 +26,10 @@ Route::prefix("public")->group(function () {
 Route::prefix("user")->group(function (){
     Route::post("sign-up", "UserController@signUp");
     Route::post("login", "UserController@login");
+
+    Route::post("forgotten-password", "ResetPasswordController@sendLink");
+    Route::get("has-valid-password-reset-token/{token}", "ResetPasswordController@hasValidToken");
+    Route::post("reset-password", "ResetPasswordController@resetPassword");
 });
 
 Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
@@ -104,6 +108,3 @@ Route::group(["middleware" => "auth:api"], function () { // Bearer Token Needed
         Route::get("questionnaire/{id}/responses", "QuestionnaireResponsesController@responses");
     });
 });
-
-
-Route::get("/email-test", "UserController@emailTest");

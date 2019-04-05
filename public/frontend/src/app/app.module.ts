@@ -40,6 +40,8 @@ import {ChangePasswordComponent} from "./components/_forms/_account/change-passw
 import {DeleteAccountComponent} from "./components/_forms/_account/delete-account/delete-account.component";
 import {AccountDropDownComponent} from "./components/account-drop-down/account-drop-down.component";
 import {NotificationsComponent} from "./components/notifications/notifications.component";
+import {ForgottenPasswordComponent} from "./components/_reset-password/forgotten-password/forgotten-password.component";
+import {ResetPasswordComponent} from "./components/_reset-password/reset-password/reset-password.component";
 
 const appRoutes: Routes = [
     { path: "", component: LandingComponent },
@@ -48,6 +50,8 @@ const appRoutes: Routes = [
     { path: "public/thank-you", component: ThankYouComponent },
     { path: "sign-up", component: SignUpComponent },
     { path: "login", component: LoginComponent },
+    { path: "forgotten-password", component: ForgottenPasswordComponent },
+    { path: "reset-password/:token", component: ResetPasswordComponent },
     { path: "dashboard", component: DashboardComponent },
     { path: "edit/:id", component: EditQuestionnaireComponent },
     { path: "edit/:id/preview", component: QuestionnaireComponent, data: { preview: true } },
@@ -67,6 +71,8 @@ const appRoutes: Routes = [
         LandingComponent,
         SignUpComponent,
         LoginComponent,
+        ForgottenPasswordComponent,
+        ResetPasswordComponent,
         DashboardComponent,
         CreateQuestionnaireFormComponent,
         EditQuestionnaireComponent,

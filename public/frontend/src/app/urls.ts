@@ -18,6 +18,7 @@ export const URLS = {
             signOut: `${USER}/sign-out`,
             settings: `${USER}/settings/all`,
             notifications: `${USER}/notifications/all`,
+            hasValidPasswordResetToken: `${USER}/has-valid-password-reset-token`,
         },
         QUESTIONNAIRE: {
             all: `${QUESTIONNAIRE}/all`,
@@ -41,6 +42,8 @@ export const URLS = {
         USER: {
             signUp: `${USER}/sign-up`,
             login: `${USER}/login`,
+            sendPasswordResetLink: `${USER}/forgotten-password`,
+            resetPassword: `${USER}/reset-password`,
         },
         QUESTIONNAIRE: {
             create: `${QUESTIONNAIRE}/create`,
