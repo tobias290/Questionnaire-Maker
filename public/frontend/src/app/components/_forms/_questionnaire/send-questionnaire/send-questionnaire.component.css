@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+::-webkit-scrollbar {
+  background: #b6b6b6;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px; }
+
+::-webkit-scrollbar-corner {
+  background: #FFF; }
+
+::-webkit-scrollbar-thumb {
+  background: #9F9F9F;
+  border-radius: 10px; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888888; }
+
+* {
+  font-family: 'Nunito', sans-serif; }
+
+a {
+  color: #FFF;
+  text-decoration: none; }
+
+a.classic {
+  color: #007FAA !important;
+  cursor: pointer;
+  text-decoration: underline !important; }
+
+.centre-box {
+  left: 0;
+  margin: auto;
+  right: 0;
+  background: #FFF;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16); }
+
+.button {
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  min-height: 40px;
+  min-width: 100px;
+  outline: none; }
+  .button:disabled {
+    cursor: not-allowed; }
+  .button.medium {
+    height: 50px;
+    width: 200px; }
+  .button.large {
+    height: 50px;
+    width: 300px; }
+  .button.tall {
+    font-size: 20px;
+    height: 75px; }
+  .button.inverse.green {
+    background: none;
+    border: 2px solid #16D36B;
+    color: #16D36B; }
+    .button.inverse.green > a {
+      color: #16D36B; }
+    .button.inverse.green:hover:enabled {
+      border-color: #13BD60;
+      color: #13BD60; }
+  .button.inverse.yellow {
+    background: none;
+    border: 2px solid #E5D200;
+    color: #E5D200; }
+    .button.inverse.yellow > a {
+      color: #E5D200; }
+    .button.inverse.yellow:hover:enabled {
+      border-color: #CEBD00;
+      color: #CEBD00; }
+  .button.inverse.white {
+    background: none;
+    border: 2px solid #FFF;
+    color: #FFF; }
+    .button.inverse.white:hover:enabled {
+      border-color: #F2F2F2;
+      color: #F2F2F2; }
+  .button.inverse.red {
+    background: none;
+    border: 2px solid #D9534F;
+    color: #D9534F; }
+    .button.inverse.red > a {
+      color: #D9534F; }
+    .button.inverse.red:hover:enabled {
+      border-color: #C34A47;
+      color: #C34A47; }
+  .button.normal.green {
+    background: #16D36B;
+    color: #FFF; }
+    .button.normal.green:hover:enabled {
+      background: #13BD60; }
+  .button.normal.yellow {
+    background: #E5D200;
+    color: #FFF; }
+    .button.normal.yellow:hover:enabled {
+      background: #CEBD00; }
+  .button.normal.white {
+    background: #FFF;
+    color: #16D36B; }
+    .button.normal.white > a {
+      color: #16D36B; }
+    .button.normal.white:hover:enabled {
+      background: #F2F2F2; }
+  .button.normal.red {
+    background: #D9534F;
+    color: #FFF; }
+    .button.normal.red:hover:enabled {
+      background: #C34A47; }
+
+.top-bar-title {
+  font-size: 26px;
+  font-style: italic;
+  font-weight: bold; }
+
+.top-bar-right {
+  margin-right: 15px; }
+  .top-bar-right > button:first-child {
+    margin-right: 15px; }
+
+.account-form-title {
+  left: 0;
+  margin: auto;
+  right: 0;
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 30px;
+  width: fit-content; }
+  .account-form-title .bar {
+    left: 0;
+    margin: auto;
+    right: 0;
+    background: #16D36B;
+    border-radius: 25px;
+    height: 5px;
+    width: 90px; }
+
+.popup-form-title {
+  left: 0;
+  margin: auto;
+  right: 0;
+  color: #707070;
+  font-size: 30px;
+  font-weight: bold;
+  height: 40px;
+  padding-top: 15px;
+  width: fit-content; }
+
+.section-title {
+  left: 0;
+  margin: 30px auto 30px auto;
+  right: 0;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+  width: 800px; }
+
+.send-questionnaire-popup {
+  align-items: center;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-around;
+  position: relative;
+  width: 700px; }
+  .send-questionnaire-popup .popup-title {
+    color: #707070;
+    font-size: 40px;
+    font-weight: bold;
+    height: fit-content;
+    width: fit-content; }
+    .send-questionnaire-popup .popup-title .bar {
+      left: 0;
+      margin: auto;
+      right: 0;
+      background: #16D36B;
+      border-radius: 25px;
+      height: 5px;
+      margin-top: 5px;
+      width: 150px; }
+  .send-questionnaire-popup > input {
+    background: #E4E4E4;
+    border: none;
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: black;
+    cursor: text;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 50px;
+    text-overflow: ellipsis;
+    transition: background .1s linear;
+    width: 650px; }
+    .send-questionnaire-popup > input:hover {
+      background: #DEDEDE; }
+    .send-questionnaire-popup > input:focus {
+      outline: none; }
+  .send-questionnaire-popup > div:last-of-type {
+    bottom: 28px;
+    color: #707070;
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    right: 40px; }
+    .send-questionnaire-popup > div:last-of-type:hover {
+      color: #555; }
+
+/*# sourceMappingURL=send-questionnaire.component.css.map */
