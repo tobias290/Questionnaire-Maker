@@ -55,6 +55,8 @@ export class QuestionClosedEditableComponent implements OnChanges {
 
     ngOnChanges() {
         this.questionName.setValue(this.question.name);
+        this.isRequired = this.question.isRequired;
+        
         
         this.apiService.get(
             URLS.GET.QUESTION_OPTION.questionClosedOptions(this.question.id),

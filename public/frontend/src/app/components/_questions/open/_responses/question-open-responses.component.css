@@ -610,8 +610,6 @@ a.classic {
     min-width: 500px;
     overflow: hidden;
     padding: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     width: 100%; }
     .open-question-responses > div:first-of-type {
       border-radius: 7px 7px 0 0; }

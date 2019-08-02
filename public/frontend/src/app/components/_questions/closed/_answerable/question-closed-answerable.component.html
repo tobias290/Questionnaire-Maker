@@ -23,7 +23,7 @@
         <div *ngIf="question.type == 'radio'" class="question-margin">
             <ng-container *ngFor="let option of options">
                 <label class="app-radio-container">{{ option.option }}
-                    <input type="radio" name="radio" (click)="radioOption = option;">
+                    <input type="radio" [name]="'radio_' + this.question.id" (click)="radioOption = option;">
                     <span class="radio"></span>
                 </label>
             </ng-container>

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.11, for Win64 (x86_64)
 --
--- Host: localhost    Database: questionnaire_maker
+-- Host: 127.0.0.1    Database: questionnaire_maker
 -- ------------------------------------------------------
--- Server version	5.7.19-log
+-- Server version	5.7.11-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -93,7 +93,7 @@ CREATE TABLE `notifications` (
 
 LOCK TABLES `notifications` WRITE;
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
-INSERT INTO `notifications` VALUES ('1d6b242f-f3f1-4b26-97b3-3990bc42bcab','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 1 responses!\"}',NULL,'2019-04-03 12:27:19','2019-04-03 12:27:19'),('240879ff-8461-4a4d-835a-7f2bb5ada496','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 4 responses!\"}',NULL,'2019-04-03 12:28:18','2019-04-03 12:28:18'),('5b49d001-a4a1-47e0-9faa-02a531066986','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 6 responses!\"}',NULL,'2019-04-03 12:28:51','2019-04-03 12:28:51'),('63fb74d8-652c-4f4f-86d6-240440b6de4e','App\\Notifications\\Welcome','App\\Models\\User',2,'{\"title\":\"Welcome to Questionnaire Maker\",\"message\":\"Thank You Toby Essex for signing up with us!\"}',NULL,'2019-04-05 13:09:44','2019-04-05 13:09:44'),('880f2db5-5678-4f77-88cc-ec0f9506f5e8','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 5 responses!\"}',NULL,'2019-04-03 12:28:27','2019-04-03 12:28:27'),('cbbb16f9-0d3d-45af-a458-e5a5db8814dc','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 2 responses!\"}',NULL,'2019-04-03 12:27:32','2019-04-03 12:27:32'),('ff0edfbb-a741-415e-a322-278ba76e8f13','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 3 responses!\"}',NULL,'2019-04-03 12:28:07','2019-04-03 12:28:07');
+INSERT INTO `notifications` VALUES ('15701c90-9320-480f-a42c-b054c50c0c5f','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for Server & Client Side CW2 Questionnaire has just come in. You now have 3 responses!\"}',NULL,'2019-05-09 20:35:15','2019-05-09 20:35:15'),('1d6b242f-f3f1-4b26-97b3-3990bc42bcab','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 1 responses!\"}',NULL,'2019-04-03 12:27:19','2019-04-03 12:27:19'),('240879ff-8461-4a4d-835a-7f2bb5ada496','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 4 responses!\"}',NULL,'2019-04-03 12:28:18','2019-04-03 12:28:18'),('2f852495-14aa-463d-bed4-5236184cd3cf','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for Server & Client Side CW2 Questionnaire has just come in. You now have 5 responses!\"}',NULL,'2019-05-13 20:01:11','2019-05-13 20:01:11'),('302bf6ab-78d1-429f-ba45-2fd3f0595079','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for Server & Client Side CW2 Questionnaire has just come in. You now have 4 responses!\"}',NULL,'2019-05-13 11:31:51','2019-05-13 11:31:51'),('5b49d001-a4a1-47e0-9faa-02a531066986','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 6 responses!\"}',NULL,'2019-04-03 12:28:51','2019-04-03 12:28:51'),('63fb74d8-652c-4f4f-86d6-240440b6de4e','App\\Notifications\\Welcome','App\\Models\\User',2,'{\"title\":\"Welcome to Questionnaire Maker\",\"message\":\"Thank You Toby Essex for signing up with us!\"}',NULL,'2019-04-05 13:09:44','2019-04-05 13:09:44'),('777c950b-5ad4-41ab-a929-a9a5c6d21390','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for Server & Client Side CW2 Questionnaire has just come in. You now have 1 responses!\"}',NULL,'2019-05-09 20:23:30','2019-05-09 20:23:30'),('880f2db5-5678-4f77-88cc-ec0f9506f5e8','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 5 responses!\"}',NULL,'2019-04-03 12:28:27','2019-04-03 12:28:27'),('cbbb16f9-0d3d-45af-a458-e5a5db8814dc','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 2 responses!\"}',NULL,'2019-04-03 12:27:32','2019-04-03 12:27:32'),('e5a7ddc5-3f32-42ac-a9c7-3917db7da904','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for Server & Client Side CW2 Questionnaire has just come in. You now have 2 responses!\"}',NULL,'2019-05-09 20:30:16','2019-05-09 20:30:16'),('ff0edfbb-a741-415e-a322-278ba76e8f13','App\\Notifications\\QuestionnaireResponse','App\\Models\\User',1,'{\"title\":\"You have a new response!\",\"message\":\"A new response for First Questionnaire has just come in. You now have 3 responses!\"}',NULL,'2019-04-03 12:28:07','2019-04-03 12:28:07');
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +125,7 @@ CREATE TABLE `oauth_access_tokens` (
 
 LOCK TABLES `oauth_access_tokens` WRITE;
 /*!40000 ALTER TABLE `oauth_access_tokens` DISABLE KEYS */;
-INSERT INTO `oauth_access_tokens` VALUES ('06e682a7148a1c591a7997ac8de57415bcf5bd0a36fb4ce5933e61a290af166c7bb277c8b8824b32',1,3,'QuestionnaireMaker','[]',0,'2019-05-07 07:16:15','2019-05-07 07:16:15','2020-05-07 08:16:15'),('29a60419e42541bdd49f4b17e8bed4893aa3b2dd794a2756cbf02ce1a77cdfcc40f9ee0243e0de23',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 12:08:31','2019-04-03 12:08:31','2020-04-03 13:08:31'),('4fc5edaefde0263b0ed4f705e81db820316893a770d70baa1c99b90bb5b987b1dbcb04a1c9fcb7ad',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 11:10:54','2019-04-03 11:10:54','2020-04-03 12:10:54'),('98e532e256c3000367c74a0d6f729d97e47094b387447c555a3eb1ac45eb11f21f4e67816e4bedd4',2,1,'QuestionnaireMaker','[]',0,'2019-04-05 13:09:43','2019-04-05 13:09:43','2020-04-05 14:09:43'),('d00a7795b50714a225f01d42c78a82c27eb70f1e85da41928433482de9364efe3ee48ef002bf0bd6',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 11:58:48','2019-04-03 11:58:48','2020-04-03 12:58:48');
+INSERT INTO `oauth_access_tokens` VALUES ('06e682a7148a1c591a7997ac8de57415bcf5bd0a36fb4ce5933e61a290af166c7bb277c8b8824b32',1,3,'QuestionnaireMaker','[]',0,'2019-05-07 07:16:15','2019-05-07 07:16:15','2020-05-07 08:16:15'),('29a60419e42541bdd49f4b17e8bed4893aa3b2dd794a2756cbf02ce1a77cdfcc40f9ee0243e0de23',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 12:08:31','2019-04-03 12:08:31','2020-04-03 13:08:31'),('4fc5edaefde0263b0ed4f705e81db820316893a770d70baa1c99b90bb5b987b1dbcb04a1c9fcb7ad',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 11:10:54','2019-04-03 11:10:54','2020-04-03 12:10:54'),('67e1a49defa297e8f0a9f777e693b9d5982734707df84c719fdc77f524b23dacf2a661b9e2767b42',1,3,'QuestionnaireMaker','[]',0,'2019-05-09 19:58:40','2019-05-09 19:58:40','2020-05-09 20:58:40'),('98e532e256c3000367c74a0d6f729d97e47094b387447c555a3eb1ac45eb11f21f4e67816e4bedd4',2,1,'QuestionnaireMaker','[]',0,'2019-04-05 13:09:43','2019-04-05 13:09:43','2020-04-05 14:09:43'),('9caff1e7ced4c5a0991720ebb7a9b21e31383ed317d37a9d46426d8482d57fdd777f2e6ae394ed5c',1,3,'QuestionnaireMaker','[]',0,'2019-05-13 19:59:24','2019-05-13 19:59:24','2020-05-13 20:59:24'),('cb547c2a061c760de0c7761e908b2fad459fda830b63f3caefb63981cf4eb5f9243df9cd9169f2f2',1,3,'QuestionnaireMaker','[]',0,'2019-05-09 20:20:33','2019-05-09 20:20:33','2020-05-09 21:20:33'),('d00a7795b50714a225f01d42c78a82c27eb70f1e85da41928433482de9364efe3ee48ef002bf0bd6',1,1,'QuestionnaireMaker','[]',0,'2019-04-03 11:58:48','2019-04-03 11:58:48','2020-04-03 12:58:48'),('de8e06bc16febfce4f780d761e980c8a227cbdb1001dfcbacac580e5a0f4bb981245c8df87adbb4b',1,3,'QuestionnaireMaker','[]',0,'2019-05-13 11:30:01','2019-05-13 11:30:01','2020-05-13 12:30:01');
 /*!40000 ALTER TABLE `oauth_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,7 +320,7 @@ CREATE TABLE `question_closed_option` (
 
 LOCK TABLES `question_closed_option` WRITE;
 /*!40000 ALTER TABLE `question_closed_option` DISABLE KEYS */;
-INSERT INTO `question_closed_option` VALUES (1,'Toby',3,1),(2,'Jeff',3,1),(3,'Mike',5,1),(4,'Luke',3,1),(5,'Kate',3,1),(6,'Irene',1,1),(8,'It\'s attractive to look at',0,3),(9,'It\'s brief',0,3),(10,'It\'s easy to understand',0,3),(11,'It\'s reasonably quick to complete',0,3),(12,'Other',0,3),(13,'Yes, the entire questionnaire should have the same question types',0,4),(14,'No, I prefer a questionnaire with different question types',0,4),(15,'Not sure',0,4);
+INSERT INTO `question_closed_option` VALUES (1,'Toby',3,1),(2,'Jeff',3,1),(3,'Mike',5,1),(4,'Luke',3,1),(5,'Kate',3,1),(6,'Irene',1,1),(8,'It\'s attractive to look at',0,3),(9,'It\'s brief',1,3),(10,'It\'s easy to understand',4,3),(11,'It\'s reasonably quick to complete',0,3),(12,'Other',0,3),(13,'Yes, the entire questionnaire should have the same question types',2,4),(14,'No, I prefer a questionnaire with different question types',2,4),(15,'Not sure',1,4);
 /*!40000 ALTER TABLE `question_closed_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -368,7 +368,7 @@ CREATE TABLE `question_open_response` (
   PRIMARY KEY (`id`),
   KEY `question_open_response_question_open_id_foreign` (`question_open_id`),
   CONSTRAINT `question_open_response_question_open_id_foreign` FOREIGN KEY (`question_open_id`) REFERENCES `question_open` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -377,7 +377,7 @@ CREATE TABLE `question_open_response` (
 
 LOCK TABLES `question_open_response` WRITE;
 /*!40000 ALTER TABLE `question_open_response` DISABLE KEYS */;
-INSERT INTO `question_open_response` VALUES (1,'Toby',1),(2,'Jeff',1),(3,'Kate',1),(4,'Luke',1),(5,'Irene',1),(6,'Mike',1);
+INSERT INTO `question_open_response` VALUES (1,'Toby',1),(2,'Jeff',1),(3,'Kate',1),(4,'Luke',1),(5,'Irene',1),(6,'Mike',1),(7,'To study a topic of interest.',2),(8,'I don\'t mind if there are a mix of several closed-ended questions and a few open-ended questions.',4),(9,'As a tool to collate data from the public of specific target audiences.',2),(10,'It provides consistency for the people taking the questionnaire(s). \n This then makes it slightly faster for them to answer each of the questions, without needing to study the way they need to answer each of the new questions.',4),(11,'To gather data to analysed about a certain subject to further understand it.',2),(12,'To better understand a certain subject area.',2),(13,'To get someones opinion.',2);
 /*!40000 ALTER TABLE `question_open_response` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,7 +428,7 @@ CREATE TABLE `question_scaled_response` (
   PRIMARY KEY (`id`),
   KEY `question_scaled_response_question_scaled_id_foreign` (`question_scaled_id`),
   CONSTRAINT `question_scaled_response_question_scaled_id_foreign` FOREIGN KEY (`question_scaled_id`) REFERENCES `question_scaled` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -437,7 +437,7 @@ CREATE TABLE `question_scaled_response` (
 
 LOCK TABLES `question_scaled_response` WRITE;
 /*!40000 ALTER TABLE `question_scaled_response` DISABLE KEYS */;
-INSERT INTO `question_scaled_response` VALUES (1,3.00,3),(2,5.00,3),(3,2.00,3),(4,2.00,3),(5,4.00,3),(6,1.00,3);
+INSERT INTO `question_scaled_response` VALUES (1,3.00,3),(2,5.00,3),(3,2.00,3),(4,2.00,3),(5,4.00,3),(6,1.00,3),(7,7.00,4),(8,6.00,4),(9,6.00,4),(10,5.00,4),(11,5.00,4);
 /*!40000 ALTER TABLE `question_scaled_response` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -478,7 +478,7 @@ CREATE TABLE `questionnaire` (
 
 LOCK TABLES `questionnaire` WRITE;
 /*!40000 ALTER TABLE `questionnaire` DISABLE KEYS */;
-INSERT INTO `questionnaire` VALUES (1,'First Questionnaire','Test Questionnaire',1,1,0,0,6,'2019-04-06',0,0,'2019-04-03 11:12:40','2019-04-03 12:28:51',2,1),(2,'Expired Questionnaire','This has expired!',1,1,0,0,0,'2019-04-02',0,0,'2019-04-03 11:13:01','2019-04-03 12:21:29',2,1),(3,'Public Questionnaire','Public Questionnaire',1,1,0,0,0,NULL,0,0,'2019-04-03 12:06:01','2019-04-03 12:06:29',13,1),(4,'Server & Client Side CW2 Questionnaire','Students during their time as university will have to carry out many questionnaires. This questionnaire is aimed at student to get their opinion/feedback on what makes a good questionnaire. This questionnaire mainly looks at questionnaire design.',1,1,0,0,0,NULL,0,0,'2019-05-07 07:18:35','2019-05-07 07:27:11',13,1);
+INSERT INTO `questionnaire` VALUES (1,'First Questionnaire','Test Questionnaire',1,1,0,0,6,'2019-04-06',0,0,'2019-04-03 11:12:40','2019-04-03 12:28:51',2,1),(2,'Expired Questionnaire','This has expired!',1,1,0,0,0,'2019-04-02',0,0,'2019-04-03 11:13:01','2019-04-03 12:21:29',2,1),(3,'Public Questionnaire','Public Questionnaire',1,1,0,0,0,NULL,0,0,'2019-04-03 12:06:01','2019-04-03 12:06:29',13,1),(4,'Server & Client Side CW2 Questionnaire','Students during their time as university will have to carry out many questionnaires. This questionnaire is aimed at student to get their opinion/feedback on what makes a good questionnaire. This questionnaire mainly looks at questionnaire design.',0,1,0,0,5,NULL,0,0,'2019-05-07 07:18:35','2019-05-08 20:01:11',13,1);
 /*!40000 ALTER TABLE `questionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -551,7 +551,7 @@ CREATE TABLE `user` (
   `date_joined` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -573,4 +573,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-07  9:31:49
+-- Dump completed on 2019-05-14  0:10:49
