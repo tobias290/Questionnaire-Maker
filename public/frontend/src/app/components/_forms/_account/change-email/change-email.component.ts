@@ -9,7 +9,8 @@ import {URLS} from "../../../../urls";
 @Component({
     selector: "app-change-email-form",
     templateUrl: "./change-email.component.html",
-    styleUrls: ["./change-email.component.css"]
+    styleUrls: ["./change-email.component.css"],
+    providers: [ApiService],
 })
 export class ChangeEmailComponent {
     @Input() user: User;

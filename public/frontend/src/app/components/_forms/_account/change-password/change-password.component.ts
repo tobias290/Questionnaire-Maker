@@ -9,7 +9,8 @@ import {URLS} from "../../../../urls";
 @Component({
     selector: "app-change-password-form",
     templateUrl: "./change-password.component.html",
-    styleUrls: ["./change-password.component.css"]
+    styleUrls: ["./change-password.component.css"],
+    providers: [ApiService],
 })
 export class ChangePasswordComponent {
     @Input() user: User;
